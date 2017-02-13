@@ -1,0 +1,25 @@
+---
+layout: modal-lg
+---
+<section class="row the-modal">
+    <div class="modal-body" >
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-lg-offset-11 col-md-offset-11 col-sm-offset-11 col-xs-offset-10">
+                <a class="myCloseBtn" data-dismiss="modal"></a>
+            </div>
+        </div>
+
+        <header class="row">
+            <h4 class="col-lg-12">{{page.author-name}}</h4>
+        </header>
+
+        <div class="row modal-overflow">
+            <article class="columns col-lg-12">
+                {% assign nameSlug = page.author-name | slugify %}
+                {% capture md %}{% include content/bios/bio-{{nameSlug}}.md %}{% endcapture %}
+                {{ md | markdownify }}
+            </article>
+        </div>
+    </div>
+</section>

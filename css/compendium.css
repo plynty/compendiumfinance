@@ -1,0 +1,404 @@
+/*STICKY DIV CSS*/
+.slotfixed {
+    position: fixed;
+    top: 55px;
+    z-index: 9999;
+    min-height: 100px;
+    width: 100%;
+    background: #ffffff;
+}
+
+.item.amazon {
+    width: 100%;
+    background-image: url(../images/book/Amazon.png);
+
+}
+
+.item.barnes {
+    width: 100%;
+    background-image: url(../images/book/barnes.png);
+
+}
+
+.item.bk {
+    width: 100%;
+    background-image: url(../images/book/bklogo.png);
+
+}
+
+.disclaimer{
+    padding: 10px 0;
+    color: #a5a5a5;
+    text-align: center;
+    font-size: .7em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+#order_row .container .row.items .item{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: #9C9C9C;
+    float: left;
+    font-size: 1em;
+    font-weight: bold;
+    height: 3.5em;
+    margin-top: 0.625em;
+    margin-left: 1%;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+/*STICKY DIV CSS END*/
+
+
+/*GOOD READINGS START*/
+.link-image{
+    top: 100px;
+    padding-bottom: 100px;
+}
+
+#simplerules-book.book-title{
+    background-color: #235385;
+    padding-top: 100px;
+    color: white;
+}
+
+.book-image{
+    padding-bottom: 3em;
+    padding-top: 2em;
+}
+
+.book-links{
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+.available-at{
+    font-size: 1.3em;
+}
+
+.book-link-img{
+    height: 4em;
+}
+.preview-btn{
+    margin-top: 13em;
+    text-align: center;
+    font-style: italic;
+}
+/*GOOD READINGS END*/
+.page-panel{
+    padding: 57px;
+}
+.slot-header {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: #727272;
+    font-family: 'Oswald',sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.slot-header a{
+    color: #727272;
+}
+
+.footer-font{
+    font-size: 1.5em;
+}
+
+
+
+.book_tour .angular-google-map-container {
+    height: 200px;
+    width: 600px;
+}
+
+
+
+/********** TURN JS CLASSES START *********/
+
+#book-wrapper{
+    width:960px;
+    height:600px;
+    margin-left:19%;
+    margin-right:20px;
+}
+
+.book_flipper{
+
+    width:960px;
+    height:600px;
+    margin: 7%;
+    color: #000000;
+
+}
+
+.flipbook {
+    -webkit-transition: margin-left 0.2s;
+    -moz-transition: margin-left 0.2s;
+    -ms-transition: margin-left 0.2s;
+    -o-transition: margin-left 0.2s;
+    transition: margin-left 0.2s;
+    white-space: normal;
+    margin: 0 auto;
+
+
+    height:600px;
+    background-image:url(../images/book/spine.png);
+    background-repeat:repeat-y;
+    background-position:479px 0;
+    z-index: 0;
+}
+
+
+.flipbook .page {
+    background-color: #717070;
+    font-size: 1em;
+}
+
+.flipbook .page-wrapper {
+    -webkit-perspective: 2000px;
+    -moz-perspective: 2000px;
+    -ms-perspective: 2000px;
+    -o-perspective: 2000px;
+    perspective: 2000px;
+}
+
+.flipbook .hard {
+    color: #333;
+    -webkit-box-shadow: inset 0 0 5px #666;
+    -moz-box-shadow: inset 0 0 5px #666;
+    -o-box-shadow: inset 0 0 5px #666;
+    -ms-box-shadow: inset 0 0 5px #666;
+    box-shadow: inset 0 0 5px #666;
+    font-weight: bold;
+    padding: 0px;
+}
+
+.flipbook .odd{
+    background:-webkit-gradient(linear, right top, left top, color-stop(0.95, #fff), color-stop(1, #cacaca));
+    background-image:-webkit-linear-gradient(right, #fff 95%, #cacaca 100%);
+    background-image:-moz-linear-gradient(right, #fff 95%, #cacaca 100%);
+    background-image:-ms-linear-gradient(right, #fff 95%, #cacaca 100%);
+    background-image:-o-linear-gradient(right, #fff 95%, #cacaca 100%);
+    background-image:linear-gradient(right, #fff 95%, #cacaca 100%);
+}
+
+
+.flipbook .even{
+    background:-webkit-gradient(linear, left top, right top, color-stop(0.95, #fff), color-stop(1, #dadada));
+    background-image:-webkit-linear-gradient(left, #fff 95%, #dadada 100%);
+    background-image:-moz-linear-gradient(left, #fff 95%, #dadada 100%);
+    background-image:-ms-linear-gradient(left, #fff 95%, #dadada 100%);
+    background-image:-o-linear-gradient(left, #fff 95%, #dadada 100%);
+    background-image:linear-gradient(left, #fff 95%, #dadada 100%);
+}
+
+
+
+
+
+.flipbook .depth {
+    background-image: url("../images/book/pages-depth.png");
+    position: absolute;
+    top: 15px;
+    width: 16px;
+    background-size: cover;
+}
+
+.flipbook .front-side .depth {
+    left: 5px;
+    background-position: 0 0;
+}
+
+.flipbook .back-side .depth {
+    right: 4px;
+    background-position: right 0;
+}
+
+.flipbook .page-number {
+    color: #999;
+    width: 100%;
+    bottom: 25px;
+    position: absolute;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    font-size: 11px;
+}
+
+.flipbook .table-contents {
+    font-size: 16px;
+    width: 300px;
+    margin: 80px auto;
+}
+
+. table-contents {
+    background-position: -88px 0;
+}
+
+.flipbook h1 {
+    font-family: "Stempel-Garamond-W01-Roman";
+    color: #000000;
+}
+
+.flipbook{
+    width:960px;
+    height:600px;
+    background-image:url(../images/book/spine.png);
+    background-repeat:repeat-y;
+    background-position:479px 0;
+    z-index: 0;
+}
+
+
+
+.flipbook a{
+    color: black;
+}
+
+.flipbook .p1,
+.flipbook .p2,
+.flipbook .p11,
+.flipbook .p12{
+    background-color:white;
+    background-image:url(../images/book/book-covers.jpg) !important;
+}
+
+.flipbook .depth{
+    background-image:url(../images/book/pages-depth.png);
+    position:absolute;
+    top:7px;
+    width:16px;
+    height:590px;
+}
+
+.flipbook .table-contents{
+    font-size:16px;
+    width:400px;
+    margin:80px auto;
+}
+
+.flipbook .table-contents span{
+    float:right;
+}
+
+.flipbook .table-contents a{
+    float:left;
+    width:100%;
+    clear:both;
+    text-decoration:none;
+    color:#333;
+    margin:2px 0;
+    padding:0 10px;
+}
+
+.flipbook .table-contents a:hover{
+    background:#CAD1EE;
+    float:left;
+    width:100%;
+    clear:both;
+    text-decoration:none;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -o-border-radius:10px;
+    -ms-border-radius:10px;
+    border-radius:10px;
+}
+.flipbook .table-contents li{
+    list-style:none;
+    line-height:25px;
+}
+
+
+
+.flipbook .own-size{
+    width:460px;
+    height:580px;
+    background-color:white;
+    overflow:hidden;
+}
+
+.flipbook .p1{
+    background-position:0 0;
+}
+
+.flipbook .p2{
+    background-position:-480px 0 !important;
+}
+.flipbook .p11{
+    background-position:-960px 0 !important;
+}
+
+.flipbook .p12{
+    background-position:-1440px 0 !important;
+}
+
+.flipbook div[page="1"] > div, .flipbook div[page="2"] > div {
+    overflow: visible !important;
+}
+
+/*TURN JS CLASSES END*/
+
+/*BOOTSTRAP OVERRIDDING CLASSES START*/
+
+/* Just for Chris */
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.carousel-control:hover, .carousel-control:focus {
+    opacity: 1;
+    filter: alpha(opacity=100)
+}
+
+.carousel-caption {
+
+    padding-bottom: 0px;
+    margin-bottom: 3%;
+
+}
+
+.carousel .carousel-inner .book_slide{
+    height: 43em;
+    background-color: #add8e6;
+}
+
+/*BOOTSTRAP OVERRIDDING CLASSES END*/
+
+/*COLOR START*/
+/*Teal #75C4C6 */
+
+.btn:focus, .ch-info .ch-info-back {
+    background: #75C4C6;
+}
+
+
+.navbar-toggle i {
+    background-color: #87795D;
+    color: #fff;
+}
+
+.menu ul li a:hover,.menu ul>li:hover>a {
+    border-bottom: 3px solid #75C4C6;
+}
+div.content-box.big{
+    border-bottom-color:#75C4C6;
+}
+
+
+a{
+    color: #75C4C6;
+}
+
+/*COLOR END*/
+

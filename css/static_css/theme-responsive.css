@@ -1,0 +1,224 @@
+/* Responsive Media Queries */
+
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+    .navbar-toggle {
+        position: relative;
+        float: none;
+        padding: 9px 10px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        background-color: transparent;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        display: block;
+    }
+
+    .navbar-header, .navbar-nav {
+        float: none;
+    }
+
+    .navbar-collapse.collapse {
+        display: none !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding-bottom: 0;
+    }
+
+    .team .item {
+        margin-top: 25px;
+    }
+
+}
+
+@media (min-width: 980px) {
+
+    nav.menu {
+        float: right !important;
+    }
+
+    .menu > ul li {
+        float: left;
+    }
+
+    .menu ul > li > a {
+        padding: 20px 18px 15px 18px;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+
+    .logo.pull-left  {
+        float: none !important;
+    }
+
+    .logo.pull-left {
+        display: block;
+        text-align: center;
+        margin: 25px 0 10px;
+    }
+
+    .navbar-fixed-top {
+        position: relative !important;
+        top: auto;
+    }
+
+
+    .navbar-toggle {
+        float: none;
+        text-align: center;
+        padding: 0;
+        display: block;
+    }
+
+    .mobile.navbar-header {
+        margin-bottom: 30px;
+    }
+
+    .topnav a.navbar-toggle {
+        padding: 0;
+        line-height: 18px;
+        margin-top: -1px;
+    }
+
+    .navbar-toggle:hover, .navbar-toggle:focus {
+        background-color: transparent;
+    }
+
+    .mobile .navbar-toggle i {
+        padding: 9px 12px;
+        border-radius: 3px !important;
+    }
+
+    .topnav .navbar-toggle {
+        display: block;
+        float: none;
+        margin: 0 auto;
+        border: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+
+    .topnav .navbar-toggle i {
+        border-radius: 0 0 2px 2px !important;
+        padding: 0 8px;
+        font-size: 19px;
+        cursor: pointer;
+    }
+
+
+    div.content-box.big.bottom-pad-small {
+        margin-bottom: 80px;
+    }
+
+    .main-content .content-box {
+        margin-bottom: 40px;
+        display: inline-block;
+    }
+
+
+    .footer-bottom {
+        text-align: center;
+    }
+
+
+    .team .item {
+        margin-top: 25px;
+    }
+
+}
+
+@media (min-width: 980px) and (max-width: 1199px) {
+
+
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+
+    .logo.pull-left {
+        margin: 0px 0 20px;
+    }
+
+
+    .navbar-toggle {
+        float: none;
+        text-align: center;
+        padding: 0;
+        display: block;
+        border: none;
+        border-radius: 0;
+    }
+
+    .mobile.navbar-header {
+        float: none;
+        margin: 20px 0 0 92.5%;
+        padding: 0;
+    }
+
+    .topnav a.navbar-toggle {
+        line-height: 18px;
+        margin-top: -1px;
+        padding: 0;
+    }
+
+    .navbar-toggle:hover, .navbar-toggle:focus {
+        background-color: transparent;
+    }
+
+    .mobile .navbar-toggle i {
+        padding: 9px 12px;
+        border-radius: 3px !important;
+    }
+
+    .topnav .navbar-toggle {
+        display: block;
+        float: none;
+        margin: 0 auto;
+        border: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+
+    .topnav .navbar-toggle i {
+        border-radius: 0 0 2px 2px !important;
+        padding: 0 8px;
+        font-size: 19px;
+        cursor: pointer;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+
+}
+
+/* Blog */
+
+@media (min-width: 980px) and (max-width: 1048px) {
+
+}
+
+@media handheld, only screen and (max-width: 640px) {
+
+}
+
+@media only screen and (max-width: 500px) {
+
+}
+
+@media only screen and (max-width: 480px) {
+
+}
+

@@ -1,0 +1,22 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="{{ "/css/static_css/style.css" | prepend: site.baseurl }}">
+  <!-- Mutial CSS files -->
+  <link rel="stylesheet" href="{{ "/css/bootstrap/bootstrap.min.css" | prepend: site.baseurl }}">
+  <!-- Book CSS files -->
+  <link rel="stylesheet" href="{{ "/css/compendium.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet/less" href="{{ "/less/style.less" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+  <script src="{{ "/lib/jquery/jquery.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/lib/bootstrap/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/js/author-email.js" | prepend: site.baseurl }}"></script>
+</head>

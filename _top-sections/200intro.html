@@ -1,0 +1,10 @@
+---
+layout: top-section
+section_id: intro
+---
+        <div class="col-lg-3 col-md-2 col-sm-1 col-xs-1"></div>
+        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-10 content">
+        {% capture mdInclude %}{% include content/intro.md %}{% endcapture %}
+        {{ mdInclude | markdownify }}            
+        </div>
+        <div class="col-lg-3 col-md-2 col-sm-1 col-xs-1"></div>
