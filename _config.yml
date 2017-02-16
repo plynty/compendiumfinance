@@ -39,8 +39,7 @@ description: 'This is the static content site for compendiumfinance.com
 
 '
 baseurl: 
-url: https://58a5df1c16aada53e97f1f90.preview.siteleaf.com
-real_url: http://compendiumfinance.com
+url: http://compendiumfinance.com
 twitter_username: choosesimple
 github_username: jekyll
 trademark: Compendium Finance&#x2122;
