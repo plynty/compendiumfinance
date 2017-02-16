@@ -28,7 +28,7 @@ section_id: authors
         <div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-sm-5 col-sm-offset-1 col-xs-12">
             <figure class="center-block">
                 <a data-toggle="modal" data-target="#bio-{{nameSlug}}">
-                    <img src="img/content/author-{{nameSlug}}.png" alt="{{author.name}}">
+                    <img src="img/copy/author-{{nameSlug}}.png" alt="{{author.name}}">
                 </a>
             </figure>
             <header class="center-block">
@@ -63,7 +63,7 @@ section_id: authors
             <div class="row hidden-xs">
                 <section class="col-lg-12 col-md-12 col-sm-12">
                     <article class="bio-short">
-                        {% capture bio %}{% include content/bios/bio-{{nameSlug}}.md %}{% endcapture %}
+                        {% capture bio %}{% include copy/bios/bio-{{nameSlug}}.md %}{% endcapture %}
                         {% assign bioClip = bio | truncatewords: 75 %}
                         <p>{{bioClip}}</p>
                         <p class="more">

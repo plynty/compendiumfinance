@@ -16,7 +16,7 @@ layout: modal-lg
 
         <div class="row modal-overflow">
             <article class="columns col-lg-12">
-                {% capture md %}{% include content/articles/{{page.modal-id}}.md %}{% endcapture %}
+                {% capture md %}{% include copy/articles/{{page.modal-id}}.md %}{% endcapture %}
                 {{ md | markdownify }}
             </article>
         </div>

@@ -17,7 +17,7 @@ layout: modal-lg
         <div class="row modal-overflow">
             <article class="columns col-lg-12">
                 {% assign nameSlug = page.author-name | slugify %}
-                {% capture md %}{% include content/bios/bio-{{nameSlug}}.md %}{% endcapture %}
+                {% capture md %}{% include copy/bios/bio-{{nameSlug}}.md %}{% endcapture %}
                 {{ md | markdownify }}
             </article>
         </div>

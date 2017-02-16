@@ -1,0 +1,119 @@
+.blogpage {
+  div.promo-small {
+    margin-left: 5px;
+  }
+  div.blog-tool {
+    margin-right: 5px;
+  }
+}
+
+main.blog {
+  margin-left:7rem;
+  margin-right: 7rem;
+}
+
+.blog {
+
+  .cat-list {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+  }
+
+  .cat-list a {
+    text-decoration: none;
+    color: #001A33;
+    margin-right: 1.8rem;
+  }
+
+  .post-list {
+    padding-top: 100px;
+    height: 200px !important;
+  }
+
+  section.index {
+    font-size: 1.5rem;
+  }
+
+  section.listing .cat {
+    color: #e73074;
+  }
+
+  section.index h1 {
+    color: #e73074;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  section:nth-child(odd) {
+    background-color: $plynty-white;
+    border-bottom: 1px solid gainsboro;
+  }
+
+  section.index li {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+    color: $compendium-blue;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 1rem;
+  }
+
+  section.index li:last-child {
+    border-bottom: none;
+  }
+
+  section.index li a {
+    text-decoration: none;
+    color: $compendium-blue;
+  }
+
+  section.index .author {
+    color: gray;
+    font-style: italic;
+  }
+
+  section.index ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  article .row {
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  article p {
+    font-size: 1.8rem;
+  }
+
+  article h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  article h1 a {
+    text-decoration: none;
+    color: $plynty-pink;
+  }
+
+  article.standard {
+    border-bottom: .1rem solid lightgrey;
+  }
+
+  article.standard:last-child {
+    border-bottom: none;
+  }
+
+  article div.more {
+    text-align: left;
+    padding-right: 0rem;
+    font-size: 1.5rem;
+  }
+
+  article div.row {
+    padding-bottom: 1rem;
+  }
+
+}

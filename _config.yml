@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: CompendiumFinance
+title: Compendium Finance (TM)
 email: your-email@compendiumfinance.com
 description: > # this means to ignore newlines until "baseurl:"
   This is the static content site for compendiumfinance.com
@@ -15,16 +15,38 @@ url: "http://compendiumfinance.com" # the base hostname & protocol for your site
 twitter_username: choosesimple
 github_username:  jekyll
 
+trademark: Compendium Finance&#x2122;
+social: compendiumfinance
+
 # Build settings
 markdown: kramdown
 
 collections:
-- top-sections
-- modals
+  posts:
+  tools:
+  promos:
+  top-sections:
+  modals:
+  assets:
+    output: true
 
-# defaults:
-#  - scope
-#   path: ""
-#   type: top_sections
-#   values:
-#     layout: top-section
+defaults:
+- scope:
+    path: ''
+    type: posts
+  values:
+    layout: post
+- scope:
+    path: ''
+    type: tools
+  values:
+    layout: blogtool
+
+sass:
+  sass_dir: _sass
+  style: compressed
+assets:
+  compress:
+    css: true
+    js: true
+

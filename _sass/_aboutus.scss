@@ -1,0 +1,62 @@
+/* aboutus page styles */
+.aboutus {
+
+  background-color: $plynty-white;
+  $dark-gray: #65696c;
+
+  section:nth-child(even) {
+    background-color: $plynty-white !important;
+    border-bottom: none;
+  }
+
+  section:nth-child(odd) {
+    background-color: $plynty-white !important;
+    border-bottom: none;
+  }
+
+  section:first-child {
+    background-color: #f9f9f7 !important;
+    border-bottom: 1px solid gainsboro;
+  }
+
+  section:first-child h1 {
+    font-size: 4rem;
+    color: $plynty-pink;
+  }
+
+  #get-to-know-us {
+    font-size: 4rem;
+  }
+
+  h2 {
+    color: $dark-gray;
+    font-size: 1.8rem;
+    margin:0;
+  }
+
+  h3 {
+    color: $dark-gray;
+    font-size: 1.8rem;
+    margin:0;
+    font-weight:normal;
+  }
+
+  hr{
+    border: 0;  
+    height: 1px;
+    background: #e4e4e4;
+  }
+  /* Header Image CSS Section */
+  .headerImage{
+      position: relative;
+      width: 100%;
+      height: 55vh; 
+      background: #F8F8F6;
+      background: url('/uploads/aboutHero.jpg')no-repeat;
+      background-size: contain;
+  }
+  @media (max-width: 48em)                       { .hidden-xs { display: none !important; } }
+  @media (min-width: 48em) and (max-width: 62em) { .hidden-sm { display: none !important; } }
+  @media (min-width: 62em) and (max-width: 75em) { .hidden-md { display: none !important; } }
+  @media (min-width: 75em)                       { .hidden-lg { display: none !important; } }
+}

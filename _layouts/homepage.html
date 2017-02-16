@@ -1,0 +1,8 @@
+---
+layout: sitepage
+---
+
+{% for section in page.sections %}
+    <!-- including section {{section}} -->
+    {% include {{section}} %}
+{% endfor %}

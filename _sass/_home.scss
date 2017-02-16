@@ -1,0 +1,123 @@
+/* home page styles */
+.home {
+    background-color: $plynty-white;
+    section:first-child img {
+        display: block;
+    }
+    #hey-you-can-do-this {
+        padding-top: 2.3rem;
+    }
+    svg{
+        width: 50%;
+        margin-top: -70px;
+    }
+    .carousel{
+        padding-top: 53px;
+        margin-bottom: -81px;
+    }
+    .donut-bullet h1 {
+        font-size: 1.8rem;
+        text-align: left;
+        color: rgba(0,0,0,.87);
+        line-height: 4rem;
+        padding-left: 15px;
+    }
+    .donut-explanation {
+        margin-top: -6rem;
+    }
+    .donut-explanation p {
+        line-height: 0.5rem;
+        text-align: center;
+    }
+    p i {
+        color: $compendium-blue;
+    }
+    .donut-bullet i {
+        color: $plynty-gray;
+    }
+    /* Header Image CSS Section */
+    .headerImage{
+        position: relative;
+        width: 100%;
+        height: 90vh; 
+        background: #F8F8F6;
+        background: url('/uploads/heroImage.jpeg')no-repeat center center;
+        background-size: cover;
+    }
+    .headerImageContent {
+        position: absolute;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+    }
+    .headerImageContent h1{
+        color: #474747;
+        font-size: 6rem;
+        letter-spacing: 3px;
+        font-weight: 600;
+        line-height: 7rem;
+    }
+    .headerImageContent p {
+        color: #474747;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        line-height: 0.5rem;
+    }
+    
+    @media only screen and (min-width: 1000px){
+      .headerImageContent{
+          left: 30%;
+          top: 45%;
+      }
+    }
+    @media only screen and (max-width:1000px) {
+        svg{
+            width: 70%;
+            margin-top: -70px;
+         }   
+        .headerImage{
+          background: url('/uploads/ipad-hero.jpg')no-repeat center center;
+          background-size: cover;
+        }
+        .headerImageContent{
+            left: 40%;
+            top: 45% !important;
+        }
+        .donut-explanation {
+          max-height: 500px;
+          padding-bottom:0;
+          margin-bottom:0;
+        }
+        #explanation-step-2 {
+          margin-bottom: -18px;
+        }
+        #explanation-step-5 {
+          margin-bottom:-70px;
+        }
+        .donut-explanation p {
+            font-size: 1.6rem;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        svg{
+            width: 90%;
+            margin-top: -70px;
+         }   
+        .headerImageContent {
+            left: 50%;
+            top: 50%;
+        }
+        .headerImageContent h1 {
+            font-size: 4rem;
+            text-align: left;
+            margin-bottom:-10px;
+            margin-top: 5px;
+            line-height: 6rem;
+        }
+        .headerImageContent p {
+            font-size: 1.5rem;
+            text-align: left;
+            margin-bottom:-10px;
+            line-height: 2rem;
+        }
+    }
+}

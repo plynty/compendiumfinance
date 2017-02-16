@@ -1,0 +1,45 @@
+.background main {
+  background-color: #ececec;
+}
+
+.background section {
+  border-bottom: .1rem solid lightgrey;
+}
+
+.background section h1 {
+  color: #e73074;
+}
+
+.background h1.name, .background h2.title {
+  font-size: 1.4rem;
+}
+
+.background section:nth-child(2) {
+  background-color: #CED83E;
+  padding-bottom: 1rem;
+}
+
+.background section .row {
+  padding: 4rem;
+}
+
+.background section:nth-child(1) img {
+  display: block;
+}
+
+.background .photo-container p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.background .photo-container img {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-right: 10px;
+  width: 200px;
+}

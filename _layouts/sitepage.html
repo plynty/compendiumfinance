@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+    <body>
+        <page class="{{page.layout}}">
+            {% include nav-header.html %}
+            <div style="height: 75px;">&nbsp;</div>
+            {{ content }}
+            {% include footer.html %}
+        </page>
+    </body>
+
+</html>

@@ -1,0 +1,69 @@
+<footer>
+
+  <script src="/assets/bower_components/d3/d3.min.js"></script>
+  <script src="/assets/scripts/animated-donut.min.js"></script>
+  <script src="/assets/scripts/headroom.min.js"></script>
+  <script src="/assets/scripts/carousel-donut.min.js"></script>
+  <script>
+    (function() {
+    var header = document.getElementById("header");
+    var headroom = new Headroom(header, {
+        tolerance: 5,
+        offset : 205,
+        classes: {
+          initial: "headroom",
+          pinned: "headroom--pinned",
+          unpinned: "headroom--unpinned"
+        }
+    });
+    headroom.init();
+
+  }());
+</script>
+<div class="section-wrapper">
+  <div class="row start-xs" style="padding-bottom: 0">
+    <div class="col-xs-12 col-md-6" style="margin-top: 25px;">
+      <a class="trademark" href="{{"/index.html" | prepend: site.baseurl | prepend: site.url}}" style="margin-bottom: 25px">
+        {{site.trademark}}
+      </a>
+      <address>
+        copyright &copy; Compendium Finanace, LLC 2017<br/>
+        13880 Dulles Corner Lane<br/>
+        Herndon, VA 20171<br/>
+        support@compendiumfinance.com<br/>
+        <a href="tel:1-844-860-6899">(844) 860-6899</a>
+      </address>
+      <div class="links">
+        <ul>
+          <li><a href="{{ "/privacy.html" | prepend: site.baseurl | prepend: site.url}}">privacy policy</a></li>
+          <li><a href="{{ "/terms.html" | prepend: site.baseurl | prepend: site.url}}">terms of use</a></li>
+        </ul>
+      </div>
+    </div>
+    <nav class="col-xs-12 col-md-6 start-xs end-md" style="margin-top: 25px">
+      <div>
+        <a href="{{"/aboutus.html" | prepend: site.baseurl | prepend: site.url}}">about us</a>
+        <a href="{{"/blog.html" | prepend: site.baseurl | prepend: site.url}}">blog</a>
+        <a class="nav-item" id="#modal" href="/get-app-modal.html" rel="modal:open">get the app</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="row" style="margin-top: 0; padding-top: 0">
+    <div class="col-xs-12 col-md-6 start-xs">
+      <div class="trademarks">
+        <p>Apple, the Apple logo, and iPhone are trademarks of Apple, Inc, registered in the U.S. and in other countries.
+          App Store is a service mark of Apple, Inc. Android is a trademark of Google, Inc.</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 start-xs end-md">
+      <div class="social">
+        <a href="https://twitter.com/{{site.social}}" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href="https://www.facebook.com/{{site.social}}" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+        <a href="https://www.linkedin.com/company/{{site.social}}" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href="https://www.instagram.com/{{site.social}}" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+</footer>
