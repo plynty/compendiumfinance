@@ -6,7 +6,7 @@
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-  <link rel="stylesheet" href="{{ "/assets/bootstrap/bootstrap.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/assets/bootstrap/bootstrap.min.css" | prepend: site.baseurl | prepend: site.url}}">
 
   <!-- app styles -->
   <link rel="stylesheet" href="{{ "/assets/css/styles.css" | prepend: site.baseurl | prepend: site.url }}">
@@ -16,9 +16,9 @@
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
-  <script src="{{ "/lib/jquery/jquery.min.js" | prepend: site.baseurl }}"></script>
-  <script src="{{ "/lib/bootstrap/bootstrap.min.js" | prepend: site.baseurl }}"></script>
-  <script src="{{ "/js/author-email.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/lib/jquery/jquery.min.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+  <script src="{{ "/lib/bootstrap/bootstrap.min.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+  <script src="{{ "/js/author-email.js" | prepend: site.baseurl | prepend: site.url }}"></script>
 
  <!--Optimizely -->
   <script src="https://cdn.optimizely.com/js/8213770448.js"></script>
