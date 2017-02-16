@@ -3,17 +3,17 @@
         <h1>{{page.title}}</h1>
     </header>
     <article>
-        <div><a href="{{page.link}}" target="_blank"><img style="max-width: 100%" src="{{page.img | prepend: site.baseurl | prepend: site.url}}"/></a></div>
+        <div><a href="{{page.link}}" target="_blank"><img style="max-width: 100%" src="{{page.img}}"/></a></div>
         <div>{{page.content}}</div>
         <div>
             {% if page.amazon_url != nil %}
-            <a href="{{page.amazon_url}}" target="_blank"><img style="max-width: 4rem" src="{{'/img/content/amazon_128.png' | prepend: site.baseurl | prepend: site.url}}" alt="Shop Amazon" title="Shop Amazon"/></a>
+            <a href="{{page.amazon_url}}" target="_blank"><img style="max-width: 4rem" src="img/content/amazon_128.png" alt="Shop Amazon" title="Shop Amazon"/></a>
             {% endif %}
             {% if page.bn_url != nil %}
-            <a href="{{page.bn_url}}" target="_blank"><img style="max-width: 4rem" src="{{'/img/content/bn.jpg' | prepend: site.baseurl | prepend: site.url}}" alt="Shop Barnes &amp; Noble" title="Shop Barnes &amp; Noble"/></a>
+            <a href="{{page.bn_url}}" target="_blank"><img style="max-width: 4rem" src="img/content/bn.jpg" alt="Shop Barnes &amp; Noble" title="Shop Barnes &amp; Noble"/></a>
             {% endif %}
             {% if page.bk_url != nil %}
-            <a href="{{page.bk_url}}" target="_blank"><img style="max-width: 4rem" src="{{'/img/content/bk.jpg' | prepend: site.baseurl | prepend: site.url}}" alt="Shop Berret-Kohler Publishers" title="Shop Berret-Kohler Publishers"/></a>
+            <a href="{{page.bk_url}}" target="_blank"><img style="max-width: 4rem" src="img/content/bk.jpg" alt="Shop Berret-Kohler Publishers" title="Shop Berret-Kohler Publishers"/></a>
             {% endif %}
         </div>
     </article>
