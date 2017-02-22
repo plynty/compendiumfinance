@@ -5,7 +5,7 @@ heading: Wealth Management
 section: cards
 card_size: 2x1
 img: https://uc.uxpin.com/files/169349/174674/Screen_Shot_2017-02-09_at_5.56.23_PM.png
-media_side: left
+media_side: right
 link: 
 active: true
 source: external
