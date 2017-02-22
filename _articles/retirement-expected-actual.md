@@ -1,7 +1,7 @@
 ---
 title: Retirement&colon; Expectations vs. Realities
 date: 2011-02-10 00:00:00 Z
-heading:  Retirement Planning
+heading: Retirement Planning
 section: cards
 card_size: 2x1
 video: https://player.vimeo.com/video/41129203?portrait=0
