@@ -1,123 +1,210 @@
 /* home page styles */
-.home {
-    background-color: $plynty-white;
-    section:first-child img {
+$panel-height: 30rem;
+$hero-height: 48rem;
+
+.homepage {
+    background-color: $compendium-bg-lt;
+
+    .card-media-panel img, .card-media-panel iframe {
         display: block;
+        margin: auto;
+        max-height: 100%;
+        max-width: 100%;
     }
-    #hey-you-can-do-this {
-        padding-top: 2.3rem;
-    }
-    svg{
-        width: 50%;
-        margin-top: -70px;
-    }
-    .carousel{
-        padding-top: 53px;
-        margin-bottom: -81px;
-    }
-    .donut-bullet h1 {
-        font-size: 1.8rem;
-        text-align: left;
-        color: rgba(0,0,0,.87);
-        line-height: 4rem;
-        padding-left: 15px;
-    }
-    .donut-explanation {
-        margin-top: -6rem;
-    }
-    .donut-explanation p {
-        line-height: 0.5rem;
-        text-align: center;
-    }
-    p i {
-        color: $compendium-blue;
-    }
-    .donut-bullet i {
-        color: $plynty-gray;
-    }
-    /* Header Image CSS Section */
-    .headerImage{
-        position: relative;
-        width: 100%;
-        height: 90vh; 
-        background: #F8F8F6;
-        background: url('/uploads/heroImage.jpeg')no-repeat center center;
-        background-size: cover;
-    }
-    .headerImageContent {
-        position: absolute;
-        -webkit-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-    }
-    .headerImageContent h1{
-        color: #474747;
-        font-size: 6rem;
-        letter-spacing: 3px;
-        font-weight: 600;
-        line-height: 7rem;
-    }
-    .headerImageContent p {
-        color: #474747;
-        font-size: 3rem;
-        letter-spacing: 2px;
-        line-height: 0.5rem;
-    }
-    
-    @media only screen and (min-width: 1000px){
-      .headerImageContent{
-          left: 30%;
-          top: 45%;
-      }
-    }
-    @media only screen and (max-width:1000px) {
-        svg{
-            width: 70%;
-            margin-top: -70px;
-         }   
-        .headerImage{
-          background: url('/uploads/ipad-hero.jpg')no-repeat center center;
-          background-size: cover;
+
+    .hero {
+        background-color: $compendium-primary;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        min-height: 48rem;
+
+        .hero-content {
+            max-width: 1200px;
+            margin: auto;
+            display: block;
         }
-        .headerImageContent{
-            left: 40%;
-            top: 45% !important;
+
+        .hero-img, .hero-copy {
+            width: 50%;
+            height: 100%;
+            float: left;
         }
-        .donut-explanation {
-          max-height: 500px;
-          padding-bottom:0;
-          margin-bottom:0;
+        .hero-img img, .hero-bg-img img {
+            display: block;
+            margin-right: 0;
+            margin-left: auto;
+            overflow: hidden;
+            // width: 100%;
         }
-        #explanation-step-2 {
-          margin-bottom: -18px;
+        .hero-bg-img, .hero-wide {
+            width: 100%;
+            height: 100%;
         }
-        #explanation-step-5 {
-          margin-bottom:-70px;
+        .hero-bg-img {
+            z-index: 0;
+            opacity: .15;
+            position: absolute;
+            display: block;
+            margin: auto;
+            top: 0;
+            // bottom: 0;
+            left: 0;
+            // right: 0;
+            // max-height: 100%;
+            // max-width: 100%;
+            align-items: center;
         }
-        .donut-explanation p {
+        .card-copy-panel {
+            background-color: $compendium-primary;
+            color: $compendium-fg-white;
+            padding: 2rem;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+        .hero-copy, .hero-bg-img {
             font-size: 1.6rem;
+
+            @media only screen and (min-width: 768px) {
+                header {
+                    padding-bottom: 3rem;
+                }
+                header h1 {
+                    font-size: 6.0rem;
+                }
+            }
+            @media only screen and (max-width: 767px) {
+                header {
+                    padding-bottom: 1rem;
+                }
+                header h1 {
+                    font-size: 4.0rem;
+                }
+            }
+            header {
+                border-bottom: solid $compendium-primary-lt thin;
+                font-family: 'Arsenal', sans-serif;
+            }
+            header .category {
+                // font-family: 'Fjalla One', sans-serif;
+                // font-family: 'Righteous', cursive;
+                // font-size: smaller;
+                text-transform: uppercase;
+                color: $compendium-fg-white;
+            }
+
+            header .category .material-icons {
+                font-size: 1.2rem;
+            }
+
+            header .date {
+                font-style: italic;
+                // color: $compendium-fg-gray;
+                font-size: smaller;
+            }
+
+            // xs
+            @media only screen and (min-width: 768px) {
+                article {
+                    margin-top: 2rem;
+                }
+            }
+        }
+        button.hero-read-btn {
+            margin-left: 3rem;
+            color: $compendium-fg-white;
+            background-color: $compendium-primary;
+            border-color: $compendium-primary-lt;
+            padding: 2rem 3rem;
+            text-transform: lowercase;
+            border-radius: 2rem;
+            font-size: larger;
         }
     }
-    @media only screen and (max-width: 600px) {
-        svg{
-            width: 90%;
-            margin-top: -70px;
-         }   
-        .headerImageContent {
-            left: 50%;
-            top: 50%;
+
+    .articles {
+
+        // > xs
+        @media only screen and (min-width: 768px) {
+            max-width: 1200px;
+            display: block;
+            margin: auto;
+            // margin-left: 3rem;
+            // margin-right: 3rem;
+            // margin-top: 1rem;
+            // margin-bottom: 1rem;
+
+            .card-height-1 {
+                .card-media-panel, .card-copy-panel {
+                    height: $panel-height;
+                    overflow: hidden;
+                }
+            }
         }
-        .headerImageContent h1 {
-            font-size: 4rem;
-            text-align: left;
-            margin-bottom:-10px;
-            margin-top: 5px;
-            line-height: 6rem;
+
+        //  xs
+        @media only screen and (max-width: 767px) {
+            .pmd-card {
+                margin: 1px 3px;
+            }
         }
-        .headerImageContent p {
+
+        .pmd-card.article {
             font-size: 1.5rem;
-            text-align: left;
-            margin-bottom:-10px;
-            line-height: 2rem;
+
+            header h1 {
+                text-transform: uppercase;
+                font-size: 2.0rem;
+                font-weight: 700;
+            }
+            header .category {
+                font-family: 'Fjalla One', sans-serif;
+                // font-family: 'Righteous', cursive;
+                font-size: smaller;
+                text-transform: uppercase;
+                color: $compendium-primary;
+            }
+
+            header .category .material-icons {
+                font-size: 1.2rem;
+            }
+
+            header .date {
+                font-style: italic;
+                color: $compendium-fg-gray;
+                font-size: smaller;
+            }
+
+            // xs
+            @media only screen and (min-width: 768px) {
+                article {
+                    margin-top: 2rem;
+                }
+            }
+
         }
+    }
+    .social-card {
+        color: $compendium-fg-white;
+        background-color: $compendium-primary-dk;
+    }
+    .social-card header h1 {
+        color: $compendium-fg-white;
+        font-size: 3rem;
+        padding: 3rem 1rem;
+    }
+    .social-card article {
+        padding-bottom: 3em;
+    }
+    .social-card a {
+        color: $compendium-fg-white;
+    }
+
+    .pmd-card {
+        overflow: hidden;
+    }
+
+    .borderless-card {
+        background-color: $compendium-bg-white;
     }
 }

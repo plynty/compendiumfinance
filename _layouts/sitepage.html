@@ -7,9 +7,12 @@
         <page class="{{page.layout}}">
             {% include nav-header.html %}
             <div style="height: 75px;">&nbsp;</div>
-            {{ content }}
+            <div class="page-content">
+                {{ content }}
+            </div>
             {% include footer.html %}
         </page>
+        {% include scripts.html %}
     </body>
 
 </html>

@@ -6,13 +6,16 @@ title: Styles
 
 $font-muli: 'Muli', sans-serif;
 
-$compendium-blue: #1095e1 !default;
-$plynty-pink:  #e73074 !default;
-$plynty-blue:  #00008b !default;
-$plynty-gray:  #9E9E9E !default;
-$plynty-white: #ffffff !default;
-$plynty-header: #f9f9f7 !default;
-$plynty-dark-gray: #65696c !default;
+$compendium-primary: #1095e1 !default;
+$compendium-primary-lt: #87caf0 !default;
+$compendium-primary-dk: #084af0 !default;
+$compendium-secondary:  #e73074 !default;
+$compendium-tertiary:  #00008b !default;
+$compendium-fg-gray: gray;
+$compendium-fg-white: white;
+$compendium-bg-lt:  #BEBEBE !default;
+$compendium-bg-dk: #65696c !default;
+$compendium-bg-white: white;
 
 $social-twitter: #3b539e !default;
 $social-facebook: #5489d1 !default;
@@ -20,13 +23,13 @@ $social-linkedin: #0077ba !default;
 
 @import "header";
 @import "home";
-@import "aboutus";
-@import "blog";
-@import "post";
-@import "resetpassword";
-@import "modal";
-@import "tools";
-@import "promos";
+// @import "aboutus";
+// @import "resources";
+// @import "post";
+// @import "resetpassword";
+// @import "modal";
+// @import "tools";
+// @import "promos";
 
 /**
  * Text-align fallback for older browsers
@@ -50,6 +53,10 @@ $social-linkedin: #0077ba !default;
         text-align: right;
     }
 
+    div.row {
+        margin-left: 0rem;
+        margin-right: 0rem;
+    }
 }
 
 @media only screen and (min-width: 64em) {
@@ -99,6 +106,7 @@ main {
         -ms-flex:1;
             flex:1;
 }
+
 /* IE 10 & 11 */
 @media all and  (-ms-high-contrast: none), (-ms-high-contrast: active){
 	body{
@@ -119,88 +127,30 @@ a.trademark, a.trademark:visited, a.trademark:hover {
     text-decoration: none;
 }
 
-header.nav-header {
-    color: white;
-    background-color: $compendium-blue;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1;
-}
-
-header.nav-header .row {
-    padding: 1rem;
-}
-
-nav {
-  padding-right: 3rem !important;
-}
-
-.nav-item {
-  text-decoration: none;
-  font-weight: 900;
-}
-
-nav a {
-    padding: 1.4rem;
-    font-size: 2.0rem;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-    font-weight:bold;
-}
-
-nav a:hover {
-  background: rgba(255,255,255,.15);
-  color: $plynty-white !important;
-}
-
-@media only screen and (max-width: 500px){
-    nav a{
-        padding-left: 0;
-    }
-}
-
-.headroom {
-  will-change: transform;
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
-}
-.headroom--pinned {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
-}
-.headroom--unpinned {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-}
-
 footer {
     margin: 0;
     -ms-flex-negative: 0;
         flex-shrink: 0;
     -ms-flex-preferred-size: auto;
         flex-basis: auto;
-    background: $compendium-blue;
+    background: $compendium-primary;
     width: 100%;
-    color: $plynty-white;
+    color: $compendium-fg-white;
 }
 
 footer address, footer a {
     font-style: normal;
     font-size: 1.5rem;
-    color: $plynty-white;
+    color: $compendium-fg-white;
 }
 
 footer h1 {
     font-size: 3.6rem;
-    color: $plynty-white;
+    color: $compendium-fg-white;
 }
 
 footer p {
-    color: $plynty-white;
+    color: $compendium-fg-white;
     font-size: 1.8rem;
 }
 
@@ -220,7 +170,7 @@ footer div.links ul li {
 }
 
 footer div.links a {
-    color: $plynty-white;
+    color: $compendium-fg-white;
     font-size: 1.5rem;
 }
 
@@ -234,24 +184,24 @@ footer .row {
 }
 
 footer .row {
-    background-color: $compendium-blue;
+    background-color: $compendium-primary;
     padding-bottom: 4.2rem;
 }
 
 footer .row:nth-child(2) a {
     font-size: 1.4rem;
-    color: $plynty-white;
+    color: $compendium-fg-white;
     text-decoration: none;
 }
 
 footer div.social i {
-    color: $plynty-white;
+    color: $compendium-fg-white;
     padding-right: 2rem;
 }
 
 footer nav a {
     text-decoration: none;
-    color: $plynty-white;
+    color: $compendium-fg-white;
     font-size: 1.7rem;
 }
 
@@ -264,38 +214,38 @@ footer nav a {
 }
 
 .md-accent {
-    background-color: $plynty-pink;
-    color: $plynty-white;
+    background-color: $compendium-secondary;
+    color: $compendium-fg-white;
     text-transform: lowercase;
 }
 
 .md-outline {
-    background-color: $plynty-white;
-    border: .1rem solid $plynty-pink;
+    background-color: $compendium-bg-white;
+    border: .1rem solid $compendium-secondary;
     text-transform: lowercase;
-    color: $plynty-pink;
+    color: $compendium-secondary;
 }
 
 .md-outline-blue {
-    background-color: $plynty-white;
-    border: .1rem solid $plynty-blue;
+    background-color: $compendium-bg-white;
+    border: .1rem solid $compendium-tertiary;
     text-transform: lowercase;
-    color: $plynty-blue !important;
+    color: $compendium-tertiary !important;
 }
 
 div.page-title {
-    border-bottom: 2px solid $compendium-blue;
+    border-bottom: 2px solid $compendium-primary;
 }
 .page-title h1 {
     font-size: 3.2rem;
     font-family: $font-muli;
-    color: $compendium-blue;
+    color: $compendium-primary;
 }
 
 section h1, section h2 {
   font-weight: normal;
   letter-spacing: .1rem;
-  color: $compendium-blue;
+  color: $compendium-primary;
 }
 
 section h1 {
@@ -316,7 +266,7 @@ section p {
 
 section a {
   text-decoration: none;
-  color: $compendium-blue;
+  color: $compendium-primary;
   font-size: 1.8rem;
 }
 
@@ -325,7 +275,7 @@ section:first-child {
 }
 
 section:nth-child(even) {
-  background-color: $plynty-white;
+  background-color: $compendium-bg-white;
   border-bottom: 1px solid gainsboro;
 }
 
@@ -362,7 +312,7 @@ section .row {
 }
 
 .icon-bullet i {
-  color: $compendium-blue;
+  color: $compendium-primary;
 }
 
 .clear {
@@ -404,7 +354,7 @@ input:focus {outline: none; }
 }
 .invalid input:required:invalid {
     background: #f4c1c1 !important;
-    color: $plynty-dark-gray !important;
+    color: $compendium-fg-gray !important;
 }
 
 .invalid input:required:valid {
@@ -415,16 +365,16 @@ input {
   display: block;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: $plynty-dark-gray !important;
+  color: $compendium-fg-gray !important;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: $plynty-dark-gray !important;
+  color: $compendium-fg-gray !important;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: $plynty-dark-gray !important;
+  color: $compendium-fg-gray !important;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: $plynty-dark-gray !important;
+  color: $compendium-fg-gray !important;
 }
 /* Mailchimp form custom style end*/
 
@@ -434,7 +384,7 @@ input {
     bottom: 20px;
     right: 20px;
     z-index:1;
-    background: $compendium-blue;
+    background: $compendium-primary;
     width: 50px;
     height: 50px;
     display: block;
@@ -463,7 +413,7 @@ input {
     transition: all 0.3s ease;
 }
 .scroll:hover {
-    background: $compendium-blue;
+    background: $compendium-primary;
 }
 .scroll:hover i {
     color: #fff;

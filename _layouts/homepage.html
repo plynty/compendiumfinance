@@ -1,8 +1,33 @@
 ---
 layout: sitepage
 ---
+{% assign heroes = site.articles | where: 'active', 'true' | where: 'position', 'hero' | reverse %}
+    <div id="hero" class="row hero">
+        {{heroes[0].output}}
+    </div>
 
-{% for section in page.sections %}
-    <!-- including section {{section}} -->
-    {% include {{section}} %}
+{% assign articles2x1 = site.articles | where: 'active', 'true' | where: 'card_size', '2x1' | reverse %}
+{% assign articles1x1 = site.articles | where: 'active', 'true' | where: 'card_size', '1x1' | reverse %}
+
+{% for row in (0..4) %}
+    {% assign mod = row | modulo: 2 %}
+    {% if mod == 0 %}
+    <div class="row articles">
+        <div class="col-sm-8 col-xs-12">
+            {{articles2x1[row].output}}
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            {{articles1x1[row].output}}
+        </div>
+    </div>
+    {% else %}
+    <div class="row articles">
+        <div class="col-sm-4 col-xs-12">
+            {{articles1x1[row].output}}
+        </div>
+        <div class="col-sm-8 col-xs-12">
+            {{articles2x1[row].output}}
+        </div>
+    </div>
+    {% endif %}
 {% endfor %}

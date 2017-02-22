@@ -5,21 +5,10 @@ collections:
   assets:
     title: Assets
     output: true
-  modals:
-    title: Modals
-    output: false
-  posts:
-    title: Posts
-    output: true
-  promos:
-    title: Promos
-    output: false
-  tools:
-    title: Tools
-    output: false
-  top-sections:
-    title: Top Sections
-    output: false
+  articles:
+    title: Articles
+  resources:
+    title: Resources
   uploads:
     title: Uploads
     output: true
@@ -35,15 +24,14 @@ defaults:
   values:
     layout: blogtool
 email: your-email@compendiumfinance.com
-description: 'This is the static content site for compendiumfinance.com
-
-'
+description: 'This is the static content site for compendiumfinance.com'
 baseurl: 
 url: http://compendiumfinance.com
 twitter_username: choosesimple
 github_username: jekyll
 trademark: Compendium Finance&#x2122;
 social: compendiumfinance
+pmd_path: assets/pmd-1.0.0
 markdown: kramdown
 sass:
   sass_dir: _sass
