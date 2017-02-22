@@ -1,9 +1,8 @@
 ---
 title: The 3 Simple Rules of Investing
 date: 2017-03-23 00:00:00 Z
-categories:
-- Learning
-position: 0
+heading: Learning
+section: cards
 card_size: 2x1
 img: uploads/img/3simpleRules-book.jpeg
 media_side: left

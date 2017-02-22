@@ -1,9 +1,8 @@
 ---
 title: Portfolio Rebalancing Might Be Overrated
 date: 2017-01-31 00:00:00 Z
-categories:
-- Wealth Management
-position: 0
+heading: Wealth Management
+section: cards
 card_size: 2x1
 img: https://uc.uxpin.com/files/169349/174674/Screen_Shot_2017-02-09_at_5.56.23_PM.png
 media_side: left

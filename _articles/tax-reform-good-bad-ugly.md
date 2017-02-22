@@ -1,9 +1,8 @@
 ---
 title: Tax Reform&colon; The Good, the Bad, and the Really Ugly—Part Three
 date: 2017-02-19 00:00:00 Z
-categories:
-- Commentary
-position: 0
+heading: Commentary
+section: cards
 author: John Mauldin of Mauldin Economics
 card_size: 1x1
 link: https://www.advisorperspectives.com/commentaries/2017/02/19/tax-reform-the-good-the-bad-and-the-really-ugly-part-three

@@ -1,9 +1,8 @@
 ---
 title: There’s One Born Every Minute
 date: 2016-02-10 00:00:00 Z
-categories:
-- Blog
-position: 0
+heading: Blog
+section: cards
 card_size: 1x1
 link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/?p=1297
 active: true

@@ -1,9 +1,8 @@
 ---
 title: New App in Town
 date: 2017-01-31 00:00:00 Z
-categories:
-- Retiremant Planning
-position: 0
+heading: Retiremant Planning
+section: cards
 card_size: 2x1
 img: https://uc.uxpin.com/files/169349/174674/plynty_logo_green-4.png
 media_side: left

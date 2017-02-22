@@ -1,9 +1,8 @@
 ---
 title: Pensions and Retirement&colon; How Solid is Your Safety Net Income?
 date: 2017-05-25 00:00:00 Z
-categories:
-- Retirement
-position: 0
+heading: Retirement
+section: hero
 img: uploads/img/beach-square.jpg
 link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/?p=838
 active: true
