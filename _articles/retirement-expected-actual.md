@@ -1,8 +1,9 @@
 ---
-category: Retirement Planning
 title: Retirement&colon; Expectations vs. Realities
-date: 10/2/2011
-position: cards
+date: 2011-02-10 00:00:00 Z
+categories:
+- Retirement Planning
+position: 0
 card_size: 2x1
 video: https://player.vimeo.com/video/41129203?portrait=0
 media_side: left
@@ -13,4 +14,5 @@ format_class: article
 action: Read Article
 layout: card-2x1
 ---
+
 Will your retirement experience meet your expectations?  

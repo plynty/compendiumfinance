@@ -1,6 +1,7 @@
 ---
 layout: sitepage
 ---
+
 {% assign heroes = site.articles | where: 'active', 'true' | where: 'position', 'hero' | reverse %}
     <div id="hero" class="row hero">
         {{heroes[0].output}}
