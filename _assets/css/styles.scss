@@ -27,7 +27,7 @@ $social-linkedin: #0077ba !default;
 // @import "resources";
 // @import "post";
 // @import "resetpassword";
-// @import "modal";
+@import "modal";
 // @import "tools";
 // @import "promos";
 
@@ -127,7 +127,7 @@ a.trademark, a.trademark:visited, a.trademark:hover {
     text-decoration: none;
 }
 
-footer {
+page > footer {
     margin: 0;
     -ms-flex-negative: 0;
         flex-shrink: 0;
@@ -138,68 +138,68 @@ footer {
     color: $compendium-fg-white;
 }
 
-footer address, footer a {
+page > footer address, page > footer a {
     font-style: normal;
     font-size: 1.5rem;
     color: $compendium-fg-white;
 }
 
-footer h1 {
+page > footer h1 {
     font-size: 3.6rem;
     color: $compendium-fg-white;
 }
 
-footer p {
+page > footer p {
     color: $compendium-fg-white;
     font-size: 1.8rem;
 }
 
-footer .trademarks p {
+page > footer .trademarks p {
     font-size: 1.2rem;
 }
 
-footer div.links ul {
+page > footer div.links ul {
   list-style: none;
   padding-left: 0;
   margin-top: 1rem;
 }
 
-footer div.links ul li {
+page > footer div.links ul li {
   display: inline;
   list-style-type:none;
 }
 
-footer div.links a {
+page > footer div.links a {
     color: $compendium-fg-white;
     font-size: 1.5rem;
 }
 
-footer form {
+page > footer form {
     margin: auto;
 }
 
-footer .row {
+page > footer .row {
     padding-left: 2rem;
     padding-right: 4rem;
 }
 
-footer .row {
+page > footer .row {
     background-color: $compendium-primary;
     padding-bottom: 4.2rem;
 }
 
-footer .row:nth-child(2) a {
+page > footer .row:nth-child(2) a {
     font-size: 1.4rem;
     color: $compendium-fg-white;
     text-decoration: none;
 }
 
-footer div.social i {
+page > footer div.social i {
     color: $compendium-fg-white;
     padding-right: 2rem;
 }
 
-footer nav a {
+page > footer nav a {
     text-decoration: none;
     color: $compendium-fg-white;
     font-size: 1.7rem;
@@ -233,66 +233,66 @@ footer nav a {
     color: $compendium-tertiary !important;
 }
 
-div.page-title {
-    border-bottom: 2px solid $compendium-primary;
-}
-.page-title h1 {
-    font-size: 3.2rem;
-    font-family: $font-muli;
-    color: $compendium-primary;
-}
+// div.page-title {
+//     border-bottom: 2px solid $compendium-primary;
+// }
+// .page-title h1 {
+//     font-size: 3.2rem;
+//     font-family: $font-muli;
+//     color: $compendium-primary;
+// }
 
-section h1, section h2 {
-  font-weight: normal;
-  letter-spacing: .1rem;
-  color: $compendium-primary;
-}
+// section h1, section h2 {
+//   font-weight: normal;
+//   letter-spacing: .1rem;
+//   color: $compendium-primary;
+// }
 
-section h1 {
-  font-size: 3.2rem;
-  margin: auto;
-}
+// section h1 {
+//   font-size: 3.2rem;
+//   margin: auto;
+// }
 
-section h2 {
-  font-size: 2.4rem;
-  margin-top: 0;
-  padding-top: 0;
-}
+// section h2 {
+//   font-size: 2.4rem;
+//   margin-top: 0;
+//   padding-top: 0;
+// }
 
-section p {
-  font-size: 1.8rem;
-  letter-spacing: .075rem;
-}
+// section p {
+//   font-size: 1.8rem;
+//   letter-spacing: .075rem;
+// }
 
-section a {
-  text-decoration: none;
-  color: $compendium-primary;
-  font-size: 1.8rem;
-}
+// section a {
+//   text-decoration: none;
+//   color: $compendium-primary;
+//   font-size: 1.8rem;
+// }
 
-section:first-child {
-  padding-top: 10rem;
-}
+// section:first-child {
+//   padding-top: 10rem;
+// }
 
-section:nth-child(even) {
-  background-color: $compendium-bg-white;
-  border-bottom: 1px solid gainsboro;
-}
+// section:nth-child(even) {
+//   background-color: $compendium-bg-white;
+//   border-bottom: 1px solid gainsboro;
+// }
 
-section:nth-child(odd) {
-  background-color: #f9f9f7;
-  border-bottom: 1px solid gainsboro;
-}
+// section:nth-child(odd) {
+//   background-color: #f9f9f7;
+//   border-bottom: 1px solid gainsboro;
+// }
 
-section .row {
-  padding: 4rem 0;
-  margin: 0 4rem;
-}
+// section .row {
+//   padding: 4rem 0;
+//   margin: 0 4rem;
+// }
 
-.section-wrapper {
-  max-width: 1100px;
-  margin: auto !important;
-}
+// .section-wrapper {
+//   max-width: 1100px;
+//   margin: auto !important;
+// }
 
 .post-wrapper {
   max-width: 800px;

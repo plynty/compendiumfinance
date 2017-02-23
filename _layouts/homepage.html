@@ -2,33 +2,36 @@
 layout: sitepage
 ---
 
-{% assign heroes = site.articles | where: 'active', 'true' | where: 'section', 'hero' | reverse %}
-    <div id="hero" class="row hero">
-        {{heroes[0].output}}
-    </div>
+{% assign heroes = site.cards | where: 'active', 'true' | where: 'section', 'hero' | reverse %}
+    <section id="hero" class="hero pmd-z-depth-1">
+        <div class="row">
+            {{heroes[0].output}}
+        </div>
+    </section>
 
-{% assign articles2x1 = site.articles | where: 'active', 'true' | where: 'card_size', '2x1' | reverse %}
-{% assign articles1x1 = site.articles | where: 'active', 'true' | where: 'card_size', '1x1' | reverse %}
-
+{% assign cards2x1 = site.cards | where: 'active', 'true' | where: 'card_size', '2x1' | reverse %}
+{% assign cards1x1 = site.cards | where: 'active', 'true' | where: 'card_size', '1x1' | reverse %}
+    <section id="cards" class="cards">
 {% for row in (0..4) %}
     {% assign mod = row | modulo: 2 %}
     {% if mod == 0 %}
-    <div class="row articles">
+    <div class="row cards">
         <div class="col-sm-8 col-xs-12">
-            {{articles2x1[row].output}}
+            {{cards2x1[row].output}}
         </div>
         <div class="col-sm-4 col-xs-12">
-            {{articles1x1[row].output}}
+            {{cards1x1[row].output}}
         </div>
     </div>
     {% else %}
-    <div class="row articles">
+    <div class="row cards">
         <div class="col-sm-4 col-xs-12">
-            {{articles1x1[row].output}}
+            {{cards1x1[row].output}}
         </div>
         <div class="col-sm-8 col-xs-12">
-            {{articles2x1[row].output}}
+            {{cards2x1[row].output}}
         </div>
     </div>
     {% endif %}
 {% endfor %}
+    </section>

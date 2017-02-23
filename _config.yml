@@ -5,6 +5,9 @@ collections:
   articles:
     title: Articles
     output: false
+  cards:
+    title: Cards
+    output: false
   assets:
     title: Assets
     output: true

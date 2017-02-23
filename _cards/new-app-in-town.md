@@ -14,4 +14,5 @@ action: Read Article
 layout: card-2x1
 ---
 
-Propoganda about a beta lauch pointing to site and press release.  Insiders say ...
+New smart phone app literally puts retirement planning in your own hands.
+Instantly see how financial decisions now and in the future will impact your retirement income.

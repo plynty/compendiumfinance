@@ -6,7 +6,9 @@
                 <div class="row hero-content">
                 {% if page.img != nil%}
                     <div class="hero-img hidden-sm hidden-xs">
-                        {% include card-image-panel.html%}
+                        <div class="shadow-box pmd-z-depth-2 ">
+                            {% include card-image-panel.html%}
+                        </div>
                     </div>
                     <div class="hero-copy hidden-sm hidden-xs">
                         {% include card-copy-panel.html %}

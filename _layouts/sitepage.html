@@ -12,6 +12,16 @@
             </div>
             {% include footer.html %}
         </page>
+        {% assign activeCards = site.cards | where: 'active', 'true' | where: 'source', 'internal' %}
+        {% for card in activeCards %}
+            {% if card.actions contains 'show-modal' %}
+                {% for article in site.articles %}
+                    {% if article.article_id == card.article_id %}
+                        {{article.output}}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
         {% include scripts.html %}
     </body>
 

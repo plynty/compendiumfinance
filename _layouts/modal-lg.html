@@ -1,7 +1,12 @@
-<div class="modal fade app-modal-window" window-class="app-modal-window" id="{{page.modal-id}}" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
+<div class="modal fade app-modal-window" window-class="app-modal-window" id="{{page.modal_id}}" role="dialog" 
+        tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
+            {% include modal-header.html %}
             {{content}}
+            {% if page.modal_footer_md != nil %}
+                {% include modal-footer.html %}
+            {% endif %}
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@ layout: card
         <div class="pmd-card-body card-height-1">
             <div class="row">
                 {% if hasMedia and page.media_side == 'left'%}
-                <div class="col-sm-6">
+                <div class="col-sm-6 panel-1x1">
                     {% if page.img != nil %}
                         {% include card-image-panel.html%}
                     {% else %}
@@ -17,14 +17,14 @@ layout: card
                 </div>
                 {% endif %}
                 {% if hasMedia %}
-                <div class="col-sm-6">
+                <div class="col-sm-6 panel-1x1">
                 {% else %}
-                <div class="col-xs-12">
+                <div class="col-xs-12 lead">
                 {% endif %}
                     {% include card-copy-panel.html %}
                 </div>
                 {% if hasMedia and page.media_side == 'right'%}
-                <div class="col-sm-6">
+                <div class="col-sm-6 panel-1x1">
                     {% if page.img != nil %}
                         {% include card-image-panel.html%}
                     {% else %}

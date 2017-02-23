@@ -29,11 +29,23 @@ $hero-height: 48rem;
             height: 100%;
             float: left;
         }
+
+        .hero-img img {
+            border: solid thin #666666;
+            border-radius: 1rem;
+        }
+
+        .shadow-box {
+            margin: 10px;
+            border-radius: 1rem;
+        }
+
         .hero-img img, .hero-bg-img img {
             display: block;
             margin-right: 0;
             margin-left: auto;
             overflow: hidden;
+            border-radius: 1rem;
             // width: 100%;
         }
         .hero-bg-img, .hero-wide {
@@ -103,6 +115,10 @@ $hero-height: 48rem;
                 font-size: smaller;
             }
 
+            footer {
+                display: none !important;
+            }
+
             // xs
             @media only screen and (min-width: 768px) {
                 article {
@@ -122,17 +138,14 @@ $hero-height: 48rem;
         }
     }
 
-    .articles {
+    .cards {
 
         // > xs
         @media only screen and (min-width: 768px) {
             max-width: 1200px;
             display: block;
             margin: auto;
-            // margin-left: 3rem;
-            // margin-right: 3rem;
-            // margin-top: 1rem;
-            // margin-bottom: 1rem;
+            padding-top: 15px;
 
             .card-height-1 {
                 .card-media-panel, .card-copy-panel {
@@ -146,6 +159,10 @@ $hero-height: 48rem;
         @media only screen and (max-width: 767px) {
             .pmd-card {
                 margin: 1px 3px;
+            }
+
+            .cards .panel-1x1 + .panel-1x1 {
+                margin-top: 1rem;
             }
         }
 
@@ -166,9 +183,21 @@ $hero-height: 48rem;
             }
 
             header .category .material-icons {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
+                position: relative;
+                top: 2px;
             }
 
+            footer {
+                text-align: right;
+            }
+
+            footer .btn-more .material-icons {
+                font-size: 1.2rem;
+                position: relative;
+                top: 2px;
+            }            
+            
             header .date {
                 font-style: italic;
                 color: $compendium-fg-gray;
@@ -180,6 +209,13 @@ $hero-height: 48rem;
                 article {
                     margin-top: 2rem;
                 }
+            }
+
+            footer .btn-more {
+                color: $compendium-primary;
+                border-radius: 2rem;
+                border-color: $compendium-primary;
+                text-transform: lowercase;
             }
 
         }
