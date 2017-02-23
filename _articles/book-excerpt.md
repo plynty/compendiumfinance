@@ -1,16 +1,17 @@
 ---
-article_id: book-excerpt
 title: Book Preview&colon; The 3 Simple Rules of Investing
+article_id: book-excerpt
 layout: modal-article
 modal_id: book-excerpt
 modal_footer_md: |
-    Find it online:
-    <span class="icons">
-    [![Amazon.com](uploads/img/amazon.png "Shop Amazon")](https://www.amazon.com/Simple-Rules-Investing-Everything-Instead/dp/1626561621/ref=sr_1_1?ie=UTF8&qid=1487016255&sr=8-1&keywords=edesess)
-    [![Amazon.com](uploads/img/bn.jpg "Shop Barnes & Noble")](http://www.barnesandnoble.com/w/the-3-simple-rules-of-investing-michael-edesess/1117657738?ean=9781626561625)
-    [![Amazon.com](uploads/img/bk.jpg "Shop Barret-Koehler")](http://www.bkconnection.com/ProdDetails.asp?ID=9781626561625&PG=1&Type=BL&PCS=BKP)
-    </span>
+  Find it online:
+  <span class="icons">
+  [![Amazon.com](uploads/img/amazon.png "Shop Amazon")](https://www.amazon.com/Simple-Rules-Investing-Everything-Instead/dp/1626561621/ref=sr_1_1?ie=UTF8&qid=1487016255&sr=8-1&keywords=edesess)
+  [![Amazon.com](uploads/img/bn.jpg "Shop Barnes & Noble")](http://www.barnesandnoble.com/w/the-3-simple-rules-of-investing-michael-edesess/1117657738?ean=9781626561625)
+  [![Amazon.com](uploads/img/bk.jpg "Shop Barret-Koehler")](http://www.bkconnection.com/ProdDetails.asp?ID=9781626561625&PG=1&Type=BL&PCS=BKP)
+  </span>
 ---
+
 #### Page xi ... Preface
 
 As many of us remember, a very big investment firm, Long-Term Capital Management, went straight down
