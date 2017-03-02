@@ -1,0 +1,66 @@
+---
+title: resources
+---
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+        <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+            <link rel="stylesheet" href="{{site.pmd_path}}/css/bootstrap.min.css">
+        
+        <!--Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Arsenal|Fjalla+One|Righteous" rel="stylesheet">
+
+        <!-- Propeller css -->
+        <link href="{{site.pmd_path}}/css/propeller.min.css" rel="stylesheet">
+
+        <!-- app styles -->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!-- font-awesome: icons -->
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+
+        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    </head>
+    <body class="fee-calculator">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8 col-xs-12 ">
+                    <div class="stack-chart pmd-card pmd-z-depth-2">
+                        <svg id="stack-chart"></svg>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="pie-chart pmd-card  pmd-z-depth-2">
+                        <svg id="pie-chart"></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery before Propeller.js -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script type="text/javascript" src="{{site.pmd_path}}/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="{{site.pmd_path}}/js/propeller.min.js"></script>
+        
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="assets/js/fee_calc.js"></script>
+        <script>
+            generateStack("#stack-chart");
+            generatePie("#pie-chart", {
+                totalEarnings: 397995,
+                fundFees: 40926,
+                advisorFees: 34787,
+                lostEarnings: 43364
+            });
+        </script>
+    </body>
+</html>
