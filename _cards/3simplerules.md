@@ -6,12 +6,11 @@ section: cards
 card_size: 2x1
 img: uploads/img/3simpleRules-book.jpeg
 media_side: left
-#link: https://www.amazon.com/Simple-Rules-Investing-Everything-Instead/dp/1626561621/ref=sr_1_1?ie=UTF8&qid=1487016255&sr=8-1&keywords=edesess
 active: true
 source: internal
 format_class: article
-actions: 
- - show-modal
+actions:
+- show-modal
 article_id: book-excerpt
 layout: card-2x1
 ---
