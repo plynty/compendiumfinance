@@ -33,15 +33,44 @@
   
   <script>
   /* Menu */
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
+    // function myFunction() {
+    //   var x = document.getElementById("myTopnav");
+    //   if (x.className === "topnav") {
+    //     x.className += " responsive";
+    //   } else {
+    //     x.className = "topnav";
+    //   }
+    // }
   /* End Menu */
+
+  // card animation
+  $(".pmd-card").hover(
+    function(event) {
+      removeShadow($(this)).addClass("pmd-z-depth-3");
+  }, function(event) {
+      removeShadow($(this)).addClass("pmd-z-depth-1");
+  });
+
+  $(".pmd-card").mousedown(function(event) {
+    var element = $(this);
+    removeShadow(element);
+    setTimeout(function() {
+      removeShadow(element).addClass("pmd-z-depth-3");
+    }, 100);
+  });
+
+  function removeShadow(jqElement) {
+      return jqElement.removeClass(function(index, classNames){
+        var classes = classNames.split(" ");
+        var removeClasses = [];
+        classes.forEach(function(element) {
+          if (element.startsWith("pmd-z-depth")) {
+            removeClasses.push(element);
+          }
+        });
+        return removeClasses.join(" ");
+      })  
+  };
 
   /* Scroll function */
     function scroll(){

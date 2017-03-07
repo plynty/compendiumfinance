@@ -6,9 +6,9 @@ title: Styles
 
 $font-muli: 'Muli', sans-serif;
 
-$compendium-primary: #1095e1 !default;
-$compendium-primary-lt: #87caf0 !default;
-$compendium-primary-dk: #084af0 !default;
+$compendium-primary: #525252 !default;
+$compendium-primary-lt: #cac9cf !default;
+$compendium-primary-dk: #4f4f51 !default;
 $compendium-secondary:  #e73074 !default;
 $compendium-tertiary:  #00008b !default;
 $compendium-fg-gray: gray;
@@ -119,15 +119,10 @@ main {
     margin: auto;
 }
 
-a.trademark, a.trademark:visited, a.trademark:hover {
-    color: white;
-    font-family: $font-muli;
-    font-size: 1em;
-    font-style: normal;
-    font-weight: 700;
-    text-decoration: none;
+.nav-padding {
+    height: 75px;
+    background-color: $compendium-primary;
 }
-
 page > footer {
     margin: 0;
     -ms-flex-negative: 0;
@@ -233,67 +228,6 @@ page > footer nav a {
     text-transform: lowercase;
     color: $compendium-tertiary !important;
 }
-
-// div.page-title {
-//     border-bottom: 2px solid $compendium-primary;
-// }
-// .page-title h1 {
-//     font-size: 3.2rem;
-//     font-family: $font-muli;
-//     color: $compendium-primary;
-// }
-
-// section h1, section h2 {
-//   font-weight: normal;
-//   letter-spacing: .1rem;
-//   color: $compendium-primary;
-// }
-
-// section h1 {
-//   font-size: 3.2rem;
-//   margin: auto;
-// }
-
-// section h2 {
-//   font-size: 2.4rem;
-//   margin-top: 0;
-//   padding-top: 0;
-// }
-
-// section p {
-//   font-size: 1.8rem;
-//   letter-spacing: .075rem;
-// }
-
-// section a {
-//   text-decoration: none;
-//   color: $compendium-primary;
-//   font-size: 1.8rem;
-// }
-
-// section:first-child {
-//   padding-top: 10rem;
-// }
-
-// section:nth-child(even) {
-//   background-color: $compendium-bg-white;
-//   border-bottom: 1px solid gainsboro;
-// }
-
-// section:nth-child(odd) {
-//   background-color: #f9f9f7;
-//   border-bottom: 1px solid gainsboro;
-// }
-
-// section .row {
-//   padding: 4rem 0;
-//   margin: 0 4rem;
-// }
-
-// .section-wrapper {
-//   max-width: 1100px;
-//   margin: auto !important;
-// }
 
 .post-wrapper {
   max-width: 800px;

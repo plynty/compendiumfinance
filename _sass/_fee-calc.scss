@@ -1,25 +1,37 @@
-$bar-chart-min-width: 800;
+$bar-chart-min-width: 200;
 $bar-chart-aspect-ratio: 2;
-$pie-chart-min-width: 400;
+$pie-chart-min-width: 200;
 $pie-chart-aspect-ratio: 1.7;
 .fee-calculator {
+
+    .form-group {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
 
     svg {
         display: block;
     }
 
+    div.stack-chart {
+        // min-height: 250px;
+    }
     div.stack-chart, #stack-chart {
-        min-width: ($bar-chart-min-width)+0px;
-        min-height: ($bar-chart-min-width / $bar-chart-aspect-ratio)+0px;
+        width: 100%;
+        height: 100%;
+        // min-width: ($bar-chart-min-width)+0px;
+        // min-height: ($bar-chart-min-width / $bar-chart-aspect-ratio)+0px;
         // max-width: 1000px;//($bar-chart-min-width * 2)+0px;
         // max-height: ($bar-chart-min-width / $bar-chart-aspect-ratio * 2)+0px;
     }
 
     div.pie-chart, #pie-chart {
-        min-width: ($pie-chart-min-width)+0px;
-        min-height: ($pie-chart-min-width / $pie-chart-aspect-ratio)+0px;
-        max-width: ($pie-chart-min-width * 2)+0px;
-        max-height: ($pie-chart-min-width  / $pie-chart-aspect-ratio * 2)+0px;
+        width: 100%;
+        height: 100%;
+        // min-width: ($pie-chart-min-width)+0px;
+        // min-height: ($pie-chart-min-width / $pie-chart-aspect-ratio)+0px;
+        // max-width: ($pie-chart-min-width * 2)+0px;
+        // max-height: ($pie-chart-min-width  / $pie-chart-aspect-ratio * 2)+0px;
     }
 
     // div.stack-chart, div.pie-chart {
@@ -27,39 +39,65 @@ $pie-chart-aspect-ratio: 1.7;
     //     // margin: 2rem;
     // }
 
-    #stack-chart {
+    .stack-chart {
         height: 100%;
         width: 100%;
 
-        .grad-linear-0 rect {
-            fill: url(#gradLin0);
+        .legend rect {
+            stroke-width: 1px;
+        }
+        .line {
+            stroke-width: 1;
+            fill: none;
         }
 
-        .grad-linear-1 rect {
-            fill: url(#gradLin1);
+        .grad-linear-0, .legend-0 {
+            fill: #42bd41;
+            fill-opacity: 0.3;
+        }
+        .line0, .legend-0{
+            stroke: #42bd41;
         }
 
-        .grad-linear-2 rect {
-            fill: url(#gradLin2);
+        .grad-linear-1, .legend-1  {
+            fill: #ff4500;
+            fill-opacity: 0.3;
+        }
+        .line1, .legend-1 {
+            stroke: #ff4500;
         }
 
-        .grad-linear-3 rect {
-            fill: url(#gradLin3);
+        .grad-linear-2, .legend-2  {
+            // fill: url(#gradLin2);
+            fill: #dd382f;
+            fill-opacity: 0.3;
+        }
+        .line2, .legend-2 {
+            stroke: #dd382f;
         }
 
-        .grad-linear-0 rect:hover {
+        .grad-linear-3, .legend-3  {
+            // fill: url(#gradLin3);
+            fill: #ff0000;
+            fill-opacity: 0.3;
+        }
+        .line3, .legend-3 {
+            stroke: #ff0000;
+        }
+
+        .grad-linear-0 :hover {
             fill: url(#gradLinHL0);
         }
 
-        .grad-linear-1 rect:hover {
+        .grad-linear-1 :hover {
             fill: url(#gradLinHL1);
         }
 
-        .grad-linear-2 rect:hover {
+        .grad-linear-2 :hover {
             fill: url(#gradLinHL2);
         }
 
-        .grad-linear-3 rect:hover {
+        .grad-linear-3 :hover {
             fill: url(#gradLinHL3);
         }
 
@@ -67,9 +105,21 @@ $pie-chart-aspect-ratio: 1.7;
             stroke: black;
             stroke-width: 1px;
         }
+
+        .legend {
+            font-size: 1rem;
+        }
+
+        .x-axis-label {
+            font-size: 1.5rem;
+            text-anchor: middle;
+        }
+
     }
 
     #pie-chart {
+        width: 100%;
+        height: 100%;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         
         // path.slice{

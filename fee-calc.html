@@ -8,6 +8,7 @@ title: resources
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="icon" type="image/jpg" href="/favicon.jpg" />
         <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
         <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
@@ -30,20 +31,104 @@ title: resources
 
     </head>
     <body class="fee-calculator">
-        <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="pmd-card pmd-z-depth-2">
+                    <div class="row input-form">
+                        <div class="col-md-2 col-sm-6 col-xs-6">
+                            <div class="form-group pmd-textfield">
+                                <label for="investment-amount" class="control-label">
+                                    Investment Amount
+                                </label>
+                                <input type="text" id="investment-amount" class="form-control" value="$50,000" onblur="validate(); return false;">
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 col-xs-6">
+                            <div class="form-group pmd-textfield">
+                                <label for="investment-period" class="control-label">
+                                    Investment Period
+                                </label>
+                                <input type="text" id="investment-period" class="form-control" value="30" onblur="validate(); return false;">
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 col-xs-6">
+                            <div class="form-group pmd-textfield">
+                                <label for="rate-of-return" class="control-label">
+                                    Rate of Return
+                                </label>
+                                <input type="text" id="rate-of-return" class="form-control" value="8%" onblur="validate(); return false;">
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 col-xs-6">
+                            <div class="form-group pmd-textfield">
+                                <label for="mutual-fund-fees" class="control-label">
+                                    Mutual Fund Fees
+                                </label>
+                                <input type="text" id="mutual-fund-fees" class="form-control" value="1.25%" onblur="validate(); return false;">
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 col-xs-6">
+                            <div class="form-group pmd-textfield">
+                                <label for="advisor-fee" class="control-label">
+                                    Advisor Fee
+                                </label>
+                                <input type="text" id="advisor-fee" class="form-control" value="1.00%" onblur="validate(); return false;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="container-fluid">-->
             <div class="row">
                 <div class="col-sm-8 col-xs-12 ">
                     <div class="stack-chart pmd-card pmd-z-depth-2">
                         <svg id="stack-chart"></svg>
                     </div>
                 </div>
-                <div class="col-sm-4 col-xs-12">
+                <!--<div class="col-sm-4 col-xs-12">
                     <div class="pie-chart pmd-card  pmd-z-depth-2">
                         <svg id="pie-chart"></svg>
                     </div>
+                </div>-->
+            </div>
+        <!--</div>-->
+        <div class="row">
+            <div class="col-sm-8 col-xs-12 ">
+                <div class="stack-chart pmd-card pmd-z-depth-2">
+                    <svg id="stack-chart2"></svg>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-8 col-xs-12 ">
+                <div class="stack-chart pmd-card pmd-z-depth-2">
+                    <svg id="stack-chart3"></svg>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-xs-12 ">
+                <div class="stack-chart pmd-card pmd-z-depth-2">
+                    <svg id="stack-chart4"></svg>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-xs-12 ">
+                <div class="stack-chart pmd-card pmd-z-depth-2">
+                    <svg id="stack-chart5"></svg>
+                </div>
+            </div>
+        </div>
+        <!--<div class="row">
+            <div class="col-sm-8 col-xs-12 ">
+                <div class="stack-chart pmd-card pmd-z-depth-2">
+                    <svg id="stack-chart6"></svg>
+                </div>
+            </div>
+        </div>-->
+
         <!-- jQuery before Propeller.js -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         
@@ -53,14 +138,17 @@ title: resources
         
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="assets/js/fee_calc.js"></script>
+        <script src="assets/js/fee_calc_chart.js"></script>
         <script>
-            generateStack("#stack-chart");
-            generatePie("#pie-chart", {
-                totalEarnings: 397995,
-                fundFees: 40926,
-                advisorFees: 34787,
-                lostEarnings: 43364
-            });
+            // calculate();
+            // generateStack("#stack-chart", "barStack");
+            generateStack("#stack-chart", "areaStack", "cardinal");
+            generateStack("#stack-chart2", "areaStack", "catmullrom");
+            generateStack("#stack-chart3", "areaStack", "natural");
+            generateStack("#stack-chart4", "areaStack", "basis");
+            generateStack("#stack-chart5", "areaStack", "linear");
+            // // resize("#stack-chart", generateStack);
+            // generatePie("#pie-chart");
         </script>
     </body>
 </html>

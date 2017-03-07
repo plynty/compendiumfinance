@@ -3,7 +3,7 @@ $panel-height: 30rem;
 $hero-height: 48rem;
 
 .homepage {
-    background-color: antiquewhite; //$compendium-bg-lt;
+    background-color: $compendium-primary-lt;
 
     .card-media-panel img, .card-media-panel iframe {
         display: block;

@@ -6,18 +6,25 @@
     <div class="row middle-xs" style="margin: auto;">
 
       <!-- Title -->
-      <div class="col-xs-6 top-xs">
-        <a class="trademark" href="index.html">{{site.trademark}}</a>
+      <div class="col-xs-10 top-xs">
+        <a class="trademark" href="index.html"><img src="uploads/img/logo_sm.jpg"/><span>{{site.trademark}}</span></a>
       </div>
-      <nav class="col-xs-6 end-xs">
-        <ul class="topnav" id="myTopnav">
+      <nav class="col-xs-2 end-xs">
+        <span class="dropdown pmd-dropdown clearfix topnav">
+            <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect" type="button" 
+                id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="true"><i class="material-icons pmd-sm">menu</i></button>
+            <ul aria-labelledby="dropdownMenuDivider" role="menu" class="dropdown-menu dropdown-menu-right pmd-z-depth-2" id="myTopNav">
+                <li role="presentation"><a class="nav-item" href="blog.html">resources</a></li>
+                <li role="presentation"><a class="nav-item" href="aboutus.html">about us</a></li>
+            </ul>
+        </span>
+        <!--<ul class="topnav" id="myTopnav">
           <li class="icon">
             <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
           </li>
-          <!--<li><a class="nav-item" id="modal" href="/get-app-modal.html" rel="modal:open">get the app</a></li>-->
           <li><a class="nav-item" href="blog.html">resources</a></li>
           <li><a class="nav-item" href="aboutus.html">about us</a></li>
-        </ul>
+        </ul>-->
       </nav>
 
     </div>
