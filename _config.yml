@@ -1,0 +1,50 @@
+---
+title: Compendium Finance (TM)
+timezone: UTC
+collections:
+  articles:
+    title: Articles
+    output: false
+  assets:
+    title: Assets
+    output: true
+  cards:
+    title: Cards
+    output: false
+  posts:
+    title: Posts
+    output: true
+  resources:
+    title: Resources
+    output: false
+  uploads:
+    title: Uploads
+    output: true
+defaults:
+- scope:
+    path: ''
+    type: posts
+  values:
+    layout: post
+- scope:
+    path: ''
+    type: tools
+  values:
+    layout: blogtool
+email: your-email@compendiumfinance.com
+description: This is the static content site for compendiumfinance.com
+baseurl: 
+url: http://compendiumfinance.com
+twitter_username: choosesimple
+github_username: jekyll
+trademark: Compendium Finance&#x2122;
+social: compendiumfinance
+pmd_path: assets/pmd-1.0.0
+markdown: kramdown
+sass:
+  sass_dir: _sass
+  style: compressed
+assets:
+  compress:
+    css: true
+    js: true

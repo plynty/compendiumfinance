@@ -1,0 +1,23 @@
+                <div class="card-copy-panel">
+                    <header> 
+                        <div class="category">
+                            <span>{{page.heading}}
+                            {% if page.source == 'external' %}
+                                &nbsp;<i class="material-icons" title="Open in new tab">open_in_new</i>
+                            {% endif %}
+                            </span>
+                        </div>
+                        <h1>{{page.title}}</h1>
+                        <div class="date">{{page.date | date: '%B %e, %Y' }}</div>
+                    </header>
+                    <article>
+                        <div>{{page.content}}</div>
+                    </article>
+                    <footer class="visible-xs">
+                        <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">more
+                            {% if page.source == 'external' %}
+                                &nbsp;<i class="material-icons" title="Open in new tab">open_in_new</i>
+                            {% endif %}
+                        </button>
+                    </footer>
+                </div>

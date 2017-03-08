@@ -1,0 +1,126 @@
+.nav-header {
+
+  // ul.topnav {
+  //   list-style-type: none;
+  //   margin: 0;
+  //   padding: 0;
+  //   overflow: hidden;
+  // }
+
+  // ul.topnav li {float: right;}
+
+  .dropdown-menu, .dropdown-menu>li>a {
+    // display: inline-block;
+    color: white;
+    background-color: $compendium-primary-dk;
+    text-align: center;
+    // padding: 14px 16px;
+    // text-decoration: none;
+    // -webkit-transition: 0.3s;
+    // transition: 0.3s;
+    // font-size: 17px;
+  }
+
+  .topnav li a:hover {background-color: $compendium-primary;}
+
+  .topnav li.icon {display: none;}
+
+  a.trademark, a.trademark:visited, a.trademark:hover {
+      color: white;
+      font-family: $font-muli;
+      font-style: normal;
+      font-weight: 700;
+      text-decoration: none;
+  }
+
+  a.trademark img {
+    margin-top: -5px;
+  }
+
+  #dropdownMenuButton {
+    background-color: $compendium-primary-lt;
+  }
+
+  @media screen and (max-width:680px) {
+    // ul.topnav li {display: none;}
+    // ul.topnav li.icon {
+    //   display: inline-block;
+    // }
+    a.trademark {
+      margin-left: -20px;
+      font-size: 85%;
+    }
+  }
+
+  @media screen and (max-width:680px) {
+    // ul.topnav.responsive {position: relative;}
+    // ul.topnav.responsive li.icon {
+    //   position: relative;
+    //   right: 0;
+    //   top: 0;
+    // }
+    // ul.topnav.responsive li {
+    //   display: inline;
+    // }
+    // ul.topnav.responsive li a {
+    //   display: block;
+    //   text-align: right;
+    // }
+  }
+}
+
+header.nav-header {
+    color: white;
+    background-color: $compendium-primary;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    border-bottom: thin solid $compendium-fg-white;
+}
+
+header.nav-header .row {
+    padding: 1rem;
+}
+
+.nav-item {
+  text-decoration: none;
+  font-weight: 900;
+}
+
+nav a {
+    padding: 1.4rem;
+    font-size: 2.0rem;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    font-weight:bold;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,.15);
+  color: $compendium-fg-white !important;
+}
+
+@media only screen and (max-width: 500px){
+    nav a{
+        padding-left: 0;
+    }
+}
+
+.headroom {
+  will-change: transform;
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+.headroom--pinned {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+}
+.headroom--unpinned {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+}
+

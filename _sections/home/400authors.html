@@ -1,0 +1,79 @@
+---
+layout: top-section
+section_id: authors
+---
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <p class="pencil icon center-block img-responsive"></p>
+        </div>
+    </div>
+    <div class="row">
+        <header class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h2>Authors</h2>
+        </header>
+    </div>
+
+    <div class="row">
+        <header class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h3>Written by four trusted figures from the world of finance.</h3>
+        </header>
+    </div>
+
+    <!--AUTHOR PICTURE PART START-->
+
+    <div class="row content">
+        {% for author in site.data.authors %}
+            {% assign nameSlug = author.name | slugify %}
+        <div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-sm-5 col-sm-offset-1 col-xs-12">
+            <figure class="center-block">
+                <a data-toggle="modal" data-target="#bio-{{nameSlug}}">
+                    <img src="img/copy/author-{{nameSlug}}.png" alt="{{author.name}}">
+                </a>
+            </figure>
+            <header class="center-block">
+                <h4>
+                    <a data-toggle="modal" data-target="#bio-{{nameSlug}}">
+                        {{author.name}}
+                    </a>
+                </h4>
+                <h5>
+                    {{author.org}}<br>
+                </h5>
+                <div class="contact-me">
+                    <dl>
+                        <dt>Contact me:</dt>
+                        {% unless author.twitter == nil or author.twitter.size == 0 %}
+                        <dd><a href="https://twitter.com/{{author.twitter}}" target="_blank" class="twitter">Twitter</a></dd>
+                        {% endunless %}
+                        
+                        {% unless author.linked-in == nil or author.linked-in.size == 0 %}
+                        <dd><a href="{{author.linked-in}}" target="_blank" class="linkedin">LinkedIn</a></dd>
+                        {% endunless %}
+                        
+                        {% unless author.email == nil or author.email.size == 0 %}
+                        <dd>
+                            <a class="email" data-toggle="modal" data-target="#email-author" 
+                            onclick="initEmailDialog('{{author.name}}', '{{author.email}}');">email</a>
+                        </dd>
+                        {% endunless %}
+                    </dl>
+                </div>
+            </header>
+            <div class="row hidden-xs">
+                <section class="col-lg-12 col-md-12 col-sm-12">
+                    <article class="bio-short">
+                        {% capture bio %}{% include copy/bios/bio-{{nameSlug}}.md %}{% endcapture %}
+                        {% assign bioClip = bio | truncatewords: 75 %}
+                        <p>{{bioClip}}</p>
+                        <p class="more">
+                            <a data-toggle="modal" data-target="#bio-{{nameSlug}}">
+                                Read More
+                            </a>
+                        </p>
+                    </article>
+                </section>
+            </div>
+        </div>
+        {% endfor %}

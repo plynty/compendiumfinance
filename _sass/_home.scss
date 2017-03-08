@@ -1,0 +1,246 @@
+/* home page styles */
+$panel-height: 30rem;
+$hero-height: 48rem;
+
+.homepage {
+    background-color: $compendium-primary-lt;
+
+    .card-media-panel img, .card-media-panel iframe {
+        display: block;
+        margin: auto;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .hero {
+        background-color: $compendium-primary;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        min-height: 48rem;
+
+        .hero-content {
+            max-width: 1200px;
+            margin: auto;
+            display: block;
+        }
+
+        .hero-img, .hero-copy {
+            width: 50%;
+            height: 100%;
+            float: left;
+        }
+
+        .hero-img img {
+            border: solid thin #666666;
+            border-radius: 1rem;
+        }
+
+        .shadow-box {
+            margin: 10px;
+            border-radius: 1rem;
+        }
+
+        .hero-img img, .hero-bg-img img {
+            display: block;
+            margin-right: 0;
+            margin-left: auto;
+            overflow: hidden;
+            border-radius: 1rem;
+            // width: 100%;
+        }
+        .hero-bg-img, .hero-wide {
+            width: 100%;
+            height: 100%;
+        }
+        .hero-bg-img {
+            z-index: 0;
+            opacity: .15;
+            position: absolute;
+            display: block;
+            margin: auto;
+            top: 0;
+            // bottom: 0;
+            left: 0;
+            // right: 0;
+            // max-height: 100%;
+            // max-width: 100%;
+            align-items: center;
+        }
+        .card-copy-panel {
+            background-color: $compendium-primary;
+            color: $compendium-fg-white;
+            padding: 2rem;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+        .hero-copy, .hero-bg-img {
+            font-size: 1.6rem;
+
+            @media only screen and (min-width: 768px) {
+                header {
+                    padding-bottom: 3rem;
+                }
+                header h1 {
+                    font-size: 6.0rem;
+                }
+            }
+            @media only screen and (max-width: 767px) {
+                header {
+                    padding-bottom: 1rem;
+                }
+                header h1 {
+                    font-size: 4.0rem;
+                }
+            }
+            header {
+                border-bottom: solid $compendium-primary-lt thin;
+                font-family: 'Arsenal', sans-serif;
+            }
+            header .category {
+                // font-family: 'Fjalla One', sans-serif;
+                // font-family: 'Righteous', cursive;
+                // font-size: smaller;
+                text-transform: uppercase;
+                color: $compendium-fg-white;
+            }
+
+            header .category .material-icons {
+                font-size: 1.2rem;
+            }
+
+            header .date {
+                font-style: italic;
+                // color: $compendium-fg-gray;
+                font-size: smaller;
+            }
+
+            footer {
+                display: none !important;
+            }
+
+            // xs
+            @media only screen and (min-width: 768px) {
+                article {
+                    margin-top: 2rem;
+                }
+            }
+        }
+        button.hero-read-btn {
+            margin-left: 3rem;
+            color: $compendium-fg-white;
+            background-color: $compendium-primary;
+            border-color: $compendium-primary-lt;
+            padding: 2rem 3rem;
+            text-transform: lowercase;
+            border-radius: 2rem;
+            font-size: larger;
+        }
+    }
+
+    .cards {
+
+        // > xs
+        @media only screen and (min-width: 768px) {
+            max-width: 1200px;
+            display: block;
+            margin: auto;
+            padding-top: 15px;
+
+            .card-height-1 {
+                .card-media-panel, .card-copy-panel {
+                    height: $panel-height;
+                    overflow: hidden;
+                }
+            }
+        }
+
+        //  xs
+        @media only screen and (max-width: 767px) {
+            .pmd-card {
+                margin: 1px 3px;
+            }
+
+            .cards .panel-1x1 + .panel-1x1 {
+                margin-top: 1rem;
+            }
+        }
+
+        .pmd-card.article {
+            font-size: 1.5rem;
+
+            header h1 {
+                text-transform: uppercase;
+                font-size: 2.0rem;
+                font-weight: 700;
+            }
+            header .category {
+                font-family: 'Fjalla One', sans-serif;
+                // font-family: 'Righteous', cursive;
+                font-size: smaller;
+                text-transform: uppercase;
+                color: $compendium-primary;
+            }
+
+            header .category .material-icons {
+                font-size: 1.5rem;
+                position: relative;
+                top: 2px;
+            }
+
+            footer {
+                text-align: right;
+            }
+
+            footer .btn-more .material-icons {
+                font-size: 1.2rem;
+                position: relative;
+                top: 2px;
+            }            
+            
+            header .date {
+                font-style: italic;
+                color: $compendium-fg-gray;
+                font-size: smaller;
+            }
+
+            // xs
+            @media only screen and (min-width: 768px) {
+                article {
+                    margin-top: 2rem;
+                }
+            }
+
+            footer .btn-more {
+                color: $compendium-primary;
+                border-radius: 2rem;
+                border-color: $compendium-primary;
+                text-transform: lowercase;
+            }
+
+        }
+    }
+    .social-card {
+        color: $compendium-fg-white;
+        background-color: $compendium-primary-dk;
+    }
+    .social-card header h1 {
+        color: $compendium-fg-white;
+        font-size: 3rem;
+        padding: 3rem 1rem;
+    }
+    .social-card article {
+        padding-bottom: 3em;
+    }
+    .social-card a {
+        color: $compendium-fg-white;
+    }
+
+    .pmd-card {
+        overflow: hidden;
+    }
+
+    .borderless-card {
+        background-color: $compendium-bg-white;
+    }
+}

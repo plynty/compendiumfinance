@@ -1,0 +1,20 @@
+---
+title: Recent Posts
+categories:
+- Investment Fees
+- Myths and Debunking
+active: true
+targets:
+- blog
+blog_position: 1
+---
+
+<div class="row recent-posts">
+    <div class="col-xs-12">
+            {% assign latestFirst = site.posts %}
+            {% for post in site.posts %}
+            <p><a href="#{{post.title | slugify}}">&#x21aa;&nbsp;{{post.title}}</a></p>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
