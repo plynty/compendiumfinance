@@ -85,21 +85,21 @@ $pie-chart-aspect-ratio: 1.7;
             stroke: #ff0000;
         }
 
-        .grad-linear-0 :hover {
-            fill: url(#gradLinHL0);
-        }
+        // .grad-linear-0 :hover {
+        //     fill: url(#gradLinHL0);
+        // }
 
-        .grad-linear-1 :hover {
-            fill: url(#gradLinHL1);
-        }
+        // .grad-linear-1 :hover {
+        //     fill: url(#gradLinHL1);
+        // }
 
-        .grad-linear-2 :hover {
-            fill: url(#gradLinHL2);
-        }
+        // .grad-linear-2 :hover {
+        //     fill: url(#gradLinHL2);
+        // }
 
-        .grad-linear-3 :hover {
-            fill: url(#gradLinHL3);
-        }
+        // .grad-linear-3 :hover {
+        //     fill: url(#gradLinHL3);
+        // }
 
         rect:hover {
             stroke: black;
@@ -111,10 +111,17 @@ $pie-chart-aspect-ratio: 1.7;
         }
 
         .x-axis-label {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             text-anchor: middle;
         }
 
+        .chart-overlay {
+            stroke-opacity: .2;
+        }
+
+        // .vertical:hover {
+        //     stroke-opacity: 1;
+        // }
     }
 
     #pie-chart {

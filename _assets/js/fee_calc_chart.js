@@ -25,6 +25,7 @@ function generateStack(svgSelector, style, curve) {
     genLinearGradients(geom.svg);
     initAxes(svgSelector);
     renderLegend(geom.topG, 80, 0);
+    initOverlay(svgSelector);
 
     /** validate the inputs, will trigger a render */
     validate();
@@ -80,14 +81,16 @@ function createChartGeometry(svgSelector, margin) {
         size = maxSize($(svgSelector).parent(), aspect, margin)
         width = size.chartW,
         height = size.chartH;
-    var svg = d3.select(svgSelector);
-        g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    var svg = d3.select(svgSelector),
+        topG = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")"),
+        chartG = topG.append("g").attr("class", "chart");
 
     svg.attr("viewBox", "0 0 "+size.w+" "+size.h); // set the "normal" size
 
     charts[svgSelector].geom = {
         svg: svg,
-        topG: g,
+        topG: topG,
+        chartG: chartG,
         width: width,
         height: height
     }
@@ -115,6 +118,7 @@ function initAxes(svgSelector) {
     var yScale = d3.scaleLinear()
         .rangeRound([geom.height, 0]);
 
+    var g = geom.topG;
     g.append("g")
         .attr("class", "axis x-axis")
         .attr("transform", "translate(0," + chartCtx.geom.height + ")");
@@ -126,7 +130,7 @@ function initAxes(svgSelector) {
     g.append("g")
         .attr("class", "x-axis-label")
         .attr("transform", "translate(" + (chartCtx.geom.width / 2) + ", " + (chartCtx.geom.height + 33) + ")")
-        .append("text").text("Years ( curve: "+chartCtx.curve+" )");
+        .append("text").text("Years");
 
     chartCtx.xScale = xScale;
     chartCtx.yScale = yScale;
@@ -210,6 +214,14 @@ function renderLegend(g, x, y) {
         .text(function (d) { return d; });
 }
 
+function initOverlay(svgSelector) {
+    chartCtx = charts[svgSelector];
+
+    var g = chartCtx.geom.topG.append("g")
+        .attr("class", "chart-overlay");
+    chartCtx.geom.overlayG = g;
+}
+
 /**
  * Render a stacked bar chart
  * @param g The <g> element to receive the chart
@@ -250,7 +262,9 @@ function renderAreaStack(svgSelector, data) {
     var stack = d3.stack();
 
     var area = d3.area()
-        .x(function(d, i) { return chartCtx.xScale(d.data.Year/*i+1*/); })
+        .x(function(d, i) { 
+            return chartCtx.xScale(d.data.Year/*i+1*/); 
+        })
         .y0(function(d) { return chartCtx.yScale(d[0]); })
         .y1(function(d) { return chartCtx.yScale(d[1]); });
 
@@ -293,9 +307,12 @@ function renderAreaStack(svgSelector, data) {
         }
         var thinData = [];
         if (pointGap == 1) {
+            // if all the points are included, just use the raw data
             thinData = data;
         } else {
+            // copy the column defs
             thinData.columns = data.columns;
+            // iterate through the data points, add only those that meet the minimum point distance
             for (var i = 0; i < data.length; i++) {
                 if (i == 0 || i == data.length-1) {
                     thinData.push(data[i]);
@@ -304,9 +321,10 @@ function renderAreaStack(svgSelector, data) {
                 }
             }
         }
+
         stack.keys(keys);
 
-        var layers = chartCtx.geom.topG.selectAll(".layer");
+        var layers = chartCtx.geom.chartG.selectAll(".layer");
         var layer = layers.data(stack(thinData));
 
         layer.exit().remove();
@@ -321,12 +339,35 @@ function renderAreaStack(svgSelector, data) {
         path.merge(path).transition().duration(2000)
             .attr("d", area);
 
-        var lines = chartCtx.geom.topG.selectAll(".line")
+        var lines = chartCtx.geom.chartG.selectAll(".line")
             .data(stack(thinData));
         lines.enter().append("path")
             .attr("class", function(d, i) { return "line line"+i; })
             .merge(lines).transition().duration(2000)
-            .attr("d", line1);
+            .attr("d", line1)
+            .attr("fill", "none");
+
+        chartCtx.geom.overlayG.selectAll(".column").remove();
+        var verticals = chartCtx.geom.overlayG.selectAll(".column")
+            .data(stack(data))
+            .enter()
+            .append("g")
+            .attr("class", function(d,i){ return "column line"+i; })
+            .selectAll("line")
+            .data(function(d, i) {
+                // var line = d3.line();
+                return d;
+            })
+            .enter()
+            .append("path")
+            .attr("class", "vertical")
+            .attr("d", function(d, i, data) {
+                var x = area.x()(d, i);
+                var y0 = area.y0()(d);
+                var y1 = area.y1()(d);
+                return "M"+x+" "+y0+" V"+y1;
+            })
+            .attr("fill", "none");
     });
 }
 

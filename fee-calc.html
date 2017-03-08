@@ -94,42 +94,6 @@ title: resources
                 </div>-->
             </div>
         <!--</div>-->
-        <div class="row">
-            <div class="col-sm-8 col-xs-12 ">
-                <div class="stack-chart pmd-card pmd-z-depth-2">
-                    <svg id="stack-chart2"></svg>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-8 col-xs-12 ">
-                <div class="stack-chart pmd-card pmd-z-depth-2">
-                    <svg id="stack-chart3"></svg>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-8 col-xs-12 ">
-                <div class="stack-chart pmd-card pmd-z-depth-2">
-                    <svg id="stack-chart4"></svg>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-8 col-xs-12 ">
-                <div class="stack-chart pmd-card pmd-z-depth-2">
-                    <svg id="stack-chart5"></svg>
-                </div>
-            </div>
-        </div>
-        <!--<div class="row">
-            <div class="col-sm-8 col-xs-12 ">
-                <div class="stack-chart pmd-card pmd-z-depth-2">
-                    <svg id="stack-chart6"></svg>
-                </div>
-            </div>
-        </div>-->
-
         <!-- jQuery before Propeller.js -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         
@@ -141,15 +105,7 @@ title: resources
         <script src="assets/js/fee_calc.js"></script>
         <script src="assets/js/fee_calc_chart.js"></script>
         <script>
-            // calculate();
-            // generateStack("#stack-chart", "barStack");
-            generateStack("#stack-chart", "areaStack", "cardinal");
-            generateStack("#stack-chart2", "areaStack", "catmullrom");
-            generateStack("#stack-chart3", "areaStack", "natural");
-            generateStack("#stack-chart4", "areaStack", "basis");
-            generateStack("#stack-chart5", "areaStack", "linear");
-            // // resize("#stack-chart", generateStack);
-            // generatePie("#pie-chart");
+            generateStack("#stack-chart", "areaStack", "basis");
         </script>
     </body>
 </html>
