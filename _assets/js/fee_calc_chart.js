@@ -42,7 +42,6 @@ function generateCharts(svgSelector, style, curve) {
 
     svgDefs(geom.svg);
     initAxes(svgSelector);
-    initOverlay(svgSelector);
     initLegend(svgSelector);
     initPie(svgSelector);
 
@@ -126,6 +125,8 @@ function createChartGeometry(svgSelector, margin) {
             .attr("opacity", config.showPie ? 0 : 1),
         graphG = chartG.append("g")
             .attr("class", "graph"),
+        overlayG = chartG.append("g")
+            .attr("class", "chart-overlay"),
         legendG = chartG.append("g")
             .attr("class", "legend"),
         pieG = topG.append("g")
@@ -144,6 +145,7 @@ function createChartGeometry(svgSelector, margin) {
         defs: defs,
         topG: topG,
         chartG: chartG,
+        overlayG: overlayG,
         legendG: legendG,
         pieG: pieG,
         width: width,
@@ -315,14 +317,6 @@ function renderLegend(svgSelector, data) {
         .text(function(d) {
             return d3.format("$,.0f")(d[d.length-1].data[d.key]);
         });
-}
-
-function initOverlay(svgSelector) {
-    var chartCtx = charts[svgSelector];
-
-    var g = chartCtx.geom.chartG.append("g")
-        .attr("class", "chart-overlay");
-    chartCtx.geom.overlayG = g;
 }
 
 /**
