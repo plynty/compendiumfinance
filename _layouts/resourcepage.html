@@ -3,26 +3,13 @@ layout: sitepage
 ---
 
 <div class="container-fluid">
-
-    <div class="row">
-        <div class="promos hidden-xs col-sm-2">
-            {% for promo in site.promos %}
-                {% if promo.targets contains 'blog' and promo.active %}
-                    {{promo.output}}
-                {% endif %}
-            {% endfor %}
+    <section id="cards" class="cards">
+        <div class="row">
+            <div class="resources col-xs-12">
+                {% for resource in site.resources %}
+                    {{resource.output}}
+                {% endfor %}
+            </div>
         </div>
-        <div class="blog-posts col-xs-12 col-sm-7">
-            {% for post in site.posts %}
-                {{post.output}}
-            {% endfor %}
-        </div>
-        <div class="tools hidden-xs col-sm-3">
-            {% for tool in site.tools %}
-                {% if tool.targets contains 'blog' and tool.active %}
-                    {{tool.output}}
-                {% endif %}
-            {% endfor %}
-        </div>
-    </div>
+    </section>
 </div>

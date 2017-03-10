@@ -1,0 +1,100 @@
+/* home page styles */
+$panel-height: 15rem;
+
+.resourcepage {
+    background-color: $compendium-primary-lt;
+
+    .resource-icon img {
+        display: block;
+        margin: auto;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+
+    .cards {
+
+        // > xs
+        @media only screen and (min-width: 768px) {
+            display: block;
+            margin: auto;
+            padding-top: 15px;
+
+            .pmd-card {
+                max-width: 900px;
+                height: $panel-height;
+                overflow: hidden;
+            }
+        }
+
+        //  xs
+        @media only screen and (max-width: 767px) {
+            .pmd-card {
+                margin: 1px 3px;
+            }
+
+            .cards {
+                margin-top: 1rem;
+            }
+        }
+
+        .resource-description {
+            font-size: 1.5rem;
+
+            header h1 {
+                text-transform: uppercase;
+                font-size: 2.0rem;
+                font-weight: 700;
+                margin-top: 10px;
+            }
+            header .category {
+                font-family: 'Fjalla One', sans-serif;
+                // font-family: 'Righteous', cursive;
+                font-size: smaller;
+                text-transform: uppercase;
+                color: $compendium-primary;
+            }
+
+            header .category .material-icons {
+                font-size: 1.5rem;
+                position: relative;
+                top: 2px;
+            }
+
+            footer {
+                text-align: right;
+            }
+
+            footer .btn-more .material-icons {
+                font-size: 1.2rem;
+                position: relative;
+                top: 2px;
+            }            
+            
+            header .date {
+                font-style: italic;
+                color: $compendium-fg-gray;
+                font-size: smaller;
+            }
+
+            // xs
+            @media only screen and (min-width: 768px) {
+                article {
+                    margin-top: 2rem;
+                }
+            }
+
+            footer .btn-more {
+                color: $compendium-primary;
+                border-radius: 2rem;
+                border-color: $compendium-primary;
+                text-transform: lowercase;
+            }
+
+        }
+    }
+    .pmd-card {
+        overflow: hidden;
+    }
+
+}

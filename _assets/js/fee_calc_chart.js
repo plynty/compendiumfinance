@@ -1,12 +1,30 @@
-var keys = ["You Keep", "Fund Fees", "Advisor Fees", "Lost Earnings"];
-var pieKeys = ["You Keep", "You Lose"];
+'use strict';
 
-var colors = [
-    "#42bd41", // green
-    "#ff4500", // red-1
-    "#dd382f", // red-2
-    "#ff0000"  // red-3
-];
+var config = {
+
+    keys: ["You Keep", "Fund Fees", "Advisor Fees", "Lost Earnings"],
+    pieKeys: ["You Keep", "You Lose"],
+
+    colors: [
+        "#42bd41", // green
+        "#ff4500", // red-1
+        "#dd382f", // red-2
+        "#ff0000"  // red-3
+    ],
+    pieColors: [  // gradient triples: [lowlight, color, highlight]
+        ["#373", "#3f3", "#6f6"], // green
+        ["#944", "#f33", "#f66"] //red
+    ],
+    legend: {
+        top: -8,
+        left: 0,
+        lineHeight: 20,
+        labelsRight: 60,
+        totalsRight: 100
+    },
+    
+    showPie: false
+}
 
 /** hold context info for all the charts on the page */
 var charts = {};
@@ -14,7 +32,7 @@ var charts = {};
 /**
  * Perform initial setup for a stack chart, then render the chartbased on initial data
  */
-function generateStack(svgSelector, style, curve) {
+function generateCharts(svgSelector, style, curve) {
      // create a new chart context
     charts[svgSelector] = {
         style: style,
@@ -22,15 +40,20 @@ function generateStack(svgSelector, style, curve) {
     };
     var geom = createChartGeometry(svgSelector);
 
-    genLinearGradients(geom.svg);
+    svgDefs(geom.svg);
     initAxes(svgSelector);
-    renderLegend(geom.topG, 80, 0);
     initOverlay(svgSelector);
+    initLegend(svgSelector);
+    initPie(svgSelector);
 
     /** validate the inputs, will trigger a render */
     validate();
 }
 
+/**
+ * 
+ * @param {*} svgSelector 
+ */
 function updateStack(svgSelector) {
     var chartCtx = charts[svgSelector];
     if (!chartCtx) {
@@ -42,12 +65,7 @@ function updateStack(svgSelector) {
         if (error) {
             throw error;
         }
-        // var axesOffset = {x: 0, y: 0};
-        // switch (style) {
-        //     case "areaStack":
-        //         axesOffset.x -= 20;
-        //         break;
-        // }
+
         renderAxes(svgSelector, data);
         switch (chartCtx.style) {
             case "barStack":
@@ -57,13 +75,29 @@ function updateStack(svgSelector) {
                 renderAreaStack(svgSelector, data);
                 break;
         }
+        renderLegend(svgSelector, data);
     });
 }
+
+function toggleChart(checkbox, svgSelector) {
+    var chartCtx = charts[svgSelector];
+    config.showPie = checkbox.checked;
+    var opacity = config.showPie ? 0 : 1;
+
+    function fade(selection, opacity) {
+        selection.transition().duration(1500)
+            .attr("opacity", opacity);
+            // .attr("stroke-opacity", opacity);
+    }
+    fade(chartCtx.geom.topG.select(".stack-chart"), opacity);
+    fade(chartCtx.geom.topG.select(".pie-chart"), 1 - opacity);
+}
+
 /**
  * Create a top-level <g> element within the <svg> element.  This
  * <g> element will contian all the drawing elements.  The <g> element
  * will maximize the space in the container but retain the optimal aspect
- * ratio for the chart.  The <g> will be offset to the center of the container.
+ * ratio for the chart.  
  * @param svgSelector CSS selector that uniquely identifies the <svg> element
  * @return A structure containing key geometry items:
  * { 
@@ -74,23 +108,44 @@ function updateStack(svgSelector) {
  * }
  */
 function createChartGeometry(svgSelector, margin) {
+    // clear anything that was there before
+    $(svgSelector + " > *").remove();
     if (!margin) {
         margin = { top: 20, right: 45, bottom: 40, left: 15 };
     }
-    var aspect = 1.5
-        size = maxSize($(svgSelector).parent(), aspect, margin)
+    var aspect = 1.5,
+        size = maxSize($(svgSelector).parent(), aspect, margin),
         width = size.chartW,
         height = size.chartH;
     var svg = d3.select(svgSelector),
-        topG = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")"),
-        chartG = topG.append("g").attr("class", "chart");
+        defs = svg.append("defs"),
+        topG = svg.append("g"),
+        chartG = topG.append("g")
+            .attr("class", "stack-chart")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .attr("opacity", config.showPie ? 0 : 1),
+        graphG = chartG.append("g")
+            .attr("class", "graph"),
+        legendG = chartG.append("g")
+            .attr("class", "legend"),
+        pieG = topG.append("g")
+            .attr("class", "pie-chart")
+            .attr("opacity", config.showPie ? 1 : 0);
 
-    svg.attr("viewBox", "0 0 "+size.w+" "+size.h); // set the "normal" size
+    /* the viewBox is the 'natural' size of the drawing.  When the browser
+        scales the drawing up and down, it will be relative to this size.  A resize
+        does not trigger a re-rendering of the vectors.  It looks like a 
+        simple bitmap resize, so linesget fatter/thinner, etc.  We need to
+        detect resize events in order to fire the rendering process again  */        
+    svg.attr("viewBox", "0 0 "+size.w+" "+size.h); 
 
     charts[svgSelector].geom = {
         svg: svg,
+        defs: defs,
         topG: topG,
         chartG: chartG,
+        legendG: legendG,
+        pieG: pieG,
         width: width,
         height: height
     }
@@ -118,7 +173,7 @@ function initAxes(svgSelector) {
     var yScale = d3.scaleLinear()
         .rangeRound([geom.height, 0]);
 
-    var g = geom.topG;
+    var g = geom.chartG;
     g.append("g")
         .attr("class", "axis x-axis")
         .attr("transform", "translate(0," + chartCtx.geom.height + ")");
@@ -156,7 +211,7 @@ function renderAxes(svgSelector, data) {//g, data, geom, style) {
 
     chartCtx.yScale.domain([0, d3.max(data, function (d) { return d.total; })]).nice();
 
-    var g = chartCtx.geom.topG;
+    var g = chartCtx.geom.chartG;
 
     // determine whether axis numbers need to be removed for space considerations
     var minNumberPx = 15;
@@ -165,7 +220,7 @@ function renderAxes(svgSelector, data) {//g, data, geom, style) {
     while (tickWidth * tickGap < minNumberPx) {
         tickGap++;
     }
-    t = g.transition().duration(2000);
+    var t = g.transition().duration(2000);
     t.select(".x-axis")
         .call(d3.axisBottom(chartCtx.xScale)
             .ticks(data.length)
@@ -191,33 +246,81 @@ function renderAxes(svgSelector, data) {//g, data, geom, style) {
  * @param x The x-offset relative to <g>
  * @param y The y-offset relative to <g>
  */
-function renderLegend(g, x, y) {
-    var legend = g.append("g")
-        .attr("class", "legend")
-        .attr("text-anchor", "end")
-        .attr("transform", "translate("+x+", "+y+")")
+function initLegend(svgSelector) {
+    var chartCtx = charts[svgSelector];
+    var legendG = chartCtx.geom.legendG;
+    legendG.attr("text-anchor", "end")
+        .attr("transform", "translate("+config.legend.left+", "+config.legend.top+")");
+
+    legendG.append("rect")
+        .attr("class", "mask")
+        .attr("x", -8).attr("y", -5)
+        .attr("width", config.legend.totalsRight+config.legend.labelsRight + 16)
+        .attr("height", config.legend.lineHeight * config.keys.length + 10)
+        .attr("rx", 20).attr("ry", 15);
+
+    var legend = legendG
         .selectAll("g")
-        .data(keys.slice().reverse())
+        .data(config.keys.slice().reverse())
         .enter().append("g")
-        .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+        .attr("transform", function (d, i) { return "translate(0," + i * config.legend.lineHeight + ")"; });
 
     legend.append("rect")
-        .attr("x", 5)
+        .attr("class", "color-key")
+        .attr("x", config.legend.labelsRight + 5)
         .attr("width", 19)
         .attr("height", 19)
-        .attr("class", function(d, i) { return "legend-"+(keys.length-1-i) });
+        .attr("class", function(d, i) { return "legend-"+(config.keys.length-1-i) });
 
     legend.append("text")
-        .attr("x", 0)
-        .attr("y", 9.5)
+        .attr("class", "legend-label")
+        .attr("x", config.legend.labelsRight)
+        .attr("y", 10)
         .attr("dy", "0.32em")
         .text(function (d) { return d; });
 }
 
-function initOverlay(svgSelector) {
-    chartCtx = charts[svgSelector];
+/**
+ * Update the variable portion of the legend: the totals
+ */
+function renderLegend(svgSelector, data) {
+    var chartCtx = charts[svgSelector];
 
-    var g = chartCtx.geom.topG.append("g")
+    var grandTotal = data[data.length-1].total;
+
+    chartCtx.geom.legendG.selectAll(".total").remove();
+    var totalEnter = chartCtx.geom.legendG.selectAll(".total")
+        .data(d3.stack().keys(config.keys.slice().reverse())(data))
+        .enter().append("g")
+        .attr("class", "total")
+        .attr("transform", function (d, i) { return "translate("+config.legend.totalsRight+"," + i * config.legend.lineHeight + ")"; });
+    var percentages = totalEnter
+        .append("text")
+        .attr("class", "percent")
+        .attr("x", 8)
+        .attr("y", 10)
+        .attr("dy", "0.32em");
+    var values = totalEnter
+        .append("text")
+        .attr("class", "value")
+        .attr("x", config.legend.labelsRight)
+        .attr("y", 10)
+        .attr("dy", "0.32em");
+
+    percentages.merge(percentages)
+        .text(function(d) {
+            return d3.format(".0%")(d[d.length-1].data[d.key] / grandTotal);
+        });
+    values.merge(values)
+        .text(function(d) {
+            return d3.format("$,.0f")(d[d.length-1].data[d.key]);
+        });
+}
+
+function initOverlay(svgSelector) {
+    var chartCtx = charts[svgSelector];
+
+    var g = chartCtx.geom.chartG.append("g")
         .attr("class", "chart-overlay");
     chartCtx.geom.overlayG = g;
 }
@@ -229,10 +332,11 @@ function initOverlay(svgSelector) {
  * @param scale The x & y scale axes
  */
 function renderBarStack(svgSelector, data) {
-    chartCtx = charts[svgSelector];
+    var chartCtx = charts[svgSelector];
+    var g = chartCtx.geom.chartG;
     g.append("g")
         .selectAll("g")
-        .data(d3.stack().keys(keys)(data))
+        .data(d3.stack().keys(config.keys)(data))
         .enter().append("g")
             .attr("class", function (d, i) { return "grad-linear-"+i; })
         .selectAll("rect")
@@ -258,7 +362,7 @@ function renderBarStack(svgSelector, data) {
  * @param curve The curve function for interpolating points
  */
 function renderAreaStack(svgSelector, data) {
-    chartCtx = charts[svgSelector];
+    var chartCtx = charts[svgSelector];
     var stack = d3.stack();
 
     var area = d3.area()
@@ -322,31 +426,35 @@ function renderAreaStack(svgSelector, data) {
             }
         }
 
-        stack.keys(keys);
+        stack.keys(config.keys);
 
-        var layers = chartCtx.geom.chartG.selectAll(".layer");
+        // a 'layer' is one tier of the stack
+        var layers = chartCtx.geom.chartG.select(".graph").selectAll(".layer");
         var layer = layers.data(stack(thinData));
 
         layer.exit().remove();
 
+        // draw the areas
         layer.enter().append("g")
-            .attr("class", function(d, i) { return "layer grad-linear-"+i; } )//;
+            .attr("class", function(d, i) { return "layer area-"+i; } )//;
             .append("path")
-                .attr("class", function(d, i) { return "area grad-linear-"+i; })
+                .attr("class", function(d, i) { return "area area-"+i; })
                 .attr("d", area);
 
         var path = layer.select("path");
         path.merge(path).transition().duration(2000)
             .attr("d", area);
 
-        var lines = chartCtx.geom.chartG.selectAll(".line")
+        // draw the lines at the top of the areas, using the same curve
+        var lines = chartCtx.geom.chartG.select(".graph").selectAll(".line")
             .data(stack(thinData));
         lines.enter().append("path")
             .attr("class", function(d, i) { return "line line"+i; })
+            .attr("fill", "none")
             .merge(lines).transition().duration(2000)
-            .attr("d", line1)
-            .attr("fill", "none");
+            .attr("d", line1);
 
+        // draw the vertical guides on the overlay
         chartCtx.geom.overlayG.selectAll(".column").remove();
         var verticals = chartCtx.geom.overlayG.selectAll(".column")
             .data(stack(data))
@@ -380,23 +488,22 @@ function renderAreaStack(svgSelector, data) {
  * 3 colors, a lowlight, normal, and highlight color for the gradient.
  * If not provided a default is applied.
  */
-function genLinearGradients(svg, gradColors) {
-    if (!gradColors) {
-        // if not provided, use default colors
-        gradColors = [
-                ["#338833", "#42bd41", "#88ff88"], // green
-                ["#cc3200", "#ff4500", "#ff8800"], // red-1
-                ["#992520", "#dd382f", "#ee6644"], // red-2
-                ["#bb0000", "#ff0000", "#ff6666"]  // red-3
-            ];
-    }
-    var enterGrads = svg
-        .insert("defs")
+function svgDefs(svg) {
+    var gradColors = [
+        ["#338833", "#42bd41", "#88ff88"], // green
+        ["#cc3200", "#ff4500", "#ff8800"], // red-1
+        ["#992520", "#dd382f", "#ee6644"], // red-2
+        ["#bb0000", "#ff0000", "#ff6666"]  // red-3
+    ];
+    var defs = svg.select("defs");
+
+    // define linear gradients
+    var linears = defs
         .selectAll("linearGradient")
         .data(gradColors)
         .enter();
         
-    var colorGrads = enterGrads.append("linearGradient")
+    var colorGrads = linears.append("linearGradient")
         .attr("id", function(d, i) { return "gradLin" + i; })
         .attr("x1", "0%")
         .attr("y1", "100%")
@@ -405,13 +512,13 @@ function genLinearGradients(svg, gradColors) {
     colorGrads.append("stop")
         .attr("class", "dark")
         .attr("offset", "0%")
-        .attr("stop-color", function(d, i) { return colors[i][0]; });
+        .attr("stop-color", function(d, i) { return config.colors[i][0]; });
     colorGrads.append("stop")
         .attr("class", "color")
         .attr("offset", "25%")
         .attr("stop-color", function(d, i) { return gradColors[i][1]; });
 
-    var hiLiGrads = enterGrads.append("linearGradient")
+    var hiLiGrads = linears.append("linearGradient")
         .attr("id", function(d, i) { return "gradLinHL" + i; })
         .attr("x1", "0%")
         .attr("y1", "100%")
@@ -420,51 +527,93 @@ function genLinearGradients(svg, gradColors) {
     hiLiGrads.append("stop")
         .attr("class", "dark")
         .attr("offset", "0%")
-        .attr("stop-color", function(d, i) { return gradColors[i][1]; });
+        .attr("stop-color", function(d) { return d[1]; });
     hiLiGrads.append("stop")
         .attr("class", "color")
         .attr("offset", "25%")
-        .attr("stop-color", function(d, i) { return gradColors[i][2]; });
+        .attr("stop-color", function(d) { return d[2]; });
+
+    // define radial gradients
+    var radials = defs
+        .selectAll("radialGradient")
+        .data(d3.pie()(config.pieColors), function(d, i){ return "grad" + i; })
+        .enter();
+        
+    var colorGrads = radials.append("radialGradient")
+        .attr("gradientUnits", "userSpaceOnUse")
+        .attr("cx", 0)
+        .attr("cy", 0)
+        .attr("r", "75%")
+        .attr("id", function(d, i) { return "grad" + i; });
+    colorGrads.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", function(d) { return d.data[1]; });
+    colorGrads.append("stop")
+        .attr("offset", "85%")
+        .attr("stop-color", function(d) { return d.data[0]; });
+
+    var hiLites = radials.append("radialGradient")
+        .attr("gradientUnits", "userSpaceOnUse")
+        .attr("cx", 0)
+        .attr("cy", 0)
+        .attr("r", "75%")
+        .attr("id", function(d, i) { return "gradHL" + i; });
+    hiLites.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", function(d) { return d.data[2]; });
+    hiLites.append("stop")
+        .attr("offset", "75%")
+        .attr("stop-color", function(d) { return d.data[1]; });
 }
 /**
  * 
  */
-function generatePie(pieId) {
-    var targetAspect = 2.7
-        // $(pieId).width(svgW);
-        // $(pieId).height(svgH);
-    var size = maxSize($(pieId).parent(), targetAspect);
-    var width = size.w,
-        height = size.h,
-        radius = Math.min(width, height) / 2;
+function initPie(svgSelector) {
+    var chartCtx = charts[svgSelector];
 
-    var svg = d3.select(pieId),
-        margin = { top: 20, right: 45, bottom: 30, left: 15 },
-        width = width - margin.left - margin.right,
-        height = height - margin.top - margin.bottom,
-        g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    var parentH = $(svgSelector).parent().innerHeight();
+    var targetAspect = (parentH + 375) / parentH,
+        margin = { top: 0, right: 0, bottom: 0, left: 0 };
+    var size = maxSize($(svgSelector).parent(), targetAspect, margin, true);
+    var width = size.w,
+        height = size.h;
+    chartCtx.radius = Math.min(width, height) / 2;
+
+    var centerX = size.parentW / 2 - 30, // don't know where this offset of 30 comes from!?!?
+        centerY = size.parentH / 2 - 30;
+        chartCtx.geom.pieG.attr("transform", "translate(" + centerX + "," + centerY + ")");
+
+    chartCtx.colorScale = d3.scaleOrdinal()
+        .domain(config.pieKeys)
+        .range(config.pieColors);
+
+    var g = chartCtx.geom.pieG;
+    g.append("g")
+        .attr("class", "slices");
+    g.append("g")
+        .attr("class", "labels");
+    g.append("g")
+        .attr("class", "lines");
+}
+
+function updatePie(svgSelector) {
+    var chartCtx = charts[svgSelector];
+    var color = chartCtx.colorScale;
 
     fetchData(function(error, data) {
         var values = data[data.length-1];
         var loseTotal = values["Fund Fees"] + values["Advisor Fees"] + values["Lost Earnings"];
         var keepTotal = values.total - loseTotal;
 
-        var color = d3.scaleOrdinal()
-            .domain(["You Keep", "You Lose"])
-            .range([  // gradient triples: [lowlight, color, highlight]
-                ["#373", "#3f3", "#6f6"], // green
-                ["#944", "#f33", "#f66"] //red
-            ]);
-
         var pieData = [
             { 
-                label: color.domain()[0], 
+                label: config.pieKeys[0], 
                 value: keepTotal,
                 fmtValue: d3.format('$,.0f')(keepTotal),
                 percent: d3.format('.0%')(keepTotal/values.total)
             },
             { 
-                label: color.domain()[1], 
+                label: config.pieKeys[1], 
                 value: loseTotal,
                 fmtValue: d3.format('$,.0f')(loseTotal),
                 percent: d3.format('.0%')(loseTotal/values.total)
@@ -477,148 +626,98 @@ function generatePie(pieId) {
                 return d.value;
             });
 
-        var enterGrads = g
-            .attr("viewBox", "0 0 400 250") // set the "normal" size
-            .append("defs")
-            .selectAll("radialGradient")
-            .data(pie(pieData), function(d, i){ return "grad" + i; })
-            .enter();
-            
-        var colorGrads = enterGrads.append("radialGradient")
-            .attr("gradientUnits", "userSpaceOnUse")
-            .attr("cx", 0)
-            .attr("cy", 0)
-            .attr("r", "75%")
-            .attr("id", function(d, i) { return "grad" + i; });
-        colorGrads.append("stop")
-            .attr("offset", "0%")
-            .attr("stop-color", function(d, i) { return color(i)[1]; });
-        colorGrads.append("stop")
-            .attr("offset", "85%")
-            .attr("stop-color", function(d, i) { return color(i)[0]; });
-
-        var hiLiGrads = enterGrads.append("radialGradient")
-            .attr("gradientUnits", "userSpaceOnUse")
-            .attr("cx", 0)
-            .attr("cy", 0)
-            .attr("r", "75%")
-            .attr("id", function(d, i) { return "gradHL" + i; });
-        hiLiGrads.append("stop")
-            .attr("offset", "0%")
-            .attr("stop-color", function(d, i) { return color(i)[2]; });
-        hiLiGrads.append("stop")
-            .attr("offset", "75%")
-            .attr("stop-color", function(d, i) { return color(i)[1]; });
-
-        // var svg = d3.select(pieId)
-        //     .append("g")
-
-        g.append("g")
-            .attr("class", "slices");
-        g.append("g")
-            .attr("class", "labels");
-        g.append("g")
-            .attr("class", "lines");
-
         var arc = d3.arc()
-            .outerRadius(radius * 0.8)
+            .outerRadius(chartCtx.radius * 0.8)
             .innerRadius(0);
 
         var outerArc = d3.arc()
-            .innerRadius(radius * 0.9)
-            .outerRadius(radius * 0.9);
-
-        // svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+            .innerRadius(chartCtx.radius * 0.9)
+            .outerRadius(chartCtx.radius * 0.9);
 
         var key = function (d) { 
             return d.data.label; 
         };
 
-        change(pieData);
+        var g = chartCtx.geom.pieG;
+        /* ------- PIE SLICES -------*/
+        var slice = g.select(".slices").selectAll(".slice")
+            .data(pie(pieData)/*, key*/);
 
-        function change(pieData) {
+        slice.exit()
+            .remove();
 
-            /* ------- PIE SLICES -------*/
-            var slice = svg.select(".slices").selectAll("path.slice")
-                .data(pie(pieData), key);
+        var slices = slice.enter()
+            .append("path")
+            .attr("class", function (d, i) { return "slice grad-radial-"+i; })
+            .attr("fill", function (d, i) { return "url(#grad"+i+")"; });
 
-            slice.exit()
-                .remove();
+        slices.merge(slice)
+            .transition().duration(1000)
+            .attrTween("d", function (d) {
+                this._current = this._current || d;
+                var interpolate = d3.interpolate(this._current, d);
+                this._current = interpolate(0);
+                return function (t) {
+                    var d2 = interpolate(t);
+                    return arc(d2);
+                };
+            });
+        slices.append("title").text(function(d) { return "Total: " + d.data.fmtValue; });
+        
+        /* ------- TEXT LABELS -------*/
 
-            var paths = slice.enter()
-                .insert("path")
-                .attr("class", "slice")
-                .attr("class", function (d, i) { return "grad-radial-"+i; })
-                .attr("fill", function (d, i) { return "url(#grad"+i+")"; });
+        var text = g.select(".labels").selectAll("text")
+            .data(pie(pieData), key);
 
-            paths.merge(slice)
-                .transition().duration(1000)
-                .attrTween("d", function (d) {
-                    this._current = this._current || d;
-                    var interpolate = d3.interpolate(this._current, d);
-                    this._current = interpolate(0);
-                    return function (t) {
-                        return arc(interpolate(t));
-                    };
-                })
-            paths.append("title").text(function(d) { return "Total: " + d.data.fmtValue; });
-            
-            /* ------- TEXT LABELS -------*/
+        function midAngle(d) {
+            return d.startAngle + (d.endAngle - d.startAngle) / 2;
+        }
 
-            var text = svg.select(".labels").selectAll("text")
-                .data(pie(pieData), key);
+        var textMerge = text.enter()
+            .append("text")
+        .merge(text);
+        
+        textMerge.html(function (d) {
+                var html = '<tspan class="pie-label" x="0">'+d.data.label+"</tspan>";
+                html += '<tspan class="amount" x="0" y="20">'+d.data.fmtValue+'</tspan>';
+                html += '<tspan class="percent" x="0" y="40">'+d.data.percent+'</tspan>';
+                return html;
+            });
 
-            function midAngle(d) {
-                return d.startAngle + (d.endAngle - d.startAngle) / 2;
-            }
+        textMerge.transition().duration(1000)
+            .attrTween("transform", function (d) {
+                this._current = this._current || d;
+                var interpolate = d3.interpolate(this._current, d);
+                this._current = interpolate(0);
+                return function (t) {
+                    var d2 = interpolate(t);
+                    var pos = outerArc.centroid(d2);
+                    pos[0] = chartCtx.radius * (midAngle(d2) < Math.PI ? 1 : -1);
+                    pos[1] -= 10; // adjust for multi-line text
+                    return "translate(" + pos + ")";
+                };
+            })
+            .styleTween("text-anchor", function (d) {
+                this._current = this._current || d;
+                var interpolate = d3.interpolate(this._current, d);
+                this._current = interpolate(0);
+                return function (t) {
+                    var d2 = interpolate(t);
+                    return midAngle(d2) < Math.PI ? "start" : "end";
+                };
+            });
 
-            var textMerge = text.enter()
-                .append("text")
-                .attr("dy", ".35em")
-            .merge(text);
-            
-            textMerge.html(function (d) {
-                    var html = '<tspan class="pie-label" x="0" dy="1.4rem">'+d.data.label+"</tspan>";
-                    html += '<tspan class="amount" x="0" dy="1.4rem">'+d.data.fmtValue+'</tspan>';
-                    html += '<tspan class="percent" x="0" dy="1.4rem">'+d.data.percent+'</tspan>';
-                    return html;
-                });
+        text.exit()
+            .remove();
 
-            textMerge.transition().duration(1000)
-                .attrTween("transform", function (d) {
-                    this._current = this._current || d;
-                    var interpolate = d3.interpolate(this._current, d);
-                    this._current = interpolate(0);
-                    return function (t) {
-                        var d2 = interpolate(t);
-                        var pos = outerArc.centroid(d2);
-                        pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
-                        pos[1] -= 10; // adjust for multi-line text
-                        return "translate(" + pos + ")";
-                    };
-                })
-                .styleTween("text-anchor", function (d) {
-                    this._current = this._current || d;
-                    var interpolate = d3.interpolate(this._current, d);
-                    this._current = interpolate(0);
-                    return function (t) {
-                        var d2 = interpolate(t);
-                        return midAngle(d2) < Math.PI ? "start" : "end";
-                    };
-                });
+        /* ------- SLICE TO TEXT POLYLINES -------*/
 
-            text.exit()
-                .remove();
+        var polyline = g.select(".lines").selectAll("polyline")
+            .data(pie(pieData), key);
 
-            /* ------- SLICE TO TEXT POLYLINES -------*/
-
-            var polyline = svg.select(".lines").selectAll("polyline")
-                .data(pie(pieData), key);
-
-            polyline.enter()
-                .append("polyline")
+        polyline.enter()
+            .append("polyline")
             .merge(polyline)
-
             .transition().duration(1000)
                 .attrTween("points", function (d) {
                     this._current = this._current || d;
@@ -627,14 +726,13 @@ function generatePie(pieId) {
                     return function (t) {
                         var d2 = interpolate(t);
                         var pos = outerArc.centroid(d2);
-                        pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+                        pos[0] = chartCtx.radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
                         return [arc.centroid(d2), outerArc.centroid(d2), pos];
                     };
                 });
 
-            polyline.exit()
-                .remove();
-        };
+        polyline.exit()
+            .remove();
     });
 }
 
@@ -648,22 +746,35 @@ function generatePie(pieId) {
  * graphing area, not including the axes.  the axes are drawn into the
  * margin area.  This makes the calculation a little weird, but it is 
  * easier for d3 to compute scale distances.
+ * @param mustFit If true, then the box is not allowed to grow
  * @return Object containing multiple sizes: 
  * w,h: total svg drawing size, including axes
  * chartW,chartH: area where the main chart resides, without axes
  * parentW,parentH: total inner area of the parent container.
  * 
  */
-function maxSize(parent, aspectRatio, margin) {
+function maxSize(parent, aspectRatio, margin, mustFit) {
     if (!margin) {
         margin = {top: 10, right: 10, bottom: 10, left: 10};
     }
-    var w = parentW = parent.innerWidth(),
-        h = parentH = parent.innerHeight();
+    var parentW = parent.innerWidth(),
+        parentH = parent.innerHeight(),
+        w = parentW - margin.left - margin.right,
+        h = parentH - margin.top - margin.bottom;
     if (w / h < aspectRatio) {
-        w = aspectRatio * h;
+        // the area is too too tall/narrow
+        if (mustFit) {
+            h = w / aspectRatio;  // shrink the height
+        } else {
+            w = aspectRatio * h;  // grow the width
+        }
     } else {
-        h = w / aspectRatio;
+        // the area is too short/wide
+        if (mustFit) {
+            w = h * aspectRatio;  // shrink the width
+        } else {
+            h = w / aspectRatio;  // grow the height
+        }
     }
     return {
         w: w, h: h, 

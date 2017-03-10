@@ -24,12 +24,11 @@ $social-linkedin: #0077ba !default;
 @import "header";
 @import "home";
 // @import "aboutus";
-// @import "resources";
+@import "resources";
 // @import "post";
 // @import "resetpassword";
 @import "modal";
 @import "fee-calc";
-// @import "tools";
 // @import "promos";
 
 /**
@@ -119,10 +118,6 @@ main {
     margin: auto;
 }
 
-.nav-padding {
-    height: 75px;
-    background-color: $compendium-primary;
-}
 page > footer {
     margin: 0;
     -ms-flex-negative: 0;
