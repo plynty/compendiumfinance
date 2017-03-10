@@ -22,11 +22,8 @@ function calculate() {
     rateAdvisorFee = parseFloat($("#advisor-fee").val()) / 100;
     console.log(rateAdvisorFee);
 
-    updateStack("#stack-chart");
-    updateStack("#stack-chart2");
-    updateStack("#stack-chart3");
-    updateStack("#stack-chart4");
-    updateStack("#stack-chart5");
+    updateStack("#chart");
+    updatePie("#chart")
 }
 
 /**
@@ -50,7 +47,28 @@ function fetchData(callback) {
         row.total = row["You Keep"] + row["Fund Fees"] + row["Advisor Fees"] + row["Lost Earnings"];
         data.push(row);
     }
-    data.columns = ["Year"].concat(keys);
+    data.columns = ["Year"].concat(config.keys);
 
     callback(null, data);
 }
+
+// detect size changes
+var timer;
+var size = {x: 0, y:0};
+function resizeChart(selector) {
+    console.log("Body resized");
+    if (timer) {
+        clearTimeout(timer);
+    }
+    var element = $(selector);
+    if (size.x != element.width() || size.y != element.height()) {
+        console.log("new size: " + element.width() + ", "+ element.height());
+        size.x = element.width();
+        size.y = element.height();
+        timer = setTimeout(function(event) {
+            console.log("Chart resized");
+            generateCharts("#chart", "areaStack", "basis");
+        }, 300);
+    }
+    return true;
+};

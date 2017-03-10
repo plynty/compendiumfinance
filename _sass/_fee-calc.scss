@@ -1,8 +1,28 @@
-$bar-chart-min-width: 200;
-$bar-chart-aspect-ratio: 2;
-$pie-chart-min-width: 200;
-$pie-chart-aspect-ratio: 1.7;
+
 .fee-calculator {
+
+    // > xs
+    @media only screen and (min-width: 768px) {
+        // max-width: 1200px;
+        display: block;
+        margin: auto;
+
+        .pmd-card {
+            margin: auto;
+            min-height: 50rem;
+            overflow: hidden;
+        }
+    }
+    //  xs
+    @media only screen and (max-width: 767px) {
+        .pmd-card {
+            margin: 1px 1px;
+        }
+    }
+
+    .pmd-card {
+        max-width: 900px;
+    }
 
     .form-group {
         margin-left: 2rem;
@@ -14,44 +34,28 @@ $pie-chart-aspect-ratio: 1.7;
     }
 
     div.stack-chart {
-        // min-height: 250px;
+        border-bottom: solid thin lightgray
     }
     div.stack-chart, #stack-chart {
         width: 100%;
         height: 100%;
-        // min-width: ($bar-chart-min-width)+0px;
-        // min-height: ($bar-chart-min-width / $bar-chart-aspect-ratio)+0px;
-        // max-width: 1000px;//($bar-chart-min-width * 2)+0px;
-        // max-height: ($bar-chart-min-width / $bar-chart-aspect-ratio * 2)+0px;
     }
 
     div.pie-chart, #pie-chart {
         width: 100%;
         height: 100%;
-        // min-width: ($pie-chart-min-width)+0px;
-        // min-height: ($pie-chart-min-width / $pie-chart-aspect-ratio)+0px;
-        // max-width: ($pie-chart-min-width * 2)+0px;
-        // max-height: ($pie-chart-min-width  / $pie-chart-aspect-ratio * 2)+0px;
     }
-
-    // div.stack-chart, div.pie-chart {
-    //     // float: left;
-    //     // margin: 2rem;
-    // }
 
     .stack-chart {
         height: 100%;
         width: 100%;
 
-        .legend rect {
-            stroke-width: 1px;
-        }
         .line {
             stroke-width: 1;
             fill: none;
         }
 
-        .grad-linear-0, .legend-0 {
+        .area-0, .legend-0 {
             fill: #42bd41;
             fill-opacity: 0.3;
         }
@@ -59,7 +63,7 @@ $pie-chart-aspect-ratio: 1.7;
             stroke: #42bd41;
         }
 
-        .grad-linear-1, .legend-1  {
+        .area-1, .legend-1  {
             fill: #ff4500;
             fill-opacity: 0.3;
         }
@@ -67,8 +71,7 @@ $pie-chart-aspect-ratio: 1.7;
             stroke: #ff4500;
         }
 
-        .grad-linear-2, .legend-2  {
-            // fill: url(#gradLin2);
+        .area-2, .legend-2  {
             fill: #dd382f;
             fill-opacity: 0.3;
         }
@@ -76,30 +79,13 @@ $pie-chart-aspect-ratio: 1.7;
             stroke: #dd382f;
         }
 
-        .grad-linear-3, .legend-3  {
-            // fill: url(#gradLin3);
+        .area-3, .legend-3  {
             fill: #ff0000;
             fill-opacity: 0.3;
         }
         .line3, .legend-3 {
             stroke: #ff0000;
         }
-
-        // .grad-linear-0 :hover {
-        //     fill: url(#gradLinHL0);
-        // }
-
-        // .grad-linear-1 :hover {
-        //     fill: url(#gradLinHL1);
-        // }
-
-        // .grad-linear-2 :hover {
-        //     fill: url(#gradLinHL2);
-        // }
-
-        // .grad-linear-3 :hover {
-        //     fill: url(#gradLinHL3);
-        // }
 
         rect:hover {
             stroke: black;
@@ -109,7 +95,14 @@ $pie-chart-aspect-ratio: 1.7;
         .legend {
             font-size: 1rem;
         }
-
+        .legend rect {
+            stroke-width: 1px;
+        }
+        .legend .mask {
+            fill: white;
+            fill-opacity: .75;
+            stroke: lightgray;
+        }
         .x-axis-label {
             font-size: 1.2rem;
             text-anchor: middle;
@@ -119,22 +112,14 @@ $pie-chart-aspect-ratio: 1.7;
             stroke-opacity: .2;
         }
 
-        // .vertical:hover {
-        //     stroke-opacity: 1;
-        // }
     }
 
-    #pie-chart {
+    .pie-chart {
         width: 100%;
         height: 100%;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-        // path.slice{
-        //     stroke-width:2px;
-        // }
 
         polyline{
-            // opacity: .3;
             stroke: black;
             stroke-width: 1px;
             fill: none;
@@ -166,12 +151,12 @@ $pie-chart-aspect-ratio: 1.7;
             font-family: Arsenal;
         }
 
-        .labels tspan.pie-label {
-        }
         .labels tspan.amount {
             font-size: 80%;
             font-weight: 600;
             font-style: italic;
+            transform: translate(0px, 1.8em);
+            -webkit-transform: translate(74px,0px);
         }
         .labels tspan.percent {
             font-size: 80%;
@@ -186,5 +171,9 @@ $pie-chart-aspect-ratio: 1.7;
 
     .row {
         margin-top: 1rem;
+    }
+
+    .pmd-textfield label {
+        min-height: 36px;
     }
 }
