@@ -3,16 +3,25 @@
             {% for article in site.articles %}
                 {% if article.article_id == page.article_id %}
                     {% assign modal = article %}
+                    {% assign modal_id = article.modal_id %}
+                    {% assign len = modal_id | size %}
+                    {% if 0 == len %}
+                        {% assign modal_id = modal.article_id | append: '-modal' %}
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         {% endif %}
-        {% if modal == nil %}
-            <a href="{{page.link}}" {% unless page.same_tab %}target="_blank" {% endunless %}>
-        {% else %}
-            <a href="" data-toggle="modal" data-target="#{{modal.modal_id}}">
+        {% assign linkTitle = page.link_title %}
+        {% if linkTitle == nil %}
+            {% assign linkTitle = 'Read More...' %}
         {% endif %}
-                <div id="{{page.title | slugify}}" class="pmd-ripple-effect pmd-card pmd-z-depth-1 {{page.format_class}}">
-                    {{content}}
-                </div>
+        <div id="{{page.title | slugify}}" class="pmd-ripple-effect pmd-card pmd-z-depth-1 {{page.format_class}}">
+            {% if modal == nil %}
+                <a href="{{page.link}}" {% if page.source == 'external' %}target="_blank" {% endif %} title="{{linkTitle}}">
+            {% else %}
+                <a href="" data-toggle="modal" data-target="#{{modal_id}}" title="{{linkTitle}}">
+            {% endif %}
+                {{content}}
             </a>
+        </div>
          {% assign modal = nil %}

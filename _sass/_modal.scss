@@ -7,8 +7,17 @@ $modal-body-height-sm: 300px;
     font-size: 1.5rem;
 
     button.close {
-      color: $compendium-primary-lt;
-      opacity: 1.0;
+        color: $compendium-primary-lt;
+        background-color: rgba(0, 0, 0, 0);
+        border: solid thin $compendium-primary-lt;
+        i {
+            margin-top: -1px;
+        }
+        opacity: 1.0;
+    }
+
+    button.close :hover {
+        color: black;
     }
 }
 

@@ -3,14 +3,6 @@ $panel-height: 30rem;
 $hero-height: 48rem;
 
 .homepage {
-    background-color: $compendium-primary-lt;
-
-    .card-media-panel img, .card-media-panel iframe {
-        display: block;
-        margin: auto;
-        max-height: 100%;
-        max-width: 100%;
-    }
 
     .hero {
         background-color: $compendium-primary;
@@ -140,29 +132,25 @@ $hero-height: 48rem;
 
     .cards {
 
+        //  xs
+        @media only screen and (max-width: $xs-max) {
+            .cards .panel-1x1 + .panel-1x1 {
+                margin-top: 1rem;
+            }
+        }
+
         // > xs
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: $sm-min) {
             max-width: 1200px;
             display: block;
             margin: auto;
             padding-top: 15px;
 
             .card-height-1 {
-                .card-media-panel, .card-copy-panel {
+                .card-media-panel, 
+                .card-copy-panel {
                     height: $panel-height;
-                    overflow: hidden;
                 }
-            }
-        }
-
-        //  xs
-        @media only screen and (max-width: 767px) {
-            .pmd-card {
-                margin: 1px 3px;
-            }
-
-            .cards .panel-1x1 + .panel-1x1 {
-                margin-top: 1rem;
             }
         }
 
@@ -236,11 +224,4 @@ $hero-height: 48rem;
         color: $compendium-fg-white;
     }
 
-    .pmd-card {
-        overflow: hidden;
-    }
-
-    .borderless-card {
-        background-color: $compendium-bg-white;
-    }
 }

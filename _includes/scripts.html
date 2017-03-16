@@ -43,7 +43,7 @@
     // }
   /* End Menu */
 
-  // card animation
+  // card animation -- raised shadow
   $(".pmd-card").hover(
     function(event) {
       removeShadow($(this)).addClass("pmd-z-depth-3");
@@ -51,12 +51,23 @@
       removeShadow($(this)).addClass("pmd-z-depth-1");
   });
 
+  // card animation -- lower shadow on click
   $(".pmd-card").mousedown(function(event) {
     var element = $(this);
     removeShadow(element);
     setTimeout(function() {
       removeShadow(element).addClass("pmd-z-depth-3");
     }, 100);
+  });
+
+  // card resize, maintain aspect ratio
+  $().ready(function() {
+    $(window).resize(function() {
+      console.log("body resize");
+      $('[class*=cf-ar-]').each(function(index) {
+        console.log($(this).attr("class"));
+      });
+    });
   });
 
   function removeShadow(jqElement) {

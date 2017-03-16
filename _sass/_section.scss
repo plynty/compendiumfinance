@@ -1,0 +1,128 @@
+    .section-head {
+        background-color: $compendium-primary;
+
+        .section-head-content {
+            max-width: 1200px;
+            margin: auto;
+            display: block;
+        }
+
+        .section-head-wide {
+            text-align: center;
+        }
+
+        .section-head-img, 
+        .section-head-copy {
+            // width: 50%;
+            height: 100%;
+            float: left;
+        }
+
+        .section-head-img img {
+            border: solid thin #666666;
+            border-radius: 1rem;
+        }
+
+        .shadow-box {
+            margin: 10px;
+            border-radius: 1rem;
+        }
+
+        .section-head-img img, 
+        .section-head-bg-img img {
+            display: block;
+            margin-right: 0;
+            margin-left: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            // width: 100%;
+        }
+        .section-head-bg-img, .section-head-wide {
+            width: 100%;
+            height: 100%;
+        }
+        .section-head-bg-img {
+            z-index: 0;
+            opacity: .15;
+            position: absolute;
+            display: block;
+            margin: auto;
+            top: 0;
+            // bottom: 0;
+            left: 0;
+            // right: 0;
+            // max-height: 100%;
+            // max-width: 100%;
+            align-items: center;
+        }
+        .card-copy-panel {
+            // background-color: $compendium-primary;
+            color: $compendium-fg-white;
+            padding: 2rem;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+        .section-head-copy, .section-head-bg-img {
+            font-size: 1.6rem;
+
+            @media only screen and (min-width: 768px) {
+                header {
+                    padding-bottom: 3rem;
+                }
+                header h1 {
+                    font-size: 6.0rem;
+                }
+            }
+            @media only screen and (max-width: 767px) {
+                header {
+                    padding-bottom: 1rem;
+                }
+                header h1 {
+                    font-size: 4.0rem;
+                }
+            }
+            header {
+                border-bottom: solid $compendium-primary-lt thin;
+                font-family: 'Arsenal', sans-serif;
+            }
+            header .category {
+                // font-family: 'Fjalla One', sans-serif;
+                // font-family: 'Righteous', cursive;
+                // font-size: smaller;
+                text-transform: uppercase;
+                color: $compendium-fg-white;
+            }
+
+            header .category .material-icons {
+                font-size: 1.2rem;
+            }
+
+            header .date {
+                font-style: italic;
+                // color: $compendium-fg-gray;
+                font-size: smaller;
+            }
+
+            footer {
+                display: none !important;
+            }
+
+            // xs
+            @media only screen and (min-width: 768px) {
+                article {
+                    margin-top: 2rem;
+                }
+            }
+        }
+        button.section-head-read-btn {
+            margin-left: 3rem;
+            color: $compendium-fg-white;
+            background-color: $compendium-primary;
+            border-color: $compendium-primary-lt;
+            padding: 2rem 3rem;
+            text-transform: lowercase;
+            border-radius: 2rem;
+            font-size: larger;
+        }
+    }

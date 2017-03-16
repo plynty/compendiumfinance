@@ -4,6 +4,16 @@ title: Styles
 
 @import url(https://fonts.googleapis.com/css?family=Muli:400,400i);
 
+// size breaks (per boostrap 4)
+$xs-max: 575px;
+$sm-min: 576px;
+$sm-max: 767px;
+$md-min: 768px;
+$md-max: 991px;
+$lg-min: 992px;
+$lg-max: 1199px;
+$xl-min: 1200px;
+
 $font-muli: 'Muli', sans-serif;
 
 $compendium-primary: #525252 !default;
@@ -13,7 +23,7 @@ $compendium-secondary:  #e73074 !default;
 $compendium-tertiary:  #00008b !default;
 $compendium-fg-gray: gray;
 $compendium-fg-white: white;
-$compendium-bg-lt:  #BEBEBE !default;
+$compendium-bg-lt:  #f2f2f2 !default;
 $compendium-bg-dk: #65696c !default;
 $compendium-bg-white: white;
 
@@ -22,15 +32,17 @@ $social-facebook: #5489d1 !default;
 $social-linkedin: #0077ba !default;
 
 @import "header";
+@import "cards";
 @import "home";
-// @import "aboutus";
+@import "section";
+@import "aboutus";
 @import "resources";
-// @import "post";
-// @import "resetpassword";
 @import "modal";
 @import "fee-calc";
-// @import "promos";
 
+page {
+    background-color: $compendium-bg-lt;
+}
 /**
  * Text-align fallback for older browsers
  */
@@ -43,7 +55,7 @@ $social-linkedin: #0077ba !default;
     text-align: right;
 }
 
-@media only screen and (min-width: 48em) {
+@media only screen and (min-width: $sm-min) {
 
     .start-sm {
         text-align: left;
@@ -53,13 +65,13 @@ $social-linkedin: #0077ba !default;
         text-align: right;
     }
 
-    div.row {
-        margin-left: 0rem;
-        margin-right: 0rem;
-    }
+    // div.row {
+    //     margin-left: 0rem;
+    //     margin-right: 0rem;
+    // }
 }
 
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: $md-min) {
 
     .start-md {
         text-align: left;
@@ -70,7 +82,7 @@ $social-linkedin: #0077ba !default;
     }
 }
 
-@media only screen and (min-width: 75em) {
+@media only screen and (min-width: $lg-min) {
 
     .start-lg {
         text-align: left;
@@ -116,84 +128,6 @@ main {
 .wrapper {
     width: 100%;
     margin: auto;
-}
-
-page > footer {
-    margin: 0;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-    -ms-flex-preferred-size: auto;
-        flex-basis: auto;
-    background: $compendium-primary;
-    width: 100%;
-    color: $compendium-fg-white;
-}
-
-page > footer address, page > footer a {
-    font-style: normal;
-    font-size: 1.5rem;
-    color: $compendium-fg-white;
-}
-
-page > footer h1 {
-    font-size: 3.6rem;
-    color: $compendium-fg-white;
-}
-
-page > footer p {
-    color: $compendium-fg-white;
-    font-size: 1.8rem;
-}
-
-page > footer .trademarks p {
-    font-size: 1.2rem;
-}
-
-page > footer div.links ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-}
-
-page > footer div.links ul li {
-  display: inline;
-  list-style-type:none;
-}
-
-page > footer div.links a {
-    color: $compendium-fg-white;
-    font-size: 1.5rem;
-}
-
-page > footer form {
-    margin: auto;
-}
-
-page > footer .row {
-    padding-left: 2rem;
-    padding-right: 4rem;
-}
-
-page > footer .row {
-    background-color: $compendium-primary;
-    padding-bottom: 4.2rem;
-}
-
-page > footer .row:nth-child(2) a {
-    font-size: 1.4rem;
-    color: $compendium-fg-white;
-    text-decoration: none;
-}
-
-page > footer div.social i {
-    color: $compendium-fg-white;
-    padding-right: 2rem;
-}
-
-page > footer nav a {
-    text-decoration: none;
-    color: $compendium-fg-white;
-    font-size: 1.7rem;
 }
 
 .md-button {

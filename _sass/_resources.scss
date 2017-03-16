@@ -1,5 +1,5 @@
 /* home page styles */
-$panel-height: 15rem;
+$panel-height: 18rem;
 
 .resourcepage {
     background-color: $compendium-primary-lt;
@@ -14,32 +14,37 @@ $panel-height: 15rem;
 
     .cards {
 
+        //  xs
+        @media only screen and (max-width: $xs-max) {
+            .resource-icon {
+                margin: 1rem;
+            }
+
+            .resource-description {
+                margin-right: 1rem;
+            }
+        }
+
         // > xs
-        @media only screen and (min-width: 768px) {
-            display: block;
-            margin: auto;
-            padding-top: 15px;
+        @media only screen and (min-width: $sm-min) {
 
             .pmd-card {
                 max-width: 900px;
+                height: 100%;
                 height: $panel-height;
                 overflow: hidden;
             }
         }
 
-        //  xs
-        @media only screen and (max-width: 767px) {
-            .pmd-card {
-                margin: 1px 3px;
-            }
-
-            .cards {
-                margin-top: 1rem;
-            }
+        .resource-icon {
+            min-width: 10rem;
+            float: left;
+            margin-right: 2rem;
         }
 
         .resource-description {
             font-size: 1.5rem;
+            margin-left: 2rem;
 
             header h1 {
                 text-transform: uppercase;
@@ -93,8 +98,6 @@ $panel-height: 15rem;
 
         }
     }
-    .pmd-card {
-        overflow: hidden;
-    }
+
 
 }
