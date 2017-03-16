@@ -5,7 +5,8 @@ target: homepage
 active: true
 section: cards
 heading: Learning
-lead: What if the most effective investment portfolio was also the most simple and the least expensive?
+lead: What if the most effective investment portfolio was also the most simple and
+  the least expensive?
 img: uploads/img/3simpleRules-book.jpeg
 img_bleed: false
 layout: card-2x1
@@ -17,3 +18,4 @@ actions:
 - show-modal
 article_id: book-excerpt
 ---
+
