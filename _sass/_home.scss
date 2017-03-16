@@ -145,21 +145,14 @@ $hero-height: 48rem;
             display: block;
             margin: auto;
             padding-top: 15px;
-
-            .card-height-1 {
-                .card-media-panel, 
-                .card-copy-panel {
-                    height: $panel-height;
-                }
-            }
         }
 
         .pmd-card.article {
-            font-size: 1.5rem;
+            // font-size: 1.5rem;
 
             header h1 {
                 text-transform: uppercase;
-                font-size: 2.0rem;
+                font-size: 120%;
                 font-weight: 700;
             }
             header .category {
@@ -171,7 +164,7 @@ $hero-height: 48rem;
             }
 
             header .category .material-icons {
-                font-size: 1.5rem;
+                font-size: 110%;
                 position: relative;
                 top: 2px;
             }
@@ -181,7 +174,7 @@ $hero-height: 48rem;
             }
 
             footer .btn-more .material-icons {
-                font-size: 1.2rem;
+                font-size: 80%;
                 position: relative;
                 top: 2px;
             }            

@@ -1,5 +1,26 @@
 // General properties for all cards
 
+.cards > .row {
+    font-size: 1.8rem;
+}
+
+@media only screen and (max-width: $sm-max) {
+    .cards > .row {
+        // max-width and font-size need to be set at the row level for onresize to work
+        // Within the row, adjust up and down using percentage sizes
+        max-width: none;
+    }
+}
+
+@media only screen and (min-width: $md-min) {
+    .cards > .row {
+        margin-bottom: 14px;
+        // max-width and font-size need to be set at the row level for onresize to work
+        // Within the row, adjust up and down using percentage sizes
+        max-width: 1200px;
+    }
+}
+
 .card-copy-panel {
     padding: 16px;
     overflow: hidden;
@@ -7,18 +28,21 @@
 
 .card-media-panel {
     overflow: hidden;
-    max-height: 100%;
-    max-width: 100%;
+    // max-height: 100%;
+    // max-width: 100%;
     text-align: center;
-    vertical-align: middle;        
+    vertical-align: middle;
 }
 
-.card-media-panel img {
+.card-media-panel img,
+.card-media-panel iframe {
+    vertical-align: middle;
     max-height: 100%;
     max-width: 100%;
 }
 
-.card-media-panel.bleed img {
+.card-media-panel.bleed img,
+.card-media-panel.bleed iframe {
     position: relative;
     top: -1%;
     left: -1%;
@@ -33,7 +57,7 @@
 
     .pmd-card {
         overflow: hidden;
-        margin-bottom: 14px;
+        margin: 0px;
         padding: 0px;
     }
 
@@ -68,8 +92,12 @@
         
         // minimize margin for mobile screens
         .pmd-card {
-            margin: 1px 3px;
+            margin-bottom: 2px;
             padding: 0px;
+        }
+
+        .card-media-panel {
+            margin-bottom: -4px;  // helps keep image flush at bottom
         }
     }
     

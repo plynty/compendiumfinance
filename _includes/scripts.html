@@ -1,130 +1,90 @@
-    <!-- jQuery before Propeller.js -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script type="text/javascript" src="{{site.pmd_path}}/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="{{site.pmd_path}}/js/propeller.min.js"></script>
+<!-- jQuery before Propeller.js -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-    <script src="assets/js/author-email.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="{{site.pmd_path}}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{site.pmd_path}}/js/propeller.min.js"></script>
 
-  <!--<script src="/assets/js/d3.min.js"></script>-->
-  <!--<script src="/assets/js/animated-donut.min.js"></script>-->
-  <script src="/assets/js/headroom.min.js"></script>
-  <!--<script src="/assets/js/carousel-donut.min.js"></script>-->
-  <script>
-    (function() {
+<script src="assets/js/author-email.js"></script>
+<script src="/assets/js/headroom.min.js"></script>
+<script src="/assets/js/cards.js"></script>
+
+<script>
+  (function () {
     var header = document.getElementById("header");
     var headroom = new Headroom(header, {
-        tolerance: 5,
-        offset : 205,
-        classes: {
-          initial: "headroom",
-          pinned: "headroom--pinned",
-          unpinned: "headroom--unpinned"
-        }
+      tolerance: 5,
+      offset: 205,
+      classes: {
+        initial: "headroom",
+        pinned: "headroom--pinned",
+        unpinned: "headroom--unpinned"
+      }
     });
     headroom.init();
 
   }());
+
 </script>
 
- <!--Optimizely -->
-  <script src="https://cdn.optimizely.com/js/8213770448.js"></script>
-  
-  <script>
+<!--Optimizely -->
+<script src="https://cdn.optimizely.com/js/8213770448.js"></script>
+
+<script>
   /* Menu */
-    // function myFunction() {
-    //   var x = document.getElementById("myTopnav");
-    //   if (x.className === "topnav") {
-    //     x.className += " responsive";
-    //   } else {
-    //     x.className = "topnav";
-    //   }
-    // }
+  // function myFunction() {
+  //   var x = document.getElementById("myTopnav");
+  //   if (x.className === "topnav") {
+  //     x.className += " responsive";
+  //   } else {
+  //     x.className = "topnav";
+  //   }
+  // }
   /* End Menu */
 
-  // card animation -- raised shadow
-  $(".pmd-card").hover(
-    function(event) {
-      removeShadow($(this)).addClass("pmd-z-depth-3");
-  }, function(event) {
-      removeShadow($(this)).addClass("pmd-z-depth-1");
-  });
-
-  // card animation -- lower shadow on click
-  $(".pmd-card").mousedown(function(event) {
-    var element = $(this);
-    removeShadow(element);
-    setTimeout(function() {
-      removeShadow(element).addClass("pmd-z-depth-3");
-    }, 100);
-  });
-
-  // card resize, maintain aspect ratio
-  $().ready(function() {
-    $(window).resize(function() {
-      console.log("body resize");
-      $('[class*=cf-ar-]').each(function(index) {
-        console.log($(this).attr("class"));
-      });
-    });
-  });
-
-  function removeShadow(jqElement) {
-      return jqElement.removeClass(function(index, classNames){
-        var classes = classNames.split(" ");
-        var removeClasses = [];
-        classes.forEach(function(element) {
-          if (element.startsWith("pmd-z-depth")) {
-            removeClasses.push(element);
-          }
-        });
-        return removeClasses.join(" ");
-      })  
-  };
 
   /* Scroll function */
-    function scroll(){
-    $(window).scroll(function() {
-        if ($(this).scrollTop() >= 900) {        
-              $('#return-top').fadeIn(100);   
-              $('#scroll-down').fadeOut(100);
-        } else {
-              $('#return-top').fadeOut(100);   
-              $('#scroll-down').fadeIn(100);
-        }
-      });
-    }
-    scroll();
-    function goTop() {     
-          $("html, body").animate({ scrollTop: 0 }, 500);
-    }
-    function scrollDown() {      
-          $("html, body").animate({ scrollTop: 750 }, 500);
-    }
+  function scroll() {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() >= 900) {
+        $('#return-top').fadeIn(100);
+        $('#scroll-down').fadeOut(100);
+      } else {
+        $('#return-top').fadeOut(100);
+        $('#scroll-down').fadeIn(100);
+      }
+    });
+  }
+  scroll();
+  function goTop() {
+    $("html, body").animate({ scrollTop: 0 }, 500);
+  }
+  function scrollDown() {
+    $("html, body").animate({ scrollTop: 750 }, 500);
+  }
   /* End Scroll */
-  
-  /* Google Analytics */
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-71377637-1', 'auto');
-    ga('send', 'pageview');
+  /* Google Analytics */
+  (function (i, s, o, g, r, a, m) {  
+i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-71377637-1', 'auto');
+  ga('send', 'pageview');
   /* End Google Analytics */
 
   /* Hotjar */
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:360708,hjsv:5};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+  (function (h, o, t, j, a, r) {
+    h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+    h._hjSettings = { hjid: 360708, hjsv: 5 };
+    a = o.getElementsByTagName('head')[0];
+    r = o.createElement('script'); r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
   /* End Hotjar */
 
 </script>
-  
-
