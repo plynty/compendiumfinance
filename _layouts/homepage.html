@@ -9,27 +9,36 @@ layout: sitepage
         </div>
     </section>
 
-{% assign cards2x1 = site.cards | where: 'active', 'true' | where: 'card_size', '2x1' | reverse %}
-{% assign cards1x1 = site.cards | where: 'active', 'true' | where: 'card_size', '1x1' | reverse %}
+{% assign cards2x1 = site.cards | where: 'target', page.layout | where: 'active', 'true' | where: 'card_size', '2x1' | reverse %}
+{% assign cards1x1 = site.cards | where: 'target', page.layout | where: 'active', 'true' | where: 'card_size', '1x1' | reverse %}
     <section id="cards" class="cards">
 {% for row in (0..4) %}
     {% assign mod = row | modulo: 2 %}
     {% if mod == 0 %}
-    <div class="row cards">
-        <div class="col-sm-8 col-xs-12">
+    <div class="row">
+        <div class="col-sm-8">
+            {% assign cards2x1[row].layout = 'none' %}
+            <div class="card-wrapper cf-ar-2x1">
             {{cards2x1[row].output}}
+            </div>
         </div>
-        <div class="col-sm-4 col-xs-12">
+        <div class="col-sm-4">
+            <div class="card-wrapper cf-ar-1x1">
             {{cards1x1[row].output}}
+            </div>
         </div>
     </div>
     {% else %}
-    <div class="row cards">
-        <div class="col-sm-4 col-xs-12">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card-wrapper cf-ar-1x1">
             {{cards1x1[row].output}}
+            </div>
         </div>
-        <div class="col-sm-8 col-xs-12">
+        <div class="col-sm-8">
+            <div class="card-wrapper cf-ar-2x1">
             {{cards2x1[row].output}}
+            </div>
         </div>
     </div>
     {% endif %}

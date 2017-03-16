@@ -1,4 +1,9 @@
-<div class="modal fade app-modal-window" window-class="app-modal-window" id="{{page.modal_id}}" role="dialog" 
+{% assign modal_id = page.modal_id %}
+{% assign len = modal_id | size %}
+{% if len == 0 %}
+    {% assign modal_id = page.article_id | append: '-modal' %}
+{% endif %}
+<div class="modal fade app-modal-window" window-class="app-modal-window" id="{{modal_id}}" role="dialog" 
         tabindex="-1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

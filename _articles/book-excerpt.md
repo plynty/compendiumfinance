@@ -2,7 +2,6 @@
 title: Book Preview&colon; The 3 Simple Rules of Investing
 article_id: book-excerpt
 layout: modal-article
-modal_id: book-excerpt
 modal_footer_md: |
   Find it online:
   <span class="icons">

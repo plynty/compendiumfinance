@@ -1,0 +1,115 @@
+// General properties for all cards
+
+.cards > .row {
+    font-size: 1.8rem;
+}
+
+@media only screen and (max-width: $sm-max) {
+    .cards > .row {
+        // max-width and font-size need to be set at the row level for onresize to work
+        // Within the row, adjust up and down using percentage sizes
+        max-width: none;
+    }
+}
+
+@media only screen and (min-width: $md-min) {
+    .cards > .row {
+        margin-bottom: 14px;
+        // max-width and font-size need to be set at the row level for onresize to work
+        // Within the row, adjust up and down using percentage sizes
+        max-width: 1200px;
+    }
+}
+
+.card-copy-panel {
+    padding: 16px;
+    overflow: hidden;
+}
+
+.card-media-panel {
+    overflow: hidden;
+    // max-height: 100%;
+    // max-width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.card-media-panel img,
+.card-media-panel iframe {
+    vertical-align: middle;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.card-media-panel.bleed img,
+.card-media-panel.bleed iframe {
+    position: relative;
+    top: -1%;
+    left: -1%;
+    min-width: 102%;
+    min-height: 102%;
+}
+
+.cards {
+    display: block;
+    margin: auto;
+    padding-top: 15px;
+
+    .pmd-card {
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .pmd-card-body {  // override propeller defaults to allow images to bleed
+        margin: 0px;
+        padding: 0px;
+
+        .row {
+            margin: 0px;
+        }
+        [class^="col-"] {
+            // override the bootstrap default gutter
+            padding: 0px;
+            margin: 0px;
+        }
+    }
+
+    @media only screen and (max-width: $sm-max) {
+        margin-top: .5rem;
+        margin-bottom: 1rem;
+
+        .row {  // override bootstrap default
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        [class^="col-"] {
+            // override the bootstrap default gutter
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        
+        // minimize margin for mobile screens
+        .pmd-card {
+            margin-bottom: 2px;
+            padding: 0px;
+        }
+
+        .card-media-panel {
+            margin-bottom: -4px;  // helps keep image flush at bottom
+        }
+    }
+    
+    @media only screen and (min-width: $md-min) {
+        .row {
+            margin-left: 7px;
+            margin-right: 7px;
+        }
+        [class^="col-"] {
+            // override the bootstrap default gutter
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+    }
+}

@@ -2,14 +2,31 @@
 layout: sitepage
 ---
 
-<div class="container-fluid">
-    <section id="cards" class="cards">
+{% assign headers = site.cards | where: 'target', page.layout | where: 'active', 'true' | where: 'section', 'resources' | where: 'format_class', 'section-head' %}
+    <section id="resource-head" class="section-head pmd-z-depth-1">
         <div class="row">
-            <div class="resources col-xs-12">
-                {% for resource in site.resources %}
-                    {{resource.output}}
-                {% endfor %}
-            </div>
+            {{headers[0].output}}
         </div>
     </section>
-</div>
+
+<section id="resource-cards" class="cards">
+{% assign resources = site.cards | where: 'target', page.layout | where: 'active', 'true' | where: 'section', 'cards' %}
+{% assign n = resources | size | minus: 1%}
+{% for i in (0..n) %}
+    {% assign even = i | modulo: 2 %}
+    {% if even == 0 %}
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            {{resources[i].output}}
+        </div>
+    {% else %}
+        <div class="col-sm-6 col-xs-12">
+            {{resources[i].output}}
+        </div>
+    </div>        
+    {% endif %}
+{% endfor %}
+{% if even == 0 %}
+    </div>
+{% endif %}
+</section>
