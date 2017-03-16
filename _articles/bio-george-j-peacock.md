@@ -3,6 +3,7 @@ title: George J. Peacock
 article_id: bio-george-j-peacock
 layout: modal-article
 ---
+
 A 27-year investment industry veteran, George Peacock is a principal at Compendium Financial
 Investment Advisory, the founder and manager of the Purchasing Power Portfolio, the author of the
 Yoga of Investing blog. He entered the financial advisory business as an associate at American

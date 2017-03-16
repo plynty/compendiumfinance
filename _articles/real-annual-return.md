@@ -3,6 +3,7 @@ title: Real Annual Return
 article_id: real-annual-return
 layout: modal-article
 ---
+
 It is essential that every investor understand and appreciate the difference between “real” returns
 and “nominal” returns. The investment industry almost always uses nominal returns. That is, they
 will tell you quite simply what an investment returned.

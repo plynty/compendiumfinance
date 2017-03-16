@@ -3,6 +3,7 @@ title: Carol Fabbri
 article_id: bio-carol-fabbri
 layout: modal-article
 ---
+
 Carol Fabbri, an experienced financial advisor, certified financial planner, and certified advisor in
 philanthropy, cofounded Fair Advisors in 2008. As the managing partner of Fair Advisors LLC, an
 independent financial advisory firm, she works with individuals and nonprofit organizations. Prior

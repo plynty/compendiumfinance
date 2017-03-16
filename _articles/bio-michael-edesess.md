@@ -3,6 +3,7 @@ title: Michael Edesess
 article_id: bio-michael-edesess
 layout: modal-article
 ---
+
 Michael Edesess is an accomplished mathematician and economist with experience in the investment,
 energy, and sustainable development fields. He is a visiting fellow in the Centre for Systems
 Informatics Engineering at City University of Hong Kong, partner and chief investment officer of

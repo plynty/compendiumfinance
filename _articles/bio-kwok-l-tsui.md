@@ -3,6 +3,7 @@ title: Kwok L. Tsui
 article_id: bio-kwok-l-tsui
 layout: modal-article
 ---
+
 Kwok L. Tsui is a distinguished statistician whose work focuses on the statistics of quality,
 informatics, and data mining, and he is an expert on the problem of spurious patterns in big data.
 He has spent 24 years as a professor and department head at several major universities as well as a
