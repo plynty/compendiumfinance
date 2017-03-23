@@ -22,7 +22,7 @@
             {% if modal == nil %}
                 <a href="{{thisCard.link}}" {% if thisCard.source == 'external' %}target="_blank" {% endif %} title="{{linkTitle}}">
             {% else %}
-                <a href="" data-toggle="modal" data-target="#{{modal_id}}" title="{{linkTitle}}">
+                <a href="{{thisCard.article_id}}" title="{{linkTitle}}">
             {% endif %}
                 {% include card/{{include.card_layout }}.html %}
             </a>

@@ -9,7 +9,8 @@ layout:
     {% if article.status != 'inactive' and article.search_omit != true %}
     {% unless first %},{% endunless %}{
         "heading": "{{article.heading}}",
-        "url": "{{article.url}}"
+        "url": "{{article.url}}",
+        "article_id": "{{article.title | slugify}}"
     }
     {% assign first = false %}
     {% endif %}
