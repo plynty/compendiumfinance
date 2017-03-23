@@ -1,0 +1,37 @@
+{% assign cards = site.articles | where: 'section', 'articles' | where: 'status', 'current' | reverse %}
+{% assign cardNum = 0 %}
+    <section id="article-cards" class="cards">
+    {% for thisCard in cards %}
+        {% case cardNum %}
+            {% when 0,4 %}
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="card-wrapper cf-ar-2x1">
+                            {% include card/card.html card_layout='card-2x1' %}
+                        </div>
+                    </div>
+            {% when 1,5 %}
+                    <div class="col-sm-4">
+                        <div class="card-wrapper cf-ar-1x1">
+                            {% include card/card.html card_layout='card-1x1' %}
+                        </div>
+                    </div>
+                </div>
+            {% when 2,6 %}
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card-wrapper cf-ar-1x1">
+                            {% include card/card.html card_layout='card-1x1' %}
+                        </div>
+                    </div>
+            {% when 3,7 %}
+                    <div class="col-sm-8">
+                        <div class="card-wrapper cf-ar-2x1">
+                            {% include card/card.html card_layout='card-2x1' %}
+                        </div>
+                    </div>
+                </div>
+        {% endcase %}
+        {% assign cardNum = cardNum | plus: 1 %}
+    {% endfor %}
+    </section>

@@ -4,7 +4,8 @@ timezone: UTC
 collections:
   articles:
     title: Articles
-    output: false
+    output: true
+    permalink: /articles/:title.json
   assets:
     title: Assets
     output: true
@@ -17,6 +18,9 @@ collections:
   uploads:
     title: Uploads
     output: true
+  feeds:
+    title: Feeds
+    output: true
 defaults:
 - scope:
     path: ''
@@ -28,11 +32,6 @@ defaults:
     type: posts
   values:
     layout: post
-- scope:
-    path: ''
-    type: tools
-  values:
-    layout: blogtool
 email: your-email@compendiumfinance.com
 description: This is the static content site for compendiumfinance.com
 baseurl: 

@@ -1,0 +1,18 @@
+---
+layout: null
+---
+{% assign first = true %}
+[
+{% for article in site.articles %}
+    {% if article.status != 'inactive' and article.search_omit != true %}
+    {% unless first %},{% endunless %}{
+        "title": {{article.title | jsonify}},
+        "heading": "{{article.heading}}",
+        {% comment %}"content": {{article.content | markdownify | strip_html | jsonify}},{% endcomment %}
+        "date": "{{ article.date | date: '%B %e, %Y' }}",
+        "excerpt": {{ article.lead | jsonify }}
+    }
+    {% assign first = false %}
+    {% endif %}
+{% endfor %}
+]

@@ -10,6 +10,21 @@ body {
   }
 }
 
+.headroom {
+    will-change: transform;
+    -webkit-transition: -webkit-transform 250ms ease-in-out;
+    transition: -webkit-transform 250ms ease-in-out;
+    transition: transform 250ms ease-in-out;
+    transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+.headroom--pinned {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+}
+.headroom--unpinned {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+}
 
 .cf-header {
 
@@ -89,22 +104,6 @@ body {
       }
   }
 
-  .headroom {
-    will-change: transform;
-    -webkit-transition: -webkit-transform 250ms ease-in-out;
-    transition: -webkit-transform 250ms ease-in-out;
-    transition: transform 250ms ease-in-out;
-    transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
-  }
-  .headroom--pinned {
-      -webkit-transform: translateY(0%);
-              transform: translateY(0%);
-  }
-  .headroom--unpinned {
-      -webkit-transform: translateY(-100%);
-              transform: translateY(-100%);
-  }
-
 }  // end .cf-header
 
 .cf-header nav a,
@@ -127,6 +126,7 @@ footer.page {
     background: $compendium-primary;
     width: 100%;
     color: $compendium-fg-white;
+    text-align: center;
 
   address,
   footer.page a {

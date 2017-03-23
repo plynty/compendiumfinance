@@ -1,0 +1,15 @@
+---
+layout: null
+---
+{% assign first = true %}
+[
+{% for article in site.articles %}
+    {% if article.status != 'inactive' and article.search_omit != true %}
+    {% unless first %},{% endunless %}{
+        "heading": "{{article.heading}}",
+        "url": "{{article.url}}"
+    }
+    {% assign first = false %}
+    {% endif %}
+{% endfor %}
+]

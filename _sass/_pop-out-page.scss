@@ -1,0 +1,38 @@
+.pop-out-page {
+  display: block;
+  margin: auto;
+  .page-content {
+    font-size: 1.8rem;
+  }
+  .pmd-card {
+  margin-left: 3rem;
+  margin-right: 3rem;
+  padding-top: 5rem;
+    padding: 1.6rem;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  h1{
+    font-size: 150%;
+  }
+  h2{
+    font-size: 125%;
+  }
+  h3 {
+    font-size: 110%;
+  }
+  blockquote {
+    border: none;
+    padding: 0rem 4rem;
+  }
+  @media only screen and (max-width: 800px) {
+    .post-header,
+    .page-content {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+  }
+}

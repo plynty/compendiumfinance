@@ -1,0 +1,33 @@
+<div class="card-wrapper">
+    <div id="{{article_id}}" class="pmd-ripple-effect pmd-card pmd-z-depth-1 article">
+        <a href="" data-toggle="modal" data-target="{{modal_target}}" title="Read More...">
+            <div class="pmd-card-body card-height-1">
+                <div class="row">
+                    <div class="col-sm-6 panel-1x1">
+                        <div class="card-media-panel image">
+                            <span class="aligner" style="height: 100%; display: inline-block; vertical-align: middle;"></span>
+                            <img src="{{img}}" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 panel-1x1">
+                        <div class="card-copy-panel">
+                            <header>
+                                <div class="category">
+                                    <span>{{heading}}</span>
+                                </div>
+                                <h1>{{title}}</h1>
+                                <div class="date">{{date}}</div>
+                            </header>
+                            <article>
+                                <div>{{lead}}</div>
+                            </article>
+                            <footer class="visible-xs">
+                                <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">more</button>
+                            </footer>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </a>
+    </div>

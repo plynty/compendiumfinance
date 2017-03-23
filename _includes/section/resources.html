@@ -1,0 +1,25 @@
+{% include section/std-header.html section='resources' %}
+
+<section id="resource-cards" class="cards">
+{% assign resources = site.cards | where: 'status', 'current' | where: 'section', 'resource-cards' %}
+{% assign n = resources | size | minus: 1%}
+{% for i in (0..n) %}
+    {% assign thisCard = resources[i] %}
+    {% assign even = i | modulo: 2 %}
+    {% if even == 0 %}
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            {% include card/card.html card_layout='resource-card' %}
+        </div>
+    {% else %}
+        <div class="col-sm-6 col-xs-12">
+            {% include card/card.html card_layout='resource-card' %}
+        </div>
+    </div>        
+    {% endif %}
+{% endfor %}
+{% if even == 0 %}
+    </div>
+{% endif %}
+</section>
+

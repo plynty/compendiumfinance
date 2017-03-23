@@ -1,0 +1,34 @@
+        {% if thisCard.img != nil or thisCard.video != nil %}
+            {% assign hasMedia = true %}
+        {% else %}
+            {% assign hasMedia = false %}
+        {% endif %}
+        <div class="pmd-card-body card-height-1">
+            <div class="row">
+                {% if hasMedia and thisCard.media_side == 'left'%}
+                <div class="col-sm-6 panel-1x1">
+                    {% if thisCard.img != nil %}
+                        {% include card/card-image-panel.html%}
+                    {% else %}
+                        {% include card/card-video-panel.html%}
+                    {% endif %}
+                </div>
+                {% endif %}
+                {% if hasMedia %}
+                <div class="col-sm-6 panel-1x1">
+                {% else %}
+                <div class="col-xs-12 panel-1x1">
+                {% endif %}
+                    {% include card/card-copy-panel.html %}
+                </div>
+                {% if hasMedia and thisCard.media_side == 'right'%}
+                <div class="col-sm-6 panel-1x1">
+                    {% if thisCard.img != nil %}
+                        {% include card/card-image-panel.html%}
+                    {% else %}
+                        {% include card/card-video-panel.html%}
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>

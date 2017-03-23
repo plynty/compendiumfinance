@@ -1,0 +1,9 @@
+{% assign headers = site.cards 
+    | where: 'status', 'current' 
+    | where: 'section', include.section
+    | where: 'format_class', 'section-head' %}
+<section id="{{include.section}}-head" class="section-head pmd-z-depth-1">
+    <div class="row">
+        {{headers[0].output}}
+    </div>
+</section>
