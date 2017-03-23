@@ -6,15 +6,17 @@
 <script type="text/javascript" src="{{site.pmd_path}}/js/propeller.min.js"></script>
 
 <script src="assets/js/author-email.js"></script>
-<script src="/assets/js/headroom.min.js"></script>
-<script src="/assets/js/cards.js"></script>
+<script src="assets/js/headroom.min.js"></script>
+<script src="assets/js/cards.js"></script>
+
+{{ layout.scripts }}
 
 <script>
   (function () {
     var header = document.getElementById("header");
     var headroom = new Headroom(header, {
       tolerance: 5,
-      offset: 205,
+      offset: 20,
       classes: {
         initial: "headroom",
         pinned: "headroom--pinned",

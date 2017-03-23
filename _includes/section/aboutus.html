@@ -1,0 +1,16 @@
+{% include section/std-header.html section='aboutus' %}
+
+<section id="aboutus-cards" class="cards">
+    {% assign bios = site.cards 
+        | where: 'status', 'current' 
+        | where: 'section', 'bios' 
+        | sort: 'position' %}
+    <div class="row">
+        <div class="bios">
+            {% for thisCard in bios %}
+                {% include card/card.html card_layout='bio-card' %}
+            {% endfor %}
+        </div>
+    </div>        
+</section>
+

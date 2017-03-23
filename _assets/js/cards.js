@@ -31,7 +31,7 @@
   // card resize, maintain aspect ratio
   var baseFontSizePx;
   $().ready(function() {
-    baseFontSizePx = parseFloat($(".cards > .row").css("font-size"));
+    baseFontSizePx = parseFloat($("#article-cards > .row").css("font-size"));
     adjustRowHeight();
     var timer;
     $(window).resize(function() {
@@ -41,7 +41,7 @@
   });
 
   function adjustRowHeight() {
-    var rows = $(".cards > .row");
+    var rows = $("#article-cards > .row");
     var maxWidth = rows.css("max-width");
     var height;
     var heightPercent = 1;

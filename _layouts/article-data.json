@@ -1,0 +1,10 @@
+---
+layout: null
+---
+{
+    "title": "{{page.title}}",
+    "date": "{{page.date | date: '%B %e, %Y' }}",
+    "heading": "{{page.heading}}",
+    "lead": "{{page.lead}}",
+    "img": "{{page.img}}"
+}

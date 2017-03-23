@@ -1,33 +1,33 @@
 ---
 ---
-
+        {% assign thisCard = page %}
         <div class="hero">
             <a href="{{page.link}}" target="_blank">
                 <div class="row hero-content">
                 {% if page.img != nil%}
                     <div class="hero-img hidden-sm hidden-xs">
                         <div class="shadow-box pmd-z-depth-2 ">
-                            {% include card-image-panel.html%}
+                            {% include card/card-image-panel.html%}
                         </div>
                     </div>
                     <div class="hero-copy hidden-sm hidden-xs">
-                        {% include card-copy-panel.html %}
+                        {% include card/card-copy-panel.html %}
                         <button type="button" class="hero-read-btn btn pmd-btn-outline pmd-ripple-effect btn-default">Read Full Article</button>
                     </div>
                     <div class="hero-copy hero-wide visible-sm visible-xs">
-                        {% include card-copy-panel.html %}
+                        {% include card/card-copy-panel.html %}
                         <button type="button" class="hero-read-btn btn pmd-btn-outline pmd-ripple-effect btn-default">Read Full Article</button>
                     </div>
                 {% else %}
                     <div class="hero-copy hero-wide">
-                        {% include card-copy-panel.html %}
+                        {% include card/card-copy-panel.html %}
                         <button type="button" class="hero-read-btn btn pmd-btn-outline pmd-ripple-effect">Read Full Article</button>
                     </div>   
                 {% endif %}
                 </div>
                 {% if page.img != nil and false %}
                 <div class="hero-bg-img visible-sm visible-xs">
-                    {% include card-image-panel.html %}
+                    {% include card/card-image-panel.html %}
                 </div>
                 {% endif %}
             </a>
