@@ -5,7 +5,7 @@ collections:
   articles:
     title: Articles
     output: true
-    permalink: "articles/:title.data:output_ext"
+    permalink: articles/:title.data:output_ext
   assets:
     title: Assets
     output: true

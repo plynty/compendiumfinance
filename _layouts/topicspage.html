@@ -6,6 +6,7 @@ scripts: |
       $().ready(function() { initTopics() });
   </script>
 ---
+
     <div id="main">
     {% assign topics = site.articles | where_exp:"a", "a.status != 'inactive'" | where_exp:"a", "a.search_omit != true" | map: 'heading' | uniq | sort %}
 
