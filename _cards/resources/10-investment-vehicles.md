@@ -4,7 +4,8 @@ no_date: true
 status: current
 target: homepage
 section: resource-cards
-lead: Specific investment vehicles you can use to assemble your effective, simple, and low cost portfolio.
+lead: Specific investment vehicles you can use to assemble your effective, simple,
+  and low cost portfolio.
 img: uploads/img/docblack.png
 source: internal
 format_class: resource
@@ -12,7 +13,6 @@ actions:
 - show-modal
 article_id: 10-investment-vehicles
 ---
-
 
 The 10, maximum and in order, investments you’ll ever need for an effective long-term portfolio.
 

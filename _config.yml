@@ -5,21 +5,21 @@ collections:
   articles:
     title: Articles
     output: true
-    permalink: /articles/:title.json
+    permalink: "/articles/:title.json"
   assets:
     title: Assets
     output: true
   cards:
     title: Cards
     output: false
+  feeds:
+    title: Feeds
+    output: true
   posts:
     title: Posts
     output: true
   uploads:
     title: Uploads
-    output: true
-  feeds:
-    title: Feeds
     output: true
 defaults:
 - scope:
