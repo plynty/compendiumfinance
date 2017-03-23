@@ -7,5 +7,6 @@ layout:
     "date": "{{page.date | date: '%B %e, %Y' }}",
     "heading": "{{page.heading}}",
     "lead": "{{page.lead}}",
-    "img": "{{page.img}}"
+    "img": "{{page.img}}",
+    "article_id": "{{page.title | slugify}}"
 }
