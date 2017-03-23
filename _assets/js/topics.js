@@ -1,15 +1,15 @@
-var articleMap;
+var topicMap;
 var articleTemplate;
 
 function initTopics() {
-    articleMap = {};
+    topicMap = {};
     $.get("feeds/topics.json", function (data) {
         data.forEach(function(article) {
             var topic = article.heading;
-            if (!articleMap[topic]) {
-                articleMap[topic] = [];
+            if (!topicMap[topic]) {
+                topicMap[topic] = {};
             }
-            articleMap[topic].push(article.url);
+            topicMap[topic][article.article_id] = article;
         });
     });
     $.get("tmpl/article-search-result.html", function(data) {
@@ -21,27 +21,29 @@ function changeTopic(topicName, topic) {
     $('#current-topic').text(topicName);
 
     if (topic === 'current') {
-        $('#article-cards').css('display', 'block');
-        $('#search-result').css('display', 'none');
+        showCurrent();
     } else {
-        $('#article-cards').css('display', 'none');
         $('#search-result').children().remove();
-        $('#search-result').css('display', 'block');
-        articleMap[topicName].forEach(function(url) {
-            console.log('need to load '+url);
-            $.get(url, function(data) {
-                console.log('loaded '+url+': '+JSON.stringify(data, null, 2));
-                var html = articleTemplate;
-                for (var property in data) {
-                    if (data.hasOwnProperty(property)) {
-                        html = html.replace('{{'+property+'}}', data[property]);
-                    }
-                };
-                console.log(html);
+        showResult();
+        for (var articleId in topicMap[topicName]) {
+            var article = topicMap[topicName][articleId];
+            loadArticle(article.url, function(data){
+                articleMap[data.article_id] = data;
+                var html = populateTemplate(articleTemplate, data)
                 $('#search-result').append(html);
-            }, "json");
-        });
+            })
+        };
     }
-
-
 }
+
+function showCurrent() {
+    showArticle(false);
+    $('#search-result').css('display', 'none');
+    $('#article-cards').css('display', 'block');
+}
+function showResult() {
+    showArticle(false);
+    $('#article-cards').css('display', 'none')
+    $('#search-result').css('display', 'block');
+}
+

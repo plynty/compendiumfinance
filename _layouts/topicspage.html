@@ -6,15 +6,8 @@ scripts: |
       $().ready(function() { initTopics() });
   </script>
 ---
-
-    {% assign topics = '' %}
-    {% for article in site.articles %}
-        {% assign length = article.heading | strip | size %}
-        {% if article.status != 'inactive' and article.search_omit != true and length > 0 %}
-            {% assign topics = topics | append: article.heading | append: ',' %}
-        {% endif %}
-    {% endfor %}
-    {% assign topics = topics | split: "," | compact | uniq | sort %}
+    <div id="main">
+    {% assign topics = site.articles | where_exp:"a", "a.status != 'inactive'" | where_exp:"a", "a.search_omit != true" | map: 'heading' | uniq | sort %}
 
     {% include section/std-header.html section='topics' %}
 
@@ -47,5 +40,5 @@ scripts: |
 
     {% include section/article-cards.html %}
 
-    <div id="search-result" class="cards">
-    </div>
+    <div id="search-result" class="cards" style="display: none;"><p>Loading...</p></div>
+    </div> <!-- end main -->

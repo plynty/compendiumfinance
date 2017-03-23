@@ -4,7 +4,7 @@ scripts: |
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQjNS8FCsT2cbEHB10C0weCPWayhBNdME"></script>
   <script type="text/javascript" src="assets/js/google-map-api.js"></script>
 ---
-
+    <div id="main">
     {% assign heroes = site.cards | where: 'status', 'current' | where: 'section', 'hero' %}
     <section id="hero" class="hero pmd-z-depth-1">
         <div class="row">
@@ -19,3 +19,4 @@ scripts: |
     {% include section/aboutus.html %}
 
     {% include section/contactus.html %}
+    </div> <!-- end main -->

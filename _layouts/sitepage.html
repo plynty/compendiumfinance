@@ -8,7 +8,10 @@
             {% include nav-header.html %}
             <!--<div class="nav-padding">&nbsp;</div>-->
             <div class="page-content">
+                <div id="main">
                 {{ content }}
+                </div> <!-- end div#main -->
+                {% include article-view.html %}
             </div>
             {% include footer.html %}
         </page>

@@ -10,7 +10,7 @@ layout:
     {% unless first %},{% endunless %}{
         "title": {{article.title | jsonify}},
         "heading": "{{article.heading}}",
-        {% comment %}"content": {{article.content | markdownify | strip_html | jsonify}},{% endcomment %}
+        "article_id": "{{article.title | slugify}}",
         "date": "{{ article.date | date: '%B %e, %Y' }}",
         "excerpt": {{ article.lead | jsonify }}
     }
