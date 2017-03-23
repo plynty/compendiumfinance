@@ -1,6 +1,8 @@
 ---
-layout: null
+title: Topics
+layout: 
 ---
+
 {% assign first = true %}
 [
 {% for article in site.articles %}
