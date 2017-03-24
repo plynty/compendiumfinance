@@ -60,6 +60,12 @@ function populateTemplate(template, data) {
 function viewArticle(article_id) {
     var article = articleMap[article_id];
     $('#article-view .pmd-card-title-text').html(article.title);
+    if (article.banner_img.trim().length > 0) {
+        $('#article-view .pmd-card-media img').attr('src', article.banner_img.trim());
+        $('#article-view .pmd-card-media').show();
+    } else {
+        $('#article-view .pmd-card-media').hide();
+    }
     $('#article-view .pmd-card-body').children().remove();
     $('#article-view .pmd-card-body').html(article.content);
     $('#article-view .footer').children().remove();
@@ -84,13 +90,11 @@ function showArticle(show) {
         $('#main').css('display', 'none');
         $('#article-view').css('display', 'block');
         returnScrollPos = $('body').scrollTop();
-        console.log('current scroll: '+returnScrollPos);
         window.scrollTo(0, 0);
     } else {
         $('#article-view').css('display', 'none');
         $('#main').css('display', 'block');
         adjustRowHeight();
-        console.log('returning to: '+returnScrollPos);
         window.scrollTo(0, returnScrollPos - $('#header').height());
     }
 }
