@@ -1,6 +1,7 @@
 ---
 layout: 
 ---
+
 {
     "title": "{{page.title}}",
     "date": "{{page.date | date: '%B %e, %Y' }}",
