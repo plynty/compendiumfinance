@@ -5,7 +5,7 @@ layout:
     "title": "{{page.title}}",
     "date": "{{page.date | date: '%B %e, %Y' }}",
     "heading": "{{page.heading}}",
-    "lead": "{{page.lead}}",
+    "lead": {{page.lead | jsonify}},
     "img": "{{page.img}}",
     "source": "{{page.source}}",
     "article_id": "{{page.title | slugify}}",
@@ -14,4 +14,4 @@ layout:
 --- content-begin
 {{page.content | markdownify}}
 --- footer-begin
-{{page.modal_footer_md | markdownify}}
+{{page.content_footer_md | markdownify}}

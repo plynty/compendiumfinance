@@ -1,31 +1,17 @@
     {% if thisCard.format_class == 'custom' %}
         {{thisCard.content}}
     {% else %}
-        {% assign modal = nil %}
-        {% if thisCard.source == 'internal' and thisCard.actions contains 'show-modal' %}
-            {% for article in site.articles %}
-                {% if article.article_id == thisCard.article_id %}
-                    {% assign modal = article %}
-                    {% assign modal_id = article.modal_id %}
-                    {% assign len = modal_id | size %}
-                    {% if 0 == len %}
-                        {% assign modal_id = modal.article_id | append: '-modal' %}
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
-        {% endif %}
         {% assign linkTitle = thisCard.link_title %}
         {% if linkTitle == nil %}
             {% assign linkTitle = 'Read More...' %}
         {% endif %}
         <div id="{{thisCard.title | slugify}}" class="pmd-ripple-effect pmd-card pmd-z-depth-1 {{thisCard.format_class}}">
-            {% if modal == nil %}
-                <a href="{{thisCard.link}}" {% if thisCard.source == 'external' %}target="_blank" {% endif %} title="{{linkTitle}}">
+            {% if thisCard.source == 'external' %}
+                <a href="{{thisCard.link}}" target="_blank" title="{{linkTitle}}">
             {% else %}
-                <a href="{{thisCard.article_id}}" title="{{linkTitle}}">
+                <a href="javascript:viewArticle('{{thisCard.title | slugify}}');" title="{{linkTitle}}">
             {% endif %}
                 {% include card/{{include.card_layout }}.html %}
             </a>
         </div>
-         {% assign modal = nil %}
     {% endif %}

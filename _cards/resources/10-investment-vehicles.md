@@ -9,9 +9,6 @@ lead: Specific investment vehicles you can use to assemble your effective, simpl
 img: uploads/img/docblack.png
 source: internal
 format_class: resource
-actions:
-- show-modal
-article_id: 10-investment-vehicles
 ---
 
 The 10, maximum and in order, investments you’ll ever need for an effective long-term portfolio.

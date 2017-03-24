@@ -2,9 +2,6 @@
 layout: sitepage
 scripts: |
   <script type="text/javascript" src="assets/js/topics.js"></script>
-  <script>
-      $().ready(function() { initTopics() });
-  </script>
 ---
     <div id="main">
     {% assign topics = site.articles | where_exp:"a", "a.status != 'inactive'" | where_exp:"a", "a.search_omit != true" | map: 'heading' | uniq | sort %}

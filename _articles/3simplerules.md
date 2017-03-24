@@ -12,10 +12,7 @@ img_bleed: false
 format_class: article
 media_side: left
 source: internal
-actions:
-- show-modal
-article_id: book-excerpt
-modal_footer_md: |
+content_footer_md: |
   Find it online:
   <span class="icons">
   [![Amazon.com](uploads/img/amazon.png "Shop Amazon")](https://www.amazon.com/Simple-Rules-Investing-Everything-Instead/dp/1626561621/ref=sr_1_1?ie=UTF8&qid=1487016255&sr=8-1&keywords=edesess)

@@ -11,9 +11,6 @@ lead: |
   energy, and sustainable development fields. &hellip;
 source: internal
 format_class: bio
-actions:
-- show-modal
-article_id: bio-michael-edesess
 ---
 
 Michael Edesess is an accomplished mathematician and economist with experience in the investment,
