@@ -10,9 +10,6 @@ lead: |
   philanthropy, cofounded Fair Advisors in 2008. &hellip;
 source: internal
 format_class: bio
-actions:
-- show-modal
-article_id: bio-carol-fabbri
 ---
 
 Carol Fabbri, an experienced financial advisor, certified financial planner, and certified advisor in

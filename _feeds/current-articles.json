@@ -1,14 +1,13 @@
 ---
-title: Topics
+title: Current Articles
 layout: 
 ---
 
 {% assign first = true %}
 [
 {% for article in site.articles %}
-    {% if article.status != 'inactive' and article.search_omit != true %}
+    {% if article.status == 'current' and article.format_class == 'article' %}
     {% unless first %},{% endunless %}{
-        "heading": "{{article.heading}}",
         "url": "{{article.url}}",
         "article_id": "{{article.title | slugify}}"
     }

@@ -10,9 +10,6 @@ lead: |
   informatics, and data mining &hellip;
 source: internal
 format_class: bio
-actions:
-- show-modal
-article_id: bio-kwok-l-tsui
 ---
 
 Kwok L. Tsui is a distinguished statistician whose work focuses on the statistics of quality,

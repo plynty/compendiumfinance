@@ -8,9 +8,6 @@ lead: What is the difference between “real” return and “nominal” return 
 img: uploads/img/docblack.png
 source: internal
 format_class: resource
-actions:
-- show-modal
-article_id: real-annual-return
 ---
 
 It is essential that every investor understand and appreciate the difference between “real” returns

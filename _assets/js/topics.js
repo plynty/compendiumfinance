@@ -3,7 +3,7 @@ var articleTemplate;
 
 function initTopics() {
     topicMap = {};
-    $.get("feeds/topics.json", function (data) {
+    $.get("feeds/article-search.json", function (data) {
         data.forEach(function(article) {
             var topic = article.heading;
             if (!topicMap[topic]) {
@@ -47,3 +47,4 @@ function showResult() {
     $('#search-result').css('display', 'block');
 }
 
+$().ready(function() { initTopics(); });
