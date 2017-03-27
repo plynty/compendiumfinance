@@ -33,10 +33,24 @@ function changeTopic(topicName) {
     }
 }
 
+/**
+ * Perform a search when the input field changes.
+ * Apply a timer to delay while typing
+ */
+var timer;
 function search(input) {
-    textSearch(input.value);
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+        textSearch(input.value);
+    }, 350);
 }
 
+/**
+ * Perform a search on currently available content, display the results.
+ * If the search string is less than the minimum length, display the current
+ * topic.
+ * @param {String} searchStr Minimum length 3
+ */
 function textSearch(searchStr) {
     if (searchStr.length >= 3) {
         var results = [];
@@ -64,18 +78,22 @@ function articleMatches(article, searchStr) {
 function setResults(articles) {
     $('#search-result').children().remove();
     showResult();
-    for (var articleId in articles) {
-        var article = articles[articleId];
-        loadArticle(article.url, function(data){
-            articleMap[data.article_id] = data;
-            var html = populateTemplate(articleTemplate, data)
-            $('#search-result').append(html);
-            if (!data.img) {
-                // need to hide blank images on some browsers
-                $('#'+data.article_id+' .card-media-panel img').hide();
-            }
-        })
-    };
+    if (articles.length > 0) {
+        for (var articleId in articles) {
+            var article = articles[articleId];
+            loadArticle(article.url, function(data){
+                articleMap[data.article_id] = data;
+                var html = populateTemplate(articleTemplate, data)
+                $('#search-result').append(html);
+                if (!data.img) {
+                    // need to hide blank images on some browsers
+                    $('#'+data.article_id+' .card-media-panel img').hide();
+                }
+            })
+        };
+    } else {
+        $('#search-result').append('<p class="empty-search">No results found.</p>');
+    }
 }
 
 /**
