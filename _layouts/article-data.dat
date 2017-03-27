@@ -11,7 +11,8 @@ layout:
     "banner_img": "{{page.banner_img}}",
     "source": "{{page.source}}",
     "article_id": "{{page.title | slugify}}",
-    "link": "{{ page.link }}"
+    "link": "{{ page.link }}",
+    "link_target": {%if page.source == 'internal'%}"_self"{%else%}"_blank"{%endif%}
 }
 --- content-begin
 {{page.content | markdownify}}
