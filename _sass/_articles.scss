@@ -88,6 +88,7 @@
 }
 
 #article-view {
+    display: none;
     text-align: center;
     font-size: 1.4rem;
 
@@ -160,4 +161,8 @@
     .footer .icons img {
         max-width: 32px;
     }
+}
+
+img[src='stock'] {
+    content: url('../../uploads/img/hand-coin-plant.jpg');
 }

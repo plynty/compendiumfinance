@@ -22,6 +22,7 @@ function changeTopic(topicName, topic) {
 
     if (topic === 'current') {
         showCurrent();
+        adjustRowHeight();
     } else {
         $('#search-result').children().remove();
         showResult();
@@ -31,6 +32,10 @@ function changeTopic(topicName, topic) {
                 articleMap[data.article_id] = data;
                 var html = populateTemplate(articleTemplate, data)
                 $('#search-result').append(html);
+                if (!data.img) {
+                    // need to hide blank images on some browsers
+                    $('#'+data.article_id+' .card-media-panel img').hide();
+                }
             })
         };
     }

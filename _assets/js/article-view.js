@@ -89,8 +89,10 @@ function showArticle(show) {
     if (show) {
         $('#main').css('display', 'none');
         $('#article-view').css('display', 'block');
-        returnScrollPos = $('body').scrollTop();
+        returnScrollPos = $('body').scrollTop() || $(window).scrollTop();
         window.scrollTo(0, 0);
+        var closeBtn = $('#article-view .pmd-card-media button');
+        closeBtn.css('margin-left', -(closeBtn.outerWidth()+1));
     } else {
         $('#article-view').css('display', 'none');
         $('#main').css('display', 'block');
@@ -98,13 +100,6 @@ function showArticle(show) {
         window.scrollTo(0, returnScrollPos - $('#header').height());
     }
 }
-
-$().ready(function() { 
-    location.hash = 'main';
-    initArticles(); 
-    var closeBtn = $('#article-view .pmd-card-media button');
-    closeBtn.css('margin-left', -(closeBtn.outerWidth()+1));
-});
 
 /**
  * Use a simple hash operation to handle the back button on the article-view
@@ -119,3 +114,9 @@ window.onhashchange = function() {
             break;
     }
 }
+
+$().ready(function() { 
+    initArticles(); 
+    location.hash = 'main';
+});
+
