@@ -7,7 +7,7 @@ scripts: |
 
     <div id="main">
     {% assign heroes = site.cards | where: 'status', 'current' | where: 'section', 'hero' %}
-    <section id="hero" class="hero pmd-z-depth-1">
+    <section id="hero" class="hero pmd-z-depth">
         <div class="row">
             {{heroes[0].output}}
         </div>

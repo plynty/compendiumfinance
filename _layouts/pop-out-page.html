@@ -36,7 +36,7 @@
             <!--<div class="nav-padding">&nbsp;</div>-->
             <div class="row">
                 <div class="col-xs-12">
-                    <div id="{{page.title | slugify}}" class="pmd-card pmd-z-depth-2" >
+                    <div id="{{page.title | slugify}}" class="pmd-card pmd-z-depth" >
                         {% capture md %}{{ page.content }}{% endcapture %}
                         {{ md | markdownify }}
                     </div>

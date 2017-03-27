@@ -6,6 +6,10 @@ collections:
     title: Articles
     output: true
     permalink: articles/:title.data:output_ext
+  resources:
+    title: Resources
+    output: true
+    permalink: resources/:title.data:output_ext
   assets:
     title: Assets
     output: true
@@ -24,9 +28,14 @@ collections:
 defaults:
 - scope:
     path: ''
-    type: pages
+    type: articles
   values:
-    layout: sitepage
+    layout: article-data
+- scope:
+    path: ''
+    type: resources
+  values:
+    layout: article-data
 - scope:
     path: ''
     type: posts

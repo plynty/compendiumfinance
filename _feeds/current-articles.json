@@ -14,4 +14,13 @@ layout:
     {% assign first = false %}
     {% endif %}
 {% endfor %}
+{% for resource in site.resources %}
+    {% if resource.status == 'current' and resource.format_class == 'resource' %}
+    {% unless first %},{% endunless %}{
+        "url": "{{resource.url}}",
+        "article_id": "{{resource.title | slugify}}"
+    }
+    {% assign first = false %}
+    {% endif %}
+{% endfor %}
 ]
