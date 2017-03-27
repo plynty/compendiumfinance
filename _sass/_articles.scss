@@ -109,7 +109,7 @@
         margin-top: 2rem;
     }
 
-    ul {
+    .article ul {
         // border: solid thin $compendium-primary;
         // border-radius: 15px;
         margin: 0rem auto .5rem auto;
@@ -147,12 +147,12 @@
         background-color: rgba(255,255,255,.5);
     }
 
-    // .pmd-card-media button i:hover {
-    //     background-color: rgba(0,0,0,0);
-    // }
-
     .pmd-card-title {
         clear: both;
+    }
+
+    .pmd-card-body .resource {
+        text-align: left;
     }
 
     .footer {

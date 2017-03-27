@@ -41,7 +41,7 @@ function loadArticle(url, callback) {
  * @param {Object} data any object with fields related to the tokens in the template
  */
 function populateTemplate(template, data) {
-    if (data.source == 'internal') {
+    if (!data.link && data.source == 'internal') {
         template = template.replace('${link}', "javascript:viewArticle('"+data.article_id.trim()+"');");
     }
     for (var property in data) {
@@ -66,10 +66,11 @@ function viewArticle(article_id) {
     } else {
         $('#article-view .pmd-card-media').hide();
     }
-    $('#article-view .pmd-card-body').children().remove();
-    $('#article-view .pmd-card-body').html(article.content);
+    $('#card-body').children().remove();
+    $('#card-body').html(article.content);
     $('#article-view .footer').children().remove();
     $('#article-view .footer').html(article.footer);
+    $('#card-body').attr('class', article.format_class);
     location.hash = 'article-view';
 }
 

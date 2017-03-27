@@ -6,12 +6,12 @@
             {% assign linkTitle = 'Read More...' %}
         {% endif %}
         <div id="{{thisCard.title | slugify}}" class="pmd-ripple-effect pmd-card pmd-z-depth-1 {{thisCard.format_class}}">
-            {% if thisCard.source == 'external' %}
+            {% if thisCard.link != nil %}
                 <a href="{{thisCard.link}}" target="_blank" title="{{linkTitle}}">
             {% else %}
                 <a href="javascript:viewArticle('{{thisCard.title | slugify}}');" title="{{linkTitle}}">
             {% endif %}
                 {% include card/{{include.card_layout }}.html %}
-            </a>
+                </a>
         </div>
     {% endif %}
