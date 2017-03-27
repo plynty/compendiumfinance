@@ -6,10 +6,6 @@ collections:
     title: Articles
     output: true
     permalink: articles/:title.data:output_ext
-  resources:
-    title: Resources
-    output: true
-    permalink: resources/:title.data:output_ext
   assets:
     title: Assets
     output: true
@@ -22,6 +18,10 @@ collections:
   posts:
     title: Posts
     output: true
+  resources:
+    title: Resources
+    output: true
+    permalink: resources/:title.data:output_ext
   uploads:
     title: Uploads
     output: true
