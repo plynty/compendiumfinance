@@ -1,9 +1,9 @@
   // card animation -- raised shadow
   $(".pmd-card").hover(
     function(event) {
-      removeShadow($(this)).addClass("pmd-z-depth-3");
-  }, function(event) {
       removeShadow($(this)).addClass("pmd-z-depth-1");
+  }, function(event) {
+      removeShadow($(this)).addClass("pmd-z-depth");
   });
 
   // card animation -- lower shadow on click
@@ -11,7 +11,7 @@
     var element = $(this);
     removeShadow(element);
     setTimeout(function() {
-      removeShadow(element).addClass("pmd-z-depth-3");
+      removeShadow(element).addClass("pmd-z-depth-1");
     }, 100);
   });
 

@@ -3,7 +3,6 @@
 <section id="resource-cards" class="cards">
 {% assign resources = site.resources | where: 'status', 'current' | where: 'section', 'resource-cards' %}
 {% assign n = resources | size | minus: 1%}
-resource count: {{n}}
 {% for i in (0..n) %}
     {% assign thisCard = resources[i] %}
     {% assign even = i | modulo: 2 %}
