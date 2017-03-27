@@ -7,10 +7,12 @@ layout:
 [
 {% for article in site.articles %}
     {% if article.status != 'inactive' and article.search_omit != true %}
+    {% assign search = article.title | append: article.heading | append: article.content | append: article.lead | escape %}
     {% unless first %},{% endunless %}{
         "heading": "{{article.heading}}",
         "url": "{{article.url}}",
-        "article_id": "{{article.title | slugify}}"
+        "article_id": "{{article.title | slugify}}",
+        "search": {{ search | upcase  | markdownify | strip_html | jsonify }}
     }
     {% assign first = false %}
     {% endif %}

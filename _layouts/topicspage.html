@@ -19,20 +19,20 @@ scripts: '<script type="text/javascript" src="assets/js/topics.js"></script>
                         <div class="dropdown pmd-dropdown">
                             <a class="dropdown-toggle pmd-dropdown-hover" id="topic-menu" data-toggle="dropdown" aria-expanded="true"><span id="current-topic">Current</span> <span class="caret"></span></a>
                             <ul aria-labelledby="topic-menu" role="menu" class="dropdown-menu">
-                                <li role="presentation"><a href="javascript:changeTopic('Current', 'current');" tabindex="-1" role="menuitem">Current</a></li>
+                                <li role="presentation"><a href="javascript:changeTopic('Current');" tabindex="-1" role="menuitem">Current</a></li>
                                 {% for topic in topics %}
                                 {% assign topic = topic | strip %}
-                                <li role="presentation"><a href="javascript:changeTopic('{{topic}}', '{{topic | slugify}}');" tabindex="-1" role="menuitem">{{topic}}</a></li>
+                                <li role="presentation"><a href="javascript:changeTopic('{{topic}}');" tabindex="-1" role="menuitem">{{topic}}</a></li>
                                 {% endfor %}
                             </ul>
                         </div><p>&nbsp;Articles</p>
                     </div>
                 </div>
-                <!--<div class="col-sm-6 col-xs-12">
+                <div class="col-sm-6 col-xs-12">
                     <div class="text-search">
-                        <input type="search" id="topic-search" class="form-control" value="" placeholder="I want to learn more about..."/>
+                        <input type="search" id="topic-search" class="form-control" value="" placeholder="I want to learn more about..." oninput="search(this);"/>
                     </div>
-                </div>-->
+                </div>
             </div>
         </div>
     </section>
