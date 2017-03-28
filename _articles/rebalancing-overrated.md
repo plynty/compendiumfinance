@@ -1,7 +1,6 @@
 ---
 title: Portfolio Rebalancing Might Be Overrated
 date: 2017-01-31 00:00:00 Z
-#date: 2017-03-27 00:00:00 Z
 status: current
 section: articles
 heading: Wealth Management
