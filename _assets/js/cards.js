@@ -53,9 +53,13 @@
     }
     rows.each(function(index) {
         $(this).css("font-size", baseFontSizePx * heightPercent);
-        $(this).find(".card-copy-panel, .card-media-panel")
+        $(this).find(".card-height-1 .card-copy-panel, .card-height-1 .card-media-panel")
           .each(function() {
             $(this).outerHeight(height ? height : "auto");
+          }); 
+        $(this).find(".card-height-2 .card-copy-panel, .card-height-2 .card-media-panel")
+          .each(function() {
+            $(this).outerHeight(height ? (height * 2 + 14) : "auto");
           }); 
     });
   };
