@@ -1,37 +1,66 @@
 {% assign cards = site.articles | where: 'section', 'articles' | where: 'status', 'current' | reverse %}
+{% assign cardCount = cards | size %}
 {% assign cardNum = 0 %}
     <section id="article-cards" class="cards">
-    {% for thisCard in cards %}
-        {% case cardNum %}
-            {% when 0,4 %}
-                <div class="row">
+    {% for row in (1..10) %}
+        {% if cardNum < cardCount %}
+            <div class="row">
+            {% case row %}
+                {% when 1,4 %}
+                    {% assign thisCard = cards[cardNum] %}
                     <div class="col-sm-8">
                         <div class="card-wrapper cf-ar-2x1">
                             {% include card/card.html card_layout='card-2x1' %}
                         </div>
                     </div>
-            {% when 1,5 %}
+                    {% assign cardNum = cardNum | plus: 1 %}
+                    {% assign thisCard = cards[cardNum] %}
                     <div class="col-sm-4">
                         <div class="card-wrapper cf-ar-1x1">
                             {% include card/card.html card_layout='card-1x1' %}
                         </div>
                     </div>
-                </div>
-            {% when 2,6 %}
-                <div class="row">
+                    {% assign cardNum = cardNum | plus: 1 %}
+                {% when 2,5 %}
+                    {% assign thisCard = cards[cardNum] %}
                     <div class="col-sm-4">
                         <div class="card-wrapper cf-ar-1x1">
                             {% include card/card.html card_layout='card-1x1' %}
                         </div>
                     </div>
-            {% when 3,7 %}
+                    {% assign cardNum = cardNum | plus: 1 %}
+                    {% assign thisCard = cards[cardNum] %}
                     <div class="col-sm-8">
                         <div class="card-wrapper cf-ar-2x1">
                             {% include card/card.html card_layout='card-2x1' %}
                         </div>
                     </div>
-                </div>
-        {% endcase %}
-        {% assign cardNum = cardNum | plus: 1 %}
+                    {% assign cardNum = cardNum | plus: 1 %}
+                {% when 3,6 %}
+                    {% assign thisCard = cards[cardNum] %}
+                    <div class="col-sm-8">
+                        <div class="card-wrapper cf-ar-2x2">
+                            {% include card/card.html card_layout='card-2x2' %}
+                        </div>
+                    </div>
+                    {% assign cardNum = cardNum | plus: 1 %}
+                    <div class="col-sm-4">
+                        {% assign thisCard = cards[cardNum] %}
+                        <div class="card-wrapper cf-ar-1x1 card-above">
+                            {% include card/card.html card_layout='card-1x1' %}
+                        </div>
+                        {% assign cardNum = cardNum | plus: 1 %}
+                        {% assign thisCard = cards[cardNum] %}
+                        <div class="card-wrapper cf-ar-1x1 card-below">
+                            {% include card/card.html card_layout='card-1x1' %}
+                        </div>
+                        {% assign cardNum = cardNum | plus: 1 %}
+                    </div>
+            {% endcase %}
+            </div>
+            {% assign row = row | plus: 1 %}
+        {% else %}
+            {% break %}
+        {% endif %}
     {% endfor %}
     </section>
