@@ -8,6 +8,7 @@ heading: Investing
 lead: What if the most effective investment portfolio was also the most simple and
   the least expensive?
 img: uploads/img/3simpleRules-book.jpeg
+bg_img: none
 banner_img: http://propeller.in/assets/images/profile-pic.png
 img_bleed: false
 format_class: article

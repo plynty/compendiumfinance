@@ -111,3 +111,15 @@
         }
     }
 }
+
+.bg-img {
+    background-size: 102% 102%;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-position: center;
+
+}
+
+.bg-img > .card-copy-panel {
+    background-color: rgba(255, 255, 255, .5);
+}

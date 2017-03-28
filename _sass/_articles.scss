@@ -17,7 +17,7 @@
     }
 
     .pmd-card.article {
-        // font-size: 1.5rem;
+        color: black;
 
         header h1 {
             text-transform: uppercase;
@@ -29,7 +29,6 @@
             // font-family: 'Righteous', cursive;
             font-size: smaller;
             text-transform: uppercase;
-            color: $compendium-primary;
         }
 
         header .category .material-icons {
@@ -50,10 +49,17 @@
         
         header .date {
             font-style: italic;
-            color: $compendium-fg-gray;
             font-size: smaller;
         }
 
+        .no-bg-img > .card-copy-panel {
+            header .category {
+                color: $compendium-primary;
+            }
+            header .date {
+                color: $compendium-fg-gray;
+            }        
+        }
         // xs
         @media only screen and (min-width: 768px) {
             article {
