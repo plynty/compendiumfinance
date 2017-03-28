@@ -29,7 +29,11 @@ function changeTopic(topicName) {
         showCurrent();
         adjustRowHeight();
     } else {
-        setResults(topicMap[topicName]);
+        var results = [];
+        for (var articleId in topicMap[topicName]) {
+            results.push(topicMap[topicName][articleId]);
+        }
+        setResults(results);
     }
 }
 

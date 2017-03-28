@@ -1,27 +1,43 @@
-                <div class="card-copy-panel">
-                    <header> 
-                        {% unless thisCard.heading == nil %}
-                        <div class="category">
-                            <span>{{thisCard.heading}}
-                            {% if thisCard.source == 'external' %}
-                                &nbsp;<i class="material-icons" title="Open in new tab">open_in_new</i>
-                            {% endif %}
-                            </span>
-                        </div>
+                {% assign bgImg = nil %}
+                {% if include.square %}
+                    {%if thisCard.bg_img != nil %}
+                        {% unless thisCard.bg_img == 'none' %}
+                            {%assign bgImg = "background-image: url('" | append: thisCard.bg_img | append: "');" %}
                         {% endunless %}
-                        <h1>{{thisCard.title}}</h1>
-                        {% unless thisCard.no_date %}
-                        <div class="date">{{thisCard.date | date: '%B %e, %Y' }}</div>
-                        {% endunless %}
-                    </header>
-                    <article>
-                        <div>{{thisCard.lead}}</div>
-                    </article>
-                    <footer class="visible-xs">
-                        <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">more
-                            {% if thisCard.source == 'external' %}
-                                &nbsp;<i class="material-icons" title="Open in new tab">open_in_new</i>
-                            {% endif %}
-                        </button>
-                    </footer>
+                    {% elsif thisCard.img != nil %}
+                        {%assign bgImg = "background-image: url('" | append: thisCard.img | append: "');" %}
+                    {% endif %}
+                {%endif%}
+                {% if bgImg != nil %}
+                <div class="bg-img" style="{{bgImg}}">
+                {% else %}
+                <div class="no-bg-img">
+                {%endif%}
+                    <div class="card-copy-panel">
+                        <header> 
+                            {% unless thisCard.heading == nil %}
+                            <div class="category">
+                                <span>{{thisCard.heading}}
+                                {% if thisCard.source == 'external' %}
+                                    &nbsp;<i class="material-icons" title="Open in new tab">open_in_new</i>
+                                {% endif %}
+                                </span>
+                            </div>
+                            {% endunless %}
+                            <h1>{{thisCard.title}}</h1>
+                            {% unless thisCard.no_date %}
+                            <div class="date">{{thisCard.date | date: '%B %e, %Y' }}</div>
+                            {% endunless %}
+                        </header>
+                        <article>
+                            <div>{{thisCard.lead}}</div>
+                        </article>
+                        <footer class="visible-xs">
+                            <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">more
+                                {% if thisCard.source == 'external' %}
+                                    &nbsp;<i class="material-icons" title="Open in new tab">open_in_new</i>
+                                {% endif %}
+                            </button>
+                        </footer>
+                    </div>
                 </div>

@@ -1,14 +1,16 @@
 ---
 title: George J. Peacock
-position: 4
-role: Chief Strategist
+position: 2
+role: Subject Matter Expert
 status: current
 section: bios
 img: uploads/img/author-george-j-peacock.png
 lead: |
   A 27-year investment industry veteran, George Peacock is a principal at Compendium Financial
   Investment Advisory &hellip;
-source: internal
+source: external
+link_title: Connect on LinkedIn
+link: https://www.linkedin.com/in/george-j-peacock-a8a5436/
 format_class: bio
 ---
 

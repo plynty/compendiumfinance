@@ -7,7 +7,7 @@
         {% endif %}
         <div id="{{thisCard.title | slugify}}" class="pmd-ripple-effect pmd-card pmd-z-depth {{thisCard.format_class}}">
             {% if thisCard.link != nil %}
-                <a href="{{thisCard.link}}" {% if thisCard.source == external %}target="_blank" {%endif%}title="{{linkTitle}}">
+                <a href="{{thisCard.link}}" {% if thisCard.source == 'external'' %}target="_blank" {%endif%}title="{{linkTitle}}">
             {% else %}
                 <a href="javascript:viewArticle('{{thisCard.title | slugify}}');" title="{{linkTitle}}">
             {% endif %}

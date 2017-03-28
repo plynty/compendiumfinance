@@ -18,7 +18,8 @@ $panel-height: 28rem;
         padding-top: 15px;
 
         .pmd-card {
-            max-width: 350px;
+            display: inline-block;
+            width: $panel-height;
             height: $panel-height;
             margin-left: 1rem;
             margin-right: 1rem;
@@ -29,33 +30,39 @@ $panel-height: 28rem;
         text-align: center;
     }
 
-    .pmd-card {
-        display: inline-block;
-        vertical-align: top;
-        padding: 16px;
+    .vertical-spacer {
+        height: 20rem;
     }
-
-    .bio-img {
-        width: 33%;
-        float: left;
+    .card-copy-panel {
+        height: 8rem;
+        padding: 1rem;
     }
 
     .bio-header {
-        width: 66%;
-        display: inline-block;
+        text-align: left;
+
+        header {
+            float: left;
+        }
+
+        .contact {
+            float: right;
+            text-align: center;
+            vertical-align: middle;
+        }
 
         header h1 {
             text-transform: uppercase;
             font-size: 2.0rem;
             font-weight: 700;
-            margin-top: 10px; // override bootstrap
+            margin-top: 5px; // override bootstrap
         }
         header h2 {
             font-family: 'Fjalla One', sans-serif;
             // font-style: italic;
-            color: $compendium-fg-gray;
+            // color: $compendium-fg-gray;
             font-size: smaller;
-            margin-top: 10px; // override bootstrap
+            margin-top: 5px; // override bootstrap
         }
 
         // > sm

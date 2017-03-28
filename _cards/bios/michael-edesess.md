@@ -5,11 +5,13 @@ role: Principal
 status: current
 target: homepage
 section: bios
-img: uploads/img/author-michael-edesess.png
+img: uploads/img/michael-edesess.png
 lead: |
   Michael Edesess is an accomplished mathematician and economist with experience in the investment,
   energy, and sustainable development fields. &hellip;
-source: internal
+source: external
+link: https://www.linkedin.com/in/michael-edesess-a153202/
+link_title: Connect on LinkedIn
 format_class: bio
 ---
 
