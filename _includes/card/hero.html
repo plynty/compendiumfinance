@@ -1,11 +1,7 @@
----
----
-
-        {% assign thisCard = page %}
         <div class="hero">
-            <a href="{{page.link}}" target="_blank">
+            <a href="{{thisCard.link}}" target="_blank">
                 <div class="row hero-content">
-                {% if page.img != nil%}
+                {% if thisCard.img != nil%}
                     <div class="hero-img hidden-sm hidden-xs">
                         <div class="shadow-box pmd-z-depth ">
                             {% include card/card-image-panel.html%}
@@ -26,7 +22,7 @@
                     </div>   
                 {% endif %}
                 </div>
-                {% if page.img != nil and false %}
+                {% if thisCard.img != nil and false %}
                 <div class="hero-bg-img visible-sm visible-xs">
                     {% include card/card-image-panel.html %}
                 </div>

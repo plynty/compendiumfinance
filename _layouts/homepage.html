@@ -6,10 +6,11 @@ scripts: |
 ---
 
     <div id="main">
-    {% assign heroes = site.cards | where: 'status', 'current' | where: 'section', 'hero' %}
+    {% assign heroes = site.articles | where: 'status', 'current' | where: 'section', 'hero' %}
     <section id="hero" class="hero pmd-z-depth">
         <div class="row">
-            {{heroes[0].output}}
+            {% assign thisCard = heroes[0] %}
+            {% include card/hero.html %}
         </div>
     </section>
 
