@@ -90,6 +90,10 @@ $panel-height: 28rem;
         margin-top: 1rem;
         padding: 1rem;
     }
+    .bg-img > .card-copy-panel {
+        color: black;
+        background-color: rgba(255, 255, 255, .5);
+    }
 }
 
 #contactus-map {
