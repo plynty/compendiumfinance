@@ -29,9 +29,11 @@
   };
 
   // card resize, maintain aspect ratio
-  var baseFontSizePx;
+  var baseFontSize1Px;
+  var baseFontSize1Px;
   $().ready(function() {
-    baseFontSizePx = parseFloat($("#article-cards > .row").css("font-size"));
+    baseFontSize1Px = parseFloat($(".card-height-1").css("font-size"));
+    baseFontSize2Px = parseFloat($(".card-height-2").css("font-size"));
     adjustRowHeight();
     var timer;
     $(window).resize(function() {
@@ -52,7 +54,14 @@
       heightPercent = height / maxHeight;
     }
     rows.each(function(index) {
-        $(this).css("font-size", baseFontSizePx * heightPercent);
+        $(this).find(".card-height-1")
+          .each(function() {
+            $(this).css("font-size", baseFontSize1Px * heightPercent);
+          });
+        $(this).find(".card-height-2")
+          .each(function() {
+            $(this).css("font-size", baseFontSize2Px * heightPercent);
+          });
         $(this).find(".card-height-1 .card-copy-panel, .card-height-1 .card-media-panel")
           .each(function() {
             $(this).outerHeight(height ? height : "auto");

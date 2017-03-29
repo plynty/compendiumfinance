@@ -1,7 +1,10 @@
 // General properties for all cards
 
-.cards > .row {
+.card-height-1 {
     font-size: 1.8rem;
+}
+.card-height-2 {
+    font-size: 2.0rem;
 }
 
 @media only screen and (max-width: $sm-max) {
@@ -27,6 +30,10 @@
 .card-copy-panel {
     padding: 16px;
     overflow: hidden;
+}
+
+.card-height-2 .card-copy-panel {
+    padding: 32px;
 }
 
 .card-media-panel {
