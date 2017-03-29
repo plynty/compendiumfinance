@@ -1,11 +1,9 @@
 ---
-title: Our Philosophy
+title: Our Approach
 no_date: true
 status: current
 section: resources
-heading: Resources
-lead: We have the best philosophy.  Everyone tells us we have the best philosophy.
-img: http://www.morgancountytn.gov/resoureces_help.jpg
+lead: "Invest to establish a secure safety net income at the level of your barebones budgetary needs first; then whatever the rest of your investments can produce in additional income is gravy."
 format_class: section-head
 layout: section-head
 ---
