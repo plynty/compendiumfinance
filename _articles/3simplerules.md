@@ -1,11 +1,11 @@
 ---
 title: The 3 Simple Rules of Investing
 date: 2017-03-21 00:00:00 Z
+categories:
+- Investing
 status: current
 section: articles
 layout: article-data
-categories: 
-- Investing
 lead: What if the most effective investment portfolio was also the most simple and
   the least expensive?
 img: uploads/img/3simpleRules-book.jpeg

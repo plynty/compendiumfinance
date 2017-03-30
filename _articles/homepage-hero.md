@@ -1,10 +1,10 @@
 ---
 title: Pensions and Retirement&colon; How Solid is Your Safety Net Income?
 date: 2015-05-25 00:00:00 Z
+categories:
+- Retirement Planning
 status: current
 section: hero
-categories: 
-- Retirement Planning
 lead: "One person whose thoughts have been very valuable is a retiree (perhaps semi-retiree)
   named Barry. \nHe isn’t really a financial advisor, but he has thought quote deeply
   about his own financial planning.\n"
