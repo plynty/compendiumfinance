@@ -3,9 +3,9 @@
         {% else %}
             {% assign hasMedia = false %}
         {% endif %}
-        <div class="pmd-card-body card-height-1">
+        <div class="pmd-card-body">
             <div class="row">
-                {% if hasMedia and thisCard.media_side == 'left'%}
+                {% if hasMedia and include.media_side != 'right'%}
                 <div class="col-sm-6 panel-1x1">
                     {% if thisCard.img != nil %}
                         {% include card/card-image-panel.html%}
@@ -21,7 +21,7 @@
                 {% endif %}
                     {% include card/card-copy-panel.html %}
                 </div>
-                {% if hasMedia and thisCard.media_side == 'right'%}
+                {% if hasMedia and include.media_side == 'right'%}
                 <div class="col-sm-6 panel-1x1">
                     {% if thisCard.img != nil %}
                         {% include card/card-image-panel.html%}

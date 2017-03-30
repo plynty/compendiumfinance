@@ -9,12 +9,10 @@ lead: |
   Instantly see how financial decisions now and in the future will impact your retirement income.
 img: https://uc.uxpin.com/files/169349/174674/plynty_logo_green-4.png
 img_bleed: false
-media_side: left
+bg_img_darken: true
 link: http://www.plynty.com
 source: external
 format_class: article
-actions:
-- open-link
 layout: article-data
 ---
 

@@ -1,9 +1,9 @@
 // General properties for all cards
 
-.card-height-1 {
+.cf-ar-1x1, .cf-ar-2x1 {
     font-size: 1.8rem;
 }
-.card-height-2 {
+.cf-ar-2x2 {
     font-size: 2.0rem;
 }
 
@@ -32,7 +32,7 @@
     overflow: hidden;
 }
 
-.card-height-2 .card-copy-panel {
+.cf-ar-2x2 .card-copy-panel {
     padding: 32px;
 }
 
@@ -132,5 +132,7 @@
 
 .bg-img > .card-copy-panel {
     color: white;
-    background-color: rgba(255, 255, 255, .0);
+}
+.bg-img > .darken {
+    background-color: rgba(0, 0, 0, .15);
 }

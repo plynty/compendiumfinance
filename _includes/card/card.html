@@ -11,7 +11,7 @@
             {% else %}
                 <a href="javascript:viewArticle('{{thisCard.title | slugify}}');" title="{{linkTitle}}">
             {% endif %}
-                {% include card/{{include.card_layout }}.html %}
+                {% include card/{{include.card_layout }}.html media_side = include.media_side %}
                 </a>
         </div>
     {% endif %}
