@@ -1,6 +1,12 @@
 ---
-title: Retirement&colon; Expectations vs. Realities
+title: 'Retirement: Expectations vs. Realities'
 date: 2011-02-10 00:00:00 Z
+categories:
+- test1
+- test2
+tags:
+- tag1
+- tag2
 status: current
 section: articles
 heading: Retirement Planning
