@@ -31,6 +31,7 @@ defaults:
     type: articles
   values:
     layout: article-data
+    format_class: article
 - scope:
     path: ''
     type: resources
