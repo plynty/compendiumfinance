@@ -1,6 +1,6 @@
 ---
 title: Why the Finance Industry is Destroying America’s Economy
-date: 2015/10/12
+date: 2015-10-12 00:00:00 Z
 status: current
 section: articles
 heading: Wall Street
