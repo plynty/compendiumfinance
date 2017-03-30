@@ -8,12 +8,13 @@ function initTopics() {
     searchMap = {};
     $.get("feeds/article-search.json", function (data) {
         data.forEach(function(article) {
-            var topic = article.heading;
             searchMap[article.article_id] = article;
-            if (!topicMap[topic]) {
-                topicMap[topic] = {};
-            }
-            topicMap[topic][article.article_id] = article;
+            article.categories.forEach(function(topic) {
+                if (!topicMap[topic]) {
+                    topicMap[topic] = {};
+                }
+                topicMap[topic][article.article_id] = article;
+            });
         });
     });
     $.get("tmpl/article-search-result.html", function(data) {
@@ -24,6 +25,9 @@ function initTopics() {
 function changeTopic(topicName) {
     currentTopic = topicName;
     $('#current-topic').text(topicName);
+    if ($('#topic-search').val().length > 0){
+        $('#topic-search').val('');
+    }
 
     if (topicName === 'Current') {
         showCurrent();
@@ -33,7 +37,7 @@ function changeTopic(topicName) {
         for (var articleId in topicMap[topicName]) {
             results.push(topicMap[topicName][articleId]);
         }
-        setResults(results);
+        setResults(results, topicName);
     }
 }
 
@@ -78,8 +82,10 @@ function articleMatches(article, searchStr) {
 /**
  * Clear the search results, repopulate with the articles provided
  * @param {array} articles Articles to display in the search result area
+ * @param {String} topic Optional: if provided, then all results will
+ * show this as the heading
  */
-function setResults(articles) {
+function setResults(articles, topic) {
     $('#search-result').children().remove();
     showResult();
     if (articles.length > 0) {
@@ -87,6 +93,11 @@ function setResults(articles) {
             var article = articles[articleId];
             loadArticle(article.url, function(data){
                 articleMap[data.article_id] = data;
+                if (topic) {
+                    data.heading = topic;
+                } else {
+                    data.heading = data.categories[0];
+                }
                 var html = populateTemplate(articleTemplate, data)
                 $('#search-result').append(html);
                 if (!data.img) {

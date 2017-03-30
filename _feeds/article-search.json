@@ -7,12 +7,16 @@ layout:
 [
 {% for article in site.articles %}
     {% if article.status != 'inactive' and article.search_omit != true %}
-    {% assign search = article.title | append: article.heading | append: article.content | append: article.lead | escape %}
+    {% assign tagJoin = article.tags | join: ' ' | append: ' ' %}
+    {% assign categoryJoin = article.categories | join: ' '  | append: ' ' %}
+    {% assign search = article.title | append: ' ' | append: categoryJoin | append: tagJoin | append: article.content | append: article.lead | escape_once | strip_newlines %}
+    {% assign search = search | replace: '“',' ' %}
+    {% assign search = search | replace: '”',' ' %}
     {% unless first %},{% endunless %}{
-        "heading": "{{article.heading}}",
+        "categories": {{article.categories | jsonify}},
         "url": "{{article.url}}",
         "article_id": "{{article.title | slugify}}",
-        "search": {{ search | upcase  | markdownify | strip_html | jsonify }}
+        "search": {{ search | upcase  | markdownify | strip_html | jsonify}}
     }
     {% assign first = false %}
     {% endif %}

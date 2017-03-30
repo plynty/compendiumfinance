@@ -2,14 +2,13 @@
 title: 'Retirement: Expectations vs. Realities'
 date: 2011-02-10 00:00:00 Z
 categories:
-- test1
-- test2
+- Test
+- Retirement Planning
 tags:
 - tag1
 - tag2
 status: current
 section: articles
-heading: Retirement Planning
 lead: Will your retirement experience meet your expectations?
 video: https://player.vimeo.com/video/41129203?portrait=0
 link: https://vimeo.com/41129203

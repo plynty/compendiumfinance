@@ -22,11 +22,16 @@ function initArticles() {
   */
 function loadArticle(url, callback) {
     $.get(url, function(data) {
-        var dataSections = data.split("--- content-begin");
+        var dataSections = data.split("--- field:");
         var json = JSON.parse(dataSections[0]);
-        var contentSections = dataSections[1].split("--- footer-begin");
-        json.content = contentSections[0].trim();
-        json.footer = contentSections[1].trim();
+        for (var i = 1; i < dataSections.length; i++) {
+            var delimIdx = dataSections[i].indexOf(':');
+            var field = dataSections[i].substr(0, delimIdx);
+            var value = dataSections[i].substr(delimIdx+1).trim();
+            if (value.length > 0) {
+                json[field] = value;
+            }
+        }
         if (callback) {
             callback(json);
         }
