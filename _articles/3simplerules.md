@@ -12,7 +12,6 @@ bg_img: none
 banner_img: http://propeller.in/assets/images/profile-pic.png
 img_bleed: false
 format_class: article
-media_side: left
 source: internal
 content_footer_md: |
   Find it online:

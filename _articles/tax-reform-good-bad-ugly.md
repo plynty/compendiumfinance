@@ -10,8 +10,6 @@ author: John Mauldin of Mauldin Economics
 link: https://www.advisorperspectives.com/commentaries/2017/02/19/tax-reform-the-good-the-bad-and-the-really-ugly-part-three
 source: external
 format_class: article
-action:
-- open-link
 layout: article-data
 ---
 

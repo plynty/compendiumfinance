@@ -9,8 +9,6 @@ lead: The investment industry is well-suited to P.T. Barnum’s most famous utte
 link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/?p=1297
 source: external
 format_class: article
-actions:
-- open-link
 layout: article-data
 ---
 

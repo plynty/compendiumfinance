@@ -32,8 +32,8 @@
   var baseFontSize1Px;
   var baseFontSize1Px;
   $().ready(function() {
-    baseFontSize1Px = parseFloat($(".card-height-1").css("font-size"));
-    baseFontSize2Px = parseFloat($(".card-height-2").css("font-size"));
+    baseFontSize1Px = parseFloat($(".cf-ar-1x1").css("font-size"));
+    baseFontSize2Px = parseFloat($(".cf-ar-2x2").css("font-size"));
     adjustRowHeight();
     var timer;
     $(window).resize(function() {
@@ -54,22 +54,22 @@
       heightPercent = height / maxHeight;
     }
     rows.each(function(index) {
-        $(this).find(".card-height-1")
+        $(this).find(".cf-ar-1x1, .cf-ar-2x1")
           .each(function() {
             $(this).css("font-size", baseFontSize1Px * heightPercent);
+            $(this).find(".card-copy-panel, .card-media-panel")
+              .each(function() {
+                $(this).outerHeight(height ? height : "auto");
+              }); 
           });
-        $(this).find(".card-height-2")
+        $(this).find(".cf-ar-2x2")
           .each(function() {
             $(this).css("font-size", baseFontSize2Px * heightPercent);
+            $(this).find(".card-copy-panel, .card-media-panel")
+              .each(function() {
+                $(this).outerHeight(height ? (height * 2 + 14) : "auto");
+              }); 
           });
-        $(this).find(".card-height-1 .card-copy-panel, .card-height-1 .card-media-panel")
-          .each(function() {
-            $(this).outerHeight(height ? height : "auto");
-          }); 
-        $(this).find(".card-height-2 .card-copy-panel, .card-height-2 .card-media-panel")
-          .each(function() {
-            $(this).outerHeight(height ? (height * 2 + 14) : "auto");
-          }); 
     });
   };
 
