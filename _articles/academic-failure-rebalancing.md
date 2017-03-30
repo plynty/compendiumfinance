@@ -1,10 +1,10 @@
 ---
 title: The Academic Failure to Understand Rebalancing
 date: 2016-08-16 00:00:00 Z
+categories:
+- Myths
 status: current
 section: articles
-categories: 
-- Myths
 lead: Perhaps the most universally accepted investing principle is to periodically
   rebalance one’s portfolio. Unfortunately, this precept is the byproduct of imperfect
   mathematics.

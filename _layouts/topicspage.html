@@ -4,6 +4,7 @@ scripts: '<script type="text/javascript" src="assets/js/topics.js"></script>
 
 '
 ---
+
     {% assign categories = site.articles | where_exp:"a", "a.status != 'inactive'" | where_exp:"a", "a.search_omit != true" | map: 'categories' %}
     {% for categoryArray in categories %}
         {% assign categoryStr = categoryArray | join: ',' %}
