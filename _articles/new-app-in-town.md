@@ -3,8 +3,6 @@ title: New App in Town
 date: 2017-01-31 00:00:00 Z
 categories:
 - Retirement Planning
-status: current
-section: articles
 lead: |
   New smart phone app literally puts retirement planning in your own hands.
   Instantly see how financial decisions now and in the future will impact your retirement income.
@@ -13,7 +11,5 @@ img_bleed: false
 bg_img_darken: true
 link: http://www.plynty.com
 source: external
-format_class: article
-layout: article-data
 ---
 

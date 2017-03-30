@@ -30,7 +30,9 @@ defaults:
     path: ''
     type: articles
   values:
+    status: current
     layout: article-data
+    section: articles
     format_class: article
 - scope:
     path: ''
