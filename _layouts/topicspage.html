@@ -4,12 +4,15 @@ scripts: '<script type="text/javascript" src="assets/js/topics.js"></script>
 
 '
 ---
+    {% assign categories = site.articles | where_exp:"a", "a.status != 'inactive'" | where_exp:"a", "a.search_omit != true" | map: 'categories' %}
+    {% for categoryArray in categories %}
+        {% assign categoryStr = categoryArray | join: ',' %}
+        {% assign topics = topics | append: categoryStr | append: ',' %}
+    {% endfor %}
+    {% assign topics = topics | split: ',' | uniq | sort %}
 
     <div id="main">
-    {% assign topics = site.articles | where_exp:"a", "a.status != 'inactive'" | where_exp:"a", "a.search_omit != true" | map: 'heading' | uniq | sort %}
-
     {% include section/std-header.html section='topics' %}
-
     <section class="topic-form">
         <div class="row">
             <div>
