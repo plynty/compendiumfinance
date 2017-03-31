@@ -1,7 +1,7 @@
 ---
 title: Real Annual Return
 no_date: true
-satus: current
+status: current
 section: resource-cards
 lead: What is the difference between “real” return and “nominal” return and why does
   it matter?
