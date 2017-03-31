@@ -123,7 +123,6 @@ window.onhashchange = function() {
 
 $().ready(function() { 
     initArticles(); 
-    //location.hash = 'main';
     showArticle(false);
 });
 
