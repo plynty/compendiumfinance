@@ -6,7 +6,7 @@ target: homepage
 section: resource-cards
 lead: Specific investment vehicles you can use to assemble your effective, simple,
   and low cost portfolio.
-img: uploads/img/docblack.png
+img: uploads/docblack.png
 source: internal
 format_class: resource
 ---
