@@ -14,7 +14,7 @@
 
         var map = new google.maps.Map(mapElement, mapOptions);
 
-        var iconBase = 'uploads/img/';
+        var iconBase = 'uploads/';
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(38.958016,-77.425632),
             map: map,

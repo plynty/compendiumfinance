@@ -5,7 +5,7 @@ categories:
 - Wealth Management
 lead: Some investment experts challenge the notion that it’s a best practice for reaching
   long-term financial goals
-img: uploads/img/michael-edesess.png
+img: uploads/michael-edesess.png
 link: 
 source: external
 ---

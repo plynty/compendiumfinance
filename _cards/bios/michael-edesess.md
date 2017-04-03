@@ -5,7 +5,7 @@ role: Principal
 status: current
 target: homepage
 section: bios
-img: uploads/img/michael-edesess.png
+img: uploads/michael-edesess.png
 lead: |
   Michael Edesess is an accomplished mathematician and economist with experience in the investment,
   energy, and sustainable development fields. &hellip;

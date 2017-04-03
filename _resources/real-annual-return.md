@@ -5,7 +5,7 @@ status: current
 section: resource-cards
 lead: What is the difference between “real” return and “nominal” return and why does
   it matter?
-img: uploads/img/docblack.png
+img: uploads/docblack.png
 source: internal
 format_class: resource
 ---

@@ -4,7 +4,7 @@ position: 2
 role: Subject Matter Expert
 status: current
 section: bios
-img: uploads/img/author-george-j-peacock.png
+img: uploads/author-george-j-peacock.png
 lead: |
   A 27-year investment industry veteran, George Peacock is a principal at Compendium Financial
   Investment Advisory &hellip;
