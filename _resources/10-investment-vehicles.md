@@ -1,8 +1,7 @@
 ---
 title: 10 Investment Vehicles
 no_date: true
-status: current
-target: homepage
+status: inactive
 section: resource-cards
 lead: Specific investment vehicles you can use to assemble your effective, simple,
   and low cost portfolio.

@@ -1,3 +1,5 @@
+  var gutterWidth = 14;
+
   // card animation -- raised shadow
   $(".pmd-card").hover(
     function(event) {
@@ -49,9 +51,13 @@
     var heightPercent = 1;
     if ("none" != maxWidth) {
       // height: divide the width into thirds and subtract out the margins
-      var maxHeight = parseInt(maxWidth) / 3 - 28;
-      var height = Math.ceil(rows.width() / 3 - 28);
+      var maxHeight = parseInt(maxWidth) / 3 - 2*gutterWidth;
+      var height = Math.ceil(rows.width() / 3 - 2*gutterWidth);
       heightPercent = height / maxHeight;
+    // } else {
+    //   $(".cf-ar-1x1 .bg-img .card-copy-panel, .cf-ar-2x2 .bg-img .card-copy-panel").each(function() {
+    //     $(this).height($(this).width());
+    //   });
     }
     rows.each(function(index) {
         $(this).find(".cf-ar-1x1, .cf-ar-2x1")
@@ -59,7 +65,11 @@
             $(this).css("font-size", baseFontSize1Px * heightPercent);
             $(this).find(".card-copy-panel, .card-media-panel")
               .each(function() {
-                $(this).outerHeight(height ? height : "auto");
+                if ($(this).parents(".bg-img").length == 0) {
+                  $(this).outerHeight(height ? height : 'auto');
+                } else {
+                  $(this).outerHeight(height ? (height) : $(this).outerWidth());
+                }
               }); 
           });
         $(this).find(".cf-ar-2x2")
@@ -67,7 +77,11 @@
             $(this).css("font-size", baseFontSize2Px * heightPercent);
             $(this).find(".card-copy-panel, .card-media-panel")
               .each(function() {
-                $(this).outerHeight(height ? (height * 2 + 14) : "auto");
+                if ($(this).parents(".bg-img").length == 0) {
+                  $(this).outerHeight(height ? (height * 2 + gutterWidth) : 'auto');
+                } else {
+                  $(this).outerHeight(height ? (height * 2 + gutterWidth) : $(this).outerWidth());
+                }
               }); 
           });
     });

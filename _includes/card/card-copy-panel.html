@@ -28,12 +28,15 @@
                                 </span>
                             </div>
                             {% endunless %}
-                            <h1>{{thisCard.title}}</h1>
+                            <h1 {% if thisCard.title.size > 45 %}class="long"{%endif%}>{{thisCard.title}}</h1>
                             {% unless thisCard.no_date %}
                             <div class="date">{{thisCard.date | date: '%B %e, %Y' }}</div>
                             {% endunless %}
                         </header>
-                        <article>
+                        {% if thisCard.lead != nil %} {% assign leadWords = thisCard.lead | number_of_words %}
+                        {% else %} {% assign leadWords = 0 %}
+                        {% endif %}
+                        <article {% if leadWords > 23 %}class="long"{%endif%}>
                             <div>{{thisCard.lead}}</div>
                         </article>
                         <footer class="visible-xs">

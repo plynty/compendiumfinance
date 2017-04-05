@@ -1,7 +1,7 @@
 ---
 title: Michael Edesess
 position: 1
-role: Principal
+role: Ph.D. Mathematics
 status: current
 section: bios
 img: uploads/michael-edesess.png

@@ -1,0 +1,34 @@
+@import url(https://fonts.googleapis.com/css?family=Muli:400,400i);
+
+// size breaks (per boostrap 4)
+$xs-max: 575px;
+$sm-min: 576px;
+$sm-max: 767px;
+$md-min: 768px;
+$md-max: 991px;
+$lg-min: 992px;
+$lg-max: 1199px;
+$xl-min: 1200px;
+
+$font-muli: 'Muli', sans-serif;
+
+$cf-bg-white: white;
+$cf-bg-dark: #525252;
+$cf-bg-light: #f2f2f2;
+$cf-text: black;
+$cf-text-inverse: white;
+$cf-category: #36f;
+$cf-trim: #525252;
+$compendium-primary-lt: #cac9cf !default;
+$compendium-primary-dk: #4f4f51 !default;
+$compendium-secondary:  #e73074 !default;
+$compendium-tertiary:  #00008b !default;
+$compendium-fg-gray: gray;
+$compendium-fg-white: white;
+$compendium-bg-lt:  #f2f2f2 !default;
+$compendium-bg-dk: #65696c !default;
+
+$social-twitter: #3b539e !default;
+$social-facebook: #5489d1 !default;
+$social-linkedin: #0077ba !default;
+

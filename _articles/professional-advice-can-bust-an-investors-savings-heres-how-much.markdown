@@ -4,8 +4,7 @@ date: 2017-03-29 10:12:00 Z
 categories:
 - Market Watch
 link: http://www.marketwatch.com/story/professional-advice-can-bust-an-investors-savings-heres-how-much-2017-03-03
-lead: We’ve heard a lot lately about how much professional investment advice and management
-  costs clients, and rightly so. Professional advice and management can cost investors
+lead: Professional advice and management can cost investors
   more than most of the worst investment mistakes they can make.
 ---
 

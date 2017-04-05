@@ -1,24 +1,29 @@
 {% include section/std-header.html section='resources' %}
 
 <section id="resource-cards" class="cards">
-{% assign resources = site.resources | where: 'status', 'current' | where: 'section', 'resource-cards' %}
-{% assign n = resources | size | minus: 1%}
+{% assign resources = site.resources | where: 'status', 'current' | where: 'section', 'resource-cards' | sort: 'position' %}
+{% assign n = resources | size | minus: 1 %}
 {% for i in (0..n) %}
     {% assign thisCard = resources[i] %}
-    {% assign even = i | modulo: 2 %}
-    {% if even == 0 %}
-    <div class="row">
-        <div class="col-sm-6 col-xs-12">
-            {% include card/card.html card_layout='resource-card' %}
-        </div>
-    {% else %}
-        <div class="col-sm-6 col-xs-12">
-            {% include card/card.html card_layout='resource-card' %}
-        </div>
-    </div>        
-    {% endif %}
+    {% assign pos = i | modulo: 4 %}
+    {% case pos %}
+        {% when 0 %}
+        <div class="row">
+            <div class="col-sm-3 col-xs-12">
+                {% include card/card.html card_layout='resource-card' %}
+            </div>
+        {% when 1,2 %}
+            <div class="col-sm-3 col-xs-12">
+                {% include card/card.html card_layout='resource-card' %}
+            </div>
+        {% when 3 %}
+            <div class="col-sm-3 col-xs-12">
+                {% include card/card.html card_layout='resource-card' %}
+            </div>
+        </div>        
+    {% endcase %}
 {% endfor %}
-{% if even == 0 %}
+{% if pos != 3 %}
     </div>
 {% endif %}
 </section>

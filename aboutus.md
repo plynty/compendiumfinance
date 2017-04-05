@@ -1,5 +1,5 @@
 ---
 title: Topics
-layout: topicspage
+layout: aboutuspage
 ---
 

@@ -39,6 +39,9 @@ defaults:
     type: resources
   values:
     layout: article-data
+    format_class: resources
+    section: resource-cards
+    no_date: true
 - scope:
     path: ''
     type: posts

@@ -5,129 +5,54 @@ $hero-height: 48rem;
 .homepage {
 
     .hero {
-        background-color: $compendium-primary;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        min-height: 48rem;
+        font-size: 110%;
+        background-color: $cf-bg-white;
+        max-width: 1185px;
+        margin: auto;
 
+        .bg-img {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
         .hero-content {
-            max-width: 1200px;
+            color: $cf-text-inverse;
+            max-height: 600px;
+            min-height: 300px;
             margin: auto;
             display: block;
         }
 
-        .hero-img, .hero-copy {
-            width: 50%;
-            height: 100%;
-            float: left;
+
+        .darken {
+            background-color: rgba(0, 0, 0, .15);
+            min-width: 100%;
+            min-height: 100%;
         }
 
-        .hero-img img {
-            border: solid thin #666666;
-            border-radius: 1rem;
-        }
-
-        .shadow-box {
-            margin: 10px;
-            border-radius: 1rem;
-        }
-
-        .hero-img img, .hero-bg-img img {
-            display: block;
-            margin-right: 0;
-            margin-left: auto;
-            overflow: hidden;
-            border-radius: 1rem;
-            // width: 100%;
-        }
-        .hero-bg-img, .hero-wide {
-            width: 100%;
-            height: 100%;
-        }
-        .hero-bg-img {
-            z-index: 0;
-            opacity: .15;
-            position: absolute;
-            display: block;
-            margin: auto;
-            top: 0;
-            // bottom: 0;
-            left: 0;
-            // right: 0;
-            // max-height: 100%;
-            // max-width: 100%;
-            align-items: center;
-        }
-        .card-copy-panel {
-            background-color: $compendium-primary;
-            color: $compendium-fg-white;
-            padding: 2rem;
-            width: 100%;
-            height: 100%;
-            z-index: 3;
-        }
-        .hero-copy, .hero-bg-img {
-            font-size: 1.6rem;
-
-            @media only screen and (min-width: 768px) {
-                header {
-                    padding-bottom: 3rem;
-                }
-                header h1 {
-                    font-size: 6.0rem;
-                }
+        @media only screen and (min-width: $md-min) {
+            .hero-content {
+                min-height: 500px;
+                padding: 125px 100px;
             }
-            @media only screen and (max-width: 767px) {
-                header {
-                    padding-bottom: 1rem;
-                }
-                header h1 {
-                    font-size: 4.0rem;
-                }
-            }
-            header {
-                border-bottom: solid $compendium-primary-lt thin;
-                font-family: 'Arsenal', sans-serif;
-            }
-            header .category {
-                // font-family: 'Fjalla One', sans-serif;
-                // font-family: 'Righteous', cursive;
-                // font-size: smaller;
-                text-transform: uppercase;
-                color: $compendium-fg-white;
+            h1 {
+                font-size: 200%;
             }
 
-            header .category .material-icons {
-                font-size: 1.2rem;
-            }
-
-            header .date {
-                font-style: italic;
-                // color: $compendium-fg-gray;
-                font-size: smaller;
-            }
-
-            footer {
-                display: none !important;
-            }
-
-            // xs
-            @media only screen and (min-width: 768px) {
-                article {
-                    margin-top: 2rem;
-                }
+            h2 {
+                font-size: 125%;
+                margin-top: 4rem;
             }
         }
-        button.hero-read-btn {
-            margin-left: 3rem;
-            color: $compendium-fg-white;
-            background-color: $compendium-primary;
-            border-color: $compendium-primary-lt;
-            padding: 2rem 3rem;
-            text-transform: lowercase;
-            border-radius: 2rem;
-            font-size: larger;
+        @media only screen and (max-width: $sm-max) {
+            .hero-content {
+                min-height: 300px;
+                padding: 75px 10px;
+            }
+            h1 {
+                font-size: 110%;
+            }
+
         }
     }
-
 }

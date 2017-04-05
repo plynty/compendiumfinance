@@ -1,28 +1,59 @@
       <!-- Return to Top -->
 <!--<a href="javascript:goTop();" id="return-top" class="scroll"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
 <a href="javascript:scrollDown();" id="scroll-down" class="scroll" style="display:block;"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>-->
+{% assign categories = site.articles | where_exp:"a", "a.status != 'inactive'" | where_exp:"a", "a.search_omit != true" | map: 'categories' %}
+{% for categoryArray in categories %}
+    {% assign categoryStr = categoryArray | join: ',' %}
+    {% assign topics = topics | append: categoryStr | append: ',' %}
+{% endfor %}
+{% assign topics = topics | split: ',' | uniq | sort %}
 <header id="header" class="cf-header nav-header">
-  <div class="section-wrapper">
-    <div class="row middle-xs" style="margin: auto;">
+    <div class="row">
 
       <!-- Title -->
-      <div class="col-xs-10 top-xs">
-        <a class="trademark" href="index.html" title="{{site.trademark}} Home"><img src="uploads/logo_sm.jpg"/><span>{{site.trademark}}</span></a>
+      <div class="col-md-4 col-sm-11 col-xs-10">
+        <a class="trademark" href="index.html" title="{{site.trademark}} Home"><img src="uploads/logo_blk_header.png"/><span>{{site.trademark}}</span></a>
       </div>
-      <nav class="col-xs-2 end-xs">
+      <nav class="col-sm-1 col-xs-2 visible-sm visible-xs">
         <span class="dropdown pmd-dropdown clearfix topnav">
             <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect" type="button" title="Site Menu"
                 id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="true"><i class="material-icons pmd-sm">menu</i></button>
             <ul aria-labelledby="dropdownMenuDivider" role="menu" class="dropdown-menu dropdown-menu-right pmd-z-depth" id="myTopNav">
-                <li role="presentation"><a class="nav-item" href="index.html#article-cards">articles</a></li>
-                <li role="presentation"><a class="nav-item" href="index.html#resources-head">resources</a></li>
-                <li role="presentation"><a class="nav-item" href="topics.html">topics</a></li>
-                <li role="presentation"><a class="nav-item" href="index.html#aboutus-head">about us</a></li>
-                <li role="presentation"><a class="nav-item" href="index.html#contactus-head">contact us</a></li>
+                <li role="presentation"><a class="nav-item" href="#">search</a></li>
+                <li role="presentation"><a class="nav-item" href="#">topics</a></li>
+                <li role="presentation"><a class="nav-item" href="aboutus.html">about us</a></li>
             </ul>
         </span>
       </nav>
-
-    </div>
+      <div class="search-nav">
+        <div class="text-search" id="search-div">
+            <input type="search" id="text-search" class="form-control" value="" placeholder="Search Articles..." oninput="search(this);"/>
+        </div>
+        <nav class="col-md-8 hidden-sm hidden-xs wide">
+          <div>
+            <div class="topic-menu">
+                <p>Explore&nbsp;</p>
+                <div class="dropdown pmd-dropdown">
+                    <a class="dropdown-toggle pmd-dropdown-hover" id="topic-menu" data-toggle="dropdown" aria-expanded="true"><span id="current-topic">Current</span> <span class="caret"></span></a>
+                    <ul aria-labelledby="topic-menu" role="menu" class="dropdown-menu">
+                        <li role="presentation"><a href="javascript:changeTopic('Current');" tabindex="-1" role="menuitem">Current</a></li>
+                        {% for topic in topics %}
+                        {% assign topic = topic | strip %}
+                        <li role="presentation"><a href="javascript:changeTopic('{{topic}}');" tabindex="-1" role="menuitem">{{topic}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div><p>&nbsp;Articles</p>
+            </div>
+            <span> | </span>
+            <a href="aboutus.html" >about us</a>
+            <span>
+              <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect popover-html noification-trigger" type="button" 
+                  data-trigger="click" data-toggle="popover" data-placement="left" data-html="true" data-id="#search-div">
+                <i class="material-icons md-dark pmd-sm">search</i>
+              </button>
+            </span>
+          </div>
+        </nav>
+      </div>
   </div>
 </header>

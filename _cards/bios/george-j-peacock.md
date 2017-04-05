@@ -1,7 +1,7 @@
 ---
-title: George J. Peacock
+title: George Peacock
 position: 2
-role: Subject Matter Expert
+role: Registered Investment Advisor
 status: current
 section: bios
 img: uploads/author-george-j-peacock.png

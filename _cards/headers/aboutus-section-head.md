@@ -1,9 +1,11 @@
 ---
-title: About Us
+title: Meet Our Experts
 no_date: true
 status: current
 section: aboutus
-lead: Meet the people behind Compendium Finance&#x2122;
+lead: We come from the financial industry and see how retirement planning doesn’t work for
+  everyone — it’s unnecessarily complex, too focused on traditional options, and
+  disconnected from most people’s real lives.
 format_class: section-head
 layout: section-head
 ---
