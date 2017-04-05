@@ -9,11 +9,19 @@
     }
 
     // > xs
-    @media only screen and (min-width: $sm-min) {
+    @media only screen and (min-width: $md-min) {
         max-width: 1200px;
         display: block;
         margin: auto;
         padding-top: 15px;
+
+        .panel-1x1 article.long,
+        .panel-1x1 .article h1.long,
+        .cf-ar-1x1 article.long,
+        .cf-ar-1x1 .article h1.long {
+            font-size: 90%;
+        }
+
     }
 
     .pmd-card.article {
@@ -25,9 +33,7 @@
             font-weight: 700;
         }
         header .category {
-            font-family: 'Fjalla One', sans-serif;
-            // font-family: 'Righteous', cursive;
-            font-size: smaller;
+            font-size: 80%;
             text-transform: uppercase;
         }
 
@@ -49,39 +55,69 @@
         
         header .date {
             font-style: italic;
-            font-size: smaller;
+            font-size: 80%;
         }
 
         .no-bg-img > .card-copy-panel {
             header .category {
-                color: $compendium-primary;
+                color: $cf-category;
             }
             header .date {
                 color: $compendium-fg-gray;
             }        
         }
-        // xs
-        @media only screen and (min-width: 768px) {
+        // > xs
+        @media only screen and (min-width: $sm-min) {
             article {
-                margin-top: 2rem;
+                margin-top: 1rem;
             }
         }
 
         footer .btn-more {
-            color: $compendium-primary;
+            color: $cf-text;
             border-radius: 2rem;
-            border-color: $compendium-primary;
+            border-color: $cf-trim;
             text-transform: lowercase;
         }
 
     }
 }
+
+#search-result {
+    font-size: 90%;
+    text-align: center;
+    padding: 0px 5px 0px 5px;
+
+    .card-wrapper {
+        margin: 0rem auto .5rem auto;
+        max-width: 900px;
+        text-align: center;
+    }
+    .card-media-panel {
+        // width: 18rem;
+        height: auto;
+        margin: 3rem 2rem;
+        vertical-align: middle;
+    }
+    .card-media-panel img,
+    .card-media-panel iframe {
+        min-height: 100%;
+        min-width: 100%;
+    }
+
+    .card-copy-panel {
+        text-align: left;
+        padding: 2rem 2rem 2rem .5rem;
+    }
+
+}
+
 .social-card {
     color: $compendium-fg-white;
-    background-color: $compendium-primary-dk;
+    background-color: $cf-bg-dark;
 }
 .social-card header h1 {
-    color: $compendium-fg-white;
+    color: $cf-text-inverse;
     font-size: 3rem;
     padding: 3rem 1rem;
 }
@@ -90,34 +126,31 @@
     margin-left: 1rem;
 }
 .social-card a {
-    color: $compendium-fg-white;
+    color: $cf-text-inverse;
 }
 
 #article-view {
     display: none;
     text-align: center;
-    font-size: 1.4rem;
 
     h1 {
-        font-size: 200%;
-        margin-top: 2rem;
-    }
-    h2 {
-        font-size: 175%;
-        margin-top: 2rem;
-    }
-    h3 {
         font-size: 150%;
         margin-top: 2rem;
     }
+    h2 {
+        font-size: 130%;
+        margin-top: 2rem;
+    }
+    h3 {
+        font-size: 110%;
+        margin-top: 2rem;
+    }
     h4 {
-        font-size: 125%;
+        font-size: 105%;
         margin-top: 2rem;
     }
 
     .article ul {
-        // border: solid thin $compendium-primary;
-        // border-radius: 15px;
         margin: 0rem auto .5rem auto;
         padding: 1.5rem 4rem;
         text-align: left;
@@ -162,7 +195,7 @@
     }
 
     .footer {
-        border-top: solid thin $compendium-primary;
+        border-top: solid thin $cf-trim;
     }
     .footer .icons img {
         max-width: 32px;

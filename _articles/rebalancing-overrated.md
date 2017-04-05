@@ -6,7 +6,8 @@ categories:
 lead: Some investment experts challenge the notion that it’s a best practice for reaching
   long-term financial goals
 img: uploads/michael-edesess.png
-link: 
+bg_img_darken: true
+link: https://www.wsj.com/articles/portfolio-rebalancing-might-be-overrated-1483931101
 source: external
 ---
 

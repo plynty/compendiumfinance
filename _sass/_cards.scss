@@ -1,11 +1,8 @@
 // General properties for all cards
 
-.cf-ar-1x1, .cf-ar-2x1 {
-    font-size: 1.8rem;
-}
-.cf-ar-2x2 {
-    font-size: 2.0rem;
-}
+// .cf-ar-1x1, .cf-ar-2x1 {
+//     font-size: 125%;
+// }
 
 @media only screen and (max-width: $sm-max) {
     .cards > .row {
@@ -13,6 +10,10 @@
         // Within the row, adjust up and down using percentage sizes
         max-width: none;
     }
+
+    // .cf-ar-2x2 {
+    //     font-size: 125%;
+    // }
 }
 
 @media only screen and (min-width: $md-min) {
@@ -25,15 +26,19 @@
     .card-above {
         margin-bottom: 14px;
     }
+
+    .cf-ar-2x2 {
+        font-size: 125%;
+    }
+
+    .cf-ar-2x2 .card-copy-panel {
+        padding: 32px;
+    }
 }
 
 .card-copy-panel {
     padding: 16px;
     overflow: hidden;
-}
-
-.cf-ar-2x2 .card-copy-panel {
-    padding: 32px;
 }
 
 .card-media-panel {

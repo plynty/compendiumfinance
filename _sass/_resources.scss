@@ -1,5 +1,5 @@
 /* home page styles */
-$panel-height: 20rem;
+$panel-height: 15rem;
 
 #resource-cards {
 
@@ -18,7 +18,7 @@ $panel-height: 20rem;
     @media only screen and (min-width: $sm-min) {
 
         .pmd-card {
-            max-width: 900px;
+            max-width: 450px;
             height: 100%;
             height: $panel-height;
             overflow: hidden;
@@ -46,27 +46,13 @@ $panel-height: 20rem;
     }
 
     .resource-description {
-        font-size: 1.5rem;
-        margin-left: 1rem;
 
         header h1 {
-            text-transform: uppercase;
-            font-size: 2.0rem;
+            // text-transform: uppercase;
+            font-size: 125%;
             font-weight: 700;
             margin-top: 10px;
-        }
-        header .category {
-            font-family: 'Fjalla One', sans-serif;
-            // font-family: 'Righteous', cursive;
-            font-size: smaller;
-            text-transform: uppercase;
-            color: $compendium-primary;
-        }
-
-        header .category .material-icons {
-            font-size: 1.5rem;
-            position: relative;
-            top: 2px;
+            text-align: center;
         }
 
         footer {
@@ -74,28 +60,29 @@ $panel-height: 20rem;
         }
 
         footer .btn-more .material-icons {
-            font-size: 1.2rem;
             position: relative;
             top: 2px;
         }            
         
-        header .date {
-            font-style: italic;
-            color: $compendium-fg-gray;
-            font-size: smaller;
+        article {
+            font-size: 90%;
+        }
+        header .date,
+        header .category {
+            display: none;
         }
 
         // xs
         @media only screen and (min-width: 768px) {
             article {
-                margin-top: 2rem;
+                margin-top: 1rem;
             }
         }
 
         footer .btn-more {
-            color: $compendium-primary;
+            color: $cf-text;
             border-radius: 2rem;
-            border-color: $compendium-primary;
+            border-color: $cf-trim;
             text-transform: lowercase;
         }
 

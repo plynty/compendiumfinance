@@ -1,31 +1,12 @@
         <div class="hero">
-            <a href="{{thisCard.link}}" target="_blank">
-                <div class="row hero-content">
-                {% if thisCard.img != nil%}
-                    <div class="hero-img hidden-sm hidden-xs">
-                        <div class="shadow-box pmd-z-depth ">
-                            {% include card/card-image-panel.html%}
+            <div class="bg-img" style="background-image: url('uploads/google-biz-cover.jpg')">
+                <div class="darken">
+                    <div class="hero-content">
+                        <div class="overlay">
+                            <h1 class="trademark">{{site.trademark}}</h1>
+                            <h2>Advocating simple and effective financial strategies for all</h2>
                         </div>
                     </div>
-                    <div class="hero-copy hidden-sm hidden-xs">
-                        {% include card/card-copy-panel.html %}
-                        <button type="button" class="hero-read-btn btn pmd-btn-outline pmd-ripple-effect btn-default">Read Full Article</button>
-                    </div>
-                    <div class="hero-copy hero-wide visible-sm visible-xs">
-                        {% include card/card-copy-panel.html %}
-                        <button type="button" class="hero-read-btn btn pmd-btn-outline pmd-ripple-effect btn-default">Read Full Article</button>
-                    </div>
-                {% else %}
-                    <div class="hero-copy hero-wide">
-                        {% include card/card-copy-panel.html %}
-                        <button type="button" class="hero-read-btn btn pmd-btn-outline pmd-ripple-effect">Read Full Article</button>
-                    </div>   
-                {% endif %}
                 </div>
-                {% if thisCard.img != nil and false %}
-                <div class="hero-bg-img visible-sm visible-xs">
-                    {% include card/card-image-panel.html %}
-                </div>
-                {% endif %}
-            </a>
+            </div>
         </div>

@@ -1,11 +1,7 @@
     .section-head {
-        background-color: $compendium-primary;
-
-        .section-head-content {
-            max-width: 1200px;
-            margin: auto;
-            display: block;
-        }
+        background-color: $cf-bg-white;
+        max-width: 1185px;
+        margin: auto;
 
         .section-head-wide {
             text-align: center;
@@ -13,7 +9,6 @@
 
         .section-head-img, 
         .section-head-copy {
-            // width: 50%;
             height: 100%;
             float: left;
         }
@@ -56,51 +51,44 @@
             align-items: center;
         }
         .card-copy-panel {
-            // background-color: $compendium-primary;
-            color: $compendium-fg-white;
+            color: $cf-text;
             padding: 2rem;
             width: 100%;
             height: 100%;
             z-index: 3;
         }
         .section-head-copy, .section-head-bg-img {
-            font-size: 1.6rem;
 
-            @media only screen and (min-width: 768px) {
+            @media only screen and (min-width: $sm-min) {
                 header {
-                    padding-bottom: 3rem;
+                    padding-bottom: 2rem;
                 }
                 header h1 {
-                    font-size: 6.0rem;
+                    font-size: 200%;
                 }
             }
-            @media only screen and (max-width: 767px) {
+            @media only screen and (max-width: $xs-max) {
                 header {
-                    padding-bottom: 1rem;
+                    padding-bottom: .5rem;
                 }
                 header h1 {
-                    font-size: 4.0rem;
+                    font-size: 125%;
                 }
             }
             header {
-                border-bottom: solid $compendium-primary-lt thin;
-                font-family: 'Arsenal', sans-serif;
+                border-bottom: solid $cf-trim thin;
             }
             header .category {
-                // font-family: 'Fjalla One', sans-serif;
-                // font-family: 'Righteous', cursive;
-                // font-size: smaller;
                 text-transform: uppercase;
                 color: $compendium-fg-white;
             }
 
-            header .category .material-icons {
-                font-size: 1.2rem;
-            }
+            // header .category .material-icons {
+            //     font-size: 1.2rem;
+            // }
 
             header .date {
                 font-style: italic;
-                // color: $compendium-fg-gray;
                 font-size: smaller;
             }
 
@@ -115,14 +103,8 @@
                 }
             }
         }
-        button.section-head-read-btn {
-            margin-left: 3rem;
-            color: $compendium-fg-white;
-            background-color: $compendium-primary;
-            border-color: $compendium-primary-lt;
-            padding: 2rem 3rem;
-            text-transform: lowercase;
-            border-radius: 2rem;
-            font-size: larger;
-        }
+    }
+
+    #philosophy-head {
+        margin-bottom: 15px; // this is an empty section, needs space
     }

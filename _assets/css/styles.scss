@@ -1,36 +1,6 @@
 ---
-title: Styles
 ---
-
-@import url(https://fonts.googleapis.com/css?family=Muli:400,400i);
-
-// size breaks (per boostrap 4)
-$xs-max: 575px;
-$sm-min: 576px;
-$sm-max: 767px;
-$md-min: 768px;
-$md-max: 991px;
-$lg-min: 992px;
-$lg-max: 1199px;
-$xl-min: 1200px;
-
-$font-muli: 'Muli', sans-serif;
-
-$compendium-primary: #525252 !default;
-$compendium-primary-lt: #cac9cf !default;
-$compendium-primary-dk: #4f4f51 !default;
-$compendium-secondary:  #e73074 !default;
-$compendium-tertiary:  #00008b !default;
-$compendium-fg-gray: gray;
-$compendium-fg-white: white;
-$compendium-bg-lt:  #f2f2f2 !default;
-$compendium-bg-dk: #65696c !default;
-$compendium-bg-white: white;
-
-$social-twitter: #3b539e !default;
-$social-facebook: #5489d1 !default;
-$social-linkedin: #0077ba !default;
-
+@import "defs";
 @import "header";
 @import "cards";
 @import "articles";
@@ -42,84 +12,41 @@ $social-linkedin: #0077ba !default;
 @import "pop-out-page";
 @import "topics";
 
-page {
-    background-color: $compendium-bg-lt;
-}
+// page {
+//     background-color: $compendium-bg-lt;
+// }
 /**
  * Text-align fallback for older browsers
  */
 
-.start-xs {
-    text-align: left;
-}
 
-.end-xs {
-    text-align: right;
-}
-
-@media only screen and (min-width: $sm-min) {
-
-    .start-sm {
-        text-align: left;
-    }
-
-    .end-sm {
-        text-align: right;
-    }
-
-    // div.row {
-    //     margin-left: 0rem;
-    //     margin-right: 0rem;
-    // }
-}
-
-@media only screen and (min-width: $md-min) {
-
-    .start-md {
-        text-align: left;
-    }
-
-    .end-md {
-        text-align: right;
-    }
-}
-
-@media only screen and (min-width: $lg-min) {
-
-    .start-lg {
-        text-align: left;
-    }
-
-    .end-lg {
-        text-align: right;
-    }
-
-}
 @-ms-viewport { width: device-width;}
 html {
-    font-family: $font-muli;
-    font-size: 62.5%;
+    // font-size: 62.5%;
 }
 
 body {
-    font-size: 2.1rem;
-    overflow-x: hidden;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    min-height: 100vh;
-    height: auto;
-    _height: 100vh;
-    -webkit-box-orient:vertical;
-    -webkit-box-direction:normal;
-        -ms-flex-direction:column;
-            flex-direction:column;
+    font-family: $font-muli;
+    font-size: 1.25rem;
+    font-weight: 200;
+    // background-color: white;
+//     overflow-x: hidden;
+//     display: -webkit-box;
+//     display: -ms-flexbox;
+//     display: flex;
+//     min-height: 100vh;
+//     height: auto;
+//     _height: 100vh;
+//     -webkit-box-orient:vertical;
+//     -webkit-box-direction:normal;
+//         -ms-flex-direction:column;
+//             flex-direction:column;
 }
-main {
-    -webkit-box-flex:1;
-        -ms-flex:1;
-            flex:1;
-}
+// main {
+//     -webkit-box-flex:1;
+//         -ms-flex:1;
+//             flex:1;
+// }
 
 /* IE 10 & 11 */
 @media all and  (-ms-high-contrast: none), (-ms-high-contrast: active){
@@ -127,186 +54,69 @@ main {
 		display: block;
 	}
 }
-.wrapper {
-    width: 100%;
-    margin: auto;
-}
-
-.md-button {
-  padding-left: 3rem;
-  padding-right: 3rem;
-  margin-left: 0;
-  margin-top: 1.9rem;
-  font-size: 2rem;
-}
-
-.md-accent {
-    background-color: $compendium-secondary;
-    color: $compendium-fg-white;
-    text-transform: lowercase;
-}
-
-.md-outline {
-    background-color: $compendium-bg-white;
-    border: .1rem solid $compendium-secondary;
-    text-transform: lowercase;
-    color: $compendium-secondary;
-}
-
-.md-outline-blue {
-    background-color: $compendium-bg-white;
-    border: .1rem solid $compendium-tertiary;
-    text-transform: lowercase;
-    color: $compendium-tertiary !important;
-}
-
-.post-wrapper {
-  max-width: 800px;
-  margin: auto !important;
-}
-
-.icon-bullet h1 {
-  font-size: 1.8rem;
-  margin-bottom: .5rem;
-  padding-bottom: 0;
-}
-
-.icon-bullet p {
-  margin-top: 0;
-  font-size: 1.8rem;
-  margin-left: 3rem;
-}
-
-.icon-bullet i {
-  color: $compendium-primary;
-}
+// .wrapper {
+//     width: 100%;
+//     margin: auto;
+// }
 
 .clear {
   clear: both;
 }
 
-.social-twitter {
-  color: $social-twitter;
-}
-
-.social-facebook {
-  color: $social-facebook;
-}
-
-.social-linkedin {
-  color: $social-linkedin;
-}
-
-em{
-  font-style: italic;
-}
-
-i{
-    font-style: italic;
-}
-
-/* Mailchimp form custom style */
-#mc_embed_signup{background:none; color:#000; clear:left; font:1.8rem 'Muli',Helvetica; width:100%;}
-#mc_embed_signup .button {
-    background-color:#3ebeb0 !important;
-}
-#mc_embed_signup .button:hover {
-    background-color:#3ebeb0 !important;
-}
-input:focus {outline: none; }
-#mc_embed_signup input.email {
-    width: 100% !important;
-    margin-bottom: 5px !important;
-}
-.invalid input:required:invalid {
-    background: #f4c1c1 !important;
-    color: $compendium-fg-gray !important;
-}
-
-.invalid input:required:valid {
-    background: none !important;
-}
-
-input {
-  display: block;
-}
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: $compendium-fg-gray !important;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: $compendium-fg-gray !important;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: $compendium-fg-gray !important;
-}
-:-moz-placeholder { /* Firefox 18- */
-  color: $compendium-fg-gray !important;
-}
-/* Mailchimp form custom style end*/
+// input {
+//   display: block;
+// }
+// ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+//   color: $compendium-fg-gray !important;
+// }
+// ::-moz-placeholder { /* Firefox 19+ */
+//   color: $compendium-fg-gray !important;
+// }
+// :-ms-input-placeholder { /* IE 10+ */
+//   color: $compendium-fg-gray !important;
+// }
+// :-moz-placeholder { /* Firefox 18- */
+//   color: $compendium-fg-gray !important;
+// }
 
 /*Back-to-top*/
-.scroll {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index:1;
-    background: $compendium-primary;
-    width: 50px;
-    height: 50px;
-    display: block;
-    text-decoration: none;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    display: none;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-.scroll i {
-    color: #fff;
-    margin: 0;
-    position: relative;
-    left: 16px;
-    top: 13px;
-    font-size: 19px;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-.scroll:hover {
-    background: $compendium-primary;
-}
-.scroll:hover i {
-    color: #fff;
-    top: 5px;
-}
-
-/* IE 10 & 11 */
-@media all and  (-ms-high-contrast: none), (-ms-high-contrast: active){
-    #animated-plynty-donut {
-        width: 450px !important;
-        height: 300px !important;
-    }
-}
-@media all and  (-ms-high-contrast: none), (-ms-high-contrast: active),(max-width: 800px) {
-    #animated-plynty-donut {
-        margin-left: -20px;
-    }
-}
-/* IE 11+ */
-@supports (-ms-accelerator:true){
-    #animated-plynty-donut {
-        width: 450px !important;
-        height: 300px !important;
-    }
-    @media screen and (max-width: 800px) {
-        #animated-plynty-donut {
-            margin-left: -20px;
-        }
-    }
-}
+// .scroll {
+//     position: fixed;
+//     bottom: 20px;
+//     right: 20px;
+//     z-index:1;
+//     background: $compendium-primary;
+//     width: 50px;
+//     height: 50px;
+//     display: block;
+//     text-decoration: none;
+//     -webkit-border-radius: 5px;
+//     -moz-border-radius: 5px;
+//     border-radius: 5px;
+//     display: none;
+//     -webkit-transition: all 0.3s linear;
+//     -moz-transition: all 0.3s ease;
+//     -ms-transition: all 0.3s ease;
+//     -o-transition: all 0.3s ease;
+//     transition: all 0.3s ease;
+// }
+// .scroll i {
+//     color: #fff;
+//     margin: 0;
+//     position: relative;
+//     left: 16px;
+//     top: 13px;
+//     font-size: 19px;
+//     -webkit-transition: all 0.3s ease;
+//     -moz-transition: all 0.3s ease;
+//     -ms-transition: all 0.3s ease;
+//     -o-transition: all 0.3s ease;
+//     transition: all 0.3s ease;
+// }
+// .scroll:hover {
+//     background: $compendium-primary;
+// }
+// .scroll:hover i {
+//     color: #fff;
+//     top: 5px;
+// }

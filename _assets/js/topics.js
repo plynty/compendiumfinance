@@ -25,7 +25,8 @@ function initTopics() {
 function changeTopic(topicName) {
     currentTopic = topicName;
     $('#current-topic').text(topicName);
-    if ($('#topic-search').val().length > 0){
+    var val = $('#topic-search').val();
+    if (val && val.length > 0){
         $('#topic-search').val('');
     }
 
