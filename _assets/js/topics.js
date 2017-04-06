@@ -24,7 +24,7 @@ function initTopics() {
 
 function changeTopic(topicName) {
     currentTopic = topicName;
-    $('#current-topic').text(topicName);
+    $('span.current-topic').text(topicName);
     var val = $('#topic-search').val();
     if (val && val.length > 0){
         $('#topic-search').val('');
@@ -117,6 +117,7 @@ function setResults(articles, topic) {
  */
 function showCurrent() {
     showArticle(false);
+    $('#hero').show();
     $('#search-result').css('display', 'none');
     $('#article-cards').css('display', 'block');
 }
@@ -125,6 +126,7 @@ function showCurrent() {
  */
 function showResult() {
     showArticle(false);
+    $('#hero').hide();
     $('#article-cards').css('display', 'none')
     $('#search-result').css('display', 'block');
 }
