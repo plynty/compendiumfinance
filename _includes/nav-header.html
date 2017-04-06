@@ -11,31 +11,28 @@
     <div class="row">
 
       <!-- Title -->
-      <div class="col-md-4 col-sm-11 col-xs-10">
+      <div class="col-md-4 col-sm-11 col-xs-10 title">
         <a class="trademark" href="index.html" title="{{site.trademark}} Home"><img src="uploads/logo_blk_header.png"/><span>{{site.trademark}}</span></a>
       </div>
-      <nav class="col-sm-1 col-xs-2 visible-sm visible-xs">
+      <nav class="col-sm-1 col-xs-2 visible-sm visible-xs burger">
         <span class="dropdown pmd-dropdown clearfix topnav">
             <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect" type="button" title="Site Menu"
                 id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="true"><i class="material-icons pmd-sm">menu</i></button>
-            <ul aria-labelledby="dropdownMenuDivider" role="menu" class="dropdown-menu dropdown-menu-right pmd-z-depth" id="myTopNav">
-                <li role="presentation"><a class="nav-item" href="#">search</a></li>
-                <li role="presentation"><a class="nav-item" href="#">topics</a></li>
+            <ul aria-labelledby="dropdownMenuDivider" role="menu" class="dropdown-menu dropdown-menu-right pmd-z-depth" id="burger-menu">
+                <li role="presentation"><a class="nav-item search" href="#" onclick="toggleSearchMode('search')">search<i class="material-icons md-dark pmd-sm">clear</i></a></li>
+                <li role="presentation"><a class="nav-item topics" href="#" onclick="toggleSearchMode('topics')">topics<i class="material-icons md-dark pmd-sm">clear</i></a></li>
                 <li role="presentation"><a class="nav-item" href="aboutus.html">about us</a></li>
             </ul>
         </span>
       </nav>
       <div class="search-nav">
-        <div class="text-search" id="search-div">
-            <input type="search" id="text-search" class="form-control" value="" placeholder="Search Articles..." oninput="search(this);"/>
-        </div>
         <nav class="col-md-8 hidden-sm hidden-xs wide">
           <div>
-            <div class="topic-menu">
+            <div id="explore" class="topic-menu">
                 <p>Explore&nbsp;</p>
                 <div class="dropdown pmd-dropdown">
-                    <a class="dropdown-toggle pmd-dropdown-hover" id="topic-menu" data-toggle="dropdown" aria-expanded="true"><span id="current-topic">Current</span> <span class="caret"></span></a>
-                    <ul aria-labelledby="topic-menu" role="menu" class="dropdown-menu">
+                    <a class="dropdown-toggle pmd-dropdown-hover" id="topic-menu" data-toggle="dropdown" aria-expanded="true"><span class="current-topic">Current</span> <span class="caret"></span></a>
+                    <ul aria-labelledby="topic-menu" role="menu" class="dropdown-menu topic-menu">
                         <li role="presentation"><a href="javascript:changeTopic('Current');" tabindex="-1" role="menuitem">Current</a></li>
                         {% for topic in topics %}
                         {% assign topic = topic | strip %}
@@ -55,5 +52,13 @@
           </div>
         </nav>
       </div>
+  </div>
+  <div class="visible-sm visible-xs">
+    <div class="row header-ext">
+        <div id="search-div" class="text-search" >
+            <input type="search" id="text-search" class="form-control" value="" placeholder="Search Articles..." oninput="search(this);"/>
+        </div>
+        <div id="explore-xs" class="topic-menu"></div>
+    </div>
   </div>
 </header>

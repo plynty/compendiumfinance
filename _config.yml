@@ -33,6 +33,7 @@ defaults:
     status: current
     layout: article-data
     section: articles
+    source: external
     format_class: article
 - scope:
     path: ''
