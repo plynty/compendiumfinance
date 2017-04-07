@@ -8,12 +8,23 @@
                         {%assign bgImg = "background-image: url('" | append: thisCard.img | append: "');" %}
                     {% endif %}
                 {%endif%}
+                {% if thisCard.title.size > 45 %}{% assign long = true %}{% endif %}
+                {% if thisCard.lead != nil %} 
+                    {% assign leadWords = thisCard.lead | number_of_words %}
+                    {% if long == true and leadWords < 20 %}
+                        {% assign long = false %}
+                    {% else if leadWords > 30 %}
+                        {% assign long = true %}
+                    {% endif %}
+                {% else %} 
+                    {% assign long = false %}
+                {% endif %}
                 {% if bgImg != nil %}
                 <div class="bg-img" style="{{bgImg}}">
                 {% else %}
                 <div class="no-bg-img">
                 {%endif%}
-                    <div class="card-copy-panel{%if thisCard.bg_img_darken == true%} darken{%endif%}">
+                    <div class="card-copy-panel{% if long %} long{%endif%}{%if thisCard.bg_img_darken == true%} darken{%endif%}">
                         <header> 
                             {% assign categoryCount = thisCard.categories | size %}
                             {% unless categoryCount == 0 %}
@@ -28,15 +39,12 @@
                                 </span>
                             </div>
                             {% endunless %}
-                            <h1 {% if thisCard.title.size > 45 %}class="long"{%endif%}>{{thisCard.title}}</h1>
+                            <h1>{{thisCard.title}}</h1>
                             {% unless thisCard.no_date %}
                             <div class="date">{{thisCard.date | date: '%B %e, %Y' }}</div>
                             {% endunless %}
                         </header>
-                        {% if thisCard.lead != nil %} {% assign leadWords = thisCard.lead | number_of_words %}
-                        {% else %} {% assign leadWords = 0 %}
-                        {% endif %}
-                        <article {% if leadWords > 23 %}class="long"{%endif%}>
+                        <article>
                             <div>{{thisCard.lead}}</div>
                         </article>
                         <footer class="visible-xs">

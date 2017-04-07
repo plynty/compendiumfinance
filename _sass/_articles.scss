@@ -6,6 +6,13 @@
         .cards .panel-1x1 + .panel-1x1 {
             margin-top: 1rem;
         }
+        .bg-img .card-copy-panel {
+            padding: .5rem;
+            font-size: 92%;
+        }
+        .bg-img .card-copy-panel.long {
+            font-size: 95%;
+        }
     }
 
     // > xs
@@ -15,10 +22,8 @@
         margin: auto;
         padding-top: 15px;
 
-        .panel-1x1 article.long,
-        .panel-1x1 .article h1.long,
-        .cf-ar-1x1 article.long,
-        .cf-ar-1x1 .article h1.long {
+        .panel-1x1 .card-copy-panel.long,
+        .cf-ar-1x1 .card-copy-panel.long {
             font-size: 90%;
         }
 
@@ -28,19 +33,23 @@
         color: black;
 
         header h1 {
-            text-transform: uppercase;
+            // text-transform: uppercase;
             font-size: 120%;
             font-weight: 700;
         }
         header .category {
             font-size: 80%;
-            text-transform: uppercase;
+            // text-transform: uppercase;
         }
 
         header .category .material-icons {
             font-size: 110%;
             position: relative;
-            top: 2px;
+            top: 3px;
+        }
+
+        article {
+            font-size: 100%;
         }
 
         footer {

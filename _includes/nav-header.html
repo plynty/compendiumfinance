@@ -12,25 +12,33 @@
 
       <!-- Title -->
       <div class="col-md-4 col-sm-11 col-xs-10 title">
-        <a class="trademark" href="index.html" title="{{site.trademark}} Home"><img src="uploads/logo_blk_header.png"/><span>{{site.trademark}}</span></a>
+        <a class="trademark" href="index.html" title="{{site.trademark}} Home"><img src="uploads/logo_bk_trnsp.png"/></a>
       </div>
       <nav class="col-sm-1 col-xs-2 visible-sm visible-xs burger">
         <span class="dropdown pmd-dropdown clearfix topnav">
             <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect" type="button" title="Site Menu"
                 id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="true"><i class="material-icons pmd-sm">menu</i></button>
             <ul aria-labelledby="dropdownMenuDivider" role="menu" class="dropdown-menu dropdown-menu-right pmd-z-depth" id="burger-menu">
-                <li role="presentation"><a class="nav-item search" href="#" onclick="toggleSearchMode('search')">search<i class="material-icons md-dark pmd-sm">clear</i></a></li>
-                <li role="presentation"><a class="nav-item topics" href="#" onclick="toggleSearchMode('topics')">topics<i class="material-icons md-dark pmd-sm">clear</i></a></li>
-                <li role="presentation"><a class="nav-item" href="aboutus.html">about us</a></li>
+                <li role="presentation" class="homepage">
+                    <a class="nav-item search" href="#" onclick="toggleSearchMode('search')">Search<i class="material-icons md-dark pmd-sm">clear</i></a>
+                </li>
+                <li role="presentation" class="homepage">
+                    <a class="nav-item topics" href="#" onclick="toggleSearchMode('topics')">Topics<i class="material-icons md-dark pmd-sm">clear</i>
+                </a></li>
+                <li role="presentation" class="homepage">
+                    <a class="nav-item" href="aboutus.html">About Us</a>
+                </li>
+                <li role="presentation" class="aboutuspage">
+                    <a class="nav-item" href="index.html">Home</a>
+                </li>
             </ul>
         </span>
       </nav>
-      <div class="search-nav">
-        <nav class="col-md-8 hidden-sm hidden-xs wide">
+      <div class="search-nav col-md-8 hidden-sm hidden-xs">
+        <nav class="wide">
           <div>
             <div id="explore" class="topic-menu">
-                <p>Explore&nbsp;</p>
-                <div class="dropdown pmd-dropdown">
+                <p>Explore</p><div class="dropdown pmd-dropdown">
                     <a class="dropdown-toggle pmd-dropdown-hover" id="topic-menu" data-toggle="dropdown" aria-expanded="true"><span class="current-topic">Current</span> <span class="caret"></span></a>
                     <ul aria-labelledby="topic-menu" role="menu" class="dropdown-menu topic-menu">
                         <li role="presentation"><a href="javascript:changeTopic('Current');" tabindex="-1" role="menuitem">Current</a></li>
@@ -39,12 +47,11 @@
                         <li role="presentation"><a href="javascript:changeTopic('{{topic}}');" tabindex="-1" role="menuitem">{{topic}}</a></li>
                         {% endfor %}
                     </ul>
-                </div><p>&nbsp;Articles</p>
+                </div><p>Articles</p>
             </div>
-            <span> | </span>
-            <a href="aboutus.html" >about us</a>
+            <a href="aboutus.html" >About Us</a>
             <span>
-              <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect popover-html noification-trigger" type="button" 
+              <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect popover-html notification-trigger" type="button" 
                   data-trigger="click" data-toggle="popover" data-placement="left" data-html="true" data-id="#search-div">
                 <i class="material-icons md-dark pmd-sm">search</i>
               </button>

@@ -49,7 +49,7 @@ function adjustHeaderWidth() {
 }
 
 function padBodyTop() {
-    $('body').css('padding-top', $('#header').height()+5);
+    $('body').css('padding-top', $('#header').height() + 5);
 }
 
 var timer;
@@ -59,6 +59,9 @@ $().ready(function() {
     padBodyTop();
     $(window).resize(function() {
       clearTimeout(timer);
-      timer = setTimeout(adjustHeaderWidth, 250);
+      timer = setTimeout(function() {
+          adjustHeaderWidth();
+          padBodyTop();
+      }, 250);
     });
 });
