@@ -1,5 +1,5 @@
 ---
-title: New App in Town
+title: Meet Plynty
 date: 2017-01-31 00:00:00 Z
 categories:
 - Retirement Planning

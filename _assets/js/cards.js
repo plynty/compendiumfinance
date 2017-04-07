@@ -1,4 +1,6 @@
-  var gutterWidth = 14;
+  'use strict;'
+
+  var gutterWidth = 14;  // gutter width should match CSS setting for cards
 
   // card animation -- raised shadow
   $(".pmd-card").hover(
@@ -44,43 +46,46 @@
     });
   });
 
+  /**
+   * Adjust heights to be relative to widths to preserve image aspect ratios
+   */
   function adjustRowHeight() {
-    var rows = $("#article-cards > .row");
+    var rows = $("#article-cards > .row, #aboutus-cards > .row");
     var maxWidth = rows.css("max-width");
     var height;
     var heightPercent = 1;
     if ("none" != maxWidth) {
       // height: divide the width into thirds and subtract out the margins
-      var maxHeight = parseInt(maxWidth) / 3 - 2*gutterWidth;
-      var height = Math.ceil(rows.width() / 3 - 2*gutterWidth);
+      var maxHeight = parseInt(maxWidth) / 3 - /*2**/gutterWidth;
+      var height = Math.ceil(rows.width() / 3 - /*2**/gutterWidth);
       heightPercent = height / maxHeight;
-    // } else {
-    //   $(".cf-ar-1x1 .bg-img .card-copy-panel, .cf-ar-2x2 .bg-img .card-copy-panel").each(function() {
-    //     $(this).height($(this).width());
-    //   });
     }
     rows.each(function(index) {
         $(this).find(".cf-ar-1x1, .cf-ar-2x1")
           .each(function() {
-            $(this).css("font-size", baseFontSize1Px * heightPercent);
+            var card = $(this);
             $(this).find(".card-copy-panel, .card-media-panel")
               .each(function() {
-                if ($(this).parents(".bg-img").length == 0) {
+                if ($(this).parents(".bg-img").length === 0) {
                   $(this).outerHeight(height ? height : 'auto');
+                  card.css("font-size", baseFontSize1Px * heightPercent);
                 } else {
-                  $(this).outerHeight(height ? (height) : $(this).outerWidth());
+                  // if there is a bg-img, force the card to be square
+                  $(this).outerHeight($(this).outerWidth());
                 }
               }); 
           });
         $(this).find(".cf-ar-2x2")
           .each(function() {
-            $(this).css("font-size", baseFontSize2Px * heightPercent);
+            var card = $(this);
             $(this).find(".card-copy-panel, .card-media-panel")
               .each(function() {
-                if ($(this).parents(".bg-img").length == 0) {
+                if ($(this).parents(".bg-img").length === 0) {
+                  card.css("font-size", baseFontSize2Px * heightPercent);
                   $(this).outerHeight(height ? (height * 2 + gutterWidth) : 'auto');
                 } else {
-                  $(this).outerHeight(height ? (height * 2 + gutterWidth) : $(this).outerWidth());
+                  // if there is a bg-img, force the card to be square
+                  $(this).outerHeight($(this).outerWidth());
                 }
               }); 
           });
