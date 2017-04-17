@@ -16,10 +16,10 @@
         
         <!--Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Arsenal|Fjalla+One|Righteous" rel="stylesheet">
 
         <!-- Propeller css -->
         <link href="{{site.pmd_path}}/css/propeller.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/nouislider.min.css">
 
         <!-- app styles -->
         <link rel="stylesheet" href="assets/css/styles.css">
@@ -34,14 +34,14 @@
         <!--<div class="container-fluid">-->
             {% include return-header.html %}
             <!--<div class="nav-padding">&nbsp;</div>-->
-            <div class="row">
-                <div class="col-xs-12">
+            <!--<div class="row">-->
+                <!--<div class="col-xs-12">-->
                     <div class="pmd-card pmd-z-depth">
                         <div class="chart">
                             <svg id="chart"></svg>
                         </div>
                         <div class="row input-form">
-                            <div class="col-md-2 col-sm-6 col-xs-6">
+                            <div class="col-md-12 col-xs-6">
                                 <div class="form-group pmd-textfield">
                                     <label for="investment-amount" class="control-label">
                                         Investment Amount
@@ -49,7 +49,7 @@
                                     <input type="text" id="investment-amount" class="form-control" value="$50,000" onblur="validate(); return false;">
                                 </div>
                             </div>
-                            <div class="col-md-2 col-sm-6 col-xs-6">
+                            <div class="col-md-12 col-xs-6">
                                 <div class="form-group pmd-textfield">
                                     <label for="investment-period" class="control-label">
                                         Investment Period
@@ -57,47 +57,47 @@
                                     <input type="text" id="investment-period" class="form-control" value="30" onblur="validate(); return false;">
                                 </div>
                             </div>
-                            <div class="col-md-2 col-sm-6 col-xs-6">
+                            <div class="col-xs-12">
                                 <div class="form-group pmd-textfield">
                                     <label for="rate-of-return" class="control-label">
                                         Rate of Return
                                     </label>
-                                    <input type="text" id="rate-of-return" class="form-control" value="8%" onblur="validate(); return false;">
+                                    <div id="rate-of-return" class="range-slider"></div>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-sm-6 col-xs-6">
+                            <div class="col-xs-12">
                                 <div class="form-group pmd-textfield">
                                     <label for="mutual-fund-fees" class="control-label">
                                         Mutual Fund Fees
                                     </label>
-                                    <input type="text" id="mutual-fund-fees" class="form-control" value="1.25%" onblur="validate(); return false;">
+                                    <div id="mutual-fund-fees" class="range-slider"></div>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-sm-6 col-xs-6">
+                            <div class="col-xs-12">
                                 <div class="form-group pmd-textfield">
                                     <label for="advisor-fee" class="control-label">
                                         Advisor Fee
                                     </label>
-                                    <input type="text" id="advisor-fee" class="form-control" value="1.00%" onblur="validate(); return false;">
+                                    <div id="advisor-fee" class="range-slider"></div>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-sm-6 col-xs-6">
-                                <div class="form-group pmd-textfield">
+                            <!--<div class="col-md-2 col-sm-6 col-xs-6">-->
+                                <!--<div class="form-group pmd-textfield">
                                     <label for="switch" class="control-label">
                                         Show Totals
                                     </label>
-                                <div class="pmd-switch"  style="margin-left: 5px; margin-top:2px;">
-                                    <label>
-                                        <input id="toggle-chart" type="checkbox" onclick="toggleChart(this, '#chart'); return true;">
-                                        <span class="pmd-switch-label"></span>
-                                    </label>
-                                </div>
-                                </div>
-                            </div>
+                                    <div class="pmd-switch"  style="margin-left: 5px; margin-top:2px;">
+                                        <label>
+                                            <input id="toggle-chart" type="checkbox" onclick="toggleChart(this, '#chart'); return true;">
+                                            <span class="pmd-switch-label"></span>
+                                        </label>
+                                    </div>
+                                </div>-->
+                            <!--</div>-->
                         </div>
                     </div>
-                </div>
-            </div>
+                <!--</div>-->
+            <!--</div>-->
         <!--</div>-->
         <!-- jQuery before Propeller.js -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -105,13 +105,18 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script type="text/javascript" src="{{site.pmd_path}}/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="{{site.pmd_path}}/js/propeller.min.js"></script>
+        <script src="assets/js/nouislider.min.js"></script>
+        <script src="assets/js/wNumb.js"></script>
         
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="assets/js/calculator.js"></script>
         <script src="assets/js/fee_calc.js"></script>
         <script src="assets/js/fee_calc_chart.js"></script>
         <script>
-            $().ready(function() { resizeChart("#chart"); });
+            $().ready(function() { 
+                resizeChart("#chart"); 
+                initSliderEvents();
+            });
             $("body").resize(function() { resizeChart("#chart"); });
         </script>
     </body>

@@ -9,8 +9,13 @@
 
         .pmd-card {
             margin: auto;
-            min-height: 50rem;
+            min-height: 30rem;
             overflow: hidden;
+        }
+        .form-group {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
         }
     }
     //  xs
@@ -18,15 +23,54 @@
         .pmd-card {
             margin: 1px 1px;
         }
+
+        .input-form.row {
+            margin: 0px;
+        }
+
+        .form-group {
+            margin-left: .5rem;
+            margin-right: .5rem;
+            margin-bottom: .5rem;
+        }
     }
 
     .pmd-card {
-        max-width: 900px;
+        max-width: 700px;
+        padding-bottom: 2rem;
     }
 
-    .form-group {
-        margin-left: 2rem;
-        margin-right: 2rem;
+    span.slider-value {
+        color: #555;
+    }
+
+    .range-slider {
+        margin-top: 6px;
+    }
+    .noUi-target {
+        height: 2px;
+    }
+    .noUi-handle {
+        width: 14px;
+        height: 14px;
+        left: -7px;
+        top: -6px;
+        cursor: pointer;
+        border: none;
+        box-shadow: none;
+        border-radius: 50%;
+        background: #3fb8af;
+    }
+    .noUi-pips-horizontal {
+        padding: 0px;
+    }
+    .noUi-marker {
+        height: 3px;
+        background: #999;
+    }
+
+    .noUi-value-sub, .noUi-value {
+        display: none;
     }
 
     svg {
@@ -168,7 +212,7 @@
         margin-top: 1rem;
     }
 
-    .pmd-textfield label {
-        min-height: 36px;
-    }
+    // .pmd-textfield label {
+    //     min-height: 36px;
+    // }
 }
