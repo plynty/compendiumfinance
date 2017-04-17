@@ -51,15 +51,18 @@
         height: 2px;
     }
     .noUi-handle {
-        width: 14px;
-        height: 14px;
-        left: -7px;
-        top: -6px;
+        width: 18px;
+        height: 18px;
+        left: -5px;
+        top: -9px;
         cursor: pointer;
         border: none;
         box-shadow: none;
         border-radius: 50%;
         background: #3fb8af;
+    }
+    .noUi-handle::before, .noUi-handle::after {
+        content: none;
     }
     .noUi-pips-horizontal {
         padding: 0px;

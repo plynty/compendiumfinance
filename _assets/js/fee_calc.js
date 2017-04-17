@@ -11,16 +11,17 @@ function validate() {
     calculate();
 }
 
+var calculateTimer;
 function calculate() {
     var initialStr = $("#investment-amount").val().replace(/[$,]/g, '');
     inputs.initial = parseInt(initialStr);
     inputs.period = parseInt($("#investment-period").val());
-    // inputs.rateOfReturn = parseFloat(8) / 100;
-    // inputs.rateFundFee = parseFloat($("#mutual-fund-fees").val()) / 100;
-    // inputs.rateAdvisorFee = parseFloat($("#advisor-fee").val()) / 100;
 
-    updateStack("#chart");
-    updatePie("#chart")
+    clearTimeout(calculateTimer);
+    calculateTimer = setTimeout(function() {
+        updateStack("#chart");
+        updatePie("#chart")
+    }, 750);
 }
 
 /**
