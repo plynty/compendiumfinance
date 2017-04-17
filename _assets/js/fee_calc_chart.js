@@ -42,7 +42,7 @@ function generateCharts(svgSelector, style, curve) {
 
     svgDefs(geom.svg);
     initAxes(svgSelector);
-    initLegend(svgSelector);
+    // initLegend(svgSelector);
     initPie(svgSelector);
 
     /** validate the inputs, will trigger a render */
@@ -74,7 +74,7 @@ function updateStack(svgSelector) {
                 renderAreaStack(svgSelector, data);
                 break;
         }
-        renderLegend(svgSelector, data);
+        // renderLegend(svgSelector, data);
     });
 }
 
@@ -592,6 +592,9 @@ function initPie(svgSelector) {
 
 function updatePie(svgSelector) {
     var chartCtx = charts[svgSelector];
+    if (!chartCtx) {
+        return;
+    }
     var color = chartCtx.colorScale;
 
     fetchData(function(error, data) {

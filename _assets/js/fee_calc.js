@@ -14,15 +14,10 @@ function validate() {
 function calculate() {
     var initialStr = $("#investment-amount").val().replace(/[$,]/g, '');
     inputs.initial = parseInt(initialStr);
-    console.log(inputs.initial);
     inputs.period = parseInt($("#investment-period").val());
-    console.log(inputs.period);
-    inputs.rateOfReturn = parseFloat($("#rate-of-return").val()) / 100;
-    console.log(inputs.rateOfReturn);
-    inputs.rateFundFee = parseFloat($("#mutual-fund-fees").val()) / 100;
-    console.log(inputs.rateFundFee);
-    inputs.rateAdvisorFee = parseFloat($("#advisor-fee").val()) / 100;
-    console.log(inputs.rateAdvisorFee);
+    // inputs.rateOfReturn = parseFloat(8) / 100;
+    // inputs.rateFundFee = parseFloat($("#mutual-fund-fees").val()) / 100;
+    // inputs.rateAdvisorFee = parseFloat($("#advisor-fee").val()) / 100;
 
     updateStack("#chart");
     updatePie("#chart")
@@ -97,3 +92,79 @@ function resizeChart(selector) {
     }
     return true;
 };
+
+var rateOfReturnSlider = document.getElementById('rate-of-return');
+noUiSlider.create(rateOfReturnSlider, {
+    start: [ 8.0 ],
+    connect: 'lower',
+    tooltips: false,
+    format: wNumb({ decimals: 1 }) ,
+    range: {
+        'min': [  1.0 ],
+        'max': [ 12.0 ]
+    },
+    step: 0.5,
+    pips: { // Show a scale with the slider
+        mode: 'steps',
+        density: 24
+    }
+});
+
+var mutualFundFeesSlider = document.getElementById('mutual-fund-fees');
+noUiSlider.create(mutualFundFeesSlider, {
+    start: [ 1.25 ],
+    connect: 'lower',
+    tooltips: false,
+    format: wNumb({ decimals: 2 }) ,
+    range: {
+        'min': [  0 ],
+        'max': [ 2.0 ]
+    },
+    step: 0.25,
+    pips: { // Show a scale with the slider
+        mode: 'steps',
+        density: 8
+    }
+});
+
+var advisorFeeSlider = document.getElementById('advisor-fee');
+noUiSlider.create(advisorFeeSlider, {
+    start: [ 1.00 ],
+    connect: 'lower',
+    tooltips: false,
+    format: wNumb({ decimals: 2 }) ,
+    range: {
+        'min': [  0 ],
+        'max': [ 1.5 ]
+    },
+    step: 0.25,
+    pips: { // Show a scale with the slider
+        mode: 'steps',
+        density: 8
+    }
+});
+function initSliderEvents() {
+    rateOfReturnSlider.noUiSlider.on('update', function(labels, handle, values) {
+        $('label[for="rate-of-return"]').html('Rate of Return (<span class="slider-value">'+labels[handle]+'%</span>)');
+        inputs.rateOfReturn = values[handle] / 100.0;
+        calculate();
+    });
+
+    mutualFundFeesSlider.noUiSlider.on('update', function(labels, handle, values) {
+        $('label[for="mutual-fund-fees"]').html('Mutual Fund Fees (<span class="slider-value">'+labels[handle]+'%</span>)');
+        inputs.rateFundFee = values[handle] / 100.0;
+        calculate();
+    });
+    advisorFeeSlider.noUiSlider.on('update', function(labels, handle, values) {
+        $('label[for="advisor-fee"]').html('Advisor Fee (<span class="slider-value">'+labels[handle]+'%</span>)');
+        inputs.rateAdvisorFee = values[handle] / 100.0;
+        calculate();
+    });
+}
+
+function padBodyTop() {
+    $('body').css('padding-top', $('#header').height() + 5);
+}
+
+padBodyTop();
+
