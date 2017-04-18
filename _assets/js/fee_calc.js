@@ -51,24 +51,6 @@ function fetchData(callback) {
     });
     data.lostEarnings = sp.lostEarnings;
     data.totalLostEarnings = sp.totalLost;
-    // var data = [
-    //     {"Year": 1, "You Keep":initial, "Fund Fees":initial*rateFundFee, "Advisor Fees":initial*rateAdvisorFee, "Lost Earnings":250}
-    // ];
-    // data[0].total = data[0]["You Keep"] + data[0]["Fund Fees"] + data[0]["Advisor Fees"] + data[0]["Lost Earnings"];
-
-    // for (var i = 1; i < period; i++) {
-    //     var row = {
-    //         "Year": i+1,
-    //         "You Keep": data[i-1]["You Keep"] * (1 + rateOfReturn - rateFundFee - rateAdvisorFee),
-    //         "Fund Fees": data[i-1]["Fund Fees"] + data[i-1]["You Keep"] * rateFundFee,
-    //         "Advisor Fees": data[i-1]["Advisor Fees"] + data[i-1]["You Keep"] * rateAdvisorFee,
-    //         "Lost Earnings": (data[i-1]["Fund Fees"] + data[i-1]["You Keep"] * rateFundFee)
-    //                 + (data[i-1]["Advisor Fees"] + data[i-1]["You Keep"] * rateAdvisorFee)
-    //     };
-    //     row.total = row["You Keep"] + row["Fund Fees"] + row["Advisor Fees"] + row["Lost Earnings"];
-    //     data.push(row);
-    // }
-    // data.columns = ["Year"].concat(config.keys);
 
     callback(null, data);
 }
@@ -77,20 +59,17 @@ function fetchData(callback) {
 var timer;
 var size = {x: 0, y:0};
 function resizeChart(selector) {
-    console.log("Body resized");
     if (timer) {
         clearTimeout(timer);
     }
     var element = $(selector);
-    if (size.x != element.width() || size.y != element.height()) {
-        console.log("new size: " + element.width() + ", "+ element.height());
-        size.x = element.width();
-        size.y = element.height();
         timer = setTimeout(function(event) {
-            console.log("Chart resized");
-            generateCharts("#chart", "areaStack", "basis");
+            if (size.x != element.width() || size.y != element.height()) {
+                size.x = element.width();
+                size.y = element.height();
+                generateCharts("#chart", "areaStack", "basis");
+            }
         }, 300);
-    }
     return true;
 };
 
@@ -116,15 +95,15 @@ noUiSlider.create(mutualFundFeesSlider, {
     start: [ 1.25 ],
     connect: 'lower',
     tooltips: false,
-    format: wNumb({ decimals: 2 }) ,
+    format: wNumb({ decimals: 1 }) ,
     range: {
         'min': [  0 ],
         'max': [ 2.0 ]
     },
-    step: 0.25,
+    step: 0.1,
     pips: { // Show a scale with the slider
         mode: 'steps',
-        density: 8
+        density: 20
     }
 });
 
@@ -133,15 +112,15 @@ noUiSlider.create(advisorFeeSlider, {
     start: [ 1.00 ],
     connect: 'lower',
     tooltips: false,
-    format: wNumb({ decimals: 2 }) ,
+    format: wNumb({ decimals: 1 }) ,
     range: {
         'min': [  0 ],
         'max': [ 1.5 ]
     },
-    step: 0.25,
+    step: 0.1,
     pips: { // Show a scale with the slider
         mode: 'steps',
-        density: 8
+        density: 20
     }
 });
 function initSliderEvents() {
