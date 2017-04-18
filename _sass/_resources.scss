@@ -2,9 +2,16 @@
 $panel-height: 15rem;
 
 #resource-cards {
+    .pmd-card {
+        border: solid thin $cf-trim;
+    }
+    .pmd-card:hover header h1 {
+        color: blue;
+        text-decoration: underline;
+    }
 
     //  xs
-    @media only screen and (max-width: $xs-max) {
+    @media only screen and (max-width: $sm-max) {
         .resource-icon {
             margin: 1rem;
         }
@@ -15,7 +22,7 @@ $panel-height: 15rem;
     }
 
     // > xs
-    @media only screen and (min-width: $sm-min) {
+    @media only screen and (min-width: $md-min) {
 
         .pmd-card {
             max-width: 450px;
@@ -74,7 +81,7 @@ $panel-height: 15rem;
         }
 
         // xs
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: $sm-min) {
             article {
                 margin-top: 1rem;
             }

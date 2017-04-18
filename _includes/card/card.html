@@ -5,13 +5,19 @@
         {% if linkTitle == nil %}
             {% assign linkTitle = 'Read More...' %}
         {% endif %}
-        <div id="{{thisCard.title | slugify}}" class="pmd-ripple-effect pmd-card pmd-z-depth {{thisCard.format_class}}">
+        {% case include.card_layout %}
+            {% when 'bio-card','resource-card' %}
+                {% assign z = ''%}
+            {% else %}
+                {% assign z = ' raised pmd-z-depth '%}
+        {% endcase %}
+        <div id="{{thisCard.title | slugify}}" class="pmd-ripple-effect cf-card pmd-card {{z}} {{thisCard.format_class}}">
             {% if thisCard.link != nil %}
-                <a href="{{thisCard.link}}" {% if thisCard.source == 'external'' %}target="_blank" {%endif%}title="{{linkTitle}}">
+                <a href="{{thisCard.link}}" {% if thisCard.source == 'external' %}target="_blank" {%endif%}title="{{linkTitle}}">
             {% else %}
                 <a href="javascript:viewArticle('{{thisCard.title | slugify}}');" title="{{linkTitle}}">
             {% endif %}
-                {% include card/{{include.card_layout }}.html media_side = include.media_side %}
+                {% include card/{{include.card_layout}}.html media_side = include.media_side %}
                 </a>
         </div>
     {% endif %}
