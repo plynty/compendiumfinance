@@ -8,6 +8,7 @@
                         {%assign bgImg = "background-image: url('" | append: thisCard.img | append: "');" %}
                     {% endif %}
                 {%endif%}
+                {% comment %}
                 {% if thisCard.title.size > 45 %}{% assign long = true %}{% endif %}
                 {% if thisCard.lead != nil %} 
                     {% assign leadWords = thisCard.lead | number_of_words %}
@@ -19,6 +20,8 @@
                 {% else %} 
                     {% assign long = false %}
                 {% endif %}
+                {% endcomment %}
+                {% assign long = false %}
                 {% if bgImg != nil %}
                 <div class="bg-img" style="{{bgImg}}">
                 {% else %}

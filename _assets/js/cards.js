@@ -66,9 +66,9 @@
             var card = $(this);
             $(this).find(".card-copy-panel, .card-media-panel")
               .each(function() {
+                card.css("font-size", baseFontSize1Px * heightPercent);
                 if ($(this).parents(".bg-img").length === 0) {
                   $(this).outerHeight(height ? height : 'auto');
-                  card.css("font-size", baseFontSize1Px * heightPercent);
                 } else {
                   // if there is a bg-img, force the card to be square
                   $(this).outerHeight($(this).outerWidth());
