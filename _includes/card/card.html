@@ -3,7 +3,7 @@
     {% else %}
         {% assign linkTitle = thisCard.link_title %}
         {% if linkTitle == nil %}
-            {% assign linkTitle = 'Read More...' %}
+            {% assign linkTitle = 'Click to read more...' %}
         {% endif %}
         {% case include.card_layout %}
             {% when 'bio-card','resource-card' %}
