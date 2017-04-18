@@ -1,5 +1,5 @@
 ---
-title: Meet Our Experts
+title: Meet Our Team
 no_date: true
 status: current
 section: aboutus

@@ -40,10 +40,6 @@ body .search-nav {
     display: block;
 }
 
-#explore {
-    padding-right: 10rem;
-}
-
 .cf-header {
     color: $cf-text;
     background-color: $cf-bg-white;
@@ -132,12 +128,16 @@ body .search-nav {
         }
     }
 
+    .pmd-dropdown-menu-bg {
+        transition: none;  // disable PMD animation on menu
+    }
     .dropdown-menu, .dropdown-menu>li>a {
         text-align: left;
         font-size: 100%;
     }
 
     .topnav li a:hover {
+        color: $cf-category;
         background-color: $cf-bg-light;
     }
 
@@ -167,7 +167,7 @@ body .search-nav {
 
     nav a:hover {
         background: $cf-bg-light;
-        color: $cf-text !important;
+        color: $cf-category;
     }
 
     nav.wide > div > * {
@@ -185,6 +185,7 @@ body .search-nav {
     nav.wide a:hover {
         background: $cf-bg-white;
         font-weight: 900;
+        color: $cf-category;
     }
 
     nav.wide > div {
@@ -194,6 +195,9 @@ body .search-nav {
     nav.wide button {
         position: relative;
         top: -2px;
+        border: none;
+        min-width: 20px;
+        width: 20px;
     }
 
     nav.wide button + .popover {
@@ -225,7 +229,7 @@ body .search-nav {
     }
 
     div.topic-menu li {
-        border-bottom: solid thin gray;
+        border-bottom: solid thin $cf-trim;
     }
 
     .dropdown-menu {
@@ -254,7 +258,7 @@ body .search-nav {
 footer.page nav a {
     -webkit-transition: 0.3s;
     transition: 0.3s;
-    padding: 0 1rem;
+    // padding: 0 1rem;
     color: $cf-text;
 }
 

@@ -33,13 +33,13 @@
         color: black;
 
         header h1 {
-            // text-transform: uppercase;
+            text-transform: uppercase;
             font-size: 120%;
-            font-weight: 700;
+            font-weight: 900;
+            line-height: 1.35;
         }
         header .category {
             font-size: 80%;
-            // text-transform: uppercase;
         }
 
         header .category .material-icons {
@@ -50,6 +50,7 @@
 
         article {
             font-size: 100%;
+            line-height: 1.35;
         }
 
         footer {
@@ -103,7 +104,6 @@
         text-align: center;
     }
     .card-media-panel {
-        // width: 18rem;
         height: auto;
         margin: 3rem 2rem;
         vertical-align: middle;
@@ -173,6 +173,7 @@
     .pmd-card {
         max-width: 900px;
         margin: auto;
+        line-height: 1.35;
     }
 
     .pmd-card-media img {

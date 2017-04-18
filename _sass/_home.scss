@@ -30,27 +30,47 @@ $hero-height: 48rem;
             min-height: 100%;
         }
 
-        @media only screen and (min-width: $md-min) {
+        // large
+        @media only screen and (min-width: 850px) {
             .hero-content {
                 min-height: 500px;
-                padding: 125px 100px;
+                padding: 110px 0px;
+                width: 80%;
             }
             h1 {
-                font-size: 200%;
+                font-size: 250%;
             }
 
             h2 {
-                font-size: 125%;
-                margin-top: 4rem;
+                font-size: 168%;
+                margin-top: 2rem;
             }
         }
-        @media only screen and (max-width: $sm-max) {
+        // medium
+        @media only screen and (min-width: $sm-min) and (max-width: 849px) {
             .hero-content {
-                min-height: 300px;
-                padding: 75px 10px;
+                min-height: 450px;
+                padding: 100px 0px;
+                width: 90%;
             }
             h1 {
-                font-size: 110%;
+                font-size: 210%;
+            }
+
+            h2 {
+                font-size: 140%;
+                margin-top: 2rem;
+            }
+        }
+        // small
+        @media only screen and (max-width: $xs-max) {
+            .hero-content {
+                min-height: 300px;
+                width: 95%;
+                padding: 75px 0px;
+            }
+            h1 {
+                font-size: 123%;
             }
 
         }

@@ -3,7 +3,7 @@
   var gutterWidth = 14;  // gutter width should match CSS setting for cards
 
   // card animation -- raised shadow
-  $(".pmd-card").hover(
+  $(".pmd-card.raised").hover(
     function(event) {
       removeShadow($(this)).addClass("pmd-z-depth-1");
   }, function(event) {
@@ -11,7 +11,7 @@
   });
 
   // card animation -- lower shadow on click
-  $(".pmd-card").mousedown(function(event) {
+  $(".pmd-card.raised").mousedown(function(event) {
     var element = $(this);
     removeShadow(element);
     setTimeout(function() {

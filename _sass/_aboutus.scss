@@ -1,6 +1,13 @@
 /* home page styles */
 $panel-width: 20rem;
 
+// >= md
+@media only screen and (min-width: $md-min) {
+    .aboutuspage #main {
+        background-color: white;
+    }
+}
+
 #aboutus-cards {
 
     .row {
