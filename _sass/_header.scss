@@ -59,6 +59,11 @@ body .search-nav {
     .header-ext {
         display: none;
     }
+
+    .trademark {
+        vertical-align: middle;
+    }
+
     // sm, xs
     @media only screen and (max-width: $sm-max){
         font-size: 85%;
@@ -68,11 +73,17 @@ body .search-nav {
         .burger {
             padding-left: 0px;
             padding-right: 0px;
-            position: relative;
-            top: 3px;
         }
         nav a{
             padding-left: 0;
+        }
+
+        a.trademark img {
+            max-height: 2rem;
+        }
+        a.trademark {
+            position: relative;
+            top: 3px;
         }
     }
     // >= md
@@ -81,8 +92,17 @@ body .search-nav {
             padding-left: 5px;
             padding-right: 0px;
         }
-    }
 
+        .trademark {
+            font-size: 120%;
+            vertical-align: middle;
+        }
+
+        a.trademark img {
+            max-height: 3rem;
+        }
+
+    }
 
     .header-ext {
         // display: none;
@@ -150,10 +170,6 @@ body .search-nav {
         font-style: normal;
         font-weight: 700;
         text-decoration: none;
-    }
-
-    a.trademark img {
-        max-height: 3rem;
     }
 
     nav {
