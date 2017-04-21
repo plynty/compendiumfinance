@@ -37,27 +37,28 @@
       </nav>
       <div class="search-nav col-md-7 hidden-sm hidden-xs">
         <nav class="wide">
-          <div>
-            <div id="explore" class="topic-menu">
-                <p>Explore</p><div class="dropdown pmd-dropdown">
-                    <a class="dropdown-toggle pmd-dropdown-hover" id="topic-menu" data-toggle="dropdown" aria-expanded="true"><span class="current-topic">Current</span> <span class="caret"></span></a>
-                    <ul aria-labelledby="topic-menu" role="menu" class="dropdown-menu topic-menu">
-                        <li role="presentation"><a href="javascript:changeTopic('Current');" tabindex="-1" role="menuitem">Current</a></li>
-                        {% for topic in topics %}
-                        {% assign topic = topic | strip %}
-                        <li role="presentation"><a href="javascript:changeTopic('{{topic}}');" tabindex="-1" role="menuitem">{{topic}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div><p>Articles</p>
+            <div class="homepage">
+                <div id="explore" class="topic-menu">
+                    <p>Explore</p><div class="dropdown pmd-dropdown">
+                        <a class="dropdown-toggle pmd-dropdown-hover" id="topic-menu" data-toggle="dropdown" aria-expanded="true"><span class="current-topic">Current</span> <span class="caret"></span></a>
+                        <ul aria-labelledby="topic-menu" role="menu" class="dropdown-menu topic-menu">
+                            <li role="presentation"><a href="javascript:changeTopic('Current');" tabindex="-1" role="menuitem">Current</a></li>
+                            {% for topic in topics %}
+                            {% assign topic = topic | strip %}
+                            <li role="presentation"><a href="javascript:changeTopic('{{topic}}');" tabindex="-1" role="menuitem">{{topic}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div><p>Articles</p>
+                </div>
             </div>
-            <a href="aboutus.html" >About Us</a>
-            <span>
-              <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect popover-html notification-trigger" type="button" 
-                  data-trigger="click" data-toggle="popover" data-placement="left" data-html="true" data-id="#search-div">
+            <a href="aboutus.html" class="homepage">About Us</a>
+            <a href="index.html" class="aboutuspage">Home</a>
+            <span class="homepage">
+                <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect popover-html notification-trigger" type="button" 
+                    data-trigger="click" data-toggle="popover" data-placement="left" data-html="true" data-id="#search-div">
                 <i class="material-icons md-dark pmd-sm">search</i>
-              </button>
+                </button>
             </span>
-          </div>
         </nav>
       </div>
   </div>

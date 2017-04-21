@@ -6,7 +6,7 @@ $panel-height: 15rem;
         border: solid thin $cf-trim;
     }
     .pmd-card:hover header h1 {
-        color: blue;
+        color: $cf-category;
         text-decoration: underline;
     }
 

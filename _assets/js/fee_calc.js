@@ -20,7 +20,8 @@ function calculate() {
     clearTimeout(calculateTimer);
     calculateTimer = setTimeout(function() {
         updateStack("#chart");
-        updatePie("#chart")
+        updatePie("#chart");
+        updateTable("#chart");
     }, 750);
 }
 

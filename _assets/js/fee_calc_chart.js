@@ -6,10 +6,10 @@ var config = {
     pieKeys: ["You Keep", "You Lose"],
 
     colors: [
-        "#42bd41", // green
-        "#ff4500", // red-1
-        "#dd382f", // red-2
-        "#ff0000"  // red-3
+        "#3f3", // green
+        "#f33", // red-1
+        "#f33", // red-2
+        "#f33"  // red-3
     ],
     pieColors: [  // gradient triples: [lowlight, color, highlight]
         ["#373", "#3f3", "#6f6"], // green
@@ -23,14 +23,14 @@ var config = {
         totalsRight: 100
     },
     
-    showPie: false
+    showing: "area"
 }
 
 /** hold context info for all the charts on the page */
 var charts = {};
 
 /**
- * Perform initial setup for a stack chart, then render the chartbased on initial data
+ * Perform initial setup for a stack chart, then render the chart based on initial data
  */
 function generateCharts(svgSelector, style, curve) {
      // create a new chart context
@@ -42,8 +42,10 @@ function generateCharts(svgSelector, style, curve) {
 
     svgDefs(geom.svg);
     initAxes(svgSelector);
-    // initLegend(svgSelector);
+    initLegend(svgSelector);
     initPie(svgSelector);
+    initTable(svgSelector);
+
 
     /** validate the inputs, will trigger a render */
     validate();
@@ -74,22 +76,36 @@ function updateStack(svgSelector) {
                 renderAreaStack(svgSelector, data);
                 break;
         }
-        // renderLegend(svgSelector, data);
+        renderLegend(svgSelector, data);
     });
 }
 
-function toggleChart(checkbox, svgSelector) {
+function swipeChart(leftRight, svgSelector) {
+    switch (config.showing) {
+        case 'area':
+            config.showing = leftRight === 'left' ? 'table' : 'pie';
+            break;
+        case 'pie':
+            config.showing = leftRight === 'left' ? 'area' : 'table';
+            break;
+        case 'table':
+            config.showing = leftRight === 'left' ? 'pie' : 'area';
+            break;
+    }
+    showChart(config.showing, svgSelector);
+}
+
+function showChart(chartType, svgSelector) {
     var chartCtx = charts[svgSelector];
-    config.showPie = checkbox.checked;
-    var opacity = config.showPie ? 0 : 1;
+    config.showing = chartType;
 
     function fade(selection, opacity) {
-        selection.transition().duration(1500)
+        selection.transition().duration(1000)
             .attr("opacity", opacity);
-            // .attr("stroke-opacity", opacity);
     }
-    fade(chartCtx.geom.topG.select(".stack-chart"), opacity);
-    fade(chartCtx.geom.topG.select(".pie-chart"), 1 - opacity);
+    fade(chartCtx.geom.topG.select(".stack-chart"), config.showing === 'area' ? 1 : 0);
+    fade(chartCtx.geom.topG.select(".pie-chart"), config.showing === 'pie' ? 1 : 0);
+    fade(chartCtx.geom.topG.select(".table"), config.showing === 'table' ? 1 : 0);
 }
 
 /**
@@ -122,16 +138,19 @@ function createChartGeometry(svgSelector, margin) {
         chartG = topG.append("g")
             .attr("class", "stack-chart")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-            .attr("opacity", config.showPie ? 0 : 1),
+            .attr("opacity", config.showing === 'area' ? 1 : 0),
         graphG = chartG.append("g")
             .attr("class", "graph"),
-        overlayG = chartG.append("g")
-            .attr("class", "chart-overlay"),
+        // overlayG = chartG.append("g")
+        //     .attr("class", "chart-overlay"),
         legendG = chartG.append("g")
             .attr("class", "legend"),
         pieG = topG.append("g")
             .attr("class", "pie-chart")
-            .attr("opacity", config.showPie ? 1 : 0);
+            .attr("opacity", config.showing === 'pie' ? 1 : 0),
+        tableG = topG.append("g")
+            .attr("class", "table")
+            .attr("opacity", config.showing === 'table' ? 1 : 0);
 
     /* the viewBox is the 'natural' size of the drawing.  When the browser
         scales the drawing up and down, it will be relative to this size.  A resize
@@ -145,9 +164,10 @@ function createChartGeometry(svgSelector, margin) {
         defs: defs,
         topG: topG,
         chartG: chartG,
-        overlayG: overlayG,
+        // overlayG: overlayG,
         legendG: legendG,
         pieG: pieG,
+        tableG: tableG,
         width: width,
         height: height
     }
@@ -251,35 +271,20 @@ function renderAxes(svgSelector, data) {//g, data, geom, style) {
 function initLegend(svgSelector) {
     var chartCtx = charts[svgSelector];
     var legendG = chartCtx.geom.legendG;
-    legendG.attr("text-anchor", "end")
-        .attr("transform", "translate("+config.legend.left+", "+config.legend.top+")");
 
-    legendG.append("rect")
-        .attr("class", "mask")
-        .attr("x", -8).attr("y", -5)
-        .attr("width", config.legend.totalsRight+config.legend.labelsRight + 16)
-        .attr("height", config.legend.lineHeight * config.keys.length + 10)
-        .attr("rx", 20).attr("ry", 15);
+    var table = legendG.append("foreignObject").append("xhtml:table");
+    
+    var tr = table.append("xhtml:tr").attr("class", "lose");
+    tr.append("xhtml:td").attr("class", "legend-key-lose").append("xhtml:div");
+    tr.append("xhtml:td").attr("class", "legend-label").text("You Lose:");
+    tr.append("xhtml:td").attr("id", "legend-lose").attr("class", "legend-value");
+    tr.append("xhtml:td").attr("id", "legend-lose-percent").attr("class", "legend-percent");
 
-    var legend = legendG
-        .selectAll("g")
-        .data(config.keys.slice().reverse())
-        .enter().append("g")
-        .attr("transform", function (d, i) { return "translate(0," + i * config.legend.lineHeight + ")"; });
-
-    legend.append("rect")
-        .attr("class", "color-key")
-        .attr("x", config.legend.labelsRight + 5)
-        .attr("width", 19)
-        .attr("height", 19)
-        .attr("class", function(d, i) { return "legend-"+(config.keys.length-1-i) });
-
-    legend.append("text")
-        .attr("class", "legend-label")
-        .attr("x", config.legend.labelsRight)
-        .attr("y", 10)
-        .attr("dy", "0.32em")
-        .text(function (d) { return d; });
+    tr = table.append("xhtml:tr").attr("class", "keep");
+    tr.append("xhtml:td").attr("class", "legend-key-keep").append("xhtml:div");
+    tr.append("xhtml:td").attr("class", "legend-label").text("You Keep:");
+    tr.append("xhtml:td").attr("id", "legend-keep").attr("class", "legend-value");
+    tr.append("xhtml:td").attr("id", "legend-keep-percent").attr("class", "legend-percent");
 }
 
 /**
@@ -288,35 +293,17 @@ function initLegend(svgSelector) {
 function renderLegend(svgSelector, data) {
     var chartCtx = charts[svgSelector];
 
-    var grandTotal = data[data.length-1].total;
+    var values = data[data.length-1];
+    var loseTotal = values["Fund Fees"] + values["Advisor Fees"] + values["Lost Earnings"];
+    var keepTotal = values.total - loseTotal;
+    var losePercent = loseTotal / (loseTotal + keepTotal);
+    var keepPercent = keepTotal / (loseTotal + keepTotal);
+    // var grandTotal = data[data.length-1].total;
 
-    chartCtx.geom.legendG.selectAll(".total").remove();
-    var totalEnter = chartCtx.geom.legendG.selectAll(".total")
-        .data(d3.stack().keys(config.keys.slice().reverse())(data))
-        .enter().append("g")
-        .attr("class", "total")
-        .attr("transform", function (d, i) { return "translate("+config.legend.totalsRight+"," + i * config.legend.lineHeight + ")"; });
-    var percentages = totalEnter
-        .append("text")
-        .attr("class", "percent")
-        .attr("x", 8)
-        .attr("y", 10)
-        .attr("dy", "0.32em");
-    var values = totalEnter
-        .append("text")
-        .attr("class", "value")
-        .attr("x", config.legend.labelsRight)
-        .attr("y", 10)
-        .attr("dy", "0.32em");
-
-    percentages.merge(percentages)
-        .text(function(d) {
-            return d3.format(".0%")(d[d.length-1].data[d.key] / grandTotal);
-        });
-    values.merge(values)
-        .text(function(d) {
-            return d3.format("$,.0f")(d[d.length-1].data[d.key]);
-        });
+    chartCtx.geom.legendG.select('#legend-keep-percent').text(d3.format(".0%")(keepPercent));
+    chartCtx.geom.legendG.select('#legend-lose-percent').text(d3.format(".0%")(losePercent));
+    chartCtx.geom.legendG.select('#legend-keep').text(d3.format("$,.0f")(keepTotal));
+    chartCtx.geom.legendG.select('#legend-lose').text(d3.format("$,.0f")(loseTotal));
 }
 
 /**
@@ -449,27 +436,27 @@ function renderAreaStack(svgSelector, data) {
             .attr("d", line1);
 
         // draw the vertical guides on the overlay
-        chartCtx.geom.overlayG.selectAll(".column").remove();
-        var verticals = chartCtx.geom.overlayG.selectAll(".column")
-            .data(stack(data))
-            .enter()
-            .append("g")
-            .attr("class", function(d,i){ return "column line"+i; })
-            .selectAll("line")
-            .data(function(d, i) {
-                // var line = d3.line();
-                return d;
-            })
-            .enter()
-            .append("path")
-            .attr("class", "vertical")
-            .attr("d", function(d, i, data) {
-                var x = area.x()(d, i);
-                var y0 = area.y0()(d);
-                var y1 = area.y1()(d);
-                return "M"+x+" "+y0+" V"+y1;
-            })
-            .attr("fill", "none");
+    //     chartCtx.geom.overlayG.selectAll(".column").remove();
+    //     var verticals = chartCtx.geom.overlayG.selectAll(".column")
+    //         .data(stack(data))
+    //         .enter()
+    //         .append("g")
+    //         .attr("class", function(d,i){ return "column line"+i; })
+    //         .selectAll("line")
+    //         .data(function(d, i) {
+    //             // var line = d3.line();
+    //             return d;
+    //         })
+    //         .enter()
+    //         .append("path")
+    //         .attr("class", "vertical")
+    //         .attr("d", function(d, i, data) {
+    //             var x = area.x()(d, i);
+    //             var y0 = area.y0()(d);
+    //             var y1 = area.y1()(d);
+    //             return "M"+x+" "+y0+" V"+y1;
+    //         })
+    //         .attr("fill", "none");
     });
 }
 
@@ -587,6 +574,8 @@ function initPie(svgSelector) {
     g.append("g")
         .attr("class", "labels");
     g.append("g")
+        .attr("class", "percents");
+    g.append("g")
         .attr("class", "lines");
 }
 
@@ -627,9 +616,18 @@ function updatePie(svgSelector) {
             .outerRadius(chartCtx.radius * 0.8)
             .innerRadius(0);
 
+        var innerArc = d3.arc()
+            .innerRadius(chartCtx.radius * 0.7)
+            .outerRadius(chartCtx.radius * 0.7);
+
         var outerArc = d3.arc()
             .innerRadius(chartCtx.radius * 0.9)
             .outerRadius(chartCtx.radius * 0.9);
+
+        var percentArc = d3.arc()
+            .innerRadius(chartCtx.radius * 0.35)
+            .outerRadius(chartCtx.radius * 0.35);
+
 
         var key = function (d) { 
             return d.data.label; 
@@ -677,7 +675,7 @@ function updatePie(svgSelector) {
         textMerge.html(function (d) {
                 var html = '<tspan class="pie-label" x="0">'+d.data.label+"</tspan>";
                 html += '<tspan class="amount" x="0" y="20">'+d.data.fmtValue+'</tspan>';
-                html += '<tspan class="percent" x="0" y="40">'+d.data.percent+'</tspan>';
+                // html += '<tspan class="percent" x="0" y="40">'+d.data.percent+'</tspan>';
                 return html;
             });
 
@@ -707,6 +705,34 @@ function updatePie(svgSelector) {
         text.exit()
             .remove();
 
+        var percents = g.select(".percents").selectAll("text")
+            .data(pie(pieData), key);
+
+        var percentMerge = percents.enter()
+            .append("text")
+        .merge(percents);
+        
+        percentMerge.html(function (d) {
+                var html = '<tspan class="percent">'+d.data.percent+'</tspan>';
+                return html;
+            });
+
+        percentMerge.transition().duration(1000)
+            .attrTween("transform", function (d) {
+                this._current = this._current || d;
+                var interpolate = d3.interpolate(this._current, d);
+                this._current = interpolate(0);
+                return function (t) {
+                    var d2 = interpolate(t);
+                    var pos = percentArc.centroid(d2);
+                    // pos[0] = chartCtx.radius * (midAngle(d2) < Math.PI ? 1 : -1);
+                    // pos[1] -= 10; // adjust for multi-line text
+                    return "translate(" + pos + ")";
+                };
+            });
+
+        percents.exit()
+            .remove();
         /* ------- SLICE TO TEXT POLYLINES -------*/
 
         var polyline = g.select(".lines").selectAll("polyline")
@@ -724,12 +750,72 @@ function updatePie(svgSelector) {
                         var d2 = interpolate(t);
                         var pos = outerArc.centroid(d2);
                         pos[0] = chartCtx.radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-                        return [arc.centroid(d2), outerArc.centroid(d2), pos];
+                        return [innerArc.centroid(d2), outerArc.centroid(d2), pos];
                     };
                 });
 
         polyline.exit()
             .remove();
+    });
+}
+
+function initTable(svgSelector) {
+    var chartCtx = charts[svgSelector];
+
+    var g = chartCtx.geom.tableG;
+    var table = g.append("foreignObject").append("xhtml:table");
+    var tr = table.append("xhtml:tr");
+    tr.append("xhtml:td").text("Total Earnings");
+    tr.append("xhtml:td").attr("id", "td-total-earnings");
+    tr = table.append("xhtml:tr").attr("class", "keep");
+    tr.append("xhtml:td").text("You Keep");
+    tr.append("xhtml:td").attr("id", "td-you-keep").attr("class", "value");
+    tr = table.append("xhtml:tr").attr("class", "lose");
+    tr.append("xhtml:td").text("Fund Fees");
+    tr.append("xhtml:td").attr("id", "td-fund-fees").attr("class", "value");
+    tr = table.append("xhtml:tr").attr("class", "lose");
+    tr.append("xhtml:td").text("Advisor Fees");
+    tr.append("xhtml:td").attr("id", "td-advisor-fees").attr("class", "value");
+    tr = table.append("xhtml:tr").attr("class", "lose");
+    tr.append("xhtml:td").text("Lost Earnings");
+    tr.append("xhtml:td").attr("id", "td-lost-earnings").attr("class", "value");
+    tr = table.append("xhtml:tr").attr("class", "lose-total");
+    tr.append("xhtml:td").text("Total Lost");
+    tr.append("xhtml:td").attr("id", "td-total-lost").attr("class", "value");
+}
+
+function updateTable(svgSelector) {
+    var chartCtx = charts[svgSelector];
+    if (!chartCtx) {
+        return;
+    }
+
+    fetchData(function(error, data) {
+        var values = data[data.length-1];
+        var loseTotal = values["Fund Fees"] + values["Advisor Fees"] + values["Lost Earnings"];
+        var keepTotal = values.total - loseTotal;
+
+        chartCtx.geom.tableG.select('#td-total-earnings').text(d3.format('$,.0f')(values.total));
+        chartCtx.geom.tableG.select('#td-you-keep').text(d3.format('$,.0f')(keepTotal));
+        chartCtx.geom.tableG.select('#td-fund-fees').text(d3.format('$,.0f')(values["Fund Fees"]));
+        chartCtx.geom.tableG.select('#td-advisor-fees').text(d3.format('$,.0f')(values["Advisor Fees"]));
+        chartCtx.geom.tableG.select('#td-lost-earnings').text(d3.format('$,.0f')(values["Lost Earnings"]));
+        chartCtx.geom.tableG.select('#td-total-lost').text(d3.format('$,.0f')(loseTotal));
+
+        // var pieData = [
+        //     { 
+        //         label: config.pieKeys[0], 
+        //         value: keepTotal,
+        //         fmtValue: d3.format('$,.0f')(keepTotal),
+        //         percent: d3.format('.0%')(keepTotal/values.total)
+        //     },
+        //     { 
+        //         label: config.pieKeys[1], 
+        //         value: loseTotal,
+        //         fmtValue: d3.format('$,.0f')(loseTotal),
+        //         percent: d3.format('.0%')(loseTotal/values.total)
+        //     }
+        // ];
     });
 }
 
