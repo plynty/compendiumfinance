@@ -31,74 +31,83 @@
 
     </head>
     <body class="fee-calculator">
-        <!--<div class="container-fluid">-->
-            {% include return-header.html %}
-            <!--<div class="nav-padding">&nbsp;</div>-->
-            <!--<div class="row">-->
-                <!--<div class="col-xs-12">-->
-                    <div class="pmd-card pmd-z-depth">
-                        <div class="chart">
-                            <svg id="chart"></svg>
-                        </div>
-                        <div class="row input-form">
-                            <div class="col-md-12 col-xs-6">
-                                <div class="form-group pmd-textfield">
-                                    <label for="investment-amount" class="control-label">
-                                        Investment Amount
-                                    </label>
-                                    <input type="text" id="investment-amount" class="form-control" value="$50,000" onblur="validate(); return false;">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-xs-6">
-                                <div class="form-group pmd-textfield">
-                                    <label for="investment-period" class="control-label">
-                                        Investment Period
-                                    </label>
-                                    <input type="text" id="investment-period" class="form-control" value="30" onblur="validate(); return false;">
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
-                                <div class="form-group pmd-textfield">
-                                    <label for="rate-of-return" class="control-label">
-                                        Rate of Return
-                                    </label>
-                                    <div id="rate-of-return" class="range-slider"></div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
-                                <div class="form-group pmd-textfield">
-                                    <label for="mutual-fund-fees" class="control-label">
-                                        Mutual Fund Fees
-                                    </label>
-                                    <div id="mutual-fund-fees" class="range-slider"></div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
-                                <div class="form-group pmd-textfield">
-                                    <label for="advisor-fee" class="control-label">
-                                        Advisor Fee
-                                    </label>
-                                    <div id="advisor-fee" class="range-slider"></div>
-                                </div>
-                            </div>
-                            <!--<div class="col-md-2 col-sm-6 col-xs-6">-->
-                                <!--<div class="form-group pmd-textfield">
-                                    <label for="switch" class="control-label">
-                                        Show Totals
-                                    </label>
-                                    <div class="pmd-switch"  style="margin-left: 5px; margin-top:2px;">
-                                        <label>
-                                            <input id="toggle-chart" type="checkbox" onclick="toggleChart(this, '#chart'); return true;">
-                                            <span class="pmd-switch-label"></span>
-                                        </label>
-                                    </div>
-                                </div>-->
-                            <!--</div>-->
-                        </div>
+        {% include return-header.html %}
+        <div class="pmd-card pmd-z-depth">
+            <div class="chart">
+                <svg id="chart"></svg>
+            </div>
+            <div class="row chart-rotate">
+                <div class="col-xs-12">
+                    <div class="btn-group">	
+                        <a class="btn pmd-ripple-effect pmd-btn-raised" type="button" title="Area Chart" onclick="showChart('area', '#chart'); return false;">
+                            <img src="uploads/fee-chart.png">
+                        </a>
+                        <a class="btn pmd-ripple-effect pmd-btn-raised" type="button" title="Pie Chart" onclick="showChart('pie', '#chart'); return false;">
+                            <img src="uploads/fee-pie.png">
+                        </a>
+                        <a class="btn pmd-ripple-effect pmd-btn-raised" type="button" title="Fee Table" onclick="showChart('table', '#chart'); return false;">
+                            <img src="uploads/fee-table.png">
+                        </a>
                     </div>
+                </div>
+            </div>
+            <div class="row input-form">
+                <div class="col-md-12 col-xs-6">
+                    <div class="form-group pmd-textfield">
+                        <label for="investment-amount" class="control-label">
+                            Investment Amount
+                        </label>
+                        <input type="text" id="investment-amount" class="form-control" value="$50,000" onblur="validate(); return false;">
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-6">
+                    <div class="form-group pmd-textfield">
+                        <label for="investment-period" class="control-label">
+                            Investment Period
+                        </label>
+                        <input type="text" id="investment-period" class="form-control" value="30" onblur="validate(); return false;">
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group pmd-textfield">
+                        <label for="rate-of-return" class="control-label">
+                            Rate of Return
+                        </label>
+                        <div id="rate-of-return" class="range-slider"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group pmd-textfield">
+                        <label for="mutual-fund-fees" class="control-label">
+                            Mutual Fund Fees
+                        </label>
+                        <div id="mutual-fund-fees" class="range-slider"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group pmd-textfield">
+                        <label for="advisor-fee" class="control-label">
+                            Advisor Fee
+                        </label>
+                        <div id="advisor-fee" class="range-slider"></div>
+                    </div>
+                </div>
+                <!--<div class="col-md-2 col-sm-6 col-xs-6">-->
+                    <!--<div class="form-group pmd-textfield">
+                        <label for="switch" class="control-label">
+                            Show Totals
+                        </label>
+                        <div class="pmd-switch"  style="margin-left: 5px; margin-top:2px;">
+                            <label>
+                                <input id="toggle-chart" type="checkbox" onclick="toggleChart(this, '#chart'); return true;">
+                                <span class="pmd-switch-label"></span>
+                            </label>
+                        </div>
+                    </div>-->
                 <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+            </div>
+        </div>
+
         <!-- jQuery before Propeller.js -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         

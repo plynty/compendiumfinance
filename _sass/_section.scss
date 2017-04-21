@@ -60,9 +60,6 @@
         .section-head-copy, .section-head-bg-img {
 
             @media only screen and (min-width: $sm-min) {
-                header {
-                    padding-bottom: 2rem;
-                }
                 header h1 {
                     font-size: 200%;
                 }
@@ -72,12 +69,10 @@
                     padding-bottom: .5rem;
                 }
                 header h1 {
-                    font-size: 125%;
+                    font-size: 150%;
                 }
             }
-            header {
-                border-bottom: solid $cf-trim thin;
-            }
+
             header .category {
                 text-transform: uppercase;
                 color: $compendium-fg-white;
