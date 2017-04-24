@@ -4,6 +4,7 @@ layout:
 
 {
     "date": "{{page.date | date: '%B %e, %Y'}}",
+    "author": {{page.author | jsonify}},
     "categories": {{page.categories | jsonify}},
     "tags": {{page.tags | jsonify}},
     "img": "{{page.img}}",

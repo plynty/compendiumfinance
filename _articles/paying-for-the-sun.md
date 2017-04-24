@@ -1,6 +1,7 @@
 ---
 title: Paying For The Sun To Rise
 date: 2016-03-18 00:00:00 Z
+author: George Peacock
 categories:
 - Commentary
 - Blog

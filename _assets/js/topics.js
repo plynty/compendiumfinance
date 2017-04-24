@@ -1,4 +1,5 @@
 var topicMap;
+var authorMap;
 var searchMap;
 var articleTemplate;
 var currentTopic = 'Current';
@@ -6,6 +7,7 @@ var currentTopic = 'Current';
 function initTopics() {
     topicMap = {};
     searchMap = {};
+    authorMap = {};
     $.get("feeds/article-search.json", function (data) {
         data.forEach(function(article) {
             searchMap[article.article_id] = article;
@@ -15,6 +17,12 @@ function initTopics() {
                 }
                 topicMap[topic][article.article_id] = article;
             });
+            if (article.author) {
+                if (!authorMap[article.author]) {
+                    authorMap[article.author] = {};
+                }
+                authorMap[article.author][article.article_id] =  article;
+            }
         });
     });
     $.get("tmpl/article-search-result.html", function(data) {
@@ -40,6 +48,16 @@ function changeTopic(topicName) {
         }
         setResults(results, topicName);
     }
+}
+
+function filterByAuthor(authorName) {
+    var results = [];
+    for (var articleId in authorMap[authorName]) {
+        results.push(authorMap[authorName][articleId]);
+    }
+    viewMain();
+    window.scrollTo(0, 0);
+    setResults(results, authorName);
 }
 
 /**

@@ -65,6 +65,13 @@ function populateTemplate(template, data) {
 function viewArticle(article_id) {
     var article = articleMap[article_id];
     $('#article-view .pmd-card-title-text').html(article.title);
+    if (article.author && article.author.trim().length > 0) {
+        $('#article-view .author').html(article.author);
+        $('#article-view .author').show();
+        $('#article-view a.author-link').click(function() {filterByAuthor(article.author); return false;});
+    } else {
+        $('#article-view .author').hide();
+    }
     if (article.banner_img.trim().length > 0) {
         $('#article-view .pmd-card-media img').attr('src', article.banner_img.trim());
         $('#article-view .pmd-card-media').show();

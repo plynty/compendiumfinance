@@ -1,6 +1,7 @@
 ---
 title: There’s One Born Every Minute
 date: 2016-02-10 00:00:00 Z
+author: Michael Edesess
 categories:
 - Investment Industry
 - Blog

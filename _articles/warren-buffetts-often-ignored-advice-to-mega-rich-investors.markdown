@@ -1,6 +1,7 @@
 ---
 title: Warren Buffett’s (often ignored) advice to mega-rich investors
 date: 2017-03-29 12:04:00 Z
+author: Michael Edesess
 categories:
 - Market Watch
 link: http://www.marketwatch.com/story/warren-buffetts-often-ignored-advice-to-mega-rich-investors-2017-03-13
