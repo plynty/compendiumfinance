@@ -16,6 +16,9 @@ layout:
         "categories": {{article.categories | jsonify}},
         "url": "{{article.url}}",
         "article_id": "{{article.title | slugify}}",
+        {% unless article.author == nil %}
+            "author": "{{article.author}}",
+        {% endunless %}
         "search": {{ search | upcase  | markdownify | strip_html | jsonify}}
     }
     {% assign first = false %}

@@ -1,6 +1,7 @@
 ---
 title: Professional advice can bust an investor’s savings. Here’s how much
 date: 2017-03-29 10:12:00 Z
+author: Michael Edesess
 categories:
 - Market Watch
 link: http://www.marketwatch.com/story/professional-advice-can-bust-an-investors-savings-heres-how-much-2017-03-03

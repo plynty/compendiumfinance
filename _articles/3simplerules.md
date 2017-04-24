@@ -1,5 +1,6 @@
 ---
 title: The 3 Simple Rules of Investing
+author: Michael Edesess
 date: 2017-03-21 00:00:00 Z
 categories:
 - Investing
