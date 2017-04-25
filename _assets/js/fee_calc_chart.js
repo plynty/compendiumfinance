@@ -49,6 +49,7 @@ function generateCharts(svgSelector, style, curve) {
 
     /** validate the inputs, will trigger a render */
     validate();
+    shadeButtons();
 }
 
 /**
@@ -83,13 +84,13 @@ function updateStack(svgSelector) {
 function swipeChart(leftRight, svgSelector) {
     switch (config.showing) {
         case 'area':
-            config.showing = leftRight === 'left' ? 'table' : 'pie';
+            config.showing = leftRight === 'right' ? 'table' : 'pie';
             break;
         case 'pie':
-            config.showing = leftRight === 'left' ? 'area' : 'table';
+            config.showing = leftRight === 'right' ? 'area' : 'table';
             break;
         case 'table':
-            config.showing = leftRight === 'left' ? 'pie' : 'area';
+            config.showing = leftRight === 'right' ? 'pie' : 'area';
             break;
     }
     showChart(config.showing, svgSelector);
@@ -106,6 +107,17 @@ function showChart(chartType, svgSelector) {
     fade(chartCtx.geom.topG.select(".stack-chart"), config.showing === 'area' ? 1 : 0);
     fade(chartCtx.geom.topG.select(".pie-chart"), config.showing === 'pie' ? 1 : 0);
     fade(chartCtx.geom.topG.select(".table"), config.showing === 'table' ? 1 : 0);
+    shadeButtons();
+}
+
+function shadeButtons() {
+    $('.chart-rotate .btn-group .btn').each(function() {
+        if ($(this).hasClass('chart-'+config.showing)) {
+            $(this).find('div.shade').hide();
+        } else {
+            $(this).find('div.shade').show();
+        }
+    });
 }
 
 /**

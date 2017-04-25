@@ -39,14 +39,17 @@
             <div class="row chart-rotate">
                 <div class="col-xs-12">
                     <div class="btn-group">	
-                        <a class="btn pmd-ripple-effect pmd-btn-raised" type="button" title="Area Chart" onclick="showChart('area', '#chart'); return false;">
+                        <a class="btn pmd-ripple-effect pmd-btn-raised chart-area" type="button" title="Area Chart" onclick="showChart('area', '#chart'); return false;">
                             <img src="uploads/fee-chart.png">
+                            <div class="shade"></div>
                         </a>
-                        <a class="btn pmd-ripple-effect pmd-btn-raised" type="button" title="Pie Chart" onclick="showChart('pie', '#chart'); return false;">
+                        <a class="btn pmd-ripple-effect pmd-btn-raised chart-pie" type="button" title="Pie Chart" onclick="showChart('pie', '#chart'); return false;">
                             <img src="uploads/fee-pie.png">
+                            <div class="shade"></div>
                         </a>
-                        <a class="btn pmd-ripple-effect pmd-btn-raised" type="button" title="Fee Table" onclick="showChart('table', '#chart'); return false;">
+                        <a class="btn pmd-ripple-effect pmd-btn-raised chart-table" type="button" title="Fee Table" onclick="showChart('table', '#chart'); return false;">
                             <img src="uploads/fee-table.png">
+                            <div class="shade"></div>
                         </a>
                     </div>
                 </div>
@@ -92,19 +95,6 @@
                         <div id="advisor-fee" class="range-slider"></div>
                     </div>
                 </div>
-                <!--<div class="col-md-2 col-sm-6 col-xs-6">-->
-                    <!--<div class="form-group pmd-textfield">
-                        <label for="switch" class="control-label">
-                            Show Totals
-                        </label>
-                        <div class="pmd-switch"  style="margin-left: 5px; margin-top:2px;">
-                            <label>
-                                <input id="toggle-chart" type="checkbox" onclick="toggleChart(this, '#chart'); return true;">
-                                <span class="pmd-switch-label"></span>
-                            </label>
-                        </div>
-                    </div>-->
-                <!--</div>-->
             </div>
         </div>
 
@@ -121,10 +111,23 @@
         <script src="assets/js/calculator.js"></script>
         <script src="assets/js/fee_calc.js"></script>
         <script src="assets/js/fee_calc_chart.js"></script>
+        <script src="assets/js/hammer.min.js"></script>
         <script>
             $().ready(function() { 
                 resizeChart("#chart"); 
                 initSliderEvents();
+                var hammertime = new Hammer(document.getElementById('chart'));
+                hammertime.on('swipe', function(ev) {
+                    console.log(ev);
+                    switch(ev.direction) {
+                        case 2: // left
+                            swipeChart('left', '#chart');
+                            break;
+                        case 4:
+                            swipeChart('right', '#chart');
+                            break
+                    }
+                });
             });
             $(window).resize(function() { resizeChart("#chart"); });
         </script>
