@@ -1,9 +1,9 @@
 ---
 title: The 3 Simple Rules of Investing
-author: Michael Edesess
 date: 2017-03-21 00:00:00 Z
 categories:
 - Investing
+author: Michael Edesess
 lead: What if the most effective investment portfolio was also the most simple and
   the least expensive?
 img: uploads/3simpleRules-book.jpeg
