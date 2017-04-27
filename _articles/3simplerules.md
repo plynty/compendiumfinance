@@ -7,7 +7,7 @@ source: internal
 author: Michael Edesess
 lead: What if the most effective investment portfolio was also the most simple and
   the least expensive?
-img: uploads/3simpleRules-book.jpeg
+img: "/uploads/CF%20Article%20Header%20Photo.png"
 bg_img: none
 banner_img: "/uploads/CF%20Article%20Header%20Photo.png"
 img_bleed: false
