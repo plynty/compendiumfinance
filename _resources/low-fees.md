@@ -1,5 +1,5 @@
 ---
-title: Investing Fees and Costs
+title: Fees and Costs
 position: 1
 format_class: resource
 section: resource-cards
