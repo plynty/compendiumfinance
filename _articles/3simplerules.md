@@ -3,14 +3,14 @@ title: The 3 Simple Rules of Investing
 date: 2017-03-21 00:00:00 Z
 categories:
 - Investing
+source: internal
 author: Michael Edesess
 lead: What if the most effective investment portfolio was also the most simple and
   the least expensive?
 img: uploads/3simpleRules-book.jpeg
 bg_img: none
-banner_img: http://propeller.in/assets/images/profile-pic.png
+banner_img: "/uploads/dollar%20500-500.png"
 img_bleed: false
-source: internal
 content_footer_md: |
   Find it online:
   <span class="icons">
