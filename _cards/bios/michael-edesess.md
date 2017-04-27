@@ -1,7 +1,7 @@
 ---
 title: Michael Edesess
 position: 1
-role: Ph.D. Mathematics
+role: Chief Investment Strategist
 status: current
 section: bios
 img: uploads/michael-edesess.png

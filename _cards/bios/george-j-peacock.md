@@ -1,7 +1,7 @@
 ---
-title: George Peacock
+title: George J. Peacock
 position: 2
-role: Registered Investment Advisor
+role: CCO and Investment Advisor
 status: current
 section: bios
 img: uploads/author-george-j-peacock.png

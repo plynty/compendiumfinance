@@ -3,9 +3,10 @@ title: Meet Our Team
 no_date: true
 status: current
 section: aboutus
-lead: We come from the financial industry and see how retirement planning doesn’t
-  work for everyone — it’s unnecessarily complex, too focused on traditional options,
-  and disconnected from most people’s real lives.
+lead: Our goal is to make investing and financial planning as simple, effective, and
+  inexpensive as it can be. We have spent our professional lives in banking, credit,
+  financial planning, investment management, insurance, academia, financial mathematics,
+  and more. We have written extensively about the financial services industry.
 format_class: section-head
 layout: section-head
 ---
