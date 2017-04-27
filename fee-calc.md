@@ -16,7 +16,7 @@ The Magnitude of Fees and Costs Over Time**
 
 Below is an illustration that shows how fees erode your investment success over time.  The example below was generated from our fee calculator. After we review how the calculator works, you may want to use it to see how your current fees could be affecting your future.
 
-
+![orig assumptions.png](/uploads/orig%20assumptions.png)
 
 Let’s review the various inputs first.  As you can see above in the upper left section, the investor has $50,000 that will be invested for 30 years. This could be a 35-year-old investor with money in her 401(k) or perhaps a 65-year-old retiree for whom the $50,000 will be invested throughout his retirement. It doesn’t matter because the results are the same.
 
@@ -30,7 +30,7 @@ So that’s all you need to know in order to use the fee calculator to see how f
 
 Given the above inputs, let’s take a closer look at the outputs below.
 
-
+![original output.png](/uploads/original%20output.png)
 
 
 At the top, you can see that the “total earned” was $503,132.  But all that remains in the account is $249,907, less than half. That’s what the investor gets to keep. The rest was paid out in fees and costs.  That is, this investor lost $253,225 in total fees and costs, slightly more than 50% of what could have been earned and retained.
@@ -46,11 +46,12 @@ The third line is your “lost earnings. This is the hidden and almost never-tal
 And this problem gets worse and worse for you each year the money is invested.
 
 Once you truly understand the real long-term cost of fees, you will have no doubt that fees matter.  They matter a lot.  
-You Can Make Difference
+
+**You Can Make Difference**
 
 Below, however, are the outcomes if you lower your portfolio expenses to .10% (very easy and wise to do) and avoid using a financial advisor who charges you based upon your assets under management (AUM).  The amount invested and investment return are the same, but look at how much money you have now after 30 years.
 
-
+![low assumptions.png](/uploads/low%20assumptions.png)
 
 
 Your “lost earnings” are still the cause of the greatest leakage from your account but this time it is only $8,000 instead of $162,882, a twenty-fold savings.
