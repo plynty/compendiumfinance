@@ -71,7 +71,7 @@ Mutual Fund and Exchange Traded Funds(ETFs) are easy.  Fortunately, these are th
 
 If you know you know your fund’s Ticker Symbol, you can find out almost anything about it through a Google search.  Typing FUSEX into a Google search engine brings up the information below:
 
-
+![Screen Shot 2017-04-20 at 9.56.16 PM.png](/uploads/Screen%20Shot%202017-04-20%20at%209.56.16%20PM.png)
 
 
 In the bottom right of the image you can see that the “Expense ratio” is .09%.  The expense ratio is your fee.  That is, for every $10,000 invested, you will pay $9. That is how easy it can be to find out what you are paying for portfolio management.  If you own mutual funds and ETFs and know their Ticker Symbol, finding your fees is usually that easy.
