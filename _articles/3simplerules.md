@@ -9,7 +9,7 @@ lead: What if the most effective investment portfolio was also the most simple a
   the least expensive?
 img: uploads/3simpleRules-book.jpeg
 bg_img: none
-banner_img: "/uploads/dollar%20500-500.png"
+banner_img: "/uploads/CF%20Article%20Header%20Photo.png"
 img_bleed: false
 content_footer_md: |
   Find it online:
