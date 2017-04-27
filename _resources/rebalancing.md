@@ -1,6 +1,6 @@
 ---
 title: Rebalancing
-position: 4
+position: 3
 no_date: true
 status: current
 section: resource-cards

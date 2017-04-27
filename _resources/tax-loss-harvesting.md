@@ -1,6 +1,6 @@
 ---
 title: Tax-Loss Harvesting
-position: 3
+position: 4
 format_class: resource
 section: resource-cards
 no_date: true
