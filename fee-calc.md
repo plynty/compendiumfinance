@@ -11,7 +11,8 @@ To be a successful investor, you need to get at least two things right.  Those t
 The first thing to understand and take to heart is that fees and costs matter a great deal over time. In large part they matter because every dollar you pay in fees is a dollar that is no longer invested and compounding in your account.  And though the compliment is questionably attributed to Einstein, many regard compound interest to be the Eighth Wonder of the World.
 
 The second you need to know is how to find out what your current fees are and what you can do to reduce them.
-The Magnitude of Fees and Costs Over Time
+**
+The Magnitude of Fees and Costs Over Time**
 
 Below is an illustration that shows how fees erode your investment success over time.  The example below was generated from our fee calculator. After we review how the calculator works, you may want to use it to see how your current fees could be affecting your future.
 
