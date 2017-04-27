@@ -7,7 +7,7 @@ source: internal
 author: Michael Edesess
 lead: What if the most effective investment portfolio was also the most simple and
   the least expensive?
-img: "/uploads/7.%20matthew-sleeper-115697.jpg"
+img: "/uploads/500.png"
 bg_img: 
 banner_img: "/uploads/CF%20Article%20Header%20Photo.png"
 img_bleed: false
