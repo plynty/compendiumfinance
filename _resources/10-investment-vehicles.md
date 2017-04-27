@@ -1,14 +1,14 @@
 ---
 title: 10 Investment Vehicles
 position: 0
-no_date: true
-status: inactive
+format_class: resource
 section: resource-cards
+no_date: true
+status: current
 lead: Specific investment vehicles you can use to assemble your effective, simple,
   and low cost portfolio.
 img: uploads/docblack.png
 source: internal
-format_class: resource
 ---
 
 The 10, maximum and in order, investments you’ll ever need for an effective long-term portfolio.
