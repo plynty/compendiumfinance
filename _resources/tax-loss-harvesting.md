@@ -1,6 +1,6 @@
 ---
 title: Tax Loss Harvesting
-position: 2
+position: 3
 no_date: true
 status: current
 section: resource-cards

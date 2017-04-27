@@ -1,6 +1,6 @@
 ---
 title: Asset Allocation
-position: 4
+position: 2
 no_date: true
 status: current
 section: resource-cards
