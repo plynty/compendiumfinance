@@ -1,5 +1,5 @@
 ---
-title: George Peacock
+title: George J. Peacock
 position: 2
 role: CCO and Investment Advisor
 status: current
