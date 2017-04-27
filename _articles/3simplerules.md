@@ -18,6 +18,7 @@ content_footer_md: |
   [![Amazon.com](uploads/bn.jpg "Shop Barnes & Noble")](http://www.barnesandnoble.com/w/the-3-simple-rules-of-investing-michael-edesess/1117657738?ean=9781626561625)
   [![Amazon.com](uploads/bk.jpg "Shop Barret-Koehler")](http://www.bkconnection.com/ProdDetails.asp?ID=9781626561625&PG=1&Type=BL&PCS=BKP)
   </span>
+bg_img_darken: true
 ---
 
 #### Page xi ... Preface
