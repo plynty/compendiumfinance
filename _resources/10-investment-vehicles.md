@@ -4,7 +4,7 @@ position: 0
 format_class: resource
 section: resource-cards
 no_date: true
-status: current
+status: inactive
 lead: Specific investment vehicles you can use to assemble your effective, simple,
   and low cost portfolio.
 img: uploads/docblack.png
