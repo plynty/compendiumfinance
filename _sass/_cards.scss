@@ -25,7 +25,11 @@
 
     .cf-ar-2x2 .card-copy-panel {
         padding: 32px;
-        width: 60%;
+
+        header,
+        article {
+            width: 60%;
+        }
     }
 }
 
