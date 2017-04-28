@@ -4,6 +4,7 @@ date: 2014-10-17 00:00:00 Z
 categories:
 - Personal Finance
 - Wall Street Myths
+position: 8
 source: external
 lead: Even the creators of these theoretical relationships do not believe them to
   be true in the real world.

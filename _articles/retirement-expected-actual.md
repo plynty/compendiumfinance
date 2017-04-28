@@ -3,6 +3,7 @@ title: PUBLIC PENSION PLANS ARE A DISASTER WAITING TO HAPPEN
 date: 2011-02-10 00:00:00 Z
 categories:
 - Retirement
+position: 0
 status: inactive
 source: external
 lead: Investment managers profit while hurting retirees — and taxpayers.

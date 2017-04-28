@@ -3,6 +3,7 @@ title: THE MOST DANGEROUS FINANCIAL PRODUCTS
 date: 2017-01-31 00:00:00 Z
 categories:
 - Investing
+position: 3
 source: external
 lead: "“Breaching the contract, while in the process making hedge fund managers and
   consultants extraordinarily wealthy, constitutes a very black mark on America’s

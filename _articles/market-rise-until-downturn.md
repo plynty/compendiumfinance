@@ -4,6 +4,7 @@ date: 2016-02-11 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
+position: 14
 source: external
 lead: None of the complicated mathematics in the finance books and journals tells
   you how to beat the market
