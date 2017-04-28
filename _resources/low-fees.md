@@ -1,13 +1,12 @@
 ---
-title: Low Fees
+title: Fees and Costs
 position: 1
+format_class: resource
+section: resource-cards
 no_date: true
 status: current
-section: resource-cards
-lead: We believe that investors shouldn’t pay fees. Some more info here about fees
-  that will be very simple and insightful.
+lead: Over time, “average” fees can cost you more than half of all your gains.
 link: fee-calc.html
 source: internal
-format_class: resource
 ---
 

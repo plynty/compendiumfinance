@@ -1,12 +1,14 @@
 ---
-title: Tax Loss Harvesting
-position: 2
+title: Tax-Loss Harvesting
+position: 4
+format_class: resource
+section: resource-cards
 no_date: true
 status: current
-section: resource-cards
-lead: The benefits of tax loss harvesting strategies are vastly overstated.
+lead: 'While increasingly touted, the math says it’s a yawn and it may even harm you.
+
+'
 source: external
 link: https://www.advisorperspectives.com/articles/2014/08/12/the-tax-harvesting-mirage
-format_class: resource
 ---
 
