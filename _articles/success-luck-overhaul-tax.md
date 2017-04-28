@@ -1,11 +1,12 @@
 ---
-title: Success, Luck and Overhauling the Tax System
+title: CAN THE FREE MARKET PROTECT CONSUMERS?
 date: 2016-07-05 00:00:00 Z
 categories:
-- Investing
-lead: Success requires hard work and dedication. But it can depend on luck too. How
-  much of success is due to luck?
-link: https://www.advisorperspectives.com/articles/2016/07/05/success-luck-and-overhauling-the-tax-system
+- Personal Finance
 source: external
+lead: The same free-market that does a great job of satisfying mutual self-interests,
+  also incentivizes scamming.
+link: CAN THE FREE MARKET PROTECT CONSUMERS?
+Author: Michael Edesess
 ---
 
