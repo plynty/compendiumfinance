@@ -1,11 +1,12 @@
 ---
-title: Can the Free Market Protect Consumers?
+title: MYTHS AND FALLACIES ABOUT DIVERSIFICATION
 date: 2015-11-17 00:00:00 Z
 categories:
-- Investing
-lead: The exact same free-market process that Adam Smith lauded for doing a great
-  job of satisfying mutual self-interests, also incentivizes scamming.
-link: https://www.advisorperspectives.com/articles/2015/11/17/can-the-free-market-protect-consumers
+- Wall Street Myths
 source: external
+lead: 'For many of these there is now a new Holy Grail: diversification. But there
+  is little agreement as to what it means.'
+link: https://www.advisorperspectives.com/articles/2017/01/09/the-myths-and-fallacies-about-diversified-portfolios
+Author: Michael Edesess
 ---
 
