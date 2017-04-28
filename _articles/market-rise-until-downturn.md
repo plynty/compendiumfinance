@@ -1,13 +1,12 @@
 ---
-title: The Stock Market Will Continue to Rise Until The Next Downturn
+title: WHY FANCY MATH CAN’T HELP INVESTORS BEAT THE MARKET
 date: 2016-02-11 00:00:00 Z
 categories:
-- Commentary
-- Blog
-lead: I saw the “story” below on Facebook.  It was funny in and of itself but it was
-  also sad because it is the template of every single investment story you will ever
-  read.
-link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/?p=1323
+- Investing
+- Wall Street Myths
 source: external
+lead: None of the complicated mathematics in the finance books and journals tells
+  you how to beat the market
+link: http://www.marketwatch.com/story/why-a-lot-of-fancy-math-cant-help-investors-beat-the-market-2017-03-15
 ---
 

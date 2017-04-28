@@ -1,13 +1,14 @@
 ---
 title: Asset Allocation
-position: 4
+position: 2
+format_class: resource
+section: resource-cards
 no_date: true
 status: current
-section: resource-cards
-lead: We believe if you invest in the S&P 500 index fund then your assets are appropriately
-  allocated.
+lead: 'The industry’s math is not “sophisticated” and the numbers are made up.
+
+'
 source: external
 link: 
-format_class: resource
 ---
 

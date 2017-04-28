@@ -1,16 +1,15 @@
 ---
-title: Pensions and Retirement&colon; How Solid is Your Safety Net Income?
+title: PROFESSIONAL ADVICE CAN BUST INVESTOR HOPES
 date: 2015-05-25 00:00:00 Z
 categories:
-- Retirement Planning
-section: articles
+- Investing
 status: current
-lead: "One person whose thoughts have been very valuable is a retiree named Barry.
-  \nHe isn’t a financial advisor, but he has thought deeply about his own financial
-  planning.\n"
-img: uploads/beach-square.jpg
-link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/?p=838
+section: articles
 source: external
 format_class: article
+lead: Professional advice and management can cost investors more than most of the
+  worst investment mistakes they can make.
+img: uploads/beach-square.jpg
+link: http://www.marketwatch.com/story/professional-advice-can-bust-an-investors-savings-heres-how-much-2017-03-03
 ---
 
