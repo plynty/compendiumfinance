@@ -1,12 +1,12 @@
 ---
-title: Tax Reform&colon; The Good, the Bad, and the Really Ugly—Part Three
+title: WHEN BAD MATH COSTS YOU MONEY
 date: 2017-02-19 00:00:00 Z
 categories:
-- Commentary
-lead: We come to part 3 of my tax reform series. Today we’ll look at the new and widely
-  misunderstood “border adjustment” idea and talk about both its good and bad points.
-author: John Mauldin of Mauldin Economics
-link: https://www.advisorperspectives.com/commentaries/2017/02/19/tax-reform-the-good-the-bad-and-the-really-ugly-part-three
+- Investing
+- Wall Street Myths
 source: external
+lead: Mathematical sophistication in the investment industry is a sham.
+author: Michael Edesess
+link: https://www.advisorperspectives.com/articles/2016/03/22/truthiness-mathiness-and-the-costs-they-impose-on-your-clients-assets
 ---
 
