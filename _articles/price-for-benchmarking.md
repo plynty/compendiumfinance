@@ -4,7 +4,7 @@ date: 2014-12-23 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
-position: 9
+position: 8
 source: external
 lead: Nobel Prize awardee William F. Sharpe has said, “When I hear smart beta, it
   makes me sick."
