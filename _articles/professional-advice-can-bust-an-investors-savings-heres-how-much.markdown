@@ -9,5 +9,6 @@ link: https://www.advisorperspectives.com/articles/2014/08/12/the-tax-harvesting
 lead: |-
   While tax loss harvesting is not wholly mythical, its benefits are vastly overstated.
   Indeed, they may be negligible.
+img: "/uploads/500.png"
 ---
 
