@@ -10,5 +10,6 @@ lead: |-
   While tax loss harvesting is not wholly mythical, its benefits are vastly overstated.
   Indeed, they may be negligible.
 img: "/uploads/500.png"
+bg_img_darken: true
 ---
 
