@@ -1,11 +1,12 @@
 ---
-title: A Simple Explanation for DALBAR's Misleading Results
+title: DOES WALL STREET RIP YOU OFF?
 date: 2014-06-17 00:00:00 Z
 categories:
-- Myths
-lead: This report will show people how badly investors will do if they don’t have
-  “expert” help. There’s just one thing&colon; the DALBAR result is wrong.
-link: https://www.advisorperspectives.com/articles/2014/06/17/a-simple-explanation-for-dalbar-s-misleading-results
+- Personal Finance
+- Investing
 source: external
+lead: Polk burst on the scene with a New York Times op-ed piece highlighting that
+  the love of money is an addiction that afflicts most people on Wall Street.
+link: https://www.advisorperspectives.com/articles/2016/09/06/does-wall-street-rip-off-your-clients
 ---
 
