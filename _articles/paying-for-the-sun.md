@@ -3,7 +3,7 @@ title: THE FINANCE INDUSTRY IS DESTROYING AMERICA’S ECONOMY
 date: 2016-03-18 00:00:00 Z
 categories:
 - Personal Finance
-position: 2
+position: 1
 source: external
 author: George Peacock
 lead: The best and certainly least risky way to better returns is to pay less in fees

@@ -3,7 +3,7 @@ title: WHY YOU SHOULDN’T TRUST MOST FINANCIAL RESEARCH
 date: 2016-02-10 00:00:00 Z
 categories:
 - Wall Street Myths
-position: 1
+position: 20
 source: external
 author: Michael Edesess
 lead: Harvey et al. claim that “most claimed research findings in financial economics
