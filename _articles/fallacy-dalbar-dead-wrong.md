@@ -1,11 +1,12 @@
 ---
-title: The Fallacy behind Investor versus Fund Returns (and why DALBAR is dead wrong)
+title: SUCCESS AND LUCK AND OVERHAULING THE TAX SYSTEM
 date: 2016-07-19 00:00:00 Z
 categories:
-- Myths
-lead: It has become accepted, conventional wisdom that investors underperform their
-  investments by timing those investments badly.
-link: https://www.advisorperspectives.com/articles/2016/07/19/the-fallacy-behind-investor-versus-fund-returns-and-why-dalbar-is-dead-wrong
+- Personal Finance
 source: external
+lead: Frank argues that luck plays a larger role in success than most people are willing
+  to acknowledge, especially most successful people.
+link: https://www.advisorperspectives.com/articles/2016/07/05/success-luck-and-overhauling-the-tax-system
+Author: Michael Edesess
 ---
 
