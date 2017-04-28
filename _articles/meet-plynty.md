@@ -3,7 +3,7 @@ title: MEET PLYNTY
 date: 2017-01-31 00:00:00 Z
 categories:
 - Retirement Planning
-position: 21
+position: 20
 source: external
 lead: 'New app literally puts retirement planning in your own hands. Instantly see
   how financial decisions now and in the future will impact your retirement income.
