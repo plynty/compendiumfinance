@@ -3,9 +3,10 @@ title: The Price All Investors Pay for Benchmarking
 date: 2014-12-23 00:00:00 Z
 categories:
 - Investing
-lead: Could the practice of measuring and evaluating manager performance by comparing
-  it to a market index be distorting prices across the whole market?
-link: https://www.advisorperspectives.com/articles/2014/12/23/the-price-all-investors-pay-for-benchmarking
+- Wall Street Myths
 source: external
+lead: Nobel Prize awardee William F. Sharpe has said, “When I hear smart beta, it
+  makes me sick."
+link: https://www.advisorperspectives.com/articles/2015/05/26/why-smart-beta-is-really-dumb
 ---
 
