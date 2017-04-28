@@ -3,7 +3,7 @@ title: THE MARKET WILL RISE UNTIL IT DOESN’T
 date: 2017-01-09 00:00:00 Z
 categories:
 - Investing
-position: 5
+position: 4
 source: external
 lead: The genius of Wall Street is that you can read the entire article and feel as
   though you have been somehow informed.
