@@ -4,7 +4,7 @@ date: 2015-08-18 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
-position: 10
+position: 9
 source: external
 lead: Perhaps they do sell on market panic and buy on exuberance, but that’s a long
   way from selling at bottoms and buying at tops.

@@ -4,7 +4,7 @@ date: 2017-04-28 17:52:00 Z
 categories:
 - Investing
 - Wall Street Myths
-position: 26
+position: 25
 status: current
 lead: Contrary to common belief and misguided conclusions of most academic finance
   journals, rebalancing offers no ‘free lunch.’
