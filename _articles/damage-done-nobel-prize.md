@@ -1,13 +1,12 @@
 ---
-title: The Damage Done by the Nobel Prize in Economics
+title: WALL STREET’S TOWER OF BABEL
 date: 2016-10-31 00:00:00 Z
 categories:
-- Academia
-lead: Has the institution of the Nobel Prize in economics been a cause of the global
-  economic woes of the last 20 years – its financial crises, its economic slowdowns
-  and its increasing intra-national inequalities?
-link: https://www.advisorperspectives.com/articles/2016/10/31/the-damage-done-by-the-nobel-prize-in-economics
-img: uploads/Nobel_Prize.png
+- Personal Finance
 source: external
+lead: So we turn to the shamans of Wall Street and we listen to their magical incantations.
+link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/?p=1323
+img: uploads/Nobel_Prize.png
+author: George Peacock
 ---
 
