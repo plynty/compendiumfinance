@@ -1,5 +1,5 @@
 ---
-title: The Price All Investors Pay for Benchmarking
+title: WHY SMART BETA IS REALLY DUMB
 date: 2014-12-23 00:00:00 Z
 categories:
 - Investing
