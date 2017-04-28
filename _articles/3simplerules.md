@@ -1,5 +1,5 @@
 ---
-title: The 3 Simple Rules of Investing
+title: THE 3 SIMPLE RULES OF INVESTING
 date: 2017-03-21 00:00:00 Z
 categories:
 - Investing
