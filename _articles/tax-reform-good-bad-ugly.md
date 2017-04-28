@@ -8,5 +8,6 @@ source: external
 lead: Mathematical sophistication in the investment industry is a sham.
 author: Michael Edesess
 link: https://www.advisorperspectives.com/articles/2016/03/22/truthiness-mathiness-and-the-costs-they-impose-on-your-clients-assets
+img: "/uploads/500.png"
 ---
 
