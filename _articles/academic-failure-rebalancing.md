@@ -4,7 +4,7 @@ date: 2016-08-16 00:00:00 Z
 categories:
 - Investing
 - Retirement
-position: 6
+position: 5
 source: external
 lead: 'The portfolio is divided into two parts: an extremely conservative portfolio
   for safety, and a highly speculative portfolio for extra rewards with extra risk.'
