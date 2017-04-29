@@ -1,6 +1,6 @@
 ---
 title: THIS COULD CHANGE EVERYTHING WE THOUGHT WE KNEW
-date: 2017-04-28 17:52:00 Z
+date: 2017-01-11 17:52:00 Z
 categories:
 - Investing
 - Wall Street Myths
