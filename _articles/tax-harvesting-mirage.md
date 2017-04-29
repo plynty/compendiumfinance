@@ -1,6 +1,6 @@
 ---
 title: MEGA RICH TEND TO IGNORE WARREN BUFFETT’S INVESTMENT ADVICE
-date: 2014-08-12 00:00:00 Z
+date: 2017-03-28 00:00:00 Z
 categories:
 - Investing
 position: 27
