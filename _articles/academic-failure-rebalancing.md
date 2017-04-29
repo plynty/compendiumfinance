@@ -1,6 +1,6 @@
 ---
 title: THE BARBELL PORTFOLIO AND SAFETY FIRST FINANCIAL PLANNING
-date: 2016-08-16 00:00:00 Z
+date: 2016-02-03 00:00:00 Z
 categories:
 - Investing
 - Retirement
