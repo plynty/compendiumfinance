@@ -5,9 +5,8 @@ format_class: resource
 section: resource-cards
 no_date: true
 status: current
-lead: 'The industry’s math is not “sophisticated” and the numbers are made up.
-
-'
+lead: You have to choose where to invest your money.  But almost universally, the
+  financial services industry uses a flawed and fake process.  Why?
 source: external
 link: 
 ---
