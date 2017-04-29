@@ -1,6 +1,6 @@
 ---
 title: THE ACADEMIC FAILURE TO UNDERSTAND REBALANCING
-date: 2015-10-12 00:00:00 Z
+date: 2015-08-16 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
