@@ -1,6 +1,6 @@
 ---
 title: THE PRICE INVESTORS PAY FOR BENCHMARKING
-date: 2016-03-22 00:00:00 Z
+date: 2016-12-23 00:00:00 Z
 categories:
 - Investing
 position: 16
