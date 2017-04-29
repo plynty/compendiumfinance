@@ -1,6 +1,6 @@
 ---
 title: PORTFOLIO REBALANCING MIGHT BE OVERRATED
-date: 2017-03-29 10:11:00 Z
+date: 2017-01-09 10:11:00 Z
 categories:
 - Investing
 - Wall Street Myths
