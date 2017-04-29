@@ -1,6 +1,6 @@
 ---
 title: THE TAX HARVESTING MIRAGE
-date: 2017-03-29 10:12:00 Z
+date: 2017-08-12 10:12:00 Z
 categories:
 - Investing
 - Wall Street Myths
