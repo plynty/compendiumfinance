@@ -1,6 +1,6 @@
 ---
 title: MYTHS AND FALLACIES ABOUT DIVERSIFICATION
-date: 2015-11-17 00:00:00 Z
+date: 2015-01-09 00:00:00 Z
 categories:
 - Wall Street Myths
 position: 21
