@@ -1,6 +1,6 @@
 ---
 title: THE MARKET WILL RISE UNTIL IT DOESN’T
-date: 2017-01-09 00:00:00 Z
+date: 2017-02-08 00:00:00 Z
 categories:
 - Investing
 position: 11
