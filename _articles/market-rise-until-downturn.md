@@ -1,6 +1,6 @@
 ---
 title: WHY FANCY MATH CAN’T HELP INVESTORS BEAT THE MARKET
-date: 2016-02-11 00:00:00 Z
+date: 2017-03-29 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
