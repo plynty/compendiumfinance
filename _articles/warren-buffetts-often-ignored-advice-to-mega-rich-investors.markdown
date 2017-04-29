@@ -1,6 +1,6 @@
 ---
 title: PAYING FOR THE SUN TO RISE
-date: 2017-03-18 12:04:00 Z
+date: 2016-03-08 12:04:00 Z
 categories:
 - Investing
 position: 3
