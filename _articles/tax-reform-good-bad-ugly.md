@@ -1,6 +1,6 @@
 ---
 title: WHEN BAD MATH COSTS YOU MONEY
-date: 2017-02-19 00:00:00 Z
+date: 2017-03-22 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
