@@ -1,6 +1,6 @@
 ---
 title: THERE’S SIMPLE EXPLANATION FOR DALBAR’S MISLEADING RESULTS
-date: 2015-05-26 00:00:00 Z
+date: 2015-06-17 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
