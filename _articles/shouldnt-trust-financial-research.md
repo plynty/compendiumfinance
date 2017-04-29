@@ -1,6 +1,6 @@
 ---
 title: MORE REASONS THAT DALBAR IS DEAD WRONG
-date: 2015-08-18 00:00:00 Z
+date: 2015-07-19 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
