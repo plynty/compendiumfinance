@@ -1,6 +1,6 @@
 ---
 title: WHY YOU SHOULDN’T TRUST MOST FINANCIAL RESEARCH
-date: 2016-02-10 00:00:00 Z
+date: 2016-08-08 00:00:00 Z
 categories:
 - Wall Street Myths
 position: 20
