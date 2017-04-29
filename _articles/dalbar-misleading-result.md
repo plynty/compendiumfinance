@@ -1,6 +1,6 @@
 ---
 title: DOES WALL STREET RIP YOU OFF?
-date: 2014-06-17 00:00:00 Z
+date: 2014-09-06 00:00:00 Z
 categories:
 - Personal Finance
 - Investing
