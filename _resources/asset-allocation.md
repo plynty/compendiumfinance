@@ -5,8 +5,8 @@ format_class: resource
 section: resource-cards
 no_date: true
 status: current
-lead: You have to choose where to invest your money.  But almost universally, the
-  financial services industry uses a flawed and fake process.  Why?
+lead: The investment asset allocation process used nearly universally by everyone
+  in the financial services industry is flawed and fake.
 source: external
 link: 
 ---
