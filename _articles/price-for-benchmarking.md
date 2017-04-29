@@ -1,6 +1,6 @@
 ---
 title: WHY SMART BETA IS REALLY DUMB
-date: 2014-12-23 00:00:00 Z
+date: 2014-05-26 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
