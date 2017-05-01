@@ -4,7 +4,7 @@ date: 2014-08-12 10:12:00 Z
 categories:
 - Investing
 - Wall Street Myths
-position: 9
+position: 10
 author: Michael Edesess
 link: https://www.advisorperspectives.com/articles/2014/08/12/the-tax-harvesting-mirage
 lead: |-

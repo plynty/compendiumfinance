@@ -3,7 +3,7 @@ title: THERE’S ONE BORN EVERY MINUTE
 date: 2016-02-10 00:00:00 Z
 categories:
 - Investing
-position: 11
+position: 12
 source: external
 lead: The investment industry is well-suited to P.T. Barnum’s most famous utterance,
   “There’s a sucker born every minute.
