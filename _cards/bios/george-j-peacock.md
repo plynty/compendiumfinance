@@ -1,6 +1,6 @@
 ---
 title: George J. Peacock
-position: 2
+position: 3
 role: CCO and Investment Advisor
 status: current
 section: bios
