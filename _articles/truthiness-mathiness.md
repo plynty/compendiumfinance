@@ -3,7 +3,7 @@ title: THE PRICE INVESTORS PAY FOR BENCHMARKING
 date: 2016-12-23 00:00:00 Z
 categories:
 - Investing
-position: 16
+position: 18
 source: external
 lead: The practice of evaluating managers by monitoring their performance against
   an index benchmark should be jettisoned.
