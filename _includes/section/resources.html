@@ -4,21 +4,9 @@
 {% assign resources = site.resources | where: 'status', 'current' | where: 'section', 'resource-cards' | sort: 'position' %}
 {% assign n = resources | size | minus: 1 %}
 <div class="row">
-{% for i in (0..n) %}
-    {% assign thisCard = resources[i] %}
-    {% assign pos = i | modulo: 4 %}
-    {% case pos %}
-        {% when 0 %}
-                {% include card/card.html card_layout='resource-card' %}
-        {% when 1,2 %}
-                {% include card/card.html card_layout='resource-card' %}
-        {% when 3 %}
-                {% include card/card.html card_layout='resource-card' %}
-    {% endcase %}
+{% for thisCard in resources %}
+    {% include card/card.html card_layout='resource-card' %}
 {% endfor %}
 </div>
-{% if pos != 3 %}
-    </div>
-{% endif %}
 </section>
 

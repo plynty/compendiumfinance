@@ -1,0 +1,16 @@
+<section id="aboutus-promos" class="cards">
+    {% assign promos = site.cards 
+        | where: 'status', 'current' 
+        | where: 'section', 'bio-promos' 
+        | sort: 'position' %}
+    <div class="row">
+        <div class="bio-promos">
+            {% for thisCard in promos %}
+                <div class="card-wrapper cf-ar-1x1">
+                {% include card/card.html card_layout='promo-card' %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>        
+</section>
+

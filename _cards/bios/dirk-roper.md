@@ -1,6 +1,6 @@
 ---
 title: Dirk Roper
-position: 4
+position: 2
 role: Chief Financial Planner
 status: current
 section: bios

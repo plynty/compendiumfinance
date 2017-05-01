@@ -1,0 +1,51 @@
+#aboutus-promos,
+#advisor-to-plynty-cards {
+    .row {
+        text-align: center;
+    }
+    .card-wrapper {
+        display: inline-block;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    // > xs
+    @media only screen and (min-width: $md-min) {
+        .row {
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+        .pmd-card {
+            height: 100%;
+            overflow: hidden;
+            display: inline-block;
+
+            .card-media-panel img {
+                max-height: 18rem;
+            }
+        }
+        footer .btn-more {
+            font-size: 100%;
+        }
+        footer .btn-more {
+            min-height: 4.5rem;
+        }
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 1rem;
+    }
+        
+    footer .btn-more {
+        color: $cf-text;
+        border-radius: 2rem;
+        border-color: $cf-trim;
+        text-transform: lowercase;
+    }
+
+    footer .btn-more img {
+        max-height: 3rem;
+    }
+}

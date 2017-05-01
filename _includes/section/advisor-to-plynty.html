@@ -3,9 +3,13 @@
 
 <section id="advisor-to-plynty-cards" class="cards">
     <div class="row">
-        {% assign cards = site.cards | where: 'status', 'current' | where: 'section', 'advisor-to-plynty' | sort: 'position' %}
+        {% assign cards = site.cards 
+            | where: 'status', 'current' 
+            | where: 'section', 'advisor-to-plynty' 
+            | where: 'format_class', 'card'
+            | sort: 'position' %}
         {% for thisCard in cards %}
-            {% include card/card.html card_layout='advisor-to-plynty-card' %}
+            {% include card/card.html card_layout='promo-card' %}
         {% endfor %}
     </div>
 </section>

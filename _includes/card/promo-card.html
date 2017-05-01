@@ -1,0 +1,15 @@
+        <div class="pmd-card-body">
+            <div>
+                {% include card/card-image-panel.html %}
+            </div>
+            {% assign btnTxt = '' %}
+            {% if thisCard.btn_txt != nil %}
+                {% assign btnTxt = thisCard.btn_txt %}
+            {% endif %}
+            <footer>
+                <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">
+                    {% if thisCard.btn_img != nil %}<img src="{{thisCard.btn_img}}"/>{% endif %}
+                    {% if thisCard.btn_txt != nil %}{{thisCard.btn_txt}}{% endif %}
+                </button>
+            </footer>
+        </div>

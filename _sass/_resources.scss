@@ -67,7 +67,7 @@ $panel-height: 15rem;
         }
 
         footer {
-            text-align: right;
+            text-align: center;
         }
 
         footer .btn-more .material-icons {
@@ -78,7 +78,9 @@ $panel-height: 15rem;
         
         article {
             font-size: 90%;
+            text-align: center;
         }
+
         header .date,
         header .category {
             display: none;
