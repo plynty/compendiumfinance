@@ -3,7 +3,7 @@ title: CAN THE FREE MARKET PROTECT CONSUMERS?
 date: 2016-11-17 00:00:00 Z
 categories:
 - Personal Finance
-position: 15
+position: 16
 source: external
 lead: The same free-market that does a great job of satisfying mutual self-interests,
   also incentivizes scamming.
