@@ -1,8 +1,9 @@
 ---
-title: The 3 Simple Rules of Investing
+title: THE 3 SIMPLE RULES OF INVESTING
 date: 2017-03-21 00:00:00 Z
 categories:
 - Investing
+position: 6
 source: internal
 author: Michael Edesess
 lead: What if the most effective investment portfolio was also the most simple and

@@ -1,11 +1,16 @@
 ---
-title: Professional advice can bust an investor’s savings. Here’s how much
-date: 2017-03-29 10:12:00 Z
+title: THE TAX HARVESTING MIRAGE
+date: 2014-08-12 10:12:00 Z
 categories:
-- Market Watch
+- Investing
+- Wall Street Myths
+position: 4
 author: Michael Edesess
-link: http://www.marketwatch.com/story/professional-advice-can-bust-an-investors-savings-heres-how-much-2017-03-03
-lead: Professional advice and management can cost investors more than most of the
-  worst investment mistakes they can make.
+link: https://www.advisorperspectives.com/articles/2014/08/12/the-tax-harvesting-mirage
+lead: |-
+  While tax loss harvesting is not wholly mythical, its benefits are vastly overstated.
+  Indeed, they may be negligible.
+img: "/uploads/500.png"
+bg_img_darken: true
 ---
 

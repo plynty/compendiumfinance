@@ -1,11 +1,13 @@
 ---
-title: Why You Shouldn’t Trust Most Financial Research
-date: 2015-08-18 00:00:00 Z
+title: MORE REASONS THAT DALBAR IS DEAD WRONG
+date: 2015-07-19 00:00:00 Z
 categories:
-- Financial Industry
-lead: "&quot; ... most claimed research findings in financial economics are likely
-  false ... &quot;"
-link: https://www.advisorperspectives.com/articles/2015/08/18/why-you-shouldn-t-trust-most-financial-research
+- Investing
+- Wall Street Myths
+position: 23
 source: external
+lead: Perhaps they do sell on market panic and buy on exuberance, but that’s a long
+  way from selling at bottoms and buying at tops.
+link: https://www.advisorperspectives.com/articles/2016/07/19/the-fallacy-behind-investor-versus-fund-returns-and-why-dalbar-is-dead-wrong
 ---
 

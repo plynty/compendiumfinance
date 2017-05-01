@@ -1,11 +1,13 @@
 ---
-title: How Risky are Stocks in the Long Run?
-date: 2014-10-17 00:00:00 Z
+title: THE DAMAGE DONE BY THE NOBEL PRIZE IN ECONOMICS
+date: 2014-10-31 00:00:00 Z
 categories:
-- Investing
-lead: Can we rest easy with our equity investments, or do we need to be unceasingly
-  vigilant?
-link: https://www.advisorperspectives.com/articles/2014/10/07/how-risky-are-stocks-in-the-long-run
+- Personal Finance
+- Wall Street Myths
+position: 26
 source: external
+lead: Even the creators of these theoretical relationships do not believe them to
+  be true in the real world.
+link: https://www.advisorperspectives.com/articles/2016/10/31/the-damage-done-by-the-nobel-prize-in-economics
 ---
 

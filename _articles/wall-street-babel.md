@@ -1,13 +1,13 @@
 ---
-title: Gobbledygook, Balderdash &amp; Bafflegab — Wall Street’s Tower of Babel
-date: 2016-03-11 00:00:00 Z
+title: HOW RISKY ARE STOCKS IN THE LONG RUN
+date: 2016-10-07 00:00:00 Z
 categories:
-- Wall Street
-- Blog
-author: George Peacock
-lead: "“The curious task of economics is to demonstrate to men how little they really
-  know about what they imagine they can design.”"
-link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/?p=1323
+- Investing
+position: 18
 source: external
+author: Michael Edesess
+lead: With stock investments there is no contractual assurance of receiving any of
+  one’s investment back at all, let alone a positive return.
+link: https://www.advisorperspectives.com/articles/2014/10/07/how-risky-are-stocks-in-the-long-run
 ---
 
