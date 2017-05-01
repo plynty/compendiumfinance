@@ -1,7 +1,7 @@
 ---
 title: The Frank Insight of the Day
-section: bio-promos
 position: 2
+section: bio-promos
 img: uploads/frank-insight-page.png
 img_bleed: false
 link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/
@@ -12,3 +12,4 @@ status: current
 layout: div
 format_class: card
 ---
+
