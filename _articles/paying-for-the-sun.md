@@ -1,16 +1,15 @@
 ---
-title: Paying For The Sun To Rise
-date: 2016-03-18 00:00:00 Z
+title: THE FINANCE INDUSTRY IS DESTROYING AMERICA’S ECONOMY
+date: 2016-10-12 00:00:00 Z
 categories:
-- Commentary
-- Blog
-author: George Peacock
-lead: For the past ten years or so, I have been paying an astronomer friend of mine
-  to keep on eye on the sun and to make sure it rises.  Now this may sound crazy but
-  hear me out, because it’s been working...
-img: uploads/sunrise-square.png
-bg_img_darken: true
-link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/?p=1327
+- Personal Finance
+position: 17
 source: external
+author: George Peacock
+lead: The best and certainly least risky way to better returns is to pay less in fees
+  and charges to the finance sector
+img: 
+bg_img_darken: true
+link: https://www.advisorperspectives.com/articles/2015/10/12/why-the-finance-industry-is-destroying-america-s-economy
 ---
 

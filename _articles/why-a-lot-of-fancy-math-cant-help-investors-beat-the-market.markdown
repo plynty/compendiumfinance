@@ -1,12 +1,14 @@
 ---
-title: Why a lot of fancy math can’t help investors beat the market
-date: 2017-03-29 10:11:00 Z
+title: PORTFOLIO REBALANCING MIGHT BE OVERRATED
+date: 2017-01-09 10:11:00 Z
 categories:
-- Market Watch
-author: Michael Edesess
-lead: Most professionally managed investment funds — of late, upward of 90 % — do
-  not outperform a simple stock market average
-link: http://www.marketwatch.com/story/why-a-lot-of-fancy-math-cant-help-investors-beat-the-market-2017-03-15
+- Investing
+- Wall Street Myths
+position: 5
 source: external
+author: Michael Edesess
+lead: Claiming an overall financial advantage for rebalancing is misleading.
+link: https://www.wsj.com/articles/portfolio-rebalancing-might-be-overrated-1483931101
+img: "/uploads/500.png"
 ---
 
