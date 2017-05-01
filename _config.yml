@@ -34,6 +34,7 @@ defaults:
     layout: article-data
     section: articles
     source: external
+    bg_img_darken: true
     format_class: article
 - scope:
     path: ''
