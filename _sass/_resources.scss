@@ -23,12 +23,17 @@ $panel-height: 15rem;
 
     // > xs
     @media only screen and (min-width: $md-min) {
-
+        .row {
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
         .pmd-card {
-            max-width: 450px;
+            max-width: 250px;
             height: 100%;
             height: $panel-height;
             overflow: hidden;
+            display: inline-block;
         }
 
         .resource-icon {
@@ -36,7 +41,6 @@ $panel-height: 15rem;
             max-width: 33%;
             float: left;
         }
-
     }
 
     .resource-icon {

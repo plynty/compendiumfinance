@@ -15,8 +15,8 @@ content_footer_md: |
   Find it online:
   <span class="icons">
   [![Amazon.com](uploads/amazon.png "Shop Amazon")](https://www.amazon.com/Simple-Rules-Investing-Everything-Instead/dp/1626561621/ref=sr_1_1?ie=UTF8&qid=1487016255&sr=8-1&keywords=edesess)
-  [![Amazon.com](uploads/bn.jpg "Shop Barnes & Noble")](http://www.barnesandnoble.com/w/the-3-simple-rules-of-investing-michael-edesess/1117657738?ean=9781626561625)
-  [![Amazon.com](uploads/bk.jpg "Shop Barret-Koehler")](http://www.bkconnection.com/ProdDetails.asp?ID=9781626561625&PG=1&Type=BL&PCS=BKP)
+  [![bn.com](uploads/bn.jpg "Shop Barnes & Noble")](http://www.barnesandnoble.com/w/the-3-simple-rules-of-investing-michael-edesess/1117657738?ean=9781626561625)
+  [![bkconnection.com](uploads/bk.jpg "Shop Barret-Koehler")](http://www.bkconnection.com/ProdDetails.asp?ID=9781626561625&PG=1&Type=BL&PCS=BKP)
   </span>
 bg_img_darken: true
 ---
