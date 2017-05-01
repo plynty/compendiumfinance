@@ -63,14 +63,15 @@ function resizeChart(selector) {
     if (timer) {
         clearTimeout(timer);
     }
-    var element = $(selector);
-        timer = setTimeout(function(event) {
-            if (size.x != element.width() || size.y != element.height()) {
-                size.x = element.width();
-                size.y = element.height();
-                generateCharts("#chart", "areaStack", "basis");
-            }
-        }, 300);
+    timer = setTimeout(function(event) {
+        var element = $(selector);
+        if (size.x != element.width() || size.y != element.height()) {
+            size.x = element.width();
+            size.y = element.height();
+            console.log(size.x+','+size.y);
+            generateCharts("#chart", "areaStack", "basis");
+        }
+    }, 300);
     return true;
 };
 

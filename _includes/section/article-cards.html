@@ -1,4 +1,4 @@
-{% assign cards = site.articles | where: 'section', 'articles' | where: 'status', 'current' | reverse %}
+{% assign cards = site.articles | where: 'section', 'articles' | where: 'status', 'current' | sort: 'position' %}
 {% assign cardCount = cards | size %}
 {% assign cardNum = 0 %}
     <section id="article-cards" class="cards">

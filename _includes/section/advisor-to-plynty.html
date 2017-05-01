@@ -1,0 +1,12 @@
+{% include section/std-header.html section='advisor-to-plynty' %}
+
+
+<section id="advisor-to-plynty-cards" class="cards">
+    <div class="row">
+        {% assign cards = site.cards | where: 'status', 'current' | where: 'section', 'advisor-to-plynty' | sort: 'position' %}
+        {% for thisCard in cards %}
+            {% include card/card.html card_layout='advisor-to-plynty-card' %}
+        {% endfor %}
+    </div>
+</section>
+

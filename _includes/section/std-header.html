@@ -3,12 +3,12 @@
     | where: 'section', include.section
     | where: 'format_class', 'section-head' %}
 {% case include.section %}
-    {% when 'aboutus','resources' %}
+    {% when 'aboutus','resources','advisor-to-plynty' %}
         {% assign z = ''%}
     {% else %}
-        {% assign z = ' pmd-z-depth '%}
+        {% assign z = ' pmd-z-depth'%}
 {% endcase %}
-<section id="{{include.section}}-head" class="section-head {{z}}">
+<section id="{{include.section}}-head" class="section-head{{z}}">
     <div class="row">
         {{headers[0].output}}
     </div>
