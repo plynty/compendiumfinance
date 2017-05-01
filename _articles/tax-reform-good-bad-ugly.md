@@ -4,7 +4,7 @@ date: 2017-03-22 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
-position: 4
+position: 6
 source: external
 lead: Mathematical sophistication in the investment industry is a sham.
 author: Michael Edesess

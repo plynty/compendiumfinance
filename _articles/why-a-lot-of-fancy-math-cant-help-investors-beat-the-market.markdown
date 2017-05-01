@@ -4,7 +4,7 @@ date: 2017-01-09 10:11:00 Z
 categories:
 - Investing
 - Wall Street Myths
-position: 3
+position: 5
 source: external
 author: Michael Edesess
 lead: Claiming an overall financial advantage for rebalancing is misleading.
