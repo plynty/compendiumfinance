@@ -198,7 +198,8 @@
         padding-right: 10px;
     }
     
-    .pmd-card-media button i {
+    .pmd-card-media button i,
+    .pmd-card-no-media button i {
         position: relative;
         top: 4px;
     }
@@ -207,6 +208,14 @@
         background-color: rgba(255,255,255,.5);
     }
 
+    .pmd-card-no-media button {
+        background-color: rgba(0,0,0,.1);
+        vertical-align: middle;
+        padding-top: 5px;
+        padding-right: 10px;
+        float: right;
+    }
+    
     .pmd-card-title {
         clear: both;
     }
