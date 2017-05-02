@@ -7,7 +7,7 @@ no_date: true
 status: current
 lead: The investment asset allocation process used nearly universally by everyone
   in the financial services industry is flawed and fake.
-source: external
+source: internal
 link: 
 ---
 
