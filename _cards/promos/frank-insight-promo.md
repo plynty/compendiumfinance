@@ -1,6 +1,6 @@
 ---
 title: The Frank Insight of the Day
-section: bio-promos
+section: publications
 position: 2
 img: uploads/frank-insight-page.png
 img_bleed: false

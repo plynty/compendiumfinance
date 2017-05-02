@@ -1,6 +1,6 @@
 ---
 title: The 3 Simple Rules of Investing
-section:  bio-promos
+section:  publications
 position: 0
 img: uploads/3simpleRules-book.jpeg
 img_bleed: false

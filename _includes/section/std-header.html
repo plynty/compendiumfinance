@@ -3,7 +3,7 @@
     | where: 'section', include.section
     | where: 'format_class', 'section-head' %}
 {% case include.section %}
-    {% when 'aboutus','resources','advisor-to-plynty' %}
+    {% when 'aboutus','resources','publications','advisor-to-plynty' %}
         {% assign z = ''%}
     {% else %}
         {% assign z = ' pmd-z-depth'%}

@@ -1,6 +1,6 @@
 ---
 title: The Big Incestmetn Lie
-section:  bio-promos
+section:  publications
 position: 1
 img: uploads/big-lie-book.jpeg
 img_bleed: false
