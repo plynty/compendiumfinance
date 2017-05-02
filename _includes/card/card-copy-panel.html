@@ -33,29 +33,22 @@
                             {% unless categoryCount == 0 %}
                             <div class="category">
                                 <span>{{thisCard.categories[0]}}
-                                <!--{% if thisCard.source == 'external' %}
-                                    &nbsp;<i class="material-icons" title="Open in new tab">open_in_new</i>
-                                {% endif %}-->
                                 {% if thisCard.video != nil %}
                                     &nbsp;<i class="material-icons" title="Video Content">videocam</i>
                                 {% endif %}
                                 </span>
                             </div>
                             {% endunless %}
-                            <h1>{{thisCard.title}}</h1>
+                            <h1>{{thisCard.title | markdownify}}</h1>
                             {% unless thisCard.no_date %}
                             <div class="date">{{thisCard.date | date: '%B %e, %Y' }}</div>
                             {% endunless %}
                         </header>
                         <article>
-                            <div>{{thisCard.lead}}</div>
+                            <div>{{thisCard.lead | markdownify}}</div>
                         </article>
                         <footer class="visible-xs">
-                            <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">more
-                                <!--{% if thisCard.source == 'external' %}
-                                    &nbsp;<i class="material-icons" title="Open in new tab">open_in_new</i>
-                                {% endif %}-->
-                            </button>
+                            <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">more</button>
                         </footer>
                     </div>
                 </div>

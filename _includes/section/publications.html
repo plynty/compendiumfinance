@@ -1,10 +1,13 @@
-<section id="aboutus-promos" class="cards">
+{% include section/std-header.html section='publications' %}
+
+<section id="publication-cards" class="cards">
     {% assign promos = site.cards 
         | where: 'status', 'current' 
-        | where: 'section', 'bio-promos' 
+        | where: 'section', 'publications' 
+        | where_exp: 'item', 'item.format_class != "section-head"'
         | sort: 'position' %}
     <div class="row">
-        <div class="bio-promos">
+        <div class="pubs">
             {% for thisCard in promos %}
                 <div class="card-wrapper cf-ar-1x1">
                 {% include card/card.html card_layout='promo-card' %}
