@@ -1,5 +1,5 @@
 ---
-
+title: Big Investment Lie Promo
 position: 1
 section: publications
 img: uploads/big-lie-book.jpeg
