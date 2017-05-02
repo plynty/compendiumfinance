@@ -1,7 +1,11 @@
 ---
 title: The Big Incestmetn Lie
+<<<<<<< HEAD
 section:  publications
+=======
+>>>>>>> c438ffda9cd24791ad9b65fc354953948770d6dc
 position: 1
+section: bio-promos
 img: uploads/big-lie-book.jpeg
 img_bleed: false
 link: https://www.amazon.com/Big-Investment-Lie-Financial-Advisor/dp/1576754073/ref=sr_1_1?ie=UTF8&qid=1493678760&sr=8-1&keywords=big+investment+lie
@@ -13,3 +17,4 @@ status: current
 layout: div
 format_class: card
 ---
+
