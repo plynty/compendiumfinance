@@ -75,8 +75,10 @@ function viewArticle(article_id) {
     if (article.banner_img.trim().length > 0) {
         $('#article-view .pmd-card-media img').attr('src', article.banner_img.trim());
         $('#article-view .pmd-card-media').show();
+        $('#article-view .pmd-card-no-media').hide();
     } else {
         $('#article-view .pmd-card-media').hide();
+        $('#article-view .pmd-card-no-media').show();
     }
     $('#card-body').children().remove();
     $('#card-body').html(article.content);
