@@ -8,8 +8,8 @@ status: current
 lead: 'While increasingly touted, the math says it’s a yawn and it may even harm you.
 
 '
-source: external
-link: https://www.advisorperspectives.com/articles/2014/08/12/the-tax-harvesting-mirage
+source: internal
+link: 
 ---
 
 TAX LOSS HARVESTING
