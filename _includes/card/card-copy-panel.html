@@ -39,7 +39,7 @@
                                 </span>
                             </div>
                             {% endunless %}
-                            <h1>{{thisCard.title}}</h1>
+                            <h1>{{thisCard.title | markdownify}}</h1>
                             {% unless thisCard.no_date %}
                             <div class="date">{{thisCard.date | date: '%B %e, %Y' }}</div>
                             {% endunless %}

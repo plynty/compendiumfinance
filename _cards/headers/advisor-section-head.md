@@ -1,5 +1,5 @@
 ---
-title: Advisor To plynty
+title: Advisor To *plynty*
 no_date: true
 status: current
 section: advisor-to-plynty
