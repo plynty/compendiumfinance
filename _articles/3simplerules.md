@@ -5,12 +5,13 @@ categories:
 - Investing
 position: 13
 source: internal
+bg_img_darken: true
 author: Michael Edesess
 lead: What if the most effective investment portfolio was also the most simple and
   the least expensive?
-img: "/uploads/500.png"
+img: "/uploads/the3simplerulesofinvesting-500.png"
 bg_img: 
-banner_img: "/uploads/CF%20Article%20Header%20Photo.png"
+banner_img: "/uploads/the3simplerulesofinvesting-header.png"
 img_bleed: false
 content_footer_md: |
   Find it online:
@@ -19,7 +20,6 @@ content_footer_md: |
   [![bn.com](uploads/bn.jpg "Shop Barnes & Noble")](http://www.barnesandnoble.com/w/the-3-simple-rules-of-investing-michael-edesess/1117657738?ean=9781626561625)
   [![bkconnection.com](uploads/bk.jpg "Shop Barret-Koehler")](http://www.bkconnection.com/ProdDetails.asp?ID=9781626561625&PG=1&Type=BL&PCS=BKP)
   </span>
-bg_img_darken: true
 ---
 
 #### Page xi ... Preface

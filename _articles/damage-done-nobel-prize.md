@@ -7,7 +7,8 @@ position: 14
 source: external
 lead: So we turn to the shamans of Wall Street and we listen to their magical incantations.
 link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/?p=1323
-img: uploads/Nobel_Prize.png
+img: "/uploads/walltreetstowerofbabel-500.png"
 author: George Peacock
+banner_img: "/uploads/walltreetstowerofbabel-header.png"
 ---
 

@@ -9,5 +9,7 @@ lead: Frank argues that luck plays a larger role in success than most people are
   to acknowledge, especially most successful people.
 link: https://www.advisorperspectives.com/articles/2016/07/05/success-luck-and-overhauling-the-tax-system
 Author: Michael Edesess
+img: "/uploads/successandluckandoverhauling-500.png"
+banner_img: "/uploads/successandluckandoverhauling-header.png"
 ---
 
