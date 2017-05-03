@@ -24,6 +24,7 @@ The proportional weights of the allocation of a portfolio at the moment in time 
 These momentary snapshots of relative market values of portfolio asset class investments do not have any direct relevance to the formulation of a meaningful investment strategy.**
  
 Asset allocation refers to the division of a portfolio’s market value at a moment in time among the major asset classes in which it is invested.
+
 For example, those major asset classes could include U.S. equities, U.S. long-term fixed income (i.e., bonds), foreign (non-U.S.) developed economy equities, emerging economy equities, foreign (non-U.S.) bonds, and cash equivalents (i.e., short-term fixed income instruments such as short-term bonds and bank deposits). Asset allocation at a point in time is commonly depicted by a pie chart, as in Figure 1.
 Figure 1. Asset Allocation
 
