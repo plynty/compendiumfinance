@@ -10,7 +10,7 @@ lead: 'New app literally puts retirement planning in your own hands. Instantly s
   how financial decisions now and in the future will impact your retirement income.
 
 '
-img: "/uploads/meetplynty-500.png"
+img: "/uploads/plynty-500-other.png"
 img_bleed: false
 link: http://www.plynty.com
 banner_img: "/uploads/meetplynty-header.png"
