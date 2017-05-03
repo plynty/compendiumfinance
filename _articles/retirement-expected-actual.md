@@ -9,6 +9,7 @@ source: external
 lead: Investment managers profit while hurting retirees — and taxpayers.
 video: 
 link: http://www.marketwatch.com/story/the-reason-underfunded-pensions-are-a-disaster-waiting-to-happen-2017-04-03
-img: "/uploads/whenbadmathcostsyou-500.png"
+img: "/uploads/publicpensionplans-500.png"
+banner_img: "/uploads/publicpensionplans-header.png"
 ---
 
