@@ -8,5 +8,6 @@ source: external
 lead: '"My regular recommendation has been a low-cost S&P 500 index fund." -- Warren
   Buffett'
 link: http://www.marketwatch.com/story/warren-buffetts-often-ignored-advice-to-mega-rich-investors-2017-03-13
+img: "/uploads/whenbadmathcostsyou-500centered.png"
 ---
 
