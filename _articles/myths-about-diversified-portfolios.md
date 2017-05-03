@@ -9,5 +9,7 @@ lead: The genius of Wall Street is that you can read the entire article and feel
   though you have been somehow informed.
 link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/?p=1300
 author: George Peacock
+img: "/uploads/themarketwillriseuntil-500.png"
+banner_img: "/uploads/themarketwillriseuntil-header.png"
 ---
 
