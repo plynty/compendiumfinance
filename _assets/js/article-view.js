@@ -1,15 +1,19 @@
 'use strict';
 
 var articleMap = {};
+var viewingArticle = null;
 
 /**
  * Load the metadata for current articles.
  */
-function initArticles() {
+function initArticles(callback) {
     $.get("feeds/current-articles.json", function (data) {
         data.forEach(function(article) {
             loadArticle(article.url, function(json) {
                 articleMap[json.article_id] = json;
+                if (callback) {
+                    callback(json.article_id);
+                }
             });
         });
     });
@@ -85,7 +89,7 @@ function viewArticle(article_id) {
     $('#article-view .footer').children().remove();
     $('#article-view .footer').html(article.footer);
     $('#card-body').attr('class', article.format_class);
-    location.hash = 'article-view';
+    location.hash = 'article-view--'+article_id;
 }
 
 /** switch the view to #main */
@@ -116,22 +120,39 @@ function showArticle(show) {
     }
 }
 
+function articleFromHash() {
+    if (location.hash.startsWith('#article-view--')) {
+        return location.hash.substring('#article-view--'.length);
+    }
+    return null;
+}
+
+function hashChange() {
+    var articleId = articleFromHash();
+    if (articleId) {
+        if (viewingArticle !== articleId) {
+            viewArticle(articleId);
+        }
+        showArticle(true);
+    }
+    else {
+        viewingArticle = null;
+        showArticle(false);
+    }
+}
 /**
  * Use a simple hash operation to handle the back button on the article-view
  */
-window.onhashchange = function() {
-    switch (location.hash) {
-        case '#main':
-            showArticle(false);
-            break;
-        case '#article-view':
-            showArticle(true);
-            break;
-    }
-}
+window.onhashchange = hashChange;
 
 $().ready(function() { 
-    initArticles(); 
-    showArticle(false);
+    viewingArticle = articleFromHash();
+    initArticles(function(loadedArticleId) {
+        if (viewingArticle && viewingArticle === loadedArticleId) {
+            viewArticle(viewingArticle);
+            showArticle(true);
+        }
+    }); 
+    hashChange();
 });
 
