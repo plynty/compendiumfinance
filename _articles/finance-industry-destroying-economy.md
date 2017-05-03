@@ -9,5 +9,7 @@ source: external
 lead: The benefits of rebalancing are far smaller than what advisors have come to
   believe.
 link: https://www.advisorperspectives.com/articles/2016/08/16/the-academic-failure-to-understand-rebalancing
+img: "/uploads/theacademicfailure-500.png"
+banner_img: "/uploads/theacademicfailure-header.png"
 ---
 
