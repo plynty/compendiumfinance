@@ -10,8 +10,11 @@ link:
 source: internal
 ---
 
+
+
 **EXECUTIVE SUMMARY:**
 **
+
 The purpose of retirement saving and investing is to set money aside today in order to receive future income when employment income is reduced or ends.  In this effort, investors are faced with two seemingly contradictory goals for that future income. The first goal is to secure at least a minimum level of income with certainty. The second is to achieve a much greater level of income. But aspiring to a higher level of income entails taking investment risks. Taking investment risks means the results cannot be certain.
 
 Both goals can be realized using the simplest possible strategy that explicitly addresses both. A portion of the investor’s portfolio can be allocated to riskless assets, sufficient to guarantee a minimum level of future income, while the remainder is allocated to risky assets that appear likely – but not guaranteed – to provide a higher income.
