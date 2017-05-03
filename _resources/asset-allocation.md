@@ -11,14 +11,17 @@ source: internal
 link: 
 ---
 
-ASSET ALLOCATION
- 
-EXECUTIVE SUMMARY:
-Asset allocation refers to the division of a portfolio’s market value at a moment in time among major asset classes. Major asset classes are stocks, bonds, cash and subsets of each -- large company stocks, international stocks, or government bonds, for example.  An investor’s asset allocation is typically depicted with a pie chart (e.g. Figure 1). 
+**EXECUTIVE SUMMARY:**
+
+**Asset allocation refers to the division of a portfolio’s market value at a moment in time among major asset classes. Major asset classes are stocks, bonds, cash and subsets of each -- large company stocks, international stocks, or government bonds, for example.  An investor’s asset allocation is typically depicted with a pie chart (e.g. Figure 1). 
+
 Asset allocation has assumed a central role in the advice delivered by most other financial advisors for two reasons. First, a mathematical model developed by Nobel Prize winner Harry Markowitz provided a way to theoretically optimize the allocation of a portfolio of securities or asset classes. The model is technically called a “mean-variance optimization model and is casually referred to as an “asset allocation model.” Second, the use of this model has proved to be an extremely effective sales tool for financial advisers in gathering and “managing” client assets.
+
 The model does not work in practice, however, because model results are highly sensitive to the values of the model’s very large number of required inputs -- and accurate values of those inputs are unobtainable in practice. Nevertheless, financial advisory firms go through the motions of using those models to create an asset allocation for clients.
+
 The proportional weights of the allocation of a portfolio at the moment in time to its various asset classes based on the current market values of those assets is information that is not very helpful to a long-term investment strategy, which is designed to procure both a secure and a substantial income stream for the investor many years in the future.
-These momentary snapshots of relative market values of portfolio asset class investments do not have any direct relevance to the formulation of a meaningful investment strategy.
+
+These momentary snapshots of relative market values of portfolio asset class investments do not have any direct relevance to the formulation of a meaningful investment strategy.**
  
 Asset allocation refers to the division of a portfolio’s market value at a moment in time among the major asset classes in which it is invested.
 For example, those major asset classes could include U.S. equities, U.S. long-term fixed income (i.e., bonds), foreign (non-U.S.) developed economy equities, emerging economy equities, foreign (non-U.S.) bonds, and cash equivalents (i.e., short-term fixed income instruments such as short-term bonds and bank deposits). Asset allocation at a point in time is commonly depicted by a pie chart, as in Figure 1.
