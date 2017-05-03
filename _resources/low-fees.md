@@ -10,12 +10,14 @@ link:
 source: internal
 ---
 
-SAFETY-NET-PLUS INVESTMENT PLANNING
-
-EXECUTIVE SUMMARY:
+**EXECUTIVE SUMMARY:**
+**
 The purpose of retirement saving and investing is to set money aside today in order to receive future income when employment income is reduced or ends.  In this effort, investors are faced with two seemingly contradictory goals for that future income. The first goal is to secure at least a minimum level of income with certainty. The second is to achieve a much greater level of income. But aspiring to a higher level of income entails taking investment risks. Taking investment risks means the results cannot be certain.
+
 Both goals can be realized using the simplest possible strategy that explicitly addresses both. A portion of the investor’s portfolio can be allocated to riskless assets, sufficient to guarantee a minimum level of future income, while the remainder is allocated to risky assets that appear likely – but not guaranteed – to provide a higher income.
-A benefit of this strategy is that it can be engaged in at the lowest possible cost to the investor, an average total cost of less than one-tenth of a percent of assets per year. This can be compared with the cost that the average investor pays, which is 10 to 30 times as much. Paying that much in investment fees can cost the investor half or more of the investor’s future income, far more than has ever been lost in long-term stock market declines.
+
+A benefit of this strategy is that it can be engaged in at the lowest possible cost to the investor, an average total cost of less than one-tenth of a percent of assets per year. This can be compared with the cost that the average investor pays, which is 10 to 30 times as much. Paying that much in investment fees can cost the investor half or more of the investor’s future income, far more than has ever been lost in long-term stock market declines.**
+
 
 Most investors invest in risky assets. Stock and bond funds and similar investments are risky and can experience severe declines at any time. When investors’ stock and bond portfolios decline sharply in value, investors can become very nervous. Their nervousness is due to the fact that they don’t know how low the value of their portfolios can go. During a sharp decline, it can feel as though there is no limit to the fall. If a portfolio’s value can suddenly decline by 20% in a month, why could it not fall by 20% each month for a series of months, leaving the investor with practically nothing? There is no assured floor to that decline, no guarantee that their portfolio will be worth anything at all.
 Risky assets can even experience severe declines over long periods of time. But in the developed economies in the world, true disaster scenarios for risky assets extending over long periods of time, such as multiple decades, have been very rare. In fact, losses in the value of a diversified stock portfolio persisting over multiple decades have never been anywhere near as great as the losses to a portfolio incurred by paying a 1% annual fee to an investment advisor or manager over the same time period. That is why the best advice when a decline occurs is to take the long term view and ignore it, however steep it may be, assuming that it is only part of normal market fluctuations.
