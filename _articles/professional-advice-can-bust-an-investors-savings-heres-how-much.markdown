@@ -5,12 +5,13 @@ categories:
 - Investing
 - Wall Street Myths
 position: 4
+bg_img_darken: true
 author: Michael Edesess
 link: https://www.advisorperspectives.com/articles/2014/08/12/the-tax-harvesting-mirage
 lead: |-
   While tax loss harvesting is not wholly mythical, its benefits are vastly overstated.
   Indeed, they may be negligible.
-img: "/uploads/500.png"
-bg_img_darken: true
+img: "/uploads/thetaxharvestingmirage-500.png"
+banner_img: "/uploads/thetaxharvestingmirage-header.png"
 ---
 
