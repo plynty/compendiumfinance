@@ -12,24 +12,37 @@ source: internal
 link: 
 ---
 
-TAX LOSS HARVESTING
+**EXECUTIVE SUMMARY:**
 
-EXECUTIVE SUMMARY:
-Some advisors claim to add value for their clients by engaging in daily or regular tax-loss harvesting. This is a practice in which the prices of clients’ investment securities are observed every day, and if one or more of those securities has declined sufficiently in price, it is sold to realize a capital loss for tax purposes. This loss can offset other capital gains realized in the same year by the investor, or it can be used to offset up to $3,000 a year of earned income. When a security is sold to harvest or “recognize” a loss, it is temporarily replaced in the portfolio by a similar security. After a period of 30 days has elapsed, the original security is normally repurchased in order to restore the original portfolio.
+**Some advisors claim to add value for their clients by engaging in daily or regular tax-loss harvesting. This is a practice in which the prices of clients’ investment securities are observed every day, and if one or more of those securities has declined sufficiently in price, it is sold to realize a capital loss for tax purposes. This loss can offset other capital gains realized in the same year by the investor, or it can be used to offset up to $3,000 a year of earned income. When a security is sold to harvest or “recognize” a loss, it is temporarily replaced in the portfolio by a similar security. After a period of 30 days has elapsed, the original security is normally repurchased in order to restore the original portfolio.
+
 The tax is not avoided, however, but is only deferred. Tax will eventually have to be paid on the gain, except when securities are held until the investor’s death. The question is whether this practice enhances the investor’s long-term after-tax investment return.
-Detailed simulations of investment results with and without daily tax-loss harvesting have been run. Their results show that if tax rates and rules remain the same over time then the practice of daily tax-loss harvesting can add, on average, about 15 to 20 hundredths of a percent to after-tax return. However, the practice also increases portfolio turnover by an average of 20% annually, increasing transaction costs. Furthermore, tax-loss harvesting adds accountancy and tax filing costs, and increases the complexity of the advisor’s software, augmenting programming error risk. And should tax rates be raised in the future, the tax-loss harvesting benefit could become negative. Additionally, daily tax-loss harvesting, as it is practiced, violates the intent of IRS rules designed to deter investors from trading securities solely to avoid taxes. On balance, we believe the costs and risks of daily tax-loss harvesting outweigh the minimal potential benefits.
+
+Detailed simulations of investment results with and without daily tax-loss harvesting have been run. Their results show that if tax rates and rules remain the same over time then the practice of daily tax-loss harvesting can add, on average, about 15 to 20 hundredths of a percent to after-tax return. However, the practice also increases portfolio turnover by an average of 20% annually, increasing transaction costs. Furthermore, tax-loss harvesting adds accountancy and tax filing costs, and increases the complexity of the advisor’s software, augmenting programming error risk. And should tax rates be raised in the future, the tax-loss harvesting benefit could become negative. Additionally, daily tax-loss harvesting, as it is practiced, violates the intent of IRS rules designed to deter investors from trading securities solely to avoid taxes. On balance, we believe the costs and risks of daily tax-loss harvesting outweigh the minimal potential benefits.**
+
 
 Until recently, nearly all investment managers claimed to add value by “beating the market” – by reaping investment returns higher than those of a market average like the Standard & Poors 500 index or other index. Decades of research studies, however, have compiled overwhelming evidence that beating the market average is, in general, not under investment managers’ control. It is almost always the result of chance events that they can neither predict nor control.
+
 It has taken a long time for this message to trickle down to investors, even to the most supposedly sophisticated investors like administrators of pension funds and endowments and high-net-worth individuals. On the whole, in fact, the conclusion of the studies has had even more difficulty gaining traction with that group than with supposedly unsophisticated individual investors who do not have high net worths but are often more skeptical of financial expertise.
+
 In recent years this message has finally begun to gain serious traction. As a result many financial advisors, and a new breed of advice-givers who provide web-based financial services – so-called “robo-advisors” – are recommending “passive” investing, which tries to match the investment results of a market average, instead of “active” investing, which tries to beat it.
+
 As a result, these advisors still feel the need, at least for marketing purposes, to claim that they add value over and above what an investor could achieve by investing directly in passive index funds without an advisor.
-Enter tax loss harvesting
+
+**Enter tax loss harvesting**
+
 Among those claims to add value – which include asset allocation and rebalancing, covered elsewhere – advisors claim to add value by harvesting investment losses so as to save investors money on taxes.
+
 By following a detailed procedure, investors are allowed to net out short- and long-term investment gains and losses in their submissions to the U.S. Internal Revenue Service (IRS). Hence, an investor might deliberately recognize a loss by selling a security that declined in price in order to offset an increase in price of another asset that was sold in the same year. Even if a tax loss is recognized that is greater than the sum of all investment gains realized by an investor in a given year, the investor can deduct $3,000 of that net loss from earned income during that year for tax purposes; any remaining loss can be carried over into future years. Thus, there appears to be a tax benefit to be derived from realizing a loss.
+
 The benefit is not, however, undiluted. When the asset is sold, another asset must be purchased in its place. If the investor is to adhere to an investment plan – of the sort that is advocated by most advisors that practice tax-loss harvesting, i.e. an “asset allocation” – then the asset that is purchased must be similar to the one sold. The asset purchased in place of the sold asset, being similar, is likely also to have fallen in price. As a result, the so-called “cost basis” – the original purchase price – of the new asset will be lower than the original purchase price of the old asset. Tax will eventually have to be paid on this difference in purchase price – unless, if laws do not change, the new asset is held until the investor’s death. In current law, at the investor’s death the asset receives a “step-up” in its cost basis to its then-market value; hence, taxes on all capital gains to that date are foregone.
+
 Therefore, the tax averted by tax loss harvesting is not a tax avoided, but only a tax deferred, unless the new asset is held until the investor’s death.
+
 The question is, how much of an increase, if any, in overall after-tax investment return is gained by tax-loss harvesting?
-Routine year-end tax-loss harvesting
+
+**Routine year-end tax-loss harvesting**
+
 As we have described in our paper on rebalancing, it is common for financial advisors and investment advisors to recommend to their clients that they “rebalance” their portfolios regularly in order to restore the asset allocation that the advisor initially recommended. This rebalancing typically occurs once a year, often at – or near – year-end.
 Rebalancing entails the sale of some investment assets – generally those that have gained in value, or at least have not lost as much as others – and the purchase of other assets. Whenever assets are sold at a gain, a procedure is normally performed to minimize the capital gains taxes that result.
 That part of the investor’s portfolio which is being sold was in all likelihood not purchased all at once. It might have been purchased in annual, or monthly installments, when deposits were made into the investor’s account. Thus, it was purchased in a series of “tax lots,” each at a different purchase price; that is, each tax lot has a different cost basis.
