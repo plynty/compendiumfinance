@@ -1,5 +1,8 @@
 'use strict';
 
+// Internet Explorer 6-11
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
 var config = {
 
     keys: ["You Keep", "Fund Fees", "Advisor Fees", "Lost Earnings"],
@@ -100,13 +103,18 @@ function showChart(chartType, svgSelector) {
     var chartCtx = charts[svgSelector];
     config.showing = chartType;
 
-    function fade(selection, opacity) {
+    function fadeSvg(selection, opacity) {
         selection.transition().duration(1000)
             .attr("opacity", opacity);
     }
-    fade(chartCtx.geom.topG.select(".stack-chart"), config.showing === 'area' ? 1 : 0);
-    fade(chartCtx.geom.topG.select(".pie-chart"), config.showing === 'pie' ? 1 : 0);
-    fade(chartCtx.geom.topG.select(".table"), config.showing === 'table' ? 1 : 0);
+    function fadeDiv(selection, opacity) {
+        selection.transition().duration(1000)
+            .style("opacity", opacity);
+    }
+    fadeSvg(chartCtx.geom.topG.select(".stack-chart"), config.showing === 'area' ? 1 : 0);
+    fadeDiv(chartCtx.geom.legendG, config.showing === 'area' ? 1 : 0);
+    fadeSvg(chartCtx.geom.topG.select(".pie-chart"), config.showing === 'pie' ? 1 : 0);
+    fadeDiv(chartCtx.geom.tableG, config.showing === 'table' ? 1 : 0);
     shadeButtons();
 }
 
@@ -135,8 +143,10 @@ function shadeButtons() {
  * }
  */
 function createChartGeometry(svgSelector, margin) {
+    var overlaySelector = svgSelector + "-overlay";
     // clear anything that was there before
     $(svgSelector + " > *").remove();
+    $(overlaySelector + " > *").remove();
     if (!margin) {
         margin = { top: 20, right: 45, bottom: 40, left: 15 };
     }
@@ -153,22 +163,38 @@ function createChartGeometry(svgSelector, margin) {
             .attr("opacity", config.showing === 'area' ? 1 : 0),
         graphG = chartG.append("g")
             .attr("class", "graph"),
-        // overlayG = chartG.append("g")
-        //     .attr("class", "chart-overlay"),
-        legendG = chartG.append("g")
-            .attr("class", "legend"),
         pieG = topG.append("g")
             .attr("class", "pie-chart")
-            .attr("opacity", config.showing === 'pie' ? 1 : 0),
-        tableG = topG.append("g")
-            .attr("class", "table")
-            .attr("opacity", config.showing === 'table' ? 1 : 0);
+            .attr("opacity", config.showing === 'pie' ? 1 : 0);
 
+    // var overlayPos = $(svgSelector).parent().position();
+    // overlayPos = {top: overlayPos.top+margin.top, left: overlayPos.left+margin.left};
+    var overlay = d3.select(overlaySelector).append("div").style("position", "relative"),
+        legendG = overlay.append("div")
+            .attr("class", "legend")
+            .style("position", "absolute")
+            .style("top", margin.top+"px")
+            .style("left", margin.left+"px")
+            .style("opacity", config.showing === 'area' ? 1 : 0)
+            .style("width", width+"px")
+            .style("height", height+"px"),
+        tableG = overlay.append("div")
+            .attr("class", "table")
+            .style("position", "absolute")
+            .style("top", "0px")
+            .style("left", "0px")
+            .style("opacity", config.showing === 'table' ? 1 : 0)
+            .style("min-width", (size.w+margin.left+margin.right)+"px")
+            .style("min-height", size.h+"px");
+    
     /* the viewBox is the 'natural' size of the drawing.  When the browser
         scales the drawing up and down, it will be relative to this size.  A resize
         does not trigger a re-rendering of the vectors.  It looks like a 
         simple bitmap resize, so linesget fatter/thinner, etc.  We need to
-        detect resize events in order to fire the rendering process again  */        
+        detect resize events in order to fire the rendering process again  */  
+    if (isIE) {
+        $(svgSelector).parent().height(size.h);
+    }
     svg.attr("viewBox", "0 0 "+size.w+" "+size.h); 
 
     charts[svgSelector].geom = {
@@ -176,7 +202,6 @@ function createChartGeometry(svgSelector, margin) {
         defs: defs,
         topG: topG,
         chartG: chartG,
-        // overlayG: overlayG,
         legendG: legendG,
         pieG: pieG,
         tableG: tableG,
@@ -284,7 +309,7 @@ function initLegend(svgSelector) {
     var chartCtx = charts[svgSelector];
     var legendG = chartCtx.geom.legendG;
 
-    var table = legendG.append("foreignObject").append("xhtml:table");
+    var table = legendG.append("xhtml:table");
     
     var tr = table.append("xhtml:tr").attr("class", "lose");
     tr.append("xhtml:td").attr("class", "legend-key-lose").append("xhtml:div");
@@ -446,29 +471,6 @@ function renderAreaStack(svgSelector, data) {
             .attr("fill", "none")
             .merge(lines).transition().duration(2000)
             .attr("d", line1);
-
-        // draw the vertical guides on the overlay
-    //     chartCtx.geom.overlayG.selectAll(".column").remove();
-    //     var verticals = chartCtx.geom.overlayG.selectAll(".column")
-    //         .data(stack(data))
-    //         .enter()
-    //         .append("g")
-    //         .attr("class", function(d,i){ return "column line"+i; })
-    //         .selectAll("line")
-    //         .data(function(d, i) {
-    //             // var line = d3.line();
-    //             return d;
-    //         })
-    //         .enter()
-    //         .append("path")
-    //         .attr("class", "vertical")
-    //         .attr("d", function(d, i, data) {
-    //             var x = area.x()(d, i);
-    //             var y0 = area.y0()(d);
-    //             var y1 = area.y1()(d);
-    //             return "M"+x+" "+y0+" V"+y1;
-    //         })
-    //         .attr("fill", "none");
     });
 }
 
@@ -673,23 +675,25 @@ function updatePie(svgSelector) {
         
         /* ------- TEXT LABELS -------*/
 
-        var text = g.select(".labels").selectAll("text")
-            .data(pie(pieData), key);
-
         function midAngle(d) {
             return d.startAngle + (d.endAngle - d.startAngle) / 2;
         }
 
+        var text = g.select(".labels").selectAll("g")
+            .data(pie(pieData), key);
+
         var textMerge = text.enter()
-            .append("text")
+            .append("g")
         .merge(text);
         
-        textMerge.html(function (d) {
-                var html = '<tspan class="pie-label" x="0">'+d.data.label+"</tspan>";
-                html += '<tspan class="amount" x="0" y="20">'+d.data.fmtValue+'</tspan>';
-                // html += '<tspan class="percent" x="0" y="40">'+d.data.percent+'</tspan>';
-                return html;
-            });
+        textMerge.selectAll("text").remove();
+        textMerge.append("text")
+            .attr("class", "pie-label")
+            .text(function(d){return d.data.label;});
+        textMerge.append("text")
+            .attr("class", "amount")
+            .attr("y", "20")
+            .text(function(d){return d.data.fmtValue;});
 
         textMerge.transition().duration(1000)
             .attrTween("transform", function (d) {
@@ -717,17 +721,17 @@ function updatePie(svgSelector) {
         text.exit()
             .remove();
 
-        var percents = g.select(".percents").selectAll("text")
+        var percents = g.select(".percents").selectAll("g")
             .data(pie(pieData), key);
 
         var percentMerge = percents.enter()
-            .append("text")
+            .append("g")
         .merge(percents);
         
-        percentMerge.html(function (d) {
-                var html = '<tspan class="percent">'+d.data.percent+'</tspan>';
-                return html;
-            });
+        percentMerge.selectAll("text").remove();
+        percentMerge.append("text")
+                .attr("class", "percent")
+                .text(function(d) {return d.data.percent;});
 
         percentMerge.transition().duration(1000)
             .attrTween("transform", function (d) {
@@ -774,11 +778,11 @@ function updatePie(svgSelector) {
 function initTable(svgSelector) {
     var chartCtx = charts[svgSelector];
 
-    var g = chartCtx.geom.tableG;
-    var table = g.append("foreignObject").append("xhtml:table");
+    var div = chartCtx.geom.tableG;
+    var table = div.append("xhtml:table");
     var tr = table.append("xhtml:tr");
     tr.append("xhtml:td").text("Total Earnings");
-    tr.append("xhtml:td").attr("id", "td-total-earnings");
+    tr.append("xhtml:td").attr("id", "td-total-earnings").attr("class", "value");
     tr = table.append("xhtml:tr").attr("class", "keep");
     tr.append("xhtml:td").text("You Keep");
     tr.append("xhtml:td").attr("id", "td-you-keep").attr("class", "value");
@@ -813,21 +817,6 @@ function updateTable(svgSelector) {
         chartCtx.geom.tableG.select('#td-advisor-fees').text(d3.format('$,.0f')(values["Advisor Fees"]));
         chartCtx.geom.tableG.select('#td-lost-earnings').text(d3.format('$,.0f')(values["Lost Earnings"]));
         chartCtx.geom.tableG.select('#td-total-lost').text(d3.format('$,.0f')(loseTotal));
-
-        // var pieData = [
-        //     { 
-        //         label: config.pieKeys[0], 
-        //         value: keepTotal,
-        //         fmtValue: d3.format('$,.0f')(keepTotal),
-        //         percent: d3.format('.0%')(keepTotal/values.total)
-        //     },
-        //     { 
-        //         label: config.pieKeys[1], 
-        //         value: loseTotal,
-        //         fmtValue: d3.format('$,.0f')(loseTotal),
-        //         percent: d3.format('.0%')(loseTotal/values.total)
-        //     }
-        // ];
     });
 }
 

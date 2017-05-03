@@ -3,6 +3,10 @@ $cf-lose-red: #f33;
 
 .fee-calculator {
 
+    div.chart {
+        position: relative;
+    }
+
     // > xs
     @media only screen and (min-width: 768px) {
         // max-width: 1200px;
@@ -30,7 +34,7 @@ $cf-lose-red: #f33;
     //  xs
     @media only screen and (max-width: 767px) {
         .pmd-card {
-            margin: 1px 1px;
+            margin: auto;
         }
 
         .form-group {
@@ -148,32 +152,6 @@ $cf-lose-red: #f33;
             }
         }
         
-        .legend foreignObject {
-            width: 75%;
-            height: 25%;
-        }
-
-        td.legend-key-keep>div,
-        td.legend-key-lose>div {
-            width: 3px;
-            height: 15px;
-        }
-        td.legend-key-keep>div {
-            background-color: $cf-keep-green;
-        }
-        td.legend-key-lose>div {
-            background-color: $cf-lose-red;
-        }
-        td.legend-label,
-        td.legend-percent,
-        td.legend-value {
-            padding-left: .5rem;
-            text-align: right;
-        }
-
-        td.legend-value {
-            font-weight: 700;
-        }
         // .legend rect {
         //     stroke-width: 1px;
         // }
@@ -233,14 +211,14 @@ $cf-lose-red: #f33;
             stroke-width: 1px;
         }
 
-        .labels tspan.amount {
+        .labels .amount {
             font-size: 80%;
             font-weight: 600;
             font-style: italic;
-            transform: translate(0px, 1.8em);
-            -webkit-transform: translate(74px,0px);
+            // transform: translate(0px, 1.8em);
+            // -webkit-transform: translate(74px,0px);
         }
-        .labels tspan.percent {
+        .labels .percent {
             font-size: 80%;
             font-style: italic;
             fill: gray;
@@ -259,49 +237,83 @@ $cf-lose-red: #f33;
        display: none;
     }
 
-    .table {
-        foreignObject {
-            width: 100%;
-            height: 100%;
-        }
-        table {
-            margin: auto;
-            margin-top: 90px;
-            border-collapse: collapse;
+    #chart-overlay {
+        position: absolute;
+        top: 0px;
+
+        .legend {
+            width: 75%;
+            height: 25%;
+            font-size: 90%;
         }
 
-        td {
-            border: solid thin $cf-trim;
+        td.legend-key-keep>div,
+        td.legend-key-lose>div {
+            width: 3px;
+            height: 15px;
         }
-
-        td {
-            padding: 0px .5rem;
+        td.legend-key-keep>div {
+            background-color: $cf-keep-green;
         }
-
-        td.value {
+        td.legend-key-lose>div {
+            background-color: $cf-lose-red;
+        }
+        td.legend-label,
+        td.legend-percent,
+        td.legend-value {
+            padding-left: .5rem;
             text-align: right;
         }
 
-        tr.keep>td.value {
-            background-color: rgba(50,255,50, .4);
+        td.legend-value {
+            font-weight: 700;
         }
-        tr.lose>td.value {
-            background-color: rgba(255,50,50, .5);
-        }
-        tr.lose-total>td.value {
-            background-color: rgba(255,50,50, .75);
-        }
-        //  xs
-        @media only screen and (max-width: 767px) {
-            foreignObject {
-                padding: 0px;
-            }
+        .table {
+            width: 100%;
+            height: 100%;
+
             table {
-                font-size: 75%;
-                margin-top: 10px;
+                margin: auto;
+                margin-top: 90px;
+                border-collapse: collapse;
             }
 
+            td {
+                border: solid thin $cf-trim;
+            }
+
+            td {
+                padding: 0px .5rem;
+            }
+
+            td.value {
+                text-align: right;
+            }
+
+            tr.keep>td.value {
+                background-color: rgba(50,255,50, .4);
+            }
+            tr.lose>td.value {
+                background-color: rgba(255,50,50, .5);
+            }
+            tr.lose-total>td.value {
+                background-color: rgba(255,50,50, .75);
+            }
+            //  xs
+            @media only screen and (max-width: 767px) {
+                padding: 0px;
+                
+                table {
+                    font-size: 75%;
+                    margin-top: 10px;
+                }
+
+            }
         }
+    }
+
+    #chart-overlay > * {
+        position: relative;
     }
 
     .chart-rotate {
