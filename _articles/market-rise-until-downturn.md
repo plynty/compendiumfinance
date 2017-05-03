@@ -9,5 +9,7 @@ source: external
 lead: None of the complicated mathematics in the finance books and journals tells
   you how to beat the market
 link: http://www.marketwatch.com/story/why-a-lot-of-fancy-math-cant-help-investors-beat-the-market-2017-03-15
+img: "/uploads/whyfancymath-500.png"
+banner_img: "/uploads/whyfancymath-header.png"
 ---
 

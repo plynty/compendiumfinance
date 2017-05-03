@@ -9,5 +9,7 @@ lead: 'For many of these there is now a new Holy Grail: diversification. But the
   is little agreement as to what it means.'
 link: https://www.advisorperspectives.com/articles/2017/01/09/the-myths-and-fallacies-about-diversified-portfolios
 Author: Michael Edesess
+img: "/uploads/mythsandfallacies-500.png"
+banner_img: "/uploads/mythsandfallacies-header.png"
 ---
 

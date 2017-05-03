@@ -5,13 +5,14 @@ categories:
 - Retirement Planning
 position: 10
 source: external
+bg_img_darken: true
 lead: 'New app literally puts retirement planning in your own hands. Instantly see
   how financial decisions now and in the future will impact your retirement income.
 
 '
-img: https://uc.uxpin.com/files/169349/174674/plynty_logo_green-4.png
+img: "/uploads/meetplynty-500-5.png"
 img_bleed: false
-bg_img_darken: true
 link: http://www.plynty.com
+banner_img: "/uploads/meetplynty-header.png"
 ---
 

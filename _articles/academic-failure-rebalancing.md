@@ -10,5 +10,7 @@ lead: 'The portfolio is divided into two parts: an extremely conservative portfo
   for safety, and a highly speculative portfolio for extra rewards with extra risk.'
 link: https://www.advisorperspectives.com/articles/2017/02/13/taleb-the-barbell-portfolio-and-safety-first-financial-planning
 Author: Michael Edesess
+img: "/uploads/thebarbellportfolio-500.png"
+banner_img: "/uploads/thebarbellportfolio-header.png"
 ---
 

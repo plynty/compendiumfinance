@@ -9,5 +9,7 @@ lead: The same free-market that does a great job of satisfying mutual self-inter
   also incentivizes scamming.
 link: CAN THE FREE MARKET PROTECT CONSUMERS?
 Author: Michael Edesess
+img: "/uploads/canthefreemarketprotect-500.png"
+banner_img: "/uploads/canthefreemarketprotect-header.png"
 ---
 
