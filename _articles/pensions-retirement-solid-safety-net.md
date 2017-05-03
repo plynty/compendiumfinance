@@ -10,7 +10,8 @@ source: external
 format_class: article
 lead: Professional advice and management can cost investors more than most of the
   worst investment mistakes they can make.
-img: uploads/beach-square.jpg
+img: "/uploads/professionaladvicecanbust-500.png"
 link: http://www.marketwatch.com/story/professional-advice-can-bust-an-investors-savings-heres-how-much-2017-03-03
+banner_img: "/uploads/professionaladvicecanbust-header.png"
 ---
 
