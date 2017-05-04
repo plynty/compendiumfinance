@@ -15,6 +15,7 @@ banner_img: "/uploads/rebalancing-header.png"
 
 **EXECUTIVE SUMMARY:**
 
+
 **Rebalancing originated as an offshoot of asset allocation. If the first step of an investment planning process is to create an asset allocation at a moment in time, then the next step must be to decide what to do at future moments. The creators of the method of investment planning that hinges centrally on a point-in-time asset allocation assumed that if an asset allocation was “optimal” at one moment of time then it must also be optimal at all other moments in time. Therefore, it was necessary to “rebalance” the portfolio by restoring the original allocations. However, there is no reason to believe that repeated restoration of that asset allocation will be a superior strategy over time.**
 
 **Other myths have grown up around the practice of rebalancing. One is that it offers an incremental expected return, sometimes called a “rebalancing bonus. Those who identify such a return bonus compare the return on a rebalanced portfolio with the average annualized return of its constituent assets. Closer scrutiny, however, reveals that the latter number is not a rate of return obtainable with any possible investment strategy. It is therefore not a meaningful number with which to compare. A second myth is that rebalancing forces an investor to “buy low and sell high.” No evidence exists, however, that rebalancing creates an opportunity to buy low and sell high relative to an asset’s future price.**
