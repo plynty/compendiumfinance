@@ -10,6 +10,7 @@ lead: 'While increasingly touted, the math says it’s a yawn and it may even ha
 '
 source: internal
 link: 
+banner_img: "/uploads/taxlossharvesting-header2.png"
 ---
 
 **EXECUTIVE SUMMARY:**
