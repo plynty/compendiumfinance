@@ -14,7 +14,7 @@ link:
 **EXECUTIVE SUMMARY:**
 
 
-**Asset allocation refers to the division of a portfolio’s market value at a moment in time among major asset classes. Major asset classes are stocks, bonds, cash and subsets of each -- large company stocks, international stocks, or government bonds, for example.  An investor’s asset allocation is typically depicted with a pie chart (e.g. Figure 1). 
+**Asset allocation refers to the division of a portfolio’s market value at a moment in time among major asset classes. Major asset classes are stocks, bonds, cash and subsets of each -- large company stocks, international stocks, or government bonds, for example.  An investor’s asset allocation is typically depicted with a pie chart (e.g. Figure 1). <br>
 
 
 Asset allocation has assumed a central role in the advice delivered by most other financial advisors for two reasons. First, a mathematical model developed by Nobel Prize winner Harry Markowitz provided a way to theoretically optimize the allocation of a portfolio of securities or asset classes. The model is technically called a “mean-variance optimization model and is casually referred to as an “asset allocation model.” Second, the use of this model has proved to be an extremely effective sales tool for financial advisers in gathering and “managing” client assets.
