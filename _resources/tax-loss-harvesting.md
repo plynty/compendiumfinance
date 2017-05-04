@@ -88,5 +88,7 @@ More importantly, the calculations of the advantage of daily tax-loss harvesting
 But if tax rates increase in the future, the entire benefit of daily tax-loss harvesting could evaporate, and even become a negative benefit. This is a real possibility; thus, it poses a real risk.
 
 Most importantly perhaps, the technique applied by advisors to create the tax losses that may be harvested on any day is in clear violation of the intent of the wash-sale rule – namely to deter trading of securities solely for tax avoidance purposes. This could, and should be regarded by investors and advisory clients (and for that matter by advisors themselves) as, at least, an ethical breach; possibly a legal breach if the IRS, however its opinions may lay out at present, decides in the future to regard these sales as not being exempt from the wash-sale rule.
-Conclusion
+
+**Conclusion**
+
 Daily tax-loss harvesting should be viewed by investors as little more than a marketing tactic engaged in by some advisors to try to show that they add value. There is, in fact, likely to be little to show for it in terms of net increased after-tax return on investment, and it poses real risks. Furthermore, many advisors who market their daily tax-loss harvesting capabilities are prone to greatly exaggerate the benefit that this practice can provide to investors. For the reason of their disingenuous portrayal of the benefits at a minimum, advisors who purvey this benefit using exaggerated claims of “tax alpha” should be avoided.
