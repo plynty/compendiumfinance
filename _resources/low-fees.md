@@ -8,7 +8,7 @@ status: current
 lead: For long-term growth, invest in one, low-cost, diversified total market fund.
 link: 
 source: internal
-banner_img: "/uploads/publicpensionplans-header.png"
+banner_img: "/uploads/investing-header2.png"
 ---
 
 
