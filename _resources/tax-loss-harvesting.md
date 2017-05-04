@@ -68,15 +68,25 @@ Is this procedure for daily tax-loss harvesting effective in reducing the invest
 **Evaluation of daily tax-loss harvesting**
 
 This question has been addressed in a published article. The details are complex; we will only summarize the process of evaluation and the results here. Those who are interested in the complete details can read the article, as well as, if desired, the exchange that ensued with spokespersons for a robo-advisor that practices daily tax-loss harvesting.
+
 The problem is to calculate the after-tax return on investment that would be obtained without daily tax-loss harvesting, and to compare it with the after-tax return on investment that would be obtained with daily tax-loss harvesting. This is a difficult problem. The comparison can be made only over an investor’s entire life, since one benefit of daily tax-loss harvesting (not directly to the investor, but to the investor’s heirs) would be to defer taxes until the investor’s death, at which point the capital gains taxes will be forgiven (if the step-up in cost basis is still the rule as of the investor’s death).
+
 Some practitioners of daily tax-loss harvesting use inappropriate measures to make this comparison. And most, if not all do not fully reveal exactly how they make the comparison. The result is that many claims of benefits of daily tax-loss harvesting are wrong, or greatly exaggerated.
+
 The measure that should be used to compare daily tax-loss harvesting with the alternative of only year-end tax minimization is the after-tax internal rate of return on investment (IRR) over the investor’s entire life. Since the length of the investor’s life is unknown, except with a probability (from actuarial tables), this can only be evaluated by using a probabilistic method such as Monte Carlo simulation. Furthermore, the exact pattern of gains and losses in the values of the securities traded can also be known only with a probability. This probabilistic pattern also lends itself to exploration with Monte Carlo simulation.
+
 When a large number of Monte Carlo simulations were run, given a set of reasonable assumptions about the investments and their pretax returns, the result was that daily tax-loss harvesting adds on average only about 15-20 basis points (15 to 20 hundredths of a percent) over the investor’s life to the investor’s after-tax return.
-The downsides of daily tax-loss harvesting
+
+**The downsides of daily tax-loss harvesting
+**
 Offsetting at least in part the possible small benefits of daily tax-loss harvesting, the Monte Carlo simulations show that the procedure also increases the turnover of assets in the portfolio by about 20% a year. In the absence of daily tax-loss harvesting, the portfolio’s turnover would be less than 10% a year; daily tax-loss harvesting increases it to an average of almost 30% annually. This can mean greater transaction costs.
+
 Furthermore, daily tax-loss harvesting may increase the investor’s costs for accounting and tax submission. In addition, the procedure adds considerable programming complexity. This is generally not directly the investor’s concern because the advisor performs this task for the investor. However, it increases the chances that something will go wrong with the advisor’s software and procedures – an ever-present danger that is too often overlooked.
+
 More importantly, the calculations of the advantage of daily tax-loss harvesting make the assumption that tax rates and rules in the future will be the same as tax rules in the present. Since the future extends perhaps many decades over the investor’s entire life, this is a tenuous assumption. If tax rates stay the same or decline, then the investor will realize a small benefit, though it may be offset, as we have pointed out, by increased transaction and accountancy costs and software error risks.
+
 But if tax rates increase in the future, the entire benefit of daily tax-loss harvesting could evaporate, and even become a negative benefit. This is a real possibility; thus, it poses a real risk.
+
 Most importantly perhaps, the technique applied by advisors to create the tax losses that may be harvested on any day is in clear violation of the intent of the wash-sale rule – namely to deter trading of securities solely for tax avoidance purposes. This could, and should be regarded by investors and advisory clients (and for that matter by advisors themselves) as, at least, an ethical breach; possibly a legal breach if the IRS, however its opinions may lay out at present, decides in the future to regard these sales as not being exempt from the wash-sale rule.
 Conclusion
 Daily tax-loss harvesting should be viewed by investors as little more than a marketing tactic engaged in by some advisors to try to show that they add value. There is, in fact, likely to be little to show for it in terms of net increased after-tax return on investment, and it poses real risks. Furthermore, many advisors who market their daily tax-loss harvesting capabilities are prone to greatly exaggerate the benefit that this practice can provide to investors. For the reason of their disingenuous portrayal of the benefits at a minimum, advisors who purvey this benefit using exaggerated claims of “tax alpha” should be avoided.
