@@ -18,7 +18,7 @@ link:
 
 **Asset allocation has assumed a central role in the advice delivered by most other financial advisors for two reasons. First, a mathematical model developed by Nobel Prize winner Harry Markowitz provided a way to theoretically optimize the allocation of a portfolio of securities or asset classes. The model is technically called a “mean-variance optimization model and is casually referred to as an “asset allocation model.” Second, the use of this model has proved to be an extremely effective sales tool for financial advisers in gathering and “managing” client assets.**
 
-The model does not work in practice, however, because model results are highly sensitive to the values of the model’s very large number of required inputs -- and accurate values of those inputs are unobtainable in practice. Nevertheless, financial advisory firms go through the motions of using those models to create an asset allocation for clients.
+**The model does not work in practice, however, because model results are highly sensitive to the values of the model’s very large number of required inputs -- and accurate values of those inputs are unobtainable in practice. Nevertheless, financial advisory firms go through the motions of using those models to create an asset allocation for clients.**
 
 The proportional weights of the allocation of a portfolio at the moment in time to its various asset classes based on the current market values of those assets is information that is not very helpful to a long-term investment strategy, which is designed to procure both a secure and a substantial income stream for the investor many years in the future.
 
