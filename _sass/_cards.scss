@@ -36,6 +36,11 @@
 .card-copy-panel {
     padding: 16px;
     overflow: hidden;
+    height: 100%;
+}
+
+.cards .card-copy-panel {
+    position: relative;
 }
 
 .card-media-panel {
@@ -74,6 +79,7 @@
     .pmd-card-body {  // override propeller defaults to allow images to bleed
         margin: 0px;
         padding: 0px;
+        height: 100%;
 
         .row {
             margin: 0px;
@@ -124,12 +130,32 @@
     }
 }
 
+.bg-img,
+.no-bg-img {
+    height: 100%;
+}
+
+.card-copy-panel > * {
+    width: 100%;
+}
+
+.card-copy-panel > header .btn-more {
+    display: none;
+}
+
+.card-copy-panel > footer {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 1rem;
+}
+
 .bg-img {
     background-size: 102% 102%;
     background-repeat: no-repeat;
     background-clip: border-box;
     background-position: center;
-
 }
 
 .bg-img > .card-copy-panel {

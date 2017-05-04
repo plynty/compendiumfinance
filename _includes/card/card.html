@@ -6,7 +6,7 @@
             {% assign linkTitle = 'Click to read more...' %}
         {% endif %}
         {% case include.card_layout %}
-            {% when 'bio-card','resource-card','promo-card' %}
+            {% when 'resource-card','promo-card' %}
                 {% assign z = ''%}
             {% else %}
                 {% assign z = ' raised pmd-z-depth '%}
