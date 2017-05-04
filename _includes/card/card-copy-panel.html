@@ -29,6 +29,7 @@
                 {%endif%}
                     <div class="card-copy-panel{% if long %} long{%endif%}{%if thisCard.bg_img_darken == true%} darken{%endif%}">
                         <header> 
+                            <button class="visible-xs btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">read more</button>
                             {% assign categoryCount = thisCard.categories | size %}
                             {% unless categoryCount == 0 %}
                             <div class="category">
@@ -47,8 +48,8 @@
                         <article>
                             <div>{{thisCard.lead | markdownify}}</div>
                         </article>
-                        <footer class="visible-xs">
-                            <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">more</button>
-                        </footer>
+                        <!--<footer class="visible-xs">
+                            <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">read more</button>
+                        </footer>-->
                     </div>
                 </div>
