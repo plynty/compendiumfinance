@@ -25,11 +25,12 @@
             font-size: 95%;
         }
 
-        .pmd-card-article {
+        .pmd-card .card-copy-panel {
             header .category {
                 margin-top: 3px;
             }
             header .btn-more {
+                display: block;
                 position: relative;
                 top: -2px;
             }

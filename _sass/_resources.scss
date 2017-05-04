@@ -1,13 +1,10 @@
 /* home page styles */
-$panel-height: 15rem;
+$panel-height: 19rem;
 
 #resource-cards {
     .pmd-card {
         border: solid thin $cf-trim;
-    }
-    .pmd-card:hover header h1 {
-        color: $cf-category;
-        text-decoration: underline;
+        margin: .5rem;
     }
 
     //  xs
@@ -17,7 +14,8 @@ $panel-height: 15rem;
         }
 
         .resource-description {
-            margin-right: 1rem;
+            // margin-right: 1rem;
+            height: 100%;
         }
     }
 
@@ -57,9 +55,8 @@ $panel-height: 15rem;
     }
 
     .resource-description {
-
+        height: 100%;
         header h1 {
-            // text-transform: uppercase;
             font-size: 125%;
             font-weight: 700;
             margin-top: 10px;
@@ -67,6 +64,7 @@ $panel-height: 15rem;
         }
 
         footer {
+            display: block;
             text-align: center;
         }
 
@@ -79,6 +77,7 @@ $panel-height: 15rem;
         article {
             font-size: 90%;
             text-align: center;
+            padding-bottom: 3rem;
         }
 
         header .date,
