@@ -10,6 +10,7 @@ lead: 'Rebalancing seems to make sense. Until you look at the numbers.
 '
 source: internal
 link: 
+banner_img: "/uploads/rebalancing-header.png"
 ---
 
 
