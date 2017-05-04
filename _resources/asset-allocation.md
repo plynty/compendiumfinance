@@ -9,16 +9,14 @@ lead: The investment asset allocation process used nearly universally by everyon
   in the financial services industry is flawed and fake.
 source: internal
 link: 
-banner_img: "/uploads/assetallocation-header.png"
 ---
 
 **EXECUTIVE SUMMARY:**
 
 
-**Asset allocation refers to the division of a portfolio’s market value at a moment in time among major asset classes. Major asset classes are stocks, bonds, cash and subsets of each -- large company stocks, international stocks, or government bonds, for example.  An investor’s asset allocation is typically depicted with a pie chart (e.g. Figure 1). <br>
+**Asset allocation refers to the division of a portfolio’s market value at a moment in time among major asset classes. Major asset classes are stocks, bonds, cash and subsets of each -- large company stocks, international stocks, or government bonds, for example.  An investor’s asset allocation is typically depicted with a pie chart (e.g. Figure 1).**
 
-
-Asset allocation has assumed a central role in the advice delivered by most other financial advisors for two reasons. First, a mathematical model developed by Nobel Prize winner Harry Markowitz provided a way to theoretically optimize the allocation of a portfolio of securities or asset classes. The model is technically called a “mean-variance optimization model and is casually referred to as an “asset allocation model.” Second, the use of this model has proved to be an extremely effective sales tool for financial advisers in gathering and “managing” client assets.
+**Asset allocation has assumed a central role in the advice delivered by most other financial advisors for two reasons. First, a mathematical model developed by Nobel Prize winner Harry Markowitz provided a way to theoretically optimize the allocation of a portfolio of securities or asset classes. The model is technically called a “mean-variance optimization model and is casually referred to as an “asset allocation model.” Second, the use of this model has proved to be an extremely effective sales tool for financial advisers in gathering and “managing” client assets.**
 
 The model does not work in practice, however, because model results are highly sensitive to the values of the model’s very large number of required inputs -- and accurate values of those inputs are unobtainable in practice. Nevertheless, financial advisory firms go through the motions of using those models to create an asset allocation for clients.
 
