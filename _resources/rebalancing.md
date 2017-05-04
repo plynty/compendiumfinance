@@ -45,30 +45,53 @@ Both of these are claimed to boost the investor’s rate of return, a benefit su
 
 Table 1 presents a two-year example. Consider a $10,000 portfolio initially allocated 50% to stocks and 50% to bonds. The rebalanced portfolio rebalances to a 50%/50% mix at the end of the first year. The unrebalanced (i.e., buy-and-hold) portfolio does not rebalance.
 
-Table 1. The error of “diversification return” and “rebalancing bonus”
+Table 1. The error of “diversification return” and “rebalancing bonus”![Screen Shot 2017-05-04 at 3.49.39 PM.png](/uploads/Screen%20Shot%202017-05-04%20at%203.49.39%20PM.png)
+
 
 In this case, the unrebalanced portfolio earns a slightly higher rate of return over the two years, ending with $11,400 and a two-year annualized rate of return of 6.77%. The rebalanced portfolio ends with a slightly lower $11,388 for a two-year annualized rate of return of 6.71%.
 
 But the papers on diversification return and rebalancing bonus do not compare these two numbers. Instead, they take the average of the two-year annualized returns for the two assets (last column on the right) and compare it with the return on the rebalanced portfolio.
 
 This number, however, is not a rate of return that can be achieved using any investment strategy. It is merely an arbitrary combination of the numbers in the table. It is not relevant in any way to a comparison of rebalancing with an alternative strategy. In fact, the average of annualized returns will always be less than both the annualized return on the rebalancing strategy and the annualized return on the non-rebalancing strategy (buy and hold).
-Why then do the advocates of “diversification return” and “rebalancing bonus” compare the rate of return for a rebalanced portfolio with a number that cannot be a rate of return on any investment strategy? The answer, sadly, is their inability to thoroughly analyze an issue using mathematics. If one reads the papers on diversification return and rebalancing bonus one will find that they exhibit mathematical formulas. But the mathematics does not clearly specify the comparison to be made, how it will be made and why it will be made. Instead, complicated-looking but inappropriate mathematics is substituted for careful analysis that uses appropriate mathematics.
-The “mean-reversion” argument for rebalancing
+
+Why then do the advocates of “diversification return” and “rebalancing bonus” compare the rate of return for a rebalanced portfolio with a number that cannot be a rate of return on any investment strategy? The answer, sadly, is their inability to thoroughly analyze an issue using mathematics. 
+
+If one reads the papers on diversification return and rebalancing bonus one will find that they exhibit mathematical formulas. But the mathematics does not clearly specify the comparison to be made, how it will be made and why it will be made. Instead, complicated-looking but inappropriate mathematics is substituted for careful analysis that uses appropriate mathematics.
+
+**The “mean-reversion” argument for rebalancing**
+
 Another argument that has been made for rebalancing is that it forces the investor to “buy low and sell high.” This is true in a sense. When an asset’s price has gained relatively more than another asset – as in the example in Table 1 – the investor must sell some of that now-higher-priced asset to buy more of the now-lower-priced asset. However, those prices are higher or lower relative only to the assets’ past prices, not to their future prices. Whether or not those prices are high or low relative to their future prices is not known. When the price of an asset rises or falls, there is generally a reason for it; the reason is that, due to some development in the interim, it is perceived to have greater or lesser value than before. Hence, the fact that its price has fallen does not necessarily mean that it can now be “bought low” relative to its future price; and the fact that its price has risen does not necessarily mean that it can now be “sold high” relative to its future price.  In that way, rebalancing can be and often is a case of “Not selling high enough and Buying Not Low Enough.” Ironically, many advisors and investors who claim that “market timing” is not effective, heartily endorse this form of less obvious market timing.
+
 Some argue – implicitly or, less frequently, explicitly – that if the price of a stock rises or falls, it will tend to “mean-revert” by reversing that movement. There is little or at least very unclear support for that argument. What little correlation has been found from one time period to the next in the movement of stock prices suggests that in the short term (one year or less) an upward/(downward) movement tends to be followed by another upward/(downward) movement (“momentum”), while over the longer term (3 to 5 years) upward/(downward) movements tend to mean revert. But the timing (and magnitude?)of either momentum or mean reversion is uncertain. Hence, it is unpredictable whether a rebalancing action will beneficially capture the effect of mean reversion, or will suffer from the effect of momentum. And it must be reiterated that the evidence observed in historical data for both momentum and mean-reversion is weak.
-What actual tests of rebalancing on historical data show
+
+**What actual tests of rebalancing on historical data show**
+
 We have performed extensive backtests of rebalancing for the US stock market using data for the years 1926-2013 from the Center for Research in Security Prices (CRSP) of the University of Chicago. The results were reported in an article published in April 2014.
+
 CRSP provides monthly returns for the ten so-called “size deciles” of the US stock market. The returns for each decile are the returns that would have been obtained if an investor had purchased a portfolio consisting of all of the shares of stock in that decile. Decile one contains the largest-capitalization stocks. Decile ten contains the smallest-cap stocks. The other deciles contain stocks of companies with capitalizations in between. Several of the mid-range size deciles had approximately the same rates of return over the entire 88-year period. Hence, if a portfolio formed of two or three of these deciles were bought and held, no one of its constituents should tend to dominate the portfolio over time, as one would if it had a higher return than the others. Thus, over time, a bought-and-held portfolio consisting of a combination of these deciles should perform on average about the same as any one of the deciles.
-Does a rebalanced portfolio do better than that?
+
+**Does a rebalanced portfolio do better than that?**
+
 The only meaningful way to evaluate a rebalancing strategy is to compare its results with a buy-and-hold – that is, a non-rebalancing – strategy. This comparison was made using the monthly CRSP decile returns series from January 1926 through December 2013 to create 697 rolling 30-year 360-month returns series for each CRSP decile. Forty-five two-asset portfolios, each split 50-50 were created from all possible pairings of the 10 CRSP returns series. For each two-asset portfolio and each 360-month period, returns were calculated for a buy-and-hold strategy and for six rebalancing strategies in which the portfolios were rebalanced monthly, quarterly, semi-annually, annually, every three years and every five years.
+
 Quoting from the Advisor Perspectives article cited above:
+
 The results were surprisingly consistent across all portfolio pairs and strategies. The rebalanced portfolios did in fact beat the buy-and-hold portfolios most of the time. On average, a rebalancing strategy beat buy-and-hold about 70% of the time. However, on the occasions (about 30% of the time) when buy-and-hold beat rebalancing, it was by an average margin about twice as great as the margin by which rebalancing beat buy-and-hold the rest of the time.
+
 The end result was that for rebalancing intervals up to and including a year, the mean rebalancing / buy-and-hold return differential was essentially zero. For rebalancing intervals of three and five years, the mean differentials were five basis points and six basis points annually, respectively. This could possibly reflect the observations that have been made of mean-reversion on approximately a three and a half year schedule.
+
 In summary, while rebalancing beat buy-and-hold most of the time, when it did beat buy-and-hold it was by a small amount, while when buy-and-hold beat rebalancing it was by about twice as large an amount. Between these two effects, the average result was essentially a wash.
+
 There are more things that can be proven about the rebalancing / buy-and-hold comparison in theory. For example, if returns are independent from one time period to the next – in other words if there is no momentum or mean reversion – and if the constituent assets all have the same expected rates of return, then on average a rebalancing strategy and a buy-and-hold strategy will produce the same end result. If, however, the expected returns are not the same, then on average buy-and-hold will produce a higher rate of return than rebalancing. For more results, refer to the article mentioned above.
-Does rebalancing reduce risk?
-Another article that appeared subsequently in the same publication explored whether rebalancing reduced risk enough to say that it improved return on a risk-adjusted basis. Again, though the evidence is less clear-cut, it appears not to be the case that rebalancing produces a higher risk-adjusted return than buy-and-hold. The problem is to determine how to compare risk-adjusted results over a long time horizon, such as 30 or 40 years.
+
+**Does rebalancing reduce risk?**
+
+[Another article](https://www.advisorperspectives.com/articles/2014/04/22/does-rebalancing-reduce-risk) that appeared subsequently in the same publication explored whether rebalancing reduced risk enough to say that it improved return on a risk-adjusted basis. Again, though the evidence is less clear-cut, it appears not to be the case that rebalancing produces a higher risk-adjusted return than buy-and-hold. The problem is to determine how to compare risk-adjusted results over a long time horizon, such as 30 or 40 years.
+
 One way to do that is to compare the “expected utility of ending wealth.” The “utility” of a certain level of wealth – such as a million dollars – is believed to be a measure of how satisfied the owner of the wealth is with that amount of wealth. Utility functions are designed with the assumption that while having $20,000 may provide twice the utility of having $10,000, having $2 billion provides less than twice the utility of having $1 billion. That is, if you only have $10,000 then an additional $10,000 adds a great deal to your utility, while if you already have $1 billion then another $1 billion doesn’t add proportionately nearly as much. Furthermore, if you have $2 billion, then a drop in assets to $1 billion entails a loss of utility that is proportionately less than the loss in utility from a drop of $20,000 of assets to $10,000. Hence, computing the expected utility of ending wealth with two investment strategies is a way to compare them while taking account of their risk of loss, or of unsatisfactory results.
+
 When buy-and-hold and rebalancing are compared on the scale of their expected utilities, rebalancing cannot be found to provide higher expected utility than buy-and-hold.
-Conclusion
+
+**Conclusion**
+
 Therefore, there is nothing inherent in a rebalancing strategy that produces a return bonus, either on a non-risk-adjusted basis or on a risk-adjusted basis. Hence, there is no particular reason to intentionally engage in rebalancing.
