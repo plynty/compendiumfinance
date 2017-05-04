@@ -46,9 +46,13 @@ The question is, how much of an increase, if any, in overall after-tax investmen
 
 As we have described in our paper on rebalancing, it is common for financial advisors and investment advisors to recommend to their clients that they “rebalance” their portfolios regularly in order to restore the asset allocation that the advisor initially recommended. This rebalancing typically occurs once a year, often at – or near – year-end.
 Rebalancing entails the sale of some investment assets – generally those that have gained in value, or at least have not lost as much as others – and the purchase of other assets. Whenever assets are sold at a gain, a procedure is normally performed to minimize the capital gains taxes that result.
+
 That part of the investor’s portfolio which is being sold was in all likelihood not purchased all at once. It might have been purchased in annual, or monthly installments, when deposits were made into the investor’s account. Thus, it was purchased in a series of “tax lots,” each at a different purchase price; that is, each tax lot has a different cost basis.
+
 When these assets are sold, the standard tax-minimizing procedure is to sell the highest-cost tax lots first, in order to minimize the total capital gain and thus minimize the capital gains tax.
-Daily tax-loss harvesting vs. year-end capital gains tax minimization
+
+**Daily tax-loss harvesting vs. year-end capital gains tax minimization**
+
 Some financial advisors and robo-advisors are now claiming that they can further reduce taxes, over and above these tax-limiting measures that normally occur once a year, by tracking asset prices daily and harvesting losses whenever sufficient losses are available to be harvested.
 These advisors believe, however, that their clients must stick to the designated asset allocation. They use a limited number of low-cost passive investment vehicles to fulfill those allocations. Therefore, when the investor (or the advisor on the investor’s behalf) sells an investment vehicle that has declined in price – such as an index ETF (exchange-traded fund) – in order to harvest a loss for tax purposes, the investor must substitute an equivalent ETF to maintain the “integrity” of the investor’s asset allocation.
 Since the original ETF, the one sold to harvest the loss, was presumably the preferred ETF because it was the one originally inserted into the investor’s portfolio, the substitute ETF is presumably only second-best. Thus, it is desirable to restore the original ETF as soon as possible in place of the substitute.
