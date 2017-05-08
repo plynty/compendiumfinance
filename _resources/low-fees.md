@@ -11,7 +11,6 @@ source: internal
 banner_img: "/uploads/investing-header2.png"
 ---
 
-
 **EXECUTIVE SUMMARY:**
 
 **The purpose of retirement saving and investing is to set money aside today in order to receive future income when employment income is reduced or ends.  In this effort, investors are faced with two seemingly contradictory goals for that future income. The first goal is to secure at least a minimum level of income with certainty. The second is to achieve a much greater level of income. But aspiring to a higher level of income entails taking investment risks. Taking investment risks means the results cannot be certain.**
