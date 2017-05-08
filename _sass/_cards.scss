@@ -140,7 +140,7 @@
 }
 
 .card-copy-panel > header .btn-more {
-    display: none;
+    display: none;  // hide the button by defualt, show it selectively
 }
 
 .card-copy-panel > footer {

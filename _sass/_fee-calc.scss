@@ -3,8 +3,48 @@ $cf-lose-red: #f33;
 
 .fee-calculator {
 
-    div.chart {
+    .chart-btn-group {
+        text-align: center;
+
+        .btn-group {
+
+            a {
+                padding: 1px;
+                margin: 0px 5px;
+                border: none;
+                min-width: 54px;
+                background-color: white;
+                overflow: hidden;
+            }
+            a img {
+                max-height: 2rem;
+            }
+            a div.shade {
+                position: absolute;
+                top: -1%;
+                left: -1%;
+                height: 102%;
+                width: 102%;
+                background-color: rgba(0,0,0, .2);
+            }
+        }
+    }
+
+    #chart {
+        margin: auto;
         position: relative;
+    }
+
+    div.chart-segment {
+        position: absolute;
+    }
+
+    div.chart-segment>.rel {
+        position: relative;
+    }
+
+    div.chart-segment>.rel>* {
+        position: absolute;
     }
 
     // > xs
@@ -16,8 +56,8 @@ $cf-lose-red: #f33;
             margin-top: 1rem;
         }
 
-        .row.chart-rotate {
-            margin-top: 5px;
+        .row.chart-btn-group {
+            // margin-top: 5px;
         }
 
         .pmd-card {
@@ -45,7 +85,7 @@ $cf-lose-red: #f33;
     }
 
     .pmd-card {
-        max-width: 600px;
+        max-width: 1200px;
         padding-bottom: 2rem;
     }
 
@@ -151,7 +191,7 @@ $cf-lose-red: #f33;
                 font-size: 80%;
             }
         }
-        
+
         // .legend rect {
         //     stroke-width: 1px;
         // }
@@ -161,7 +201,7 @@ $cf-lose-red: #f33;
         //     stroke: lightgray;
         // }
         .x-axis-label {
-            font-size: 60%;
+            font-size: 80%;
             text-anchor: middle;
         }
 
@@ -237,10 +277,7 @@ $cf-lose-red: #f33;
        display: none;
     }
 
-    #chart-overlay {
-        position: absolute;
-        top: 0px;
-
+    .area-chart .chart-overlay {
         .legend {
             width: 75%;
             height: 25%;
@@ -268,78 +305,51 @@ $cf-lose-red: #f33;
         td.legend-value {
             font-weight: 700;
         }
-        .table {
-            width: 100%;
-            height: 100%;
-
-            table {
-                margin: auto;
-                margin-top: 90px;
-                border-collapse: collapse;
-            }
-
-            td {
-                border: solid thin $cf-trim;
-            }
-
-            td {
-                padding: 0px .5rem;
-            }
-
-            td.value {
-                text-align: right;
-            }
-
-            tr.keep>td.value {
-                background-color: rgba(50,255,50, .4);
-            }
-            tr.lose>td.value {
-                background-color: rgba(255,50,50, .5);
-            }
-            tr.lose-total>td.value {
-                background-color: rgba(255,50,50, .75);
-            }
-            //  xs
-            @media only screen and (max-width: 767px) {
-                padding: 0px;
-                
-                table {
-                    font-size: 75%;
-                    margin-top: 10px;
-                }
-
-            }
-        }
     }
 
-    #chart-overlay > * {
-        position: relative;
+    .bar-chart .chart-overlay {
+      table {
+          margin: auto;
+          margin-top: 90px;
+          border-collapse: collapse;
+      }
+
+      td {
+          border: solid thin $cf-trim;
+      }
+
+      td {
+          padding: 0px .5rem;
+      }
+
+      td.value {
+          text-align: right;
+      }
+
+      tr.keep>td.value {
+          background-color: rgba(50,255,50, .4);
+      }
+      tr.lose>td.value {
+          background-color: rgba(255,50,50, .5);
+      }
+      tr.lose-total>td.value {
+          background-color: rgba(255,50,50, .75);
+      }
+      //  xs
+      @media only screen and (max-width: 767px) {
+          padding: 0px;
+
+          table {
+              font-size: 75%;
+              margin-top: 10px;
+          }
+
+      }
     }
 
-    .chart-rotate {
-        text-align: center;
-
-        .btn-group {
-
-            a {
-                padding: 1px;
-                margin: 0px 5px;
-                border: none;
-                min-width: 54px;
-                background-color: white;
-                overflow: hidden;
-            }
-            a img {
-                max-height: 2rem;
-            }
-            a div.shade {
-                position: absolute;
-                top: -1%;
-                left: -1%;
-                height: 102%;
-                width: 102%;
-                background-color: rgba(0,0,0, .2);
-            }
-        }
+    .input-form {
+      max-width: 600px;
+      margin: auto;
     }
+
 }

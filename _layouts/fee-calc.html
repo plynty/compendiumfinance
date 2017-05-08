@@ -3,134 +3,156 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="icon" type="image/jpg" href="/favicon.jpg" />
-        <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-        <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="icon" type="image/jpg" href="/favicon.jpg" />
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-            <link rel="stylesheet" href="{{site.pmd_path}}/css/bootstrap.min.css">
-        
-        <!--Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{site.pmd_path}}/css/bootstrap.min.css">
 
-        <!-- Propeller css -->
-        <link href="{{site.pmd_path}}/css/propeller.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/nouislider.min.css">
+    <!--Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-        <!-- app styles -->
-        <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Propeller css -->
+    <link href="{{site.pmd_path}}/css/propeller.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/nouislider.min.css">
 
-        <!-- font-awesome: icons -->
-        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <!-- app styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <!-- font-awesome: icons -->
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 
-    </head>
-    <body class="fee-calculator">
-        {% include return-header.html %}
-        <div class="pmd-card pmd-z-depth">
-            <div class="chart">
-                <svg id="chart"></svg>
-                <div id="chart-overlay"></div>
-            </div>
-            <div class="row chart-rotate">
-                <div class="col-xs-12">
-                    <div class="btn-group">	
-                        <a class="btn pmd-ripple-effect pmd-btn-raised chart-area" type="button" title="Area Chart" onclick="showChart('area', '#chart'); return false;">
-                            <img src="uploads/fee-chart.png">
-                            <div class="shade"></div>
-                        </a>
-                        <a class="btn pmd-ripple-effect pmd-btn-raised chart-pie" type="button" title="Pie Chart" onclick="showChart('pie', '#chart'); return false;">
-                            <img src="uploads/fee-pie.png">
-                            <div class="shade"></div>
-                        </a>
-                        <a class="btn pmd-ripple-effect pmd-btn-raised chart-table" type="button" title="Fee Table" onclick="showChart('table', '#chart'); return false;">
-                            <img src="uploads/fee-table.png">
-                            <div class="shade"></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row input-form">
-                <div class="col-md-12 col-xs-6">
-                    <div class="form-group pmd-textfield">
-                        <label for="investment-amount" class="control-label">
-                            Investment Amount
-                        </label>
-                        <input type="text" id="investment-amount" class="form-control" value="$50,000" onblur="validate(); return false;">
-                    </div>
-                </div>
-                <div class="col-md-12 col-xs-6">
-                    <div class="form-group pmd-textfield">
-                        <label for="investment-period" class="control-label">
-                            Investment Period
-                        </label>
-                        <input type="text" id="investment-period" class="form-control" value="30" onblur="validate(); return false;">
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="form-group pmd-textfield">
-                        <label for="rate-of-return" class="control-label">
-                            Rate of Return
-                        </label>
-                        <div id="rate-of-return" class="range-slider"></div>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="form-group pmd-textfield">
-                        <label for="mutual-fund-fees" class="control-label">
-                            Mutual Fund Fees
-                        </label>
-                        <div id="mutual-fund-fees" class="range-slider"></div>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="form-group pmd-textfield">
-                        <label for="advisor-fee" class="control-label">
-                            Advisor Fee
-                        </label>
-                        <div id="advisor-fee" class="range-slider"></div>
-                    </div>
-                </div>
-            </div>
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+  </head>
+  <body class="fee-calculator">
+    {% include return-header.html %}
+    <div class="pmd-card pmd-z-depth">
+      <div class="row chart-btn-group visible-xs visible-sm">
+        <div class="col-xs-12">
+          <div class="btn-group">
+            <a class="btn pmd-ripple-effect pmd-btn-raised chart-area" type="button" title="Area Chart" onclick="showChart('area', '#chart'); return false;">
+              <!--<img src="uploads/fee-chart.png">-->Area Chart
+              <div class="shade"></div>
+            </a>
+            <a class="btn pmd-ripple-effect pmd-btn-raised chart-pie" type="button" title="Pie Chart" onclick="showChart('pie', '#chart'); return false;">
+              <!--<img src="uploads/fee-pie.png">-->Pie Chart
+              <div class="shade"></div>
+            </a>
+            <a class="btn pmd-ripple-effect pmd-btn-raised chart-bar" type="button" title="Bar Chart" onclick="showChart('bar', '#chart'); return false;">
+              <!--<img src="uploads/fee-table.png">-->Bar Chart
+              <div class="shade"></div>
+            </a>
+          </div>
         </div>
+      </div>
+      <div class="row chart">
+        <div id="chart">
+          <div class="chart-segment area-chart">
+            <div class="rel">
+              <svg class="chart"></svg>
+              <div class="chart-overlay"></div>
+            </div>
+          </div>
+          <div class="chart-segment pie-chart">
+            <div class="rel">
+              <svg class="chart"></svg>
+              <div class="chart-overlay"></div>
+            </div>
+          </div>
+          <div class="chart-segment bar-chart">
+            <div class="rel">
+              <svg class="chart"></svg>
+              <div class="chart-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-form">
+          <div class="col-md-12 col-xs-6">
+            <div class="form-group pmd-textfield">
+              <label for="investment-amount" class="control-label">
+                Investment Amount
+              </label>
+              <input type="text" id="investment-amount" class="form-control" value="$50,000" onblur="validate(); return false;">
+            </div>
+          </div>
+          <div class="col-md-12 col-xs-6">
+            <div class="form-group pmd-textfield">
+              <label for="investment-period" class="control-label">
+                Investment Period
+              </label>
+              <input type="text" id="investment-period" class="form-control" value="30" onblur="validate(); return false;">
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="form-group pmd-textfield">
+              <label for="rate-of-return" class="control-label">
+                Rate of Return
+              </label>
+              <div id="rate-of-return" class="range-slider"></div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="form-group pmd-textfield">
+              <label for="mutual-fund-fees" class="control-label">
+                Mutual Fund Fees
+              </label>
+              <div id="mutual-fund-fees" class="range-slider"></div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="form-group pmd-textfield">
+              <label for="advisor-fee" class="control-label">
+                Advisor Fee
+              </label>
+              <div id="advisor-fee" class="range-slider"></div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
 
-        <!-- jQuery before Propeller.js -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script type="text/javascript" src="{{site.pmd_path}}/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="{{site.pmd_path}}/js/propeller.min.js"></script>
-        <script src="assets/js/nouislider.min.js"></script>
-        <script src="assets/js/wNumb.js"></script>
-        
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="assets/js/calculator.js"></script>
-        <script src="assets/js/fee_calc.js"></script>
-        <script src="assets/js/fee_calc_chart.js"></script>
-        <script src="assets/js/hammer.min.js"></script>
-        <script>
-            $().ready(function() { 
-                resizeChart("#chart"); 
-                initSliderEvents();
-                var hammertime = new Hammer(document.getElementById('chart'));
-                hammertime.on('swipe', function(ev) {
+    <!-- jQuery before Propeller.js -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="{{site.pmd_path}}/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{site.pmd_path}}/js/propeller.min.js"></script>
+    <script src="assets/js/nouislider.min.js"></script>
+    <script src="assets/js/wNumb.js"></script>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="assets/js/calculator.js"></script>
+    <script src="assets/js/fee_calc.js"></script>
+    <script src="assets/js/fee_calc_chart.js"></script>
+    <script src="assets/js/hammer.min.js"></script>
+    <script>
+                $().ready(function () {
+                  resizeChart("#chart");
+                  initSliderEvents();
+                  var hammertime = new Hammer(document.getElementById('chart'));
+                  hammertime.on('swipe', function (ev) {
                     console.log(ev);
-                    switch(ev.direction) {
-                        case 2: // left
-                            swipeChart('left', '#chart');
-                            break;
-                        case 4:
-                            swipeChart('right', '#chart');
-                            break
+                    switch (ev.direction) {
+                      case 2: // left
+                        swipeChart('left', '#chart');
+                        break;
+                      case 4:
+                        swipeChart('right', '#chart');
+                        break
                     }
+                  });
                 });
-            });
-            $(window).resize(function() { resizeChart("#chart"); });
-        </script>
-    </body>
+                $(window).resize(function () {
+                  resizeChart("#chart");
+                });
+    </script>
+  </body>
 </html>
