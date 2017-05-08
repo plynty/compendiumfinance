@@ -26,7 +26,8 @@ function calculate() {
 }
 
 /**
- * Simple callback that just returns the internal data
+ * Calculate chart data from user inputs
+ * @param {function} callback Returns the results
  */
 function fetchData(callback) {
     var sp = new SavingsProjector(
@@ -47,7 +48,7 @@ function fetchData(callback) {
             "Lost Earnings": item.totalLostEarnings,
             "Total Earnings": item.totalEarnings,
             total: item.keptEarnings + item.totalFundFees + item.totalAdvisorFees + item.totalLostEarnings
-        }
+        };
         data.push(year);
     });
     data.lostEarnings = sp.lostEarnings;
@@ -64,12 +65,12 @@ function resizeChart(selector) {
         clearTimeout(timer);
     }
     timer = setTimeout(function(event) {
-        var element = $(selector);
-        if (size.x != element.width() || size.y != element.height()) {
+        var element = $(selector).parent();
+        if (size.x !== element.width() || size.y !== element.height()) {
             size.x = element.width();
             size.y = element.height();
             console.log(size.x+','+size.y);
-            generateCharts("#chart", "areaStack", "basis");
+            generateCharts("#chart");
         }
     }, 300);
     return true;
