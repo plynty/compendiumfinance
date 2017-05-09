@@ -278,6 +278,12 @@ $cf-advisor-fees-red: #f88; // rgba(255,127,127, .4)
             margin-top: 25px;
         }
 
+        tr.lose {
+            color: $cf-lose-red;
+        }
+        tr.keep {
+            color: $cf-keep-green;
+        }
         td.legend-key-keep>div,
         td.legend-key-lose>div {
             width: 3px;
@@ -320,7 +326,7 @@ $cf-advisor-fees-red: #f88; // rgba(255,127,127, .4)
         table {
             margin: auto;
             margin-top: 75px;
-            margin-left: 40px;
+            margin-left: 20px;
             border-collapse: collapse;
         }
 
@@ -338,21 +344,21 @@ $cf-advisor-fees-red: #f88; // rgba(255,127,127, .4)
         }
 
         tr.keep {
-            color: $cf-keep-green;//rgba(50,255,50, .4);
+            color: $cf-keep-green;
         }
         tr.fund-fees {
-            color: $cf-fund-fees-red;//rgba(50,255,50, .4);
+            color: $cf-fund-fees-red;
         }
         tr.advisor-fees {
-            color: $cf-advisor-fees-red;//rgba(50,255,50, .4);
+            color: $cf-advisor-fees-red;
         }
         tr.advisor-fees {
-           color: $cf-advisor-fees-red;//rgba(50,255,50, .4);
+           color: $cf-advisor-fees-red;
         }
         tr.lost-earnings,
         tr.lose,
         tr.lose-total {
-            color: $cf-lose-red;//rgba(255,50,50, .75);
+            color: $cf-lose-red;
         }
         //  xs
         @media only screen and (max-width: 767px) {
