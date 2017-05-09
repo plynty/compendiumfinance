@@ -46,7 +46,7 @@ Both of these are claimed to boost the investor’s rate of return, a benefit su
 
 Table 1 presents a two-year example. Consider a $10,000 portfolio initially allocated 50% to stocks and 50% to bonds. The rebalanced portfolio rebalances to a 50%/50% mix at the end of the first year. The unrebalanced (i.e., buy-and-hold) portfolio does not rebalance.
 
-Table 1. The error of “diversification return” and “rebalancing bonus”![Screen Shot 2017-05-04 at 3.49.39 PM-3fa594.png](/uploads/Screen%20Shot%202017-05-04%20at%203.49.39%20PM-3fa594.png)
+Table 1. The error of “diversification return” and “rebalancing bonus”![Screen Shot 2017-05-04 at 3.49.39 PM-3fa594.png](/uploads/Screen%20Shot%202017-05-04%20at%203.49.39%20PM-3fa594.png =900x)
 
 
 In this case, the unrebalanced portfolio earns a slightly higher rate of return over the two years, ending with $11,400 and a two-year annualized rate of return of 6.77%. The rebalanced portfolio ends with a slightly lower $11,388 for a two-year annualized rate of return of 6.71%.
