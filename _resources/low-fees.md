@@ -19,7 +19,7 @@ banner_img: "/uploads/investing-header2.png"
 
 **A benefit of this strategy is that it can be engaged in at the lowest possible cost to the investor, an average total cost of less than one-tenth of a percent of assets per year. This can be compared with the cost that the average investor pays, which is 10 to 30 times as much. Paying that much in investment fees can cost the investor half or more of the investor’s future income, far more than has ever been lost in long-term stock market declines.**
 
-Read More...
+Read more...
 
 Most investors invest in risky assets. Stock and bond funds and similar investments are risky and can experience severe declines at any time. When investors’ stock and bond portfolios decline sharply in value, investors can become very nervous. Their nervousness is due to the fact that they don’t know how low the value of their portfolios can go. During a sharp decline, it can feel as though there is no limit to the fall. If a portfolio’s value can suddenly decline by 20% in a month, why could it not fall by 20% each month for a series of months, leaving the investor with practically nothing? There is no assured floor to that decline, no guarantee that their portfolio will be worth anything at all.
 
