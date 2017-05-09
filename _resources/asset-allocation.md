@@ -108,8 +108,8 @@ Here is how the model is typically used in the process of selling investment ser
 Let us say that the seller of the investment services is a financial advisor working for a large financial firm. We’ll name that advisor Jones. Jones is eager to land a prospective client, whom we will call Smith. If Jones is able to land Smith as a client, Jones will be able to take one percent (1%) of Smith’s portfolio as Jones’s fee every year, perhaps for as long as Smith lives. That is a very large fee indeed. It can drain 25% to 50% of Smith’s future income and savings, or more, and award them to Jones and Jones’s employer, as our fee calculator shows.
 
 Advisor Jones asks prospect Smith for information about Smith’s current portfolio. Then Jones constructs a chart as shown in Figure 3.
-**
-Figure 3. “Value Added”**
+**Figure 3. “Value Added”**
+
 <img src="/uploads/Screen%20Shot%202017-05-04%20at%203.43.10%20PM.png" style="max-width: 100%"/>
 
 
