@@ -148,9 +148,17 @@ function createChartGeometry(chartDivSelector) {
   var chartDiv = d3.select(chartDivSelector);
 
   // clear previous rendering
-  $(chartDivSelector).find('.chart > *, .chart-overlay > *').each(function() {
+  if (isIE) {
+    $(chartDivSelector).find('.chart, .chart-overlay').each(function() {
+      for (var i = 0; i < this.childNodes.length; i++) {
+        this.removeChild(this.childNodes[i]);
+      }
+    });
+  } else {
+    $(chartDivSelector).find('.chart > *, .chart-overlay > *').each(function() {
       this.remove();
-  });
+    });
+  }
 
   // construct area chart geom
   areaGeom.topDiv = chartDiv.select('.area-chart')
@@ -180,6 +188,9 @@ function createChartGeometry(chartDivSelector) {
       .style("opacity", (config.showing === 'all' || config.showing === 'pie') ? 1 : 0);
   pieGeom.svg = pieGeom.topDiv.select('svg.chart')
       .attr("viewBox", "0 0 " + width + " " + height);
+  if (isIE) {
+    pieGeom.svg.attr("height", height);
+  }
   pieGeom.defs = pieGeom.svg.append("defs");
   pieGeom.g = pieGeom.svg.append("g")
       .attr("class", "pie-chart");
@@ -195,6 +206,9 @@ function createChartGeometry(chartDivSelector) {
   barGeom.g = barGeom.svg.append("g")
     .attr("class", "bar-chart");
   barGeom.overlay = barGeom.topDiv.select('.chart-overlay');
+  if (isIE) {
+    barGeom.svg.attr("height", height);
+  }
 
   chartDiv.selectAll('.chart-segment')
       .style('width', size.chartW+'px')
@@ -285,9 +299,6 @@ function renderAxes(data) {
       .call(d3.axisBottom(geom.area.xScale)
         .tickValues([1,data.length])
       );
-//  t.select(".y-axis")
-//      .call(d3.axisRight(geom.area.yScale)
-//          .ticks(5, "$s"));
 }
 
 /**
@@ -333,14 +344,6 @@ function renderLegend(data) {
   var lastYearValues = data[data.length - 1];
   var loseTotal = lastYearValues["You Lose"];
   var keepTotal = lastYearValues["You Keep"];
-//  var losePercent = loseTotal / (loseTotal + keepTotal);
-//  var keepPercent = keepTotal / (loseTotal + keepTotal);
-  // var grandTotal = data[data.length-1].total;
-
-//  legendDiv.select('#legend-keep-percent').text(d3.format(".0%")(keepPercent));
-//  legendDiv.select('#legend-lose-percent').text(d3.format(".0%")(losePercent));
-//  legendDiv.select('#legend-keep').text(d3.format("$,.0f")(keepTotal));
-//  legendDiv.select('#legend-lose').text(d3.format("$,.0f")(loseTotal));
 
   legendDiv.select('#legend-keep').transition().duration(1500)
       .tween('legend-keep', function(d) {
@@ -770,24 +773,31 @@ function updatePie() {
           return d.data.label;
         });
     textEnter.append("text")
-        .attr("class", "percent");
+        .attr("class", "percent")
+        .attr("y", 0);
 
     var textMerge = textEnter
         .merge(text);
 
+    if (isIE) {
+      textMerge.select('text.percent').text(function(d) {
+        return d3.format('.0%')(d.data.percent);
+      });
+    } else {
 
-    textMerge.transition().duration(1500)
-        .select('text.percent')
-        .tween('percent-label', function(d) {
-          this._current = this._current || d.data.percent;
-          var interpolate = d3.interpolateNumber(this._current, d.data.percent);
-          this._current = interpolate(1);
-          var node = this;
-          return function (t) {
-            var d2 = interpolate(t);
-            node.innerHTML = d3.format('.0%')(d2);
-          };
-        });
+      textMerge.transition().duration(1500)
+          .select('text.percent')
+          .tween('percent-label', function(d) {
+            this._current = this._current || d.data.percent;
+            var interpolate = d3.interpolateNumber(this._current, d.data.percent);
+            this._current = interpolate(1);
+            var node = this;
+            return function (t) {
+              var d2 = interpolate(t);
+              node.innerHTML = d3.format('.0%')(d2);
+            };
+          });
+    }
 
     textMerge.transition().duration(1500)
         .attrTween("transform", function (d) {

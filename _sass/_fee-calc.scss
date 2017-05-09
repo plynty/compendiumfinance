@@ -178,10 +178,10 @@ $cf-advisor-fees-red: #f88; // rgba(255,127,127, .4)
             stroke: #f00;
         }
 
-        rect:hover {
+/*        rect:hover {
             stroke: black;
             stroke-width: 1px;
-        }
+        }*/
 
         //  xs
         @media only screen and (max-width: $xs-max) {
@@ -242,10 +242,10 @@ $cf-advisor-fees-red: #f88; // rgba(255,127,127, .4)
           fill: $cf-lose-red;
         }
 
-        path:hover {
+/*        path:hover {
             stroke: black;
             stroke-width: 1px;
-        }
+        }*/
 
         .labels .keep {
           fill: $cf-keep-green;
