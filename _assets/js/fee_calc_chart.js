@@ -147,11 +147,16 @@ function createChartGeometry(chartDivSelector) {
       barGeom = {};
   var chartDiv = d3.select(chartDivSelector);
 
+  // clear previous rendering
+  $(chartDivSelector).find('.chart > *, .chart-overlay > *').each(function() {
+      this.remove();
+  });
+
   // construct area chart geom
   areaGeom.topDiv = chartDiv.select('.area-chart')
       .style("left", size.xOffsets[0]+'px')
       .style("opacity", (config.showing === 'all' || config.showing === 'area') ? 1 : 0);
-  areaGeom.svg = areaGeom.topDiv.select('svg')
+  areaGeom.svg = areaGeom.topDiv.select('svg.chart')
       .attr("width", size.w)
       .attr("height", size.h)
       .append("svg")
@@ -173,8 +178,7 @@ function createChartGeometry(chartDivSelector) {
   pieGeom.topDiv = chartDiv.select('.pie-chart')
       .style("left", size.xOffsets[1]+'px')
       .style("opacity", (config.showing === 'all' || config.showing === 'pie') ? 1 : 0);
-  pieGeom.svg = pieGeom.topDiv.select('svg')
-      .attr("class", "graph")
+  pieGeom.svg = pieGeom.topDiv.select('svg.chart')
       .attr("viewBox", "0 0 " + width + " " + height);
   pieGeom.defs = pieGeom.svg.append("defs");
   pieGeom.g = pieGeom.svg.append("g")
@@ -185,8 +189,7 @@ function createChartGeometry(chartDivSelector) {
   barGeom.topDiv = chartDiv.select('.bar-chart')
       .style("left", size.xOffsets[2]+'px')
       .style("opacity", (config.showing === 'all' || config.showing === 'bar') ? 1 : 0);
-  barGeom.svg = barGeom.topDiv.select('svg')
-      .attr("class", "graph")
+  barGeom.svg = barGeom.topDiv.select('svg.chart')
       .attr("viewBox", "0 0 " + width + " " + height);
   barGeom.defs = barGeom.svg.append("defs");
   barGeom.g = barGeom.svg.append("g")
@@ -296,23 +299,23 @@ function initLegend() {
     return;
   }
   var legendDiv = geom.area.overlay.select('.legend');
-  if (geom.wide3) {
-    legendDiv.style('display', 'none');
-  }
+//  if (geom.wide3) {
+//    legendDiv.style('display', 'none');
+//  }
 
   var table = legendDiv.append("xhtml:table");
 
   var tr = table.append("xhtml:tr").attr("class", "lose");
-  tr.append("xhtml:td").attr("class", "legend-key-lose").append("xhtml:div");
+//  tr.append("xhtml:td").attr("class", "legend-key-lose").append("xhtml:div");
   tr.append("xhtml:td").attr("class", "legend-label").text("You Lose:");
   tr.append("xhtml:td").attr("id", "legend-lose").attr("class", "legend-value");
-  tr.append("xhtml:td").attr("id", "legend-lose-percent").attr("class", "legend-percent");
+//  tr.append("xhtml:td").attr("id", "legend-lose-percent").attr("class", "legend-percent");
 
   tr = table.append("xhtml:tr").attr("class", "keep");
-  tr.append("xhtml:td").attr("class", "legend-key-keep").append("xhtml:div");
+//  tr.append("xhtml:td").attr("class", "legend-key-keep").append("xhtml:div");
   tr.append("xhtml:td").attr("class", "legend-label").text("You Keep:");
   tr.append("xhtml:td").attr("id", "legend-keep").attr("class", "legend-value");
-  tr.append("xhtml:td").attr("id", "legend-keep-percent").attr("class", "legend-percent");
+//  tr.append("xhtml:td").attr("id", "legend-keep-percent").attr("class", "legend-percent");
 }
 
 /**
@@ -321,30 +324,55 @@ function initLegend() {
  */
 function renderLegend(data) {
   var legendDiv = geom.area.overlay.select('.legend');
-  if (geom.wide3) {
-    legendDiv.style('display', 'none');
-    return;
-  }
+//  if (geom.wide3) {
+//    legendDiv.style('display', 'none');
+//    return;
+//  }
   legendDiv.style('display', 'block');
 
   var lastYearValues = data[data.length - 1];
   var loseTotal = lastYearValues["You Lose"];
   var keepTotal = lastYearValues["You Keep"];
-  var losePercent = loseTotal / (loseTotal + keepTotal);
-  var keepPercent = keepTotal / (loseTotal + keepTotal);
+//  var losePercent = loseTotal / (loseTotal + keepTotal);
+//  var keepPercent = keepTotal / (loseTotal + keepTotal);
   // var grandTotal = data[data.length-1].total;
 
-  legendDiv.select('#legend-keep-percent').text(d3.format(".0%")(keepPercent));
-  legendDiv.select('#legend-lose-percent').text(d3.format(".0%")(losePercent));
-  legendDiv.select('#legend-keep').text(d3.format("$,.0f")(keepTotal));
-  legendDiv.select('#legend-lose').text(d3.format("$,.0f")(loseTotal));
+//  legendDiv.select('#legend-keep-percent').text(d3.format(".0%")(keepPercent));
+//  legendDiv.select('#legend-lose-percent').text(d3.format(".0%")(losePercent));
+//  legendDiv.select('#legend-keep').text(d3.format("$,.0f")(keepTotal));
+//  legendDiv.select('#legend-lose').text(d3.format("$,.0f")(loseTotal));
+
+  legendDiv.select('#legend-keep').transition().duration(1500)
+      .tween('legend-keep', function(d) {
+        this._current = this._current || lastYearValues["You Keep"];
+        var interpolate = d3.interpolateNumber(this._current, lastYearValues["You Keep"]);
+        this._current = interpolate(1);
+        var node = this;
+        return function (t) {
+          var d2 = interpolate(t);
+          node.innerText = d3.format('$,.0f')(d2);
+        };
+      });
+
+  legendDiv.select('#legend-lose').transition().duration(1500)
+      .tween('legend-lose', function(d) {
+        this._current = this._current || lastYearValues["You Lose"];
+        var interpolate = d3.interpolateNumber(this._current, lastYearValues["You Lose"]);
+        this._current = interpolate(1);
+        var node = this;
+        return function (t) {
+          var d2 = interpolate(t);
+          node.innerText = d3.format('$,.0f')(d2);
+        };
+      });
+
 }
 
 
 function initBarStack() {
     var g = geom.bar.g;
     g.append("g")
-        .attr("transform", "translate("+((geom.width-100)*.8)+" 0)");
+        .attr("transform", "translate("+((geom.width-100)*.9)+" 0)");
 }
 /**
  * Render a stacked bar chart
@@ -482,7 +510,7 @@ function renderAreaStack() {
         .attr("d", area);
 
     // draw the lines at the top of the areas, using the same curve
-    var lines = geom.area.g.select(".graph").selectAll(".line")
+    var lines = geom.area.g.select(".chart").selectAll(".line")
         .data(stack(thinData));
     lines.enter().append("path")
         .attr("class", function (d, i) {
@@ -681,10 +709,10 @@ function updatePie() {
     var outerArc = d3.arc()
             .innerRadius(geom.pie.radius * 0.9)
             .outerRadius(geom.pie.radius * 0.9);
-
-    var percentArc = d3.arc()
-            .innerRadius(geom.pie.radius * 0.35)
-            .outerRadius(geom.pie.radius * 0.35);
+//
+//    var percentArc = d3.arc()
+//            .innerRadius(geom.pie.radius * 0.35)
+//            .outerRadius(geom.pie.radius * 0.35);
 
 
     var key = function (d) {
@@ -693,26 +721,25 @@ function updatePie() {
 
     var g = geom.pie.g;
     /* ------- PIE SLICES -------*/
-    var slicePaths = g.select(".slices").selectAll(".path")
+    var slicePaths = g.select(".slices").selectAll("path")
         .data(pie(pieData), key);
 
     slicePaths.exit()
         .remove();
 
-    var sliceEnter = slicePaths.enter()
+    slicePaths.enter()
         .append("path")
         .attr("class", function (d, i) {
           return i === 0 ? "keep" : "lose";
-        });
-
-    sliceEnter.merge(slicePaths)
+        })
+        .merge(slicePaths)
         .transition().duration(1500)
         .attrTween("d", function (d) {
           this._current = this._current || d;
           var interStart = d3.interpolate(this._current.startAngle, d.startAngle);
           var interEnd = d3.interpolate(this._current.endAngle, d.endAngle);
-          this._current.startAngle = interStart(0);
-          this._current.endAngle = interEnd(0);
+          this._current.startAngle = interStart(1);
+          this._current.endAngle = interEnd(1);
           return function (t) {
 //            console.log(t);
 //            var d2 = interpolate(t);
@@ -754,7 +781,7 @@ function updatePie() {
         .tween('percent-label', function(d) {
           this._current = this._current || d.data.percent;
           var interpolate = d3.interpolateNumber(this._current, d.data.percent);
-          this._current = interpolate(0);
+          this._current = interpolate(1);
           var node = this;
           return function (t) {
             var d2 = interpolate(t);
@@ -766,7 +793,7 @@ function updatePie() {
         .attrTween("transform", function (d) {
           this._current = this._current || d;
           var interpolate = d3.interpolate(this._current, d);
-          this._current = interpolate(0);
+          this._current = interpolate(1);
           return function (t) {
             var d2 = interpolate(t);
             var pos = outerArc.centroid(d2);
@@ -839,7 +866,7 @@ function updatePie() {
         .attrTween("points", function (d) {
           this._current = this._current || d;
           var interpolate = d3.interpolate(this._current, d);
-          this._current = interpolate(0);
+          this._current = interpolate(1);
           return function (t) {
             var d2 = interpolate(t);
             var pos = outerArc.centroid(d2);
@@ -885,18 +912,11 @@ function updateTable() {
   fetchData(function (error, data) {
     var lastYearValues = data[data.length - 1];
 
-//    geom.bar.overlay.select('#td-total-earnings').text(d3.format('$,.0f')(lastYearValues["Total Earnings"]));
-//    geom.bar.overlay.select('#td-you-keep').text(d3.format('$,.0f')(lastYearValues["You Keep"]));
-//    geom.bar.overlay.select('#td-fund-fees').text(d3.format('$,.0f')(lastYearValues["Fund Fees"]));
-//    geom.bar.overlay.select('#td-advisor-fees').text(d3.format('$,.0f')(lastYearValues["Advisor Fees"]));
-    geom.bar.overlay.select('#td-lost-earnings').text(d3.format('$,.0f')(lastYearValues["Lost Earnings"]));
-//    geom.bar.overlay.select('#td-total-lost').text(d3.format('$,.0f')(lastYearValues["You Lose"]));
-
     geom.bar.overlay.select('#td-you-keep').transition().duration(1500)
         .tween('you-keep', function(d) {
           this._current = this._current || lastYearValues["You Keep"];
           var interpolate = d3.interpolateNumber(this._current, lastYearValues["You Keep"]);
-          this._current = interpolate(0);
+          this._current = interpolate(1);
           var node = this;
           return function (t) {
             var d2 = interpolate(t);
@@ -908,7 +928,7 @@ function updateTable() {
         .tween('you-keep', function(d) {
           this._current = this._current || lastYearValues["Fund Fees"];
           var interpolate = d3.interpolateNumber(this._current, lastYearValues["Fund Fees"]);
-          this._current = interpolate(0);
+          this._current = interpolate(1);
           var node = this;
           return function (t) {
             var d2 = interpolate(t);
@@ -920,7 +940,7 @@ function updateTable() {
         .tween('you-keep', function(d) {
           this._current = this._current || lastYearValues["Advisor Fees"];
           var interpolate = d3.interpolateNumber(this._current, lastYearValues["Advisor Fees"]);
-          this._current = interpolate(0);
+          this._current = interpolate(1);
           var node = this;
           return function (t) {
             var d2 = interpolate(t);
@@ -932,7 +952,7 @@ function updateTable() {
         .tween('you-keep', function(d) {
           this._current = this._current || lastYearValues["Lost Earnings"];
           var interpolate = d3.interpolateNumber(this._current, lastYearValues["Lost Earnings"]);
-          this._current = interpolate(0);
+          this._current = interpolate(1);
           var node = this;
           return function (t) {
             var d2 = interpolate(t);
@@ -945,24 +965,15 @@ function updateTable() {
 /**
  * Based on the size of the parent element, determine the maximum size
  * that can can contain a rect of with the desired aspect ratio.
- * @param parent
- * @param aspectRatio
- * @param margin The margin, top, right, bottom, left.  Note this is not
- * a clear margin like a CSS margin: it just constrains the size of the
- * graphing area, not including the axes.  the axes are drawn into the
- * margin area.  This makes the calculation a little weird, but it is
- * easier for d3 to compute scale distances.
- * @param mustFit If true, then the box is not allowed to grow
+ * @param element
  * @return Object containing multiple sizes:
  * w,h: total svg drawing size, including axes
  * chartW,chartH: area where the main chart resides, without axes
  * parentW,parentH: total inner area of the parent container.
  *
  */
-function maxSize(parent, /*aspectRatio, margin,*/ mustFit) {
-  // if (!margin) {
-  //     margin = {top: 10, right: 10, bottom: 10, left: 10};
-  // }
+function maxSize(element) {
+  var parent = element.parent();
   var parentW = parent.innerWidth(),
           parentH = parent.innerHeight(),
           w = parentW,
@@ -984,18 +995,10 @@ function maxSize(parent, /*aspectRatio, margin,*/ mustFit) {
   }
   if (w / h < config.aspectRatio) {
     // the area is too too tall/narrow
-    // if (mustFit) {
     h = w / config.aspectRatio;  // shrink the height
-    // } else {
-    //     w = config.aspectRatio * h;  // grow the width
-    // }
   } else {
     // the area is too short/wide
-    // if (mustFit) {
-    //     w = h * config.aspectRatio;  // shrink the width
-    // } else {
     h = w / config.aspectRatio;  // grow the height
-    // }
   }
   return {
     w: w,

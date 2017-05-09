@@ -72,7 +72,7 @@ function resizeChart(selector) {
             size.x = element.width();
             size.y = element.height();
             console.log(size.x+','+size.y);
-            generateCharts("#chart");
+            generateCharts(selector);
         }
     }, 300);
     return true;
