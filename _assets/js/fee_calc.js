@@ -45,9 +45,11 @@ function fetchData(callback) {
             "You Keep": item.keptEarnings,
             "Fund Fees": item.totalFundFees,
             "Advisor Fees": item.totalAdvisorFees,
-            "Lost Earnings": item.totalLostEarnings,
+            "Lost Earnings": item.totalLostEarnings - item.totalFundFees - item.totalAdvisorFees,
+            "Total Lost Earnings": item.totalLostEarnings,
             "Total Earnings": item.totalEarnings,
-            total: item.keptEarnings + item.totalFundFees + item.totalAdvisorFees + item.totalLostEarnings
+            "You Lose": item.totalEarnings - item.keptEarnings,
+//            total: item.keptEarnings + item.totalFundFees + item.totalAdvisorFees + item.totalLostEarnings
         };
         data.push(year);
     });

@@ -32,26 +32,27 @@
   </head>
   <body class="fee-calculator">
     {% include return-header.html %}
+    <div>
     <div class="pmd-card pmd-z-depth">
-      <div class="row chart-btn-group visible-xs visible-sm">
-        <div class="col-xs-12">
+      <div class="chart-btn-group">
+        <!--<div class="col-xs-12">-->
           <div class="btn-group">
-            <a class="btn pmd-ripple-effect pmd-btn-raised chart-area" type="button" title="Area Chart" onclick="showChart('area', '#chart'); return false;">
+            <a class="btn pmd-ripple-effect pmd-btn chart-area" type="button" title="Area Chart" onclick="showChart('area', '#chart'); return false;">
               <!--<img src="uploads/fee-chart.png">-->Area Chart
-              <div class="shade"></div>
+              <!--<div class="shade"></div>-->
             </a>
-            <a class="btn pmd-ripple-effect pmd-btn-raised chart-pie" type="button" title="Pie Chart" onclick="showChart('pie', '#chart'); return false;">
+            <a class="btn pmd-ripple-effect pmd-btn chart-pie" type="button" title="Pie Chart" onclick="showChart('pie', '#chart'); return false;">
               <!--<img src="uploads/fee-pie.png">-->Pie Chart
-              <div class="shade"></div>
+              <!--<div class="shade"></div>-->
             </a>
-            <a class="btn pmd-ripple-effect pmd-btn-raised chart-bar" type="button" title="Bar Chart" onclick="showChart('bar', '#chart'); return false;">
+            <a class="btn pmd-ripple-effect pmd-btn chart-bar" type="button" title="Bar Chart" onclick="showChart('bar', '#chart'); return false;">
               <!--<img src="uploads/fee-table.png">-->Bar Chart
-              <div class="shade"></div>
+              <!--<div class="shade"></div>-->
             </a>
           </div>
-        </div>
+        <!--</div>-->
       </div>
-      <div class="row chart">
+      <div class="chart">
         <div id="chart">
           <div class="chart-segment area-chart">
             <div class="rel">
@@ -117,6 +118,7 @@
           </div>
         </div>
         </div>
+    </div>
     </div>
 
     <!-- jQuery before Propeller.js -->

@@ -1,33 +1,37 @@
-$cf-keep-green: #3f3;
-$cf-lose-red: #f33;
+$cf-keep-green: #42bd41; //rgba(50,255,50, .4);
+$cf-lose-red: #f33; // rgba(255,50,50, .4);
+$cf-fund-fees-red: #f82;  // rgba(255,127,30, .4)
+$cf-advisor-fees-red: #f88; // rgba(255,127,127, .4)
 
 .fee-calculator {
 
     .chart-btn-group {
         text-align: center;
+        margin-top: 0px;
 
         .btn-group {
 
             a {
-                padding: 1px;
-                margin: 0px 5px;
-                border: none;
-                min-width: 54px;
-                background-color: white;
-                overflow: hidden;
+              margin: 0px;
+              border: solid thin;
+              min-width: 54px;
+              background-color: white;
+              overflow: hidden;
+              color: $cf-fund-fees-red;
+              width: 33%;
             }
-            a img {
-                max-height: 2rem;
-            }
-            a div.shade {
-                position: absolute;
-                top: -1%;
-                left: -1%;
-                height: 102%;
-                width: 102%;
-                background-color: rgba(0,0,0, .2);
+
+            a.selected {
+              font-weight: 900;
+              background-color: $cf-fund-fees-red;
+              color: white;
+              border: solid thin $cf-fund-fees-red;
             }
         }
+    }
+
+    .chart {
+        margin-top: 5px;
     }
 
     #chart {
@@ -47,19 +51,20 @@ $cf-lose-red: #f33;
         position: absolute;
     }
 
+    .chart-overlay {
+      width: 100%;
+    }
+
+    .row {
+        margin-top: 1rem;
+    }
+
+
     // > xs
     @media only screen and (min-width: 768px) {
         // max-width: 1200px;
         display: block;
         margin: auto;
-        .row {
-            margin-top: 1rem;
-        }
-
-        .row.chart-btn-group {
-            // margin-top: 5px;
-        }
-
         .pmd-card {
             margin: auto;
             min-height: 30rem;
@@ -156,14 +161,14 @@ $cf-lose-red: #f33;
         }
 
         .area-0, .legend-0 {
-            fill: #42bd41;
+            fill: $cf-keep-green;
             // fill-opacity: 0.3;
         }
 
         .area-1, .legend-1,
         .area-2, .legend-2,
         .area-3, .legend-3  {
-            fill: #ff0000;
+            fill: $cf-lose-red;
             // fill-opacity: 0.3;
         }
         .line0, .legend-0,
@@ -192,22 +197,14 @@ $cf-lose-red: #f33;
             }
         }
 
-        // .legend rect {
-        //     stroke-width: 1px;
-        // }
-        // .legend .mask {
-        //     fill: white;
-        //     fill-opacity: .75;
-        //     stroke: lightgray;
-        // }
+        .x-axis {
+          font-size: 75%;
+        }
+
         .x-axis-label {
             font-size: 80%;
             text-anchor: middle;
         }
-
-        // .chart-overlay {
-        //     stroke-opacity: .2;
-        // }
 
     }
 
@@ -224,26 +221,25 @@ $cf-lose-red: #f33;
             }
         }
 
-        polyline{
-            stroke: black;
+        polyline {
             stroke-width: 1px;
             fill: none;
         }
 
-        path.grad-radial-0:hover {
-            fill: url(#gradHL0);
+        polyline.keep {
+          stroke: $cf-keep-green;
         }
 
-        path.grad-radial-1:hover {
-            fill: url(#gradHL1);
+        polyline.lose {
+          stroke: $cf-lose-red;
         }
 
-        path.grad-radial-2:hover {
-            fill: url(#gradHL2);
+        path.keep {
+          fill: $cf-keep-green;
         }
 
-        path.grad-radial-3:hover {
-            fill: url(#gradHL3);
+        path.lose {
+          fill: $cf-lose-red;
         }
 
         path:hover {
@@ -251,26 +247,22 @@ $cf-lose-red: #f33;
             stroke-width: 1px;
         }
 
-        .labels .amount {
-            font-size: 80%;
-            font-weight: 600;
-            font-style: italic;
-            // transform: translate(0px, 1.8em);
-            // -webkit-transform: translate(74px,0px);
-        }
-        .labels .percent {
-            font-size: 80%;
-            font-style: italic;
-            fill: gray;
+        .labels .keep {
+          fill: $cf-keep-green;
         }
 
-        .percents text{
-            font-style: italic;
-            font-weight: 700;
-            fill: white;
-            text-anchor: middle;
-            dominant-baseline: middle;
+        .labels .lose {
+          fill: $cf-lose-red;
         }
+
+        .labels .pie-label {
+            font-size: 80%;
+            font-style: italic;
+        }
+        .labels .percent {
+            font-weight: 600;
+        }
+
     }
 
     .axis .domain {
@@ -279,9 +271,11 @@ $cf-lose-red: #f33;
 
     .area-chart .chart-overlay {
         .legend {
-            width: 75%;
+            width: 15rem;
             height: 25%;
             font-size: 90%;
+            margin-left: 40px;
+            margin-top: 25px;
         }
 
         td.legend-key-keep>div,
@@ -307,43 +301,69 @@ $cf-lose-red: #f33;
         }
     }
 
-    .bar-chart .chart-overlay {
-      table {
-          margin: auto;
-          margin-top: 90px;
-          border-collapse: collapse;
-      }
 
-      td {
-          border: solid thin $cf-trim;
-      }
+    .bar-chart {
 
-      td {
-          padding: 0px .5rem;
+      .rect-0 {
+        fill: $cf-keep-green;
       }
+      .rect-1 {
+        fill: $cf-lose-red;
+      }
+      .rect-2 {
+        fill: $cf-advisor-fees-red;
+      }
+      .rect-3 {
+        fill: $cf-fund-fees-red;
+      }
+      .chart-overlay {
+        table {
+            margin: auto;
+            margin-top: 75px;
+            margin-left: 40px;
+            border-collapse: collapse;
+        }
 
-      td.value {
-          text-align: right;
-      }
+        td,th {
+            padding: 0px .5rem;
+        }
 
-      tr.keep>td.value {
-          background-color: rgba(50,255,50, .4);
-      }
-      tr.lose>td.value {
-          background-color: rgba(255,50,50, .5);
-      }
-      tr.lose-total>td.value {
-          background-color: rgba(255,50,50, .75);
-      }
-      //  xs
-      @media only screen and (max-width: 767px) {
-          padding: 0px;
+        th {
+          font-size: 60%;
+          font-weight: 400;
+        }
+        td.value {
+            text-align: right;
+            font-weight: 600;
+        }
 
-          table {
-              font-size: 75%;
-              margin-top: 10px;
-          }
+        tr.keep {
+            color: $cf-keep-green;//rgba(50,255,50, .4);
+        }
+        tr.fund-fees {
+            color: $cf-fund-fees-red;//rgba(50,255,50, .4);
+        }
+        tr.advisor-fees {
+            color: $cf-advisor-fees-red;//rgba(50,255,50, .4);
+        }
+        tr.advisor-fees {
+           color: $cf-advisor-fees-red;//rgba(50,255,50, .4);
+        }
+        tr.lost-earnings,
+        tr.lose,
+        tr.lose-total {
+            color: $cf-lose-red;//rgba(255,50,50, .75);
+        }
+        //  xs
+        @media only screen and (max-width: 767px) {
+            padding: 0px;
 
+            table {
+                font-size: 75%;
+                margin-top: 10px;
+            }
+
+        }
       }
     }
 

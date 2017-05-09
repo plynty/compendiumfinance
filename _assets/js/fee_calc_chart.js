@@ -6,14 +6,14 @@
 var isIE = /*@cc_on!@*/false || !!document.documentMode;
 
 var config = {
-  minChartWidth: 300,
+  minChartWidth: 350,
   maxChartWidth: 500,
   aspectRatio: 1.5,
-  margin: {top: 10, right: 45, bottom: 40, left: 15}, // margin for d3 area chart to draw axes
+  margin: {top: 10, right: 15, bottom: 40, left: 15}, // margin for d3 area chart to draw axes
   curve: 'basis',
 
-  keys: ["You Keep", "Fund Fees", "Advisor Fees", "Lost Earnings"],
-  pieKeys: ["You Keep", "You Lose"],
+  keysDetail: ["You Keep", "Lost Earnings", "Advisor Fees", "Fund Fees"],
+  keysKeepLose: ["You Keep", "You Lose"],
 
   colors: [
     "#3f3", // green
@@ -52,6 +52,7 @@ function generateCharts(chartDivSelector) {
   initLegend();
   initPie();
   initTable();
+  initBarStack();
 
 
   /** validate the inputs, will trigger a render */
@@ -75,6 +76,7 @@ function updateStack() {
     renderAxes(data);
     renderAreaStack(data);
     renderLegend(data);
+    renderBarStack();
   });
 }
 
@@ -111,11 +113,11 @@ function showChart(chartType) {
 }
 
 function shadeButtons() {
-  $('.chart-rotate .btn-group .btn').each(function () {
+  $('.chart-btn-group .btn-group .btn').each(function () {
     if ($(this).hasClass('chart-' + config.showing)) {
-      $(this).find('div.shade').hide();
+      $(this).addClass('selected');
     } else {
-      $(this).find('div.shade').show();
+      $(this).removeClass('selected');
     }
   });
 }
@@ -188,14 +190,8 @@ function createChartGeometry(chartDivSelector) {
       .attr("viewBox", "0 0 " + width + " " + height);
   barGeom.defs = barGeom.svg.append("defs");
   barGeom.g = barGeom.svg.append("g")
-    .attr("class", "pie-chart");
+    .attr("class", "bar-chart");
   barGeom.overlay = barGeom.topDiv.select('.chart-overlay');
-//  barGeom.overlay.attr("class", "table")
-//    .style("position", "absolute")
-//    .style("top", "0px")
-//    .style("left", "0px")
-//    .style("min-width", size.w + "px")
-//    .style("min-height", size.h + "px");
 
   chartDiv.selectAll('.chart-segment')
       .style('width', size.chartW+'px')
@@ -209,8 +205,13 @@ function createChartGeometry(chartDivSelector) {
 
   chartDiv.style('height', size.h+'px')
       .style('width', size.totalW+'px');
-  // svg.attr("viewBox", "0 0 "+size.totalW+" "+size.h);
-//  svg.attr("width", size.totalW).attr("height", size.h);
+
+  if (size.wide3) {
+    $('.chart-btn-group').hide();
+  } else {
+    $('.chart-btn-group').show();
+    $('.chart-btn-group .btn-group').css('width', size.totalW+'px');
+  }
 
   geom = {
     chartDiv: chartDiv,
@@ -218,7 +219,8 @@ function createChartGeometry(chartDivSelector) {
     pie: pieGeom,
     bar: barGeom,
     width: width,
-    height: height
+    height: height,
+    wide3: size.wide3
   };
   return geom;
 }
@@ -255,7 +257,6 @@ function initAxes() {
 /**
  * Render the vertical and horizontal axes
  * @param data The chart data (determines max limits of the axes)
- * @return {x: xScale, y: yScale}
  */
 function renderAxes(data) {
   if (!geom) {
@@ -264,7 +265,7 @@ function renderAxes(data) {
   geom.area.xScale.domain([1, data.length]);
 
   geom.area.yScale.domain([0, d3.max(data, function (d) {
-      return d.total;
+      return d["Total Earnings"];
     })]).nice();
 
   var g = geom.area.g;
@@ -279,20 +280,11 @@ function renderAxes(data) {
   var t = g.transition().duration(2000);
   t.select(".x-axis")
       .call(d3.axisBottom(geom.area.xScale)
-          .ticks(data.length)
-          .tickFormat(function (tick) {
-            if (tickGap === 1 || tick === 1 || tick === data.length) {
-              return tick;
-            }
-            if (tick % tickGap === 0 && (data.length - tick) * tickWidth >= minNumberPx) {
-              return tick;
-            }
-            return "";
-          })
+        .tickValues([1,data.length])
       );
-  t.select(".y-axis")
-      .call(d3.axisRight(geom.area.yScale)
-          .ticks(5, "$s"));
+//  t.select(".y-axis")
+//      .call(d3.axisRight(geom.area.yScale)
+//          .ticks(5, "$s"));
 }
 
 /**
@@ -303,7 +295,10 @@ function initLegend() {
   if (!geom) {
     return;
   }
-  var legendDiv = geom.area.overlay;
+  var legendDiv = geom.area.overlay.select('.legend');
+  if (geom.wide3) {
+    legendDiv.style('display', 'none');
+  }
 
   var table = legendDiv.append("xhtml:table");
 
@@ -325,55 +320,65 @@ function initLegend() {
  * @param {Object} data Chart data
  */
 function renderLegend(data) {
-  var values = data[data.length - 1];
-  var loseTotal = values["Fund Fees"] + values["Advisor Fees"] + values["Lost Earnings"];
-  var keepTotal = values.total - loseTotal;
+  var legendDiv = geom.area.overlay.select('.legend');
+  if (geom.wide3) {
+    legendDiv.style('display', 'none');
+    return;
+  }
+  legendDiv.style('display', 'block');
+
+  var lastYearValues = data[data.length - 1];
+  var loseTotal = lastYearValues["You Lose"];
+  var keepTotal = lastYearValues["You Keep"];
   var losePercent = loseTotal / (loseTotal + keepTotal);
   var keepPercent = keepTotal / (loseTotal + keepTotal);
   // var grandTotal = data[data.length-1].total;
 
-  geom.area.overlay.select('#legend-keep-percent').text(d3.format(".0%")(keepPercent));
-  geom.area.overlay.select('#legend-lose-percent').text(d3.format(".0%")(losePercent));
-  geom.area.overlay.select('#legend-keep').text(d3.format("$,.0f")(keepTotal));
-  geom.area.overlay.select('#legend-lose').text(d3.format("$,.0f")(loseTotal));
+  legendDiv.select('#legend-keep-percent').text(d3.format(".0%")(keepPercent));
+  legendDiv.select('#legend-lose-percent').text(d3.format(".0%")(losePercent));
+  legendDiv.select('#legend-keep').text(d3.format("$,.0f")(keepTotal));
+  legendDiv.select('#legend-lose').text(d3.format("$,.0f")(loseTotal));
 }
 
+
+function initBarStack() {
+    var g = geom.bar.g;
+    g.append("g")
+        .attr("transform", "translate("+((geom.width-100)*.8)+" 0)");
+}
 /**
  * Render a stacked bar chart
- * @param data The chart data
  */
-function renderBarStack(data) {
+function renderBarStack() {
   if (!geom) {
     return;
   }
-  var g = geom.bar.g;
-  g.append("g")
-      .selectAll("g")
-      .data(d3.stack().keys(config.keys)(data))
-      .enter().append("g")
-      .attr("class", function (d, i) {
-        return "grad-linear-" + i;
-      })
-      .selectAll("rect")
-      .data(function (d) {
-        d.forEach(function (element) {
-          element.key = d.key;
+
+  fetchData(function(error, data) {
+    var g = geom.bar.g;
+    var lastYear = [data[data.length - 1]];
+    var yScale = d3.scaleLinear()
+        .rangeRound([geom.height * .9, geom.height * .1])
+        .domain([0, lastYear[0]["Total Earnings"]]);
+    var stack = d3.stack();
+    stack.keys(config.keysDetail);
+    var rects = g.select("g")
+          .selectAll("rect");
+//        .selectAll("g");
+    rects.data(stack(lastYear))
+        .enter().append("rect")
+        .attr("class", function(d, i) {
+          return "rect-"+i;
+        })
+        .attr("x", 0)
+        .attr("width", 100)
+        .merge(rects).transition().duration(2000)
+        .attrTween("y", function (d) {
+          return d3.interpolateNumber(this.getAttribute("y"), yScale(d[0][1]));
+        })
+        .attrTween("height", function (d) {
+          return d3.interpolateNumber(this.getAttribute("height"), yScale(d[0][0]) - yScale(d[0][1]));
         });
-        return d;
-      })
-      .enter().append("rect")
-      .attr("x", function (d) {
-        return geom.bar.xScale(d.data.Year);
-      })
-      .attr("y", function (d) {
-        return geom.bar.xScale(d[1]);
-      })
-      .attr("height", function (d) {
-        return geom.bar.xScale(d[0]) - geom.bar.yScale(d[1]);
-      })
-      .attr("width", geom.bar.xScale.bandwidth())
-      .append("title").text(function (d) {
-    return d.key + ": " + d3.format("$,.0f")(d.data[d.key]);
   });
 }
 
@@ -387,23 +392,23 @@ function renderAreaStack() {
   var stack = d3.stack();
 
   var area = d3.area()
-          .x(function (d, i) {
-            return geom.area.xScale(d.data.Year/*i+1*/);
-          })
-          .y0(function (d) {
-            return geom.area.yScale(d[0]);
-          })
-          .y1(function (d) {
-            return geom.area.yScale(d[1]);
-          });
+      .x(function (d, i) {
+        return geom.area.xScale(d.data.Year/*i+1*/);
+      })
+      .y0(function (d) {
+        return geom.area.yScale(d[0]);
+      })
+      .y1(function (d) {
+        return geom.area.yScale(d[1]);
+      });
 
   var line1 = d3.line()
-          .x(function (d, i) {
-            return geom.area.xScale(d.data.Year/*i+1*/);
-          })
-          .y(function (d) {
-            return geom.area.yScale(d[1]);
-          });
+      .x(function (d, i) {
+        return geom.area.xScale(d.data.Year/*i+1*/);
+      })
+      .y(function (d) {
+        return geom.area.yScale(d[1]);
+      });
 
   switch (config.curve) {
     case "cardinal":
@@ -453,10 +458,10 @@ function renderAreaStack() {
       }
     }
 
-    stack.keys(config.keys);
+    stack.keys(config.keysKeepLose);
 
     // a 'layer' is one tier of the stack
-    var layers = geom.area.g/*.select(".graph")*/.selectAll(".layer");
+    var layers = geom.area.g.selectAll(".layer");
     var layer = layers.data(stack(thinData));
 
     layer.exit().remove();
@@ -619,18 +624,19 @@ function initPie() {
   geom.pie.g.attr("transform", "translate(" + centerX + "," + centerY + ")");
 
   geom.pie.colorScale = d3.scaleOrdinal()
-      .domain(config.pieKeys)
+      .domain(config.keysKeepLose)
       .range(config.pieColors);
 
   var g = geom.pie.g;
   g.append("g")
-          .attr("class", "slices");
+    .attr("class", "slices");
   g.append("g")
-          .attr("class", "labels");
+    .attr("class", "labels");
+
   g.append("g")
-          .attr("class", "percents");
+    .attr("class", "percents");
   g.append("g")
-          .attr("class", "lines");
+    .attr("class", "lines");
 }
 
 function updatePie() {
@@ -639,22 +645,22 @@ function updatePie() {
   }
 
   fetchData(function (error, data) {
-    var values = data[data.length - 1];
-    var loseTotal = values["Fund Fees"] + values["Advisor Fees"] + values["Lost Earnings"];
-    var keepTotal = values.total - loseTotal;
+    var lastYearValues = data[data.length - 1];
+    var loseTotal = lastYearValues["You Lose"];
+    var keepTotal = lastYearValues["You Keep"];
 
     var pieData = [
       {
-        label: config.pieKeys[0],
+        label: config.keysKeepLose[0],
         value: keepTotal,
-        fmtValue: d3.format('$,.0f')(keepTotal),
-        percent: d3.format('.0%')(keepTotal / values.total)
+//        fmtValue: d3.format('$,.0f')(keepTotal),
+        percent: keepTotal / (keepTotal + loseTotal)
       },
       {
-        label: config.pieKeys[1],
+        label: config.keysKeepLose[1],
         value: loseTotal,
-        fmtValue: d3.format('$,.0f')(loseTotal),
-        percent: d3.format('.0%')(loseTotal / values.total)
+//        fmtValue: d3.format('$,.0f')(loseTotal),
+        percent: loseTotal / (keepTotal + loseTotal)
       }
     ];
 
@@ -666,7 +672,7 @@ function updatePie() {
 
     var arc = d3.arc()
             .outerRadius(geom.pie.radius * 0.8)
-            .innerRadius(0);
+            .innerRadius(geom.pie.radius * 0.6);
 
     var innerArc = d3.arc()
             .innerRadius(geom.pie.radius * 0.7)
@@ -687,35 +693,34 @@ function updatePie() {
 
     var g = geom.pie.g;
     /* ------- PIE SLICES -------*/
-    var slice = g.select(".slices").selectAll(".slice")
-            .data(pie(pieData)/*, key*/);
+    var slicePaths = g.select(".slices").selectAll(".path")
+        .data(pie(pieData), key);
 
-    slice.exit()
-            .remove();
+    slicePaths.exit()
+        .remove();
 
-    var slices = slice.enter()
-            .append("path")
-            .attr("class", function (d, i) {
-              return "slice grad-radial-" + i;
-            })
-            .attr("fill", function (d, i) {
-              return "url(#grad" + i + ")";
-            });
+    var sliceEnter = slicePaths.enter()
+        .append("path")
+        .attr("class", function (d, i) {
+          return i === 0 ? "keep" : "lose";
+        });
 
-    slices.merge(slice)
-            .transition().duration(1000)
-            .attrTween("d", function (d) {
-              this._current = this._current || d;
-              var interpolate = d3.interpolate(this._current, d);
-              this._current = interpolate(0);
-              return function (t) {
-                var d2 = interpolate(t);
-                return arc(d2);
-              };
-            });
-    slices.append("title").text(function (d) {
-      return "Total: " + d.data.fmtValue;
-    });
+    sliceEnter.merge(slicePaths)
+        .transition().duration(1500)
+        .attrTween("d", function (d) {
+          this._current = this._current || d;
+          var interStart = d3.interpolate(this._current.startAngle, d.startAngle);
+          var interEnd = d3.interpolate(this._current.endAngle, d.endAngle);
+          this._current.startAngle = interStart(0);
+          this._current.endAngle = interEnd(0);
+          return function (t) {
+//            console.log(t);
+//            var d2 = interpolate(t);
+            d.startAngle = interStart(t);
+            d.endAngle = interEnd(t);
+            return arc(d);
+          };
+        });
 
     /* ------- TEXT LABELS -------*/
 
@@ -724,104 +729,127 @@ function updatePie() {
     }
 
     var text = g.select(".labels").selectAll("g")
-            .data(pie(pieData), key);
+        .data(pie(pieData), key);
 
-    var textMerge = text.enter()
-            .append("g")
-            .merge(text);
+    var textEnter = text.enter()
+        .append("g")
+        .attr("class", function(d, i) {
+          return i === 0 ? "keep" : "lose";
+        });
+    textEnter.append("text")
+        .attr("class", "pie-label")
+        .attr("y", 20)
+        .text(function (d) {
+          return d.data.label;
+        });
+    textEnter.append("text")
+        .attr("class", "percent");
 
-    textMerge.selectAll("text").remove();
-    textMerge.append("text")
-            .attr("class", "pie-label")
-            .text(function (d) {
-              return d.data.label;
-            });
-    textMerge.append("text")
-            .attr("class", "amount")
-            .attr("y", "20")
-            .text(function (d) {
-              return d.data.fmtValue;
-            });
+    var textMerge = textEnter
+        .merge(text);
 
-    textMerge.transition().duration(1000)
-            .attrTween("transform", function (d) {
-              this._current = this._current || d;
-              var interpolate = d3.interpolate(this._current, d);
-              this._current = interpolate(0);
-              return function (t) {
-                var d2 = interpolate(t);
-                var pos = outerArc.centroid(d2);
-                pos[0] = geom.pie.radius * (midAngle(d2) < Math.PI ? 1 : -1);
-                pos[1] -= 10; // adjust for multi-line text
-                return "translate(" + pos + ")";
-              };
-            })
-            .styleTween("text-anchor", function (d) {
-              this._current = this._current || d;
-              var interpolate = d3.interpolate(this._current, d);
-              this._current = interpolate(0);
-              return function (t) {
-                var d2 = interpolate(t);
-                return midAngle(d2) < Math.PI ? "start" : "end";
-              };
-            });
+
+    textMerge.transition().duration(1500)
+        .select('text.percent')
+        .tween('percent-label', function(d) {
+          this._current = this._current || d.data.percent;
+          var interpolate = d3.interpolateNumber(this._current, d.data.percent);
+          this._current = interpolate(0);
+          var node = this;
+          return function (t) {
+            var d2 = interpolate(t);
+            node.innerHTML = d3.format('.0%')(d2);
+          };
+        });
+
+    textMerge.transition().duration(1500)
+        .attrTween("transform", function (d) {
+          this._current = this._current || d;
+          var interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(0);
+          return function (t) {
+            var d2 = interpolate(t);
+            var pos = outerArc.centroid(d2);
+            pos[0] = geom.pie.radius * (midAngle(d2) < Math.PI ? 1 : -1);
+            pos[1] -= 10; // adjust for multi-line text
+            return "translate(" + pos + ")";
+          };
+        })
+        .styleTween("text-anchor", function (d) {
+          this._current = this._current || d;
+          var interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(0);
+          return function (t) {
+            var d2 = interpolate(t);
+            return midAngle(d2) < Math.PI ? "start" : "end";
+          };
+        });
 
     text.exit()
             .remove();
 
-    var percents = g.select(".percents").selectAll("g")
-            .data(pie(pieData), key);
-
-    var percentMerge = percents.enter()
-            .append("g")
-            .merge(percents);
-
-    percentMerge.selectAll("text").remove();
-    percentMerge.append("text")
-            .attr("class", "percent")
-            .text(function (d) {
-              return d.data.percent;
-            });
-
-    percentMerge.transition().duration(1000)
-            .attrTween("transform", function (d) {
-              this._current = this._current || d;
-              var interpolate = d3.interpolate(this._current, d);
-              this._current = interpolate(0);
-              return function (t) {
-                var d2 = interpolate(t);
-                var pos = percentArc.centroid(d2);
-                // pos[0] = chartCtx.radius * (midAngle(d2) < Math.PI ? 1 : -1);
-                // pos[1] -= 10; // adjust for multi-line text
-                return "translate(" + pos + ")";
-              };
-            });
-
-    percents.exit()
-            .remove();
+//    var percents = g.select(".percents").selectAll("g")
+//            .data(pie(pieData), key);
+//
+//    var percentEnter = percents.enter().append("g");
+//    percentEnter.append("text").attr("class", "percent");
+//
+//    var percentMerge = percentEnter.merge(percents);
+//
+//
+//    percentMerge.transition().duration(1500)
+//        .select('text.percent')
+//        .tween('percent-label', function(d) {
+//          this._current = this._current || d.data.percent;
+//          var interpolate = d3.interpolateNumber(this._current, d.data.percent);
+//          this._current = interpolate(0);
+//          var node = this;
+//          return function (t) {
+//            var d2 = interpolate(t);
+//            node.innerHTML = d3.format('.0%')(d2);
+//          };
+//        });
+//
+//    percentMerge.transition().duration(1500)
+//        .attrTween("transform", function (d) {
+//          this._current = this._current || d;
+//          var interpolate = d3.interpolate(this._current, d);
+//          this._current = interpolate(0);
+//          return function (t) {
+//            var d2 = interpolate(t);
+//            var pos = percentArc.centroid(d2);
+//            return "translate(" + pos + ")";
+//          };
+//        });
+//
+//    percents.exit()
+//        .remove();
     /* ------- SLICE TO TEXT POLYLINES -------*/
 
     var polyline = g.select(".lines").selectAll("polyline")
-            .data(pie(pieData), key);
+        .data(pie(pieData), key);
 
     polyline.enter()
-            .append("polyline")
-            .merge(polyline)
-            .transition().duration(1000)
-            .attrTween("points", function (d) {
-              this._current = this._current || d;
-              var interpolate = d3.interpolate(this._current, d);
-              this._current = interpolate(0);
-              return function (t) {
-                var d2 = interpolate(t);
-                var pos = outerArc.centroid(d2);
-                pos[0] = geom.pie.radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-                return [innerArc.centroid(d2), outerArc.centroid(d2), pos];
-              };
-            });
+        .append("polyline")
+        .attr("class", function(d, i) {
+          return i === 0 ? "keep" : "lose";
+        })
+        .merge(polyline)
+        .transition().duration(1500)
+        .attrTween("points", function (d) {
+          this._current = this._current || d;
+          var interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(0);
+          return function (t) {
+            var d2 = interpolate(t);
+            var pos = outerArc.centroid(d2);
+            pos[0] = geom.pie.radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+            return [innerArc.centroid(d2), outerArc.centroid(d2), pos];
+          };
+        });
 
     polyline.exit()
-            .remove();
+        .remove();
   });
 }
 
@@ -829,24 +857,24 @@ function initTable() {
 
   var div = geom.bar.overlay;
   var table = div.append("xhtml:table");
-  var tr = table.append("xhtml:tr");
-  tr.append("xhtml:td").text("Total Earnings");
-  tr.append("xhtml:td").attr("id", "td-total-earnings").attr("class", "value");
-  tr = table.append("xhtml:tr").attr("class", "keep");
-  tr.append("xhtml:td").text("You Keep");
-  tr.append("xhtml:td").attr("id", "td-you-keep").attr("class", "value");
-  tr = table.append("xhtml:tr").attr("class", "lose");
-  tr.append("xhtml:td").text("Fund Fees");
+  var tr = //table.append("xhtml:tr");
+//  tr.append("xhtml:td").text("Total Earnings");
+//  tr.append("xhtml:td").attr("id", "td-total-earnings").attr("class", "value");
+  tr = table.append("xhtml:tr").attr("class", "fund-fees");
+  tr.append("xhtml:th").text("Fund Fees");
   tr.append("xhtml:td").attr("id", "td-fund-fees").attr("class", "value");
-  tr = table.append("xhtml:tr").attr("class", "lose");
-  tr.append("xhtml:td").text("Advisor Fees");
+  tr = table.append("xhtml:tr").attr("class", "advisor-fees");
+  tr.append("xhtml:th").text("Advisor Fees");
   tr.append("xhtml:td").attr("id", "td-advisor-fees").attr("class", "value");
-  tr = table.append("xhtml:tr").attr("class", "lose");
-  tr.append("xhtml:td").text("Lost Earnings");
+  tr = table.append("xhtml:tr").attr("class", "lost-earnings");
+  tr.append("xhtml:th").text("Lost Earnings");
   tr.append("xhtml:td").attr("id", "td-lost-earnings").attr("class", "value");
   tr = table.append("xhtml:tr").attr("class", "lose-total");
-  tr.append("xhtml:td").text("Total Lost");
-  tr.append("xhtml:td").attr("id", "td-total-lost").attr("class", "value");
+  tr = table.append("xhtml:tr").attr("class", "keep");
+  tr.append("xhtml:th").text("You Keep");
+  tr.append("xhtml:td").attr("id", "td-you-keep").attr("class", "value");
+//  tr.append("xhtml:td").text("Total Lost");
+//  tr.append("xhtml:td").attr("id", "td-total-lost").attr("class", "value");
 }
 
 function updateTable() {
@@ -855,16 +883,62 @@ function updateTable() {
   }
 
   fetchData(function (error, data) {
-    var values = data[data.length - 1];
-    var loseTotal = values["Fund Fees"] + values["Advisor Fees"] + values["Lost Earnings"];
-    var keepTotal = values.total - loseTotal;
+    var lastYearValues = data[data.length - 1];
 
-    geom.bar.overlay.select('#td-total-earnings').text(d3.format('$,.0f')(values.total));
-    geom.bar.overlay.select('#td-you-keep').text(d3.format('$,.0f')(keepTotal));
-    geom.bar.overlay.select('#td-fund-fees').text(d3.format('$,.0f')(values["Fund Fees"]));
-    geom.bar.overlay.select('#td-advisor-fees').text(d3.format('$,.0f')(values["Advisor Fees"]));
-    geom.bar.overlay.select('#td-lost-earnings').text(d3.format('$,.0f')(values["Lost Earnings"]));
-    geom.bar.overlay.select('#td-total-lost').text(d3.format('$,.0f')(loseTotal));
+//    geom.bar.overlay.select('#td-total-earnings').text(d3.format('$,.0f')(lastYearValues["Total Earnings"]));
+//    geom.bar.overlay.select('#td-you-keep').text(d3.format('$,.0f')(lastYearValues["You Keep"]));
+//    geom.bar.overlay.select('#td-fund-fees').text(d3.format('$,.0f')(lastYearValues["Fund Fees"]));
+//    geom.bar.overlay.select('#td-advisor-fees').text(d3.format('$,.0f')(lastYearValues["Advisor Fees"]));
+    geom.bar.overlay.select('#td-lost-earnings').text(d3.format('$,.0f')(lastYearValues["Lost Earnings"]));
+//    geom.bar.overlay.select('#td-total-lost').text(d3.format('$,.0f')(lastYearValues["You Lose"]));
+
+    geom.bar.overlay.select('#td-you-keep').transition().duration(1500)
+        .tween('you-keep', function(d) {
+          this._current = this._current || lastYearValues["You Keep"];
+          var interpolate = d3.interpolateNumber(this._current, lastYearValues["You Keep"]);
+          this._current = interpolate(0);
+          var node = this;
+          return function (t) {
+            var d2 = interpolate(t);
+            node.innerText = d3.format('$,.0f')(d2);
+          };
+        });
+
+    geom.bar.overlay.select('#td-fund-fees').transition().duration(1500)
+        .tween('you-keep', function(d) {
+          this._current = this._current || lastYearValues["Fund Fees"];
+          var interpolate = d3.interpolateNumber(this._current, lastYearValues["Fund Fees"]);
+          this._current = interpolate(0);
+          var node = this;
+          return function (t) {
+            var d2 = interpolate(t);
+            node.innerText = d3.format('$,.0f')(d2);
+          };
+        });
+
+    geom.bar.overlay.select('#td-advisor-fees').transition().duration(1500)
+        .tween('you-keep', function(d) {
+          this._current = this._current || lastYearValues["Advisor Fees"];
+          var interpolate = d3.interpolateNumber(this._current, lastYearValues["Advisor Fees"]);
+          this._current = interpolate(0);
+          var node = this;
+          return function (t) {
+            var d2 = interpolate(t);
+            node.innerText = d3.format('$,.0f')(d2);
+          };
+        });
+
+    geom.bar.overlay.select('#td-lost-earnings').transition().duration(1500)
+        .tween('you-keep', function(d) {
+          this._current = this._current || lastYearValues["Lost Earnings"];
+          var interpolate = d3.interpolateNumber(this._current, lastYearValues["Lost Earnings"]);
+          this._current = interpolate(0);
+          var node = this;
+          return function (t) {
+            var d2 = interpolate(t);
+            node.innerText = d3.format('$,.0f')(d2);
+          };
+        });
   });
 }
 
@@ -895,7 +969,9 @@ function maxSize(parent, /*aspectRatio, margin,*/ mustFit) {
           h = parentH;
   var xOffsets = [0, 0, 0];
   var totalW = w;
+  var wide3 = false;
   if (w >= config.minChartWidth * 3) {
+    wide3 = true;
     w = w / 3;
     xOffsets = [0, w, w * 2];
     config.showing = 'all';
@@ -929,7 +1005,8 @@ function maxSize(parent, /*aspectRatio, margin,*/ mustFit) {
     chartW: w,
     chartH: h,
     xOffsets: xOffsets,
-    totalW: totalW
+    totalW: totalW,
+    wide3: wide3
   };
 }
 
