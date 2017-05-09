@@ -6,7 +6,7 @@ categories:
 position: 13
 source: internal
 bg_img_darken: true
-author: Michael Edesess
+author: Michael Edesess and George Peacock
 lead: What if the most effective investment portfolio was also the most simple and
   the least expensive?
 img: "/uploads/the3simplerulesofinvesting-500.png"
