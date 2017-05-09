@@ -24,7 +24,7 @@ link:
 
 **These momentary snapshots of relative market values of portfolio asset class investments do not have any direct relevance to the formulation of a meaningful investment strategy.**
 
-
+Read more...
  
 Asset allocation refers to the division of a portfolio’s market value at a moment in time among the major asset classes in which it is invested.
 
