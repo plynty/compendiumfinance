@@ -48,7 +48,7 @@ Table 1 presents a two-year example. Consider a $10,000 portfolio initially allo
 
 Table 1. The error of “diversification return” and “rebalancing bonus”
 
-<img src="/uploads/Screen%20Shot%202017-05-04%20at%203.49.39%20PM-3fa594.png" style="max-width: 900px"/>
+<img src="/uploads/Screen%20Shot%202017-05-04%20at%203.49.39%20PM-3fa594.png" style="max-width: 100%"/>
 
 
 In this case, the unrebalanced portfolio earns a slightly higher rate of return over the two years, ending with $11,400 and a two-year annualized rate of return of 6.77%. The rebalanced portfolio ends with a slightly lower $11,388 for a two-year annualized rate of return of 6.71%.
