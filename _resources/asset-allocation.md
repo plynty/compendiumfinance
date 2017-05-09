@@ -29,10 +29,9 @@ Read more...
 Asset allocation refers to the division of a portfolio’s market value at a moment in time among the major asset classes in which it is invested.
 
 For example, those major asset classes could include U.S. equities, U.S. long-term fixed income (i.e., bonds), foreign (non-U.S.) developed economy equities, emerging economy equities, foreign (non-U.S.) bonds, and cash equivalents (i.e., short-term fixed income instruments such as short-term bonds and bank deposits). Asset allocation at a point in time is commonly depicted by a pie chart, as in Figure 1.
-**
-Figure 1. Asset Allocation**
+**Figure 1. Asset Allocation**
 
-![Screen Shot 2017-05-04 at 3.37.24 PM.png](/uploads/Screen%20Shot%202017-05-04%20at%203.37.24%20PM.png)
+<img src="/uploads/Screen%20Shot%202017-05-04%20at%203.37.24%20PM.png" style="max-width: 100%"/>
 
 Asset allocation could include additional asset categories as well, such as real estate, commodities, precious metals (e.g., gold), and “alternative” investments, including private equity and hedge funds (which are often themselves invested in equities).
 
@@ -58,7 +57,9 @@ It is not in general possible, however, to both maximize expected return and min
 
 Therefore Markowitz created a graph with two variables, “expected return” and “volatility of return” (see Figure 2). He labeled the latter – the volatility of a security’s or a portfolio’s return – its “risk.” The problem then became to maximize a portfolio’s expected return, given an acceptable level of risk. (Or vice versa, to minimize a portfolio’s risk, given an acceptable expected return.)
 
-**Figure 2. Markowitz’s Risk-Return Frontier**![Screen Shot 2017-05-04 at 3.39.45 PM.png](/uploads/Screen%20Shot%202017-05-04%20at%203.39.45%20PM.png)
+**Figure 2. Markowitz’s Risk-Return Frontier**
+
+<img src="/uploads/Screen%20Shot%202017-05-04%20at%203.39.45%20PM.png" style="max-width: 100%"/>
 
 
 Furthermore, Markowitz noted that the variabilities of any two securities were more or less correlated. When one went up or down, the other moved up or down more or less simultaneously. The ideal, in order to reduce the risk – the dispersion of possible returns – was to combine securities that did not move up or down together very much, i.e. ones that were relatively uncorrelated.
@@ -108,7 +109,8 @@ Let us say that the seller of the investment services is a financial advisor wor
 
 Advisor Jones asks prospect Smith for information about Smith’s current portfolio. Then Jones constructs a chart as shown in Figure 3.
 **
-Figure 3. “Value Added”**![Screen Shot 2017-05-04 at 3.43.10 PM.png](/uploads/Screen%20Shot%202017-05-04%20at%203.43.10%20PM.png)
+Figure 3. “Value Added”**
+<img src="/uploads/Screen%20Shot%202017-05-04%20at%203.43.10%20PM.png" style="max-width: 100%"/>
 
 
 Jones’s firm has already constructed the efficient frontier of portfolios that supposedly maximize portfolio expected return for each level of portfolio volatility, using – or in truth, not really using – Markowitz’s mean-variance optimization algorithm. (Jones may even say that his firm uses “Nobel prize winning technology” to optimize these portfolios.)
