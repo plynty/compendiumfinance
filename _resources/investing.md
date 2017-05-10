@@ -1,5 +1,5 @@
 ---
-title: \"Safety-Net-Plus\" Investing
+title: '"Safety-Net-Plus" Investing'
 position: 1
 format_class: resource
 section: resource-cards
