@@ -5,11 +5,14 @@ format_class: resource
 section: resource-cards
 no_date: true
 status: current
-lead: 'Rebalancing seems to make sense. Until you look at the numbers.
-
-'
+lead: Portfolio rebalancing is the process of buying or selling assets in your portfolio to
+   maintain your original asset allocation. Most financial advisors recommend regular portfolio
+   rebalancing and suggest that it results in higher returns. We extensively tested rebalancing
+   compared with a no-rebalancing strategy and found that rebalancing does not, on average, produce a higher rate of return.
 source: internal
-link: 
+link:
+img: "/uploads/rebalancing-header.png"
+bg_img_darken: true
 banner_img: "/uploads/rebalancing-header.png"
 ---
 
@@ -24,7 +27,7 @@ banner_img: "/uploads/rebalancing-header.png"
 
 Read more...
 
-Rebalancing began as an offshoot of asset allocation. If the first step of an investment planning process is to create an asset allocation at a moment in time, then the next step must be to decide what to do at the next moment in time, and at all future moments in time. The creators of the method of investment planning that hinges centrally on creating a point-in-time asset allocation, simply assumed that if an asset allocation was “optimal” at one moment of time – that is, if it maximized expected return for a given level of risk – then it must also be optimal at other moments in time. Therefore, they assumed it is necessary to “rebalance” the portfolio by restoring the allocations dictated by the asset allocation that was decided upon originally. 
+Rebalancing began as an offshoot of asset allocation. If the first step of an investment planning process is to create an asset allocation at a moment in time, then the next step must be to decide what to do at the next moment in time, and at all future moments in time. The creators of the method of investment planning that hinges centrally on creating a point-in-time asset allocation, simply assumed that if an asset allocation was “optimal” at one moment of time – that is, if it maximized expected return for a given level of risk – then it must also be optimal at other moments in time. Therefore, they assumed it is necessary to “rebalance” the portfolio by restoring the allocations dictated by the asset allocation that was decided upon originally.
 
 There are two significant problems with the assumption that nothing changes. First, as we point out in another paper (“Asset Allocation”), the process of asset allocation using a mean-variance optimization model is fatally flawed. Second, even if a portfolio’s asset allocation actually were optimized at a moment in time – in the sense in which it is supposedly optimized by the mean-variance optimization algorithm – there is no reason to believe that repeated restoration of that asset allocation would be the optimal investment strategy, or even a good strategy, over time.  In fact, since nearly everything relevant to investing and planning changes over time, it is far more intuitive to assume just the opposite.
 
@@ -57,7 +60,7 @@ But the papers on diversification return and rebalancing bonus do not compare th
 
 This number, however, is not a rate of return that can be achieved using any investment strategy. It is merely an arbitrary combination of the numbers in the table. It is not relevant in any way to a comparison of rebalancing with an alternative strategy. In fact, the average of annualized returns will always be less than both the annualized return on the rebalancing strategy and the annualized return on the non-rebalancing strategy (buy and hold).
 
-Why then do the advocates of “diversification return” and “rebalancing bonus” compare the rate of return for a rebalanced portfolio with a number that cannot be a rate of return on any investment strategy? 
+Why then do the advocates of “diversification return” and “rebalancing bonus” compare the rate of return for a rebalanced portfolio with a number that cannot be a rate of return on any investment strategy?
 
 The answer, sadly, is their inability to thoroughly analyze an issue using mathematics. If one reads the papers on diversification return and rebalancing bonus one will find that they exhibit mathematical formulas. But the mathematics does not clearly specify the comparison to be made, how it will be made and why it will be made. Instead, complicated-looking but inappropriate mathematics is substituted for careful analysis that uses appropriate mathematics.
 
