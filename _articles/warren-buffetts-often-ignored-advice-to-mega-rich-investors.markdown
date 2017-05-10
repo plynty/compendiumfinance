@@ -3,7 +3,7 @@ title: PAYING FOR THE SUN TO RISE
 date: 2016-03-08 12:04:00 Z
 categories:
 - Investing
-position: 13
+position: 14
 bg_img_darken: true
 author: George Peacock
 link: http://www.3simplerulesofinvesting.com/frankinsightoftheday/?p=1327
