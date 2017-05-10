@@ -54,11 +54,12 @@
 
     .pmd-card.article {
         color: black;
+        font-weight: 400;
 
         header h1 {
             text-transform: uppercase;
             font-size: 120%;
-            font-weight: 900;
+            font-weight: 700;
             line-height: 1.35;
         }
         header .category {
@@ -88,8 +89,8 @@
             font-size: 80%;
             position: relative;
             top: 2px;
-        }            
-        
+        }
+
         header .date {
             font-style: italic;
             font-size: 80%;
@@ -101,7 +102,7 @@
             }
             header .date {
                 color: $compendium-fg-gray;
-            }        
+            }
         }
         // > xs
         @media only screen and (min-width: $sm-min) {
@@ -227,7 +228,7 @@
         padding-top: 5px;
         padding-right: 10px;
     }
-    
+
     .pmd-card-media button i,
     .pmd-card-no-media button i {
         position: relative;
@@ -245,7 +246,7 @@
         padding-right: 10px;
         float: right;
     }
-    
+
     .pmd-card-title {
         clear: both;
     }

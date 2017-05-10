@@ -65,7 +65,7 @@ body .search-nav .wide > * {
     .row {
         padding: 1rem .5rem;
         max-width: 1200px;
-        margin: auto;    
+        margin: auto;
     }
     .header-ext {
         display: none;
@@ -216,7 +216,7 @@ body .search-nav .wide > * {
 
     nav.wide a:hover {
         background: $cf-bg-white;
-        font-weight: 900;
+        font-weight: 700;
         color: $cf-category;
     }
 
@@ -284,7 +284,7 @@ body .search-nav .wide > * {
         -webkit-appearance: searchfield-cancel-button;
     }
 
-    
+
 }  // end .cf-header
 
 .cf-header nav a,
@@ -324,7 +324,7 @@ footer.page {
 
   h1 {
       font-size: 125%;
-      margin-top: 0px;    
+      margin-top: 0px;
   }
 
   .trademarks p {
