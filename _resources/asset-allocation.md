@@ -9,6 +9,7 @@ lead: The investment asset allocation process used nearly universally by everyon
   in the financial services industry is flawed and fake.
 source: internal
 link: 
+banner_img: "/uploads/assetallocation-header.png"
 ---
 
 **EXECUTIVE SUMMARY:**
@@ -24,15 +25,15 @@ link:
 
 **These momentary snapshots of relative market values of portfolio asset class investments do not have any direct relevance to the formulation of a meaningful investment strategy.**
 
-
+Read more...
  
 Asset allocation refers to the division of a portfolio’s market value at a moment in time among the major asset classes in which it is invested.
 
 For example, those major asset classes could include U.S. equities, U.S. long-term fixed income (i.e., bonds), foreign (non-U.S.) developed economy equities, emerging economy equities, foreign (non-U.S.) bonds, and cash equivalents (i.e., short-term fixed income instruments such as short-term bonds and bank deposits). Asset allocation at a point in time is commonly depicted by a pie chart, as in Figure 1.
-**
-Figure 1. Asset Allocation**
 
-![Screen Shot 2017-05-04 at 3.37.24 PM.png](/uploads/Screen%20Shot%202017-05-04%20at%203.37.24%20PM.png)
+**Figure 1. Asset Allocation**
+
+<img src="/uploads/Screen%20Shot%202017-05-04%20at%203.37.24%20PM.png" style="max-width: 100%"/>
 
 Asset allocation could include additional asset categories as well, such as real estate, commodities, precious metals (e.g., gold), and “alternative” investments, including private equity and hedge funds (which are often themselves invested in equities).
 
@@ -58,15 +59,16 @@ It is not in general possible, however, to both maximize expected return and min
 
 Therefore Markowitz created a graph with two variables, “expected return” and “volatility of return” (see Figure 2). He labeled the latter – the volatility of a security’s or a portfolio’s return – its “risk.” The problem then became to maximize a portfolio’s expected return, given an acceptable level of risk. (Or vice versa, to minimize a portfolio’s risk, given an acceptable expected return.)
 
-**Figure 2. Markowitz’s Risk-Return Frontier**![Screen Shot 2017-05-04 at 3.39.45 PM.png](/uploads/Screen%20Shot%202017-05-04%20at%203.39.45%20PM.png)
+**Figure 2. Markowitz’s Risk-Return Frontier**
+
+<img src="/uploads/Screen%20Shot%202017-05-04%20at%203.39.45%20PM.png" style="max-width: 100%"/>
 
 
 Furthermore, Markowitz noted that the variabilities of any two securities were more or less correlated. When one went up or down, the other moved up or down more or less simultaneously. The ideal, in order to reduce the risk – the dispersion of possible returns – was to combine securities that did not move up or down together very much, i.e. ones that were relatively uncorrelated.
 
 All of this led Markowitz, a mathematician who worked at the RAND Corporation in 1952, a hotbed of mathematical optimization, to develop an algorithm that calculated the weighted combination of securities that theoretically maximized the expected return for any given level of risk. He called the curve on the risk-return graph formed by the expected return-maximizing portfolios the “efficient frontier” (Figure 2). The method he developed is known as “mean-variance optimization.”
 
-**Nice theory, but unfortunately useless in practice
-**
+**Nice theory, but unfortunately useless in practice**
 
 This theory excited people in the investment and finance professions, especially those who were seeking to make their subject appear more mathematically sophisticated – a mania that continues to this day. It gave them a computable algorithm with which they could – in principle – maximize the return on a portfolio for a given level of “risk.”
 
@@ -107,8 +109,10 @@ Here is how the model is typically used in the process of selling investment ser
 Let us say that the seller of the investment services is a financial advisor working for a large financial firm. We’ll name that advisor Jones. Jones is eager to land a prospective client, whom we will call Smith. If Jones is able to land Smith as a client, Jones will be able to take one percent (1%) of Smith’s portfolio as Jones’s fee every year, perhaps for as long as Smith lives. That is a very large fee indeed. It can drain 25% to 50% of Smith’s future income and savings, or more, and award them to Jones and Jones’s employer, as our fee calculator shows.
 
 Advisor Jones asks prospect Smith for information about Smith’s current portfolio. Then Jones constructs a chart as shown in Figure 3.
-**
-Figure 3. “Value Added”**![Screen Shot 2017-05-04 at 3.43.10 PM.png](/uploads/Screen%20Shot%202017-05-04%20at%203.43.10%20PM.png)
+
+**Figure 3. “Value Added”**
+
+<img src="/uploads/Screen%20Shot%202017-05-04%20at%203.43.10%20PM.png" style="max-width: 100%"/>
 
 
 Jones’s firm has already constructed the efficient frontier of portfolios that supposedly maximize portfolio expected return for each level of portfolio volatility, using – or in truth, not really using – Markowitz’s mean-variance optimization algorithm. (Jones may even say that his firm uses “Nobel prize winning technology” to optimize these portfolios.)
