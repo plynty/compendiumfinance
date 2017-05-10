@@ -5,12 +5,15 @@ format_class: resource
 section: resource-cards
 no_date: true
 status: current
-lead: \"Safety-Net-Plus\" is our strategy to balance both the risk of market volatility and the risk of not having enough.
-   With this approach, the investor defines the minimum amount of income desired during retirement. The investor then
-   chooses no-risk investments to cover that minimum income amount. All other investments are placed in broadly-diversified,
-   low cost stock funds. With the income from the safe investments designed to cover the minimum income required, the more
-   uncertain stock investments seek to cover the remaining desired income without putting the minimum income in any risk.
-link:
+lead: \"Safety-Net-Plus\" is our strategy to balance both the risk of market volatility
+  and the risk of not having enough. With this approach, the investor defines the
+  minimum amount of income desired during retirement. The investor then chooses no-risk
+  investments to cover that minimum income amount. All other investments are placed
+  in broadly-diversified, low cost stock funds. With the income from the safe investments
+  designed to cover the minimum income required, the more uncertain stock investments
+  seek to cover the remaining desired income without putting the minimum income in
+  any risk.
+link: 
 source: internal
 banner_img: "/uploads/investing-header2.png"
 ---
