@@ -17,21 +17,33 @@ $panel-height: 19rem;
             // margin-right: 1rem;
             height: 100%;
         }
+
+        badge, header {
+          vertical-align: middle;
+        }
+
+        badge {
+          margin-bottom: .5rem;
+        }
     }
 
     // > xs
     @media only screen and (min-width: $md-min) {
         .row {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: auto;
             text-align: center;
         }
         .pmd-card {
-            max-width: 250px;
-            height: 100%;
-            height: $panel-height;
+            /*max-width: 250px;*/
+            width: 500px;
+            height: 450px;
+            /*height: 333px;*/
+            /*height: 100%;*/
+            /*height: $panel-height;*/
             overflow: hidden;
             display: inline-block;
+            vertical-align: top;
         }
 
         .resource-icon {
@@ -39,6 +51,33 @@ $panel-height: 19rem;
             max-width: 33%;
             float: left;
         }
+
+        badge, header {
+          vertical-align: middle;
+        }
+
+        badge {
+          width: 33%;
+        }
+
+        header {
+          width: 60%;
+        }
+
+    }
+
+    badge {
+      display: inline-block;
+      img {
+        width: 100%;
+      }
+    }
+
+    header {
+      display: inline-block;
+      h1 {
+        display: inline;
+      }
     }
 
     .resource-icon {
@@ -64,7 +103,7 @@ $panel-height: 19rem;
         }
 
         footer {
-            display: block;
+            display: none;
             text-align: center;
         }
 
@@ -72,12 +111,12 @@ $panel-height: 19rem;
             font-size: 80%;
             position: relative;
             top: 2px;
-        }            
-        
+        }
+
         article {
             font-size: 90%;
             text-align: center;
-            padding-bottom: 3rem;
+            /*padding-bottom: 3rem;*/
         }
 
         header .date,

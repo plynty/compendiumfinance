@@ -991,12 +991,12 @@ function maxSize(element) {
   var xOffsets = [0, 0, 0];
   var totalW = w;
   var wide3 = false;
-  if (w >= config.minChartWidth * 3) {
-    wide3 = true;
-    w = w / 3;
-    xOffsets = [0, w, w * 2];
-    config.showing = 'all';
-  } else if (w > config.maxChartWidth) {
+//  if (w >= config.minChartWidth * 3) {
+//    wide3 = true;
+//    w = w / 3;
+//    xOffsets = [0, w, w * 2];
+//    config.showing = 'all';
+/*  } else*/ if (w > config.maxChartWidth) {
     w = config.maxChartWidth;
     totalW = w;
     if (config.showing === 'all') {

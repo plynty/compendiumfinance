@@ -1,59 +1,64 @@
-                {% assign bgImg = nil %}
-                {% if include.square %}
-                    {%if thisCard.bg_img != nil %}
-                        {% unless thisCard.bg_img == 'none' %}
-                            {%assign bgImg = "background-image: url('" | append: thisCard.bg_img | append: "');" %}
-                        {% endunless %}
-                    {% elsif thisCard.img != nil %}
-                        {%assign bgImg = "background-image: url('" | append: thisCard.img | append: "');" %}
-                    {% endif %}
-                {%endif%}
-                {% comment %}
-                {% if thisCard.title.size > 45 %}{% assign long = true %}{% endif %}
-                {% if thisCard.lead != nil %} 
-                    {% assign leadWords = thisCard.lead | number_of_words %}
-                    {% if long == true and leadWords < 20 %}
-                        {% assign long = false %}
-                    {% else if leadWords > 30 %}
-                        {% assign long = true %}
-                    {% endif %}
-                {% else %} 
-                    {% assign long = false %}
-                {% endif %}
-                {% endcomment %}
-                {% assign long = false %}
-                {% if bgImg != nil %}
-                <div class="bg-img" style="{{bgImg}}">
-                {% else %}
-                <div class="no-bg-img">
-                {%endif%}
-                    <div class="card-copy-panel{% if long %} long{%endif%}{%if thisCard.bg_img_darken == true%} darken{%endif%}">
-                        <header> 
-                            {% if include.footer == nil or include.footer != true %}
-                            <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">read more</button>
-                            {% endif %}
-                            {% assign categoryCount = thisCard.categories | size %}
-                            {% unless categoryCount == 0 %}
-                            <div class="category">
-                                <span>{{thisCard.categories[0]}}
-                                {% if thisCard.video != nil %}
-                                    &nbsp;<i class="material-icons" title="Video Content">videocam</i>
-                                {% endif %}
-                                </span>
-                            </div>
-                            {% endunless %}
-                            <h1>{{thisCard.title | markdownify}}</h1>
-                            {% unless thisCard.no_date %}
-                            <div class="date">{{thisCard.date | date: '%B %e, %Y' }}</div>
-                            {% endunless %}
-                        </header>
-                        <article>
-                            <div>{{thisCard.lead | markdownify}}</div>
-                        </article>
-                        {% if include.footer == true %}
-                        <footer>
-                            <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">read more</button>
-                        </footer>
-                        {% endif %}
-                    </div>
-                </div>
+{% assign bgImg = nil %}
+{% if include.square %}
+{%if thisCard.bg_img != nil %}
+{% unless thisCard.bg_img == 'none' %}
+{%assign bgImg = "background-image: url('" | append: thisCard.bg_img | append: "');" %}
+{% endunless %}
+{% elsif thisCard.img != nil %}
+{%assign bgImg = "background-image: url('" | append: thisCard.img | append: "');" %}
+{% endif %}
+{%endif%}
+{% comment %}
+{% if thisCard.title.size > 45 %}{% assign long = true %}{% endif %}
+{% if thisCard.lead != nil %}
+{% assign leadWords = thisCard.lead | number_of_words %}
+{% if long == true and leadWords < 20 %}
+{% assign long = false %}
+{% else if leadWords > 30 %}
+{% assign long = true %}
+{% endif %}
+{% else %}
+{% assign long = false %}
+{% endif %}
+{% endcomment %}
+{% assign long = false %}
+{% if bgImg != nil %}
+<div class="bg-img" style="{{bgImg}}">
+  {% else %}
+  <div class="no-bg-img">
+    {%endif%}
+    <div class="card-copy-panel{% if long %} long{%endif%}{%if thisCard.bg_img_darken == true%} darken{%endif%}">
+      {% if include.badgeImg != nil %}
+      <badge>
+        <img src="{{include.badgeImg}}"/>
+      </badge>
+      {% endif %}
+      <header>
+        {% if include.footer == nil or include.footer != true %}
+        <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">read more</button>
+        {% endif %}
+        {% assign categoryCount = thisCard.categories | size %}
+        {% unless categoryCount == 0 %}
+        <div class="category">
+          <span>{{thisCard.categories[0]}}
+            {% if thisCard.video != nil %}
+            &nbsp;<i class="material-icons" title="Video Content">videocam</i>
+            {% endif %}
+          </span>
+        </div>
+        {% endunless %}
+        <h1>{{thisCard.title | markdownify}}</h1>
+        {% unless thisCard.no_date %}
+        <div class="date">{{thisCard.date | date: '%B %e, %Y' }}</div>
+        {% endunless %}
+      </header>
+      <article>
+        <div>{{thisCard.lead | markdownify}}</div>
+      </article>
+      {% if include.footer == true %}
+      <footer>
+        <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">read more</button>
+      </footer>
+      {% endif %}
+    </div>
+  </div>
