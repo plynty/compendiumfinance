@@ -85,7 +85,7 @@ noUiSlider.create(rateOfReturnSlider, {
     tooltips: false,
     format: wNumb({ decimals: 1 }) ,
     range: {
-        'min': [  1.0 ],
+        'min': [  0.0 ],
         'max': [ 12.0 ]
     },
     step: 0.5,
@@ -103,7 +103,7 @@ noUiSlider.create(mutualFundFeesSlider, {
     format: wNumb({ decimals: 1 }) ,
     range: {
         'min': [  0 ],
-        'max': [ 2.0 ]
+        'max': [ 3.0 ]
     },
     step: 0.1,
     pips: { // Show a scale with the slider
@@ -120,7 +120,7 @@ noUiSlider.create(advisorFeeSlider, {
     format: wNumb({ decimals: 1 }) ,
     range: {
         'min': [  0 ],
-        'max': [ 1.5 ]
+        'max': [ 3.0 ]
     },
     step: 0.1,
     pips: { // Show a scale with the slider
