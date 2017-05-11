@@ -1,3 +1,4 @@
+$cf-fee-calc: #f82;
 $cf-keep-total: #42bdaa;
 $cf-keep-total: #42bd41;
 $cf-lose-total: #f33;
@@ -18,15 +19,15 @@ $cf-advisor-fees: #f88;
         min-width: 54px;
         background-color: white;
         overflow: hidden;
-        color: $cf-fund-fees;
+        color: $cf-fee-calc;
         width: 33%;
       }
 
       a.selected {
         font-weight: 700;
-        background-color: $cf-fund-fees;
+        background-color: $cf-fee-calc;
         color: white;
-        border: solid thin $cf-fund-fees;
+        border: solid thin $cf-fee-calc;
       }
   }
   //  xs
@@ -39,16 +40,13 @@ $cf-advisor-fees: #f88;
     }
   }
 
-/*    .chart {
-        margin-top: 5px;
-    }*/
-
     #chart {
         margin: auto;
         position: relative;
     }
 
     #chart-title {
+      color: $cf-fee-calc;
       text-align: center;
       font-weight: 700;
     }

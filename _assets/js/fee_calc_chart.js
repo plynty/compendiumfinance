@@ -114,7 +114,7 @@ function showChart(chartType) {
       break;
   }
 
-function fadeSvg(selection, opacity) {
+  function fadeSvg(selection, opacity) {
     selection.transition().duration(1000)
             .attr("opacity", opacity);
   }
@@ -194,8 +194,6 @@ function createChartGeometry(chartDivSelector) {
   areaGeom.overlay.append("div")
       .attr("class", "legend")
       .style("position", "absolute");
-//          .style("width", width + "px")
-//          .style("height", height + "px"),
 
   // construct pie chart geom
   pieGeom.topDiv = chartDiv.select('.pie-chart')
@@ -325,23 +323,16 @@ function initLegend() {
     return;
   }
   var legendDiv = geom.area.overlay.select('.legend');
-//  if (geom.wide3) {
-//    legendDiv.style('display', 'none');
-//  }
 
   var table = legendDiv.append("xhtml:table");
 
   var tr = table.append("xhtml:tr").attr("class", "lose");
-//  tr.append("xhtml:td").attr("class", "legend-key-lose").append("xhtml:div");
   tr.append("xhtml:td").attr("class", "legend-label").text("You Lose:");
   tr.append("xhtml:td").attr("id", "legend-lose").attr("class", "legend-value");
-//  tr.append("xhtml:td").attr("id", "legend-lose-percent").attr("class", "legend-percent");
 
   tr = table.append("xhtml:tr").attr("class", "keep");
-//  tr.append("xhtml:td").attr("class", "legend-key-keep").append("xhtml:div");
   tr.append("xhtml:td").attr("class", "legend-label").text("You Keep:");
   tr.append("xhtml:td").attr("id", "legend-keep").attr("class", "legend-value");
-//  tr.append("xhtml:td").attr("id", "legend-keep-percent").attr("class", "legend-percent");
 }
 
 /**
@@ -350,10 +341,6 @@ function initLegend() {
  */
 function renderLegend(data) {
   var legendDiv = geom.area.overlay.select('.legend');
-//  if (geom.wide3) {
-//    legendDiv.style('display', 'none');
-//    return;
-//  }
   legendDiv.style('display', 'block');
 
   var lastYearValues = data[data.length - 1];
@@ -569,110 +556,8 @@ function svgDefs() {
   if (!geom) {
     return;
   }
-//  var gradColors = [
-//    ["#338833", "#42bd41", "#88ff88"], // green
-//    ["#cc3200", "#ff4500", "#ff8800"], // red-1
-//    ["#992520", "#dd382f", "#ee6644"], // red-2
-//    ["#bb0000", "#ff0000", "#ff6666"]  // red-3
-//  ];
-//  var defs = geom.area.defs;
-//
-//  // define linear gradients
-//  var linears = defs
-//          .selectAll("linearGradient")
-//          .data(gradColors)
-//          .enter();
-//
-//  var colorGrads = linears.append("linearGradient")
-//          .attr("id", function (d, i) {
-//            return "gradLin" + i;
-//          })
-//          .attr("x1", "0%")
-//          .attr("y1", "100%")
-//          .attr("x2", "0%")
-//          .attr("y2", "0%");
-//  colorGrads.append("stop")
-//          .attr("class", "dark")
-//          .attr("offset", "0%")
-//          .attr("stop-color", function (d, i) {
-//            return config.colors[i][0];
-//          });
-//  colorGrads.append("stop")
-//          .attr("class", "color")
-//          .attr("offset", "25%")
-//          .attr("stop-color", function (d, i) {
-//            return gradColors[i][1];
-//          });
-//
-//  var hiLiGrads = linears.append("linearGradient")
-//          .attr("id", function (d, i) {
-//            return "gradLinHL" + i;
-//          })
-//          .attr("x1", "0%")
-//          .attr("y1", "100%")
-//          .attr("x2", "0%")
-//          .attr("y2", "0%");
-//  hiLiGrads.append("stop")
-//          .attr("class", "dark")
-//          .attr("offset", "0%")
-//          .attr("stop-color", function (d) {
-//            return d[1];
-//          });
-//  hiLiGrads.append("stop")
-//          .attr("class", "color")
-//          .attr("offset", "25%")
-//          .attr("stop-color", function (d) {
-//            return d[2];
-//          });
-//
-//  // define radial gradients
-//  defs = geom.pie.defs;
-//
-//  var radials = defs
-//          .selectAll("radialGradient")
-//          .data(d3.pie()(config.pieColors), function (d, i) {
-//            return "grad" + i;
-//          })
-//          .enter();
-//
-//  var colorGrads = radials.append("radialGradient")
-//          .attr("gradientUnits", "userSpaceOnUse")
-//          .attr("cx", 0)
-//          .attr("cy", 0)
-//          .attr("r", "75%")
-//          .attr("id", function (d, i) {
-//            return "grad" + i;
-//          });
-//  colorGrads.append("stop")
-//          .attr("offset", "0%")
-//          .attr("stop-color", function (d) {
-//            return d.data[1];
-//          });
-//  colorGrads.append("stop")
-//          .attr("offset", "85%")
-//          .attr("stop-color", function (d) {
-//            return d.data[0];
-//          });
-//
-//  var hiLites = radials.append("radialGradient")
-//          .attr("gradientUnits", "userSpaceOnUse")
-//          .attr("cx", 0)
-//          .attr("cy", 0)
-//          .attr("r", "75%")
-//          .attr("id", function (d, i) {
-//            return "gradHL" + i;
-//          });
-//  hiLites.append("stop")
-//          .attr("offset", "0%")
-//          .attr("stop-color", function (d) {
-//            return d.data[2];
-//          });
-//  hiLites.append("stop")
-//          .attr("offset", "75%")
-//          .attr("stop-color", function (d) {
-//            return d.data[1];
-//          });
 }
+
 /**
  *
  */
@@ -719,13 +604,11 @@ function updatePie() {
       {
         label: config.keysKeepLose[0],
         value: keepTotal,
-//        fmtValue: d3.format('$,.0f')(keepTotal),
         percent: keepTotal / (keepTotal + loseTotal)
       },
       {
         label: config.keysKeepLose[1],
         value: loseTotal,
-//        fmtValue: d3.format('$,.0f')(loseTotal),
         percent: loseTotal / (keepTotal + loseTotal)
       }
     ];
@@ -747,11 +630,6 @@ function updatePie() {
     var outerArc = d3.arc()
             .innerRadius(geom.pie.radius * 0.9)
             .outerRadius(geom.pie.radius * 0.9);
-//
-//    var percentArc = d3.arc()
-//            .innerRadius(geom.pie.radius * 0.35)
-//            .outerRadius(geom.pie.radius * 0.35);
-
 
     var key = function (d) {
       return d.data.label;
@@ -779,8 +657,6 @@ function updatePie() {
           this._current.startAngle = interStart(1);
           this._current.endAngle = interEnd(1);
           return function (t) {
-//            console.log(t);
-//            var d2 = interpolate(t);
             d.startAngle = interStart(t);
             d.endAngle = interEnd(t);
             return arc(d);
@@ -860,42 +736,6 @@ function updatePie() {
     text.exit()
             .remove();
 
-//    var percents = g.select(".percents").selectAll("g")
-//            .data(pie(pieData), key);
-//
-//    var percentEnter = percents.enter().append("g");
-//    percentEnter.append("text").attr("class", "percent");
-//
-//    var percentMerge = percentEnter.merge(percents);
-//
-//
-//    percentMerge.transition().duration(1500)
-//        .select('text.percent')
-//        .tween('percent-label', function(d) {
-//          this._current = this._current || d.data.percent;
-//          var interpolate = d3.interpolateNumber(this._current, d.data.percent);
-//          this._current = interpolate(0);
-//          var node = this;
-//          return function (t) {
-//            var d2 = interpolate(t);
-//            node.innerHTML = d3.format('.0%')(d2);
-//          };
-//        });
-//
-//    percentMerge.transition().duration(1500)
-//        .attrTween("transform", function (d) {
-//          this._current = this._current || d;
-//          var interpolate = d3.interpolate(this._current, d);
-//          this._current = interpolate(0);
-//          return function (t) {
-//            var d2 = interpolate(t);
-//            var pos = percentArc.centroid(d2);
-//            return "translate(" + pos + ")";
-//          };
-//        });
-//
-//    percents.exit()
-//        .remove();
     /* ------- SLICE TO TEXT POLYLINES -------*/
 
     var polyline = g.select(".lines").selectAll("polyline")
@@ -929,24 +769,22 @@ function initTable() {
 
   var div = geom.bar.overlay;
   var table = div.append("xhtml:table");
-  var tr = //table.append("xhtml:tr");
-//  tr.append("xhtml:td").text("Total Earnings");
-//  tr.append("xhtml:td").attr("id", "td-total-earnings").attr("class", "value");
-  tr = table.append("xhtml:tr").attr("class", "fund-fees");
+
+  var tr = table.append("xhtml:tr").attr("class", "fund-fees");
   tr.append("xhtml:th").text("Fund Fees");
   tr.append("xhtml:td").attr("id", "td-fund-fees").attr("class", "value");
+
   tr = table.append("xhtml:tr").attr("class", "advisor-fees");
   tr.append("xhtml:th").text("Advisor Fees");
   tr.append("xhtml:td").attr("id", "td-advisor-fees").attr("class", "value");
+
   tr = table.append("xhtml:tr").attr("class", "lost-earnings");
   tr.append("xhtml:th").text("Lost Earnings");
   tr.append("xhtml:td").attr("id", "td-lost-earnings").attr("class", "value");
-  tr = table.append("xhtml:tr").attr("class", "lose-total");
+
   tr = table.append("xhtml:tr").attr("class", "keep");
   tr.append("xhtml:th").text("You Keep");
   tr.append("xhtml:td").attr("id", "td-you-keep").attr("class", "value");
-//  tr.append("xhtml:td").text("Total Lost");
-//  tr.append("xhtml:td").attr("id", "td-total-lost").attr("class", "value");
 }
 
 function updateTable() {
@@ -1026,12 +864,8 @@ function maxSize(element) {
   var xOffsets = [0, 0, 0];
   var totalW = w;
   var wide3 = false;
-//  if (w >= config.minChartWidth * 3) {
-//    wide3 = true;
-//    w = w / 3;
-//    xOffsets = [0, w, w * 2];
-//    config.showing = 'all';
-/*  } else*/ if (w > config.maxChartWidth) {
+
+  if (w > config.maxChartWidth) {
     w = config.maxChartWidth;
     totalW = w;
     if (config.showing === 'all') {
