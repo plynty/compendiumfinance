@@ -73,10 +73,15 @@ The only thing that should be done with the safety-net-plus investment strategy 
 **An example**
 
 Consider Paula. She is 39 years old and plans to work until she is 65 and then retire, earning nothing from work after that. She has accumulated $100,000 in assets so far. She plans to contribute $10,000 more to her portfolio each year until she is 65. These $10,000 contributions are in “real” dollars – that is, they are adjusted for inflation. In other words, she plans that her $10,000 contribution this year will increase by a percentage in future years to keep up with inflation.
+
 Paula believes that in retirement, she will be able to live on a bare minimum of $3,000 a month. She anticipates that her Social Security payments will be $2,000 a month. So she needs to guarantee that her safe investments will pay her at the very least $1,000 a month starting from her retirement in 26 years until she dies.
+
 Paula is advised that she can accomplish this by investing 70% of her current assets, and 70% of each of her future contributions in TIPS. Most of these TIPS will mature 30 years from now when Paula is 69 years of age. At that point she will convert the proceeds of the maturing TIPS to an annuity that will provide $1,000 a month, in inflation-adjusted dollars, for the rest of her life.
+
 The 30% of her assets and contributions that are not invested in TIPS are invested in the ultra-low-cost diversified U.S. or global equity portfolio.
+
 Now suppose that 14 years from now, when Paula is 53 years of age, the stock market has just had a big run-up and the value of her equity portfolio is now $250,000. This makes Paula believe that she will be able to withdraw much more than $1,000 a month from her investment assets after she is 65.
+
 However, she knows that large run-ups in the stock market can be followed by sharp drops and that she could lose a large part or even all of her gains. If she now converted half of that $250,000 in risky assets to safe TIPS, it would guarantee her an income of at least $3,500 a month in inflation-adjusted dollars after retirement instead of the previously guaranteed $3,000 a month. And she would still have the upside potential of the remaining $125,000 of her investments – though she would give up any further upside potential that might be derived from the $125,000 that she will shift to safe securities.
 
 
