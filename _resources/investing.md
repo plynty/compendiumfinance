@@ -1,5 +1,5 @@
 ---
-title: \"Safety-Net-Plus\" Investing
+title: '"Safety-Net-Plus" Investing'
 position: 1
 format_class: resource
 section: resource-cards
@@ -66,7 +66,7 @@ It is important to remember, though, that the value of the risky portfolio is a 
 
 **A very simple process**
 
-When the investor adheres to a process like this, there is very little to do. Contrary to the hype that is usually heard from the finance industry establishment, this is actually the way it should be. Investing is for the long run. Warren Buffett himself, the investing icon, says that his favorite holding period for investments is “forever.” He has recently said you should “invest in stocks as you would in a farm.”
+When the investor adheres to a process like this, there is very little to do. Contrary to the hype that is usually heard from the finance industry establishment, this is actually the way it should be. Investing is for the long run. Warren Buffett himself, the investing icon, says that his favorite holding period for investments is “forever.” He has recently said you should “invest in stocks as you would in a farm.” 
 
 The only thing that should be done with the safety-net-plus investment strategy is to monitor and evaluate from time to time whether more assets should be moved from risky assets to safety-net assets, to lock in gains and raise the safety net. This process of monitoring and evaluating can be done by an automated service, which alerts the investor when the time is ripe for the possibility of the shift. This will happen after the equity market has substantially increased in value, so it is a strategy of selling high, but it is not done for the purpose of trying to time the market in order to beat it but for the purpose of ensuring the investor of the highest safety net floor on future income that is possible given the investor’s resources and future aspirations.
 
@@ -74,15 +74,16 @@ The only thing that should be done with the safety-net-plus investment strategy 
 
 Consider Paula. She is 39 years old and plans to work until she is 65 and then retire, earning nothing from work after that. She has accumulated $100,000 in assets so far. She plans to contribute $10,000 more to her portfolio each year until she is 65. These $10,000 contributions are in “real” dollars – that is, they are adjusted for inflation. In other words, she plans that her $10,000 contribution this year will increase by a percentage in future years to keep up with inflation.
 
-Paula believes that in retirement, she will be able to live on a bare minimum of $4,000 a month. She anticipates that her Social Security payments will be $2,500 a month. So she needs/wants to guarantee that her safe investments will pay her at the very least $1,500 a month starting from her retirement in 26 years until she dies.
+Paula believes that in retirement, she will be able to live on a bare minimum of $3,000 a month. She anticipates that her Social Security payments will be $2,000 a month. So she needs to guarantee that her safe investments will pay her at the very least $1,000 a month starting from her retirement in 26 years until she dies.
 
-Paula is advised that she can accomplish this by investing 40% of her current assets, and 40% of each of her future contributions in TIPS. Most of these TIPS will mature 30 years from now when Paula is 69 years of age. At that point she will convert the proceeds of the maturing TIPS to an inflation-adjusted income annuity that will provide $1,500 a month, for the rest of her life.
+Paula is advised that she can accomplish this by investing 70% of her current assets, and 70% of each of her future contributions in TIPS. Most of these TIPS will mature 30 years from now when Paula is 69 years of age. At that point she will convert the proceeds of the maturing TIPS to an annuity that will provide $1,000 a month, in inflation-adjusted dollars, for the rest of her life.
 
-The remaining 60% of her assets and contributions that are not invested in TIPS will be  are invested in the ultra-low-cost diversified U.S. or global equity portfolio.
+The 30% of her assets and contributions that are not invested in TIPS are invested in the ultra-low-cost diversified U.S. or global equity portfolio.
 
-Now suppose that 14 years from now, when Paula is 53 years of age, the stock market has just had a huge run-up and the value of her equity portfolio is now $500,000. This makes Paula believe that she will be able to withdraw much more than $1,500 a month from her investment assets after she is 65.
+Now suppose that 14 years from now, when Paula is 53 years of age, the stock market has just had a big run-up and the value of her equity portfolio is now $250,000. This makes Paula believe that she will be able to withdraw much more than $1,000 a month from her investment assets after she is 65.
 
-However, she knows that large run-ups in the stock market can be followed by sharp drops and that she could lose a large part or even all of her gains. If she now converted half of that $500,000 in risky assets to safe TIPS, it would guarantee her an income of at least $2,500 a month in inflation-adjusted dollars after retirement (for a total of $5,000/month along with social security) instead of the previously guaranteed $1,500 a month. And she would still have the upside income potential of the $250,000 remaining in her risk portfolio – though she would give up any further upside potential that might have resulted from the $250,000 that she decided to shift to the safety net strategy securities.
+However, she knows that large run-ups in the stock market can be followed by sharp drops and that she could lose a large part or even all of her gains. If she now converted half of that $250,000 in risky assets to safe TIPS, it would guarantee her an income of at least $3,500 a month in inflation-adjusted dollars after retirement instead of the previously guaranteed $3,000 a month. And she would still have the upside potential of the remaining $125,000 of her investments – though she would give up any further upside potential that might be derived from the $125,000 that she will shift to safe securities.
+
 
 **Conclusion**
 

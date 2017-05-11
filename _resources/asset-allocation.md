@@ -5,14 +5,15 @@ format_class: resource
 section: resource-cards
 no_date: true
 status: current
-lead: As described in the Safety-Net-Plus investment strategy, our approach does not use the mean-variance
-   optimization model used by most investment advisors to select an asset allocation.  That model does not
-   create a meaningful allocation for the investor, but an illusory one based on manipulated inputs and
-   constrained outputs. Investors will find an improved and more understandable balance between reward and
-   risk by following our Safety-Net-Plus approach to investing.
+lead: As described in the Safety-Net-Plus investment strategy, our approach does not
+  use the mean-variance optimization model used by most investment advisors to select
+  an asset allocation.  That model does not create a meaningful allocation for the
+  investor, but an illusory one based on manipulated inputs and constrained outputs.
+  Investors will find an improved and more understandable balance between reward and
+  risk by following our Safety-Net-Plus approach to investing.
 source: internal
-link:
-img: /uploads/assetallocation-header.png
+link: 
+img: "/uploads/assetallocation-header.png"
 bg_img_darken: true
 banner_img: "/uploads/assetallocation-header.png"
 ---
