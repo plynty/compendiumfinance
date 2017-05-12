@@ -5,11 +5,14 @@ format_class: resource
 section: resource-cards
 no_date: true
 status: current
-lead: Portfolio rebalancing is the process of buying or selling assets in your portfolio
-  to maintain your original asset allocation. Most financial advisors recommend regular
-  portfolio rebalancing and suggest that it results in higher returns. We extensively
-  tested rebalancing compared with a no-rebalancing strategy and found that rebalancing
-  does not, on average, produce a higher rate of return.
+lead: 'Portfolio rebalancing is the process of buying or selling assets in your portfolio
+  to maintain your original asset allocation. The financial services industry and
+  folklore has suggested that it results in higher returns and is an effective risk
+  control measure. These myths, though they are unprovable and have been soundly refuted,
+  continue to be an integral part of the bedrock beliefs, practices and recommendations
+  of almost all financial advisors. We extensively tested rebalancing compared with
+  a no-rebalancing strategy and found that rebalancing does not, on average, produce
+  a higher rate of return.  '
 source: internal
 link: 
 img: "/uploads/rebalancing-header.png"
@@ -52,8 +55,7 @@ Table 1 presents a two-year example. Consider a $10,000 portfolio initially allo
 
 Table 1. The error of “diversification return” and “rebalancing bonus”
 
-<img src="/uploads/Screen%20Shot%202017-05-04%20at%203.49.39%20PM-3fa594.png" style="max-width: 100%"/>
-
+![Screen Shot 2017-05-12 at 8.10.34 AM-4ab68a.png](/uploads/Screen%20Shot%202017-05-12%20at%208.10.34%20AM-4ab68a.png)
 
 In this case, the unrebalanced portfolio earns a slightly higher rate of return over the two years, ending with $11,400 and a two-year annualized rate of return of 6.77%. The rebalanced portfolio ends with a slightly lower $11,388 for a two-year annualized rate of return of 6.71%.
 
