@@ -261,9 +261,9 @@ $cf-advisor-fees: #ba0a0f;
 
         text.title {
           fill: $cf-fee-calc-title;
+          font-size: 1.25rem;
         }
-        .labels,
-        text.title {
+        .labels {
             font-size: 90%;
         }
         .labels .percent,
@@ -311,6 +311,11 @@ $cf-advisor-fees: #ba0a0f;
       td.legend-key-lose>div {
         background-color: $cf-lose-total;
       }
+
+      th.legend-title {
+        font-size: 1.25rem;
+      }
+
       th.legend-title,
       td.legend-label,
       td.legend-percent,
@@ -369,6 +374,7 @@ $cf-advisor-fees: #ba0a0f;
         tr.title > th {
           color: $cf-fee-calc-title;
           font-weight: 700;
+          font-size: 1.25rem;
         }
         tr.keep {
             color: $cf-keep-total;
