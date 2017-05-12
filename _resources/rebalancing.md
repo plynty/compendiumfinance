@@ -52,7 +52,9 @@ Table 1 presents a two-year example. Consider a $10,000 portfolio initially allo
 
 Table 1. The error of “diversification return” and “rebalancing bonus”
 
-![Screen Shot 2017-05-12 at 8.10.34 AM.png](/uploads/Screen%20Shot%202017-05-12%20at%208.10.34%20AM.png)ending with $11,400 and a two-year annualized rate of return of 6.77%. The rebalanced portfolio ends with a slightly lower $11,388 for a two-year annualized rate of return of 6.71%.
+![Screen Shot 2017-05-12 at 8.10.34 AM.png](/uploads/Screen%20Shot%202017-05-12%20at%208.10.34%20AM.png)
+
+ending with $11,400 and a two-year annualized rate of return of 6.77%. The rebalanced portfolio ends with a slightly lower $11,388 for a two-year annualized rate of return of 6.71%.
 
 But the papers on diversification return and rebalancing bonus do not compare these two numbers. Instead, they take the average of the two-year annualized returns for the two assets (last column on the right) and compare it with the return on the rebalanced portfolio.
 
