@@ -5,12 +5,12 @@ format_class: resource
 section: resource-cards
 no_date: true
 status: current
-lead: 'Tax-loss harvesting is the process of selling stocks in your portfolio that
+lead: Tax-loss harvesting is the process of selling stocks in your portfolio that
   are priced lower than you when you bought them in an effort to enhance after-tax
-  investment return. Many advisors  claim that investors can achieve a 1-2% annual
+  investment return. Though many advisors claim investors can achieve a 1-2% annual
   benefit in after-tax performance. In fact, while investors may realize a slight
   benefit (less than .2%) if tax rates stay the same, increased future tax rates could
-  result in either no benefit or even in losses. '
+  result in either no benefit or even in losses.
 source: internal
 link: 
 img: "/uploads/taxlossharvesting-header2.png"
