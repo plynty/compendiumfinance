@@ -5,11 +5,14 @@ format_class: resource
 section: resource-cards
 no_date: true
 status: current
-lead: Portfolio rebalancing is the process of buying or selling assets in your portfolio
-  to maintain your original asset allocation. Most financial advisors recommend regular
-  portfolio rebalancing and suggest that it results in higher returns. We extensively
-  tested rebalancing compared with a no-rebalancing strategy and found that rebalancing
-  does not, on average, produce a higher rate of return.
+lead: 'Portfolio rebalancing is the process of buying or selling assets in your portfolio
+  to maintain your original asset allocation. The financial services industry and
+  folklore has suggested that it results in higher returns and is an effective risk
+  control measure. These myths, though they are unprovable and have been soundly refuted,
+  continue to be an integral part of the bedrock beliefs, practices and recommendations
+  of almost all financial advisors. We extensively tested rebalancing compared with
+  a no-rebalancing strategy and found that rebalancing does not, on average, produce
+  a higher rate of return.  '
 source: internal
 link: 
 img: "/uploads/rebalancing-header.png"
