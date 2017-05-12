@@ -1,9 +1,9 @@
-$cf-fee-calc: #f82;
-$cf-keep-total: #42bdaa;
-$cf-keep-total: #42bd41;
-$cf-lose-total: #f33;
-$cf-fund-fees: #f82;
-$cf-advisor-fees: #f88;
+$cf-fee-calc-buttons: #0abab5;
+$cf-fee-calc-title: #ba0a0f;
+$cf-keep-total: #0abab5;
+$cf-lose-total: #ba0a0f;
+$cf-fund-fees: #ba0a0f;
+$cf-advisor-fees: #ba0a0f;
 
 .fee-calculator {
 
@@ -12,6 +12,7 @@ $cf-advisor-fees: #f88;
     margin-top: 0px;
 
     .btn-group {
+      padding: 0 1.5rem;
 
       a {
         margin: 0px;
@@ -19,15 +20,15 @@ $cf-advisor-fees: #f88;
         min-width: 54px;
         background-color: white;
         overflow: hidden;
-        color: $cf-fee-calc;
+        color: $cf-fee-calc-buttons;
         width: 33%;
       }
 
       a.selected {
         font-weight: 700;
-        background-color: $cf-fee-calc;
+        background-color: $cf-fee-calc-buttons;
         color: white;
-        border: solid thin $cf-fee-calc;
+        border: solid thin $cf-fee-calc-buttons;
       }
   }
   //  xs
@@ -46,7 +47,7 @@ $cf-advisor-fees: #f88;
     }
 
     #chart-title {
-      color: $cf-fee-calc;
+      color: $cf-fee-calc-title;
       text-align: center;
       font-weight: 700;
     }
@@ -250,11 +251,6 @@ $cf-advisor-fees: #f88;
           fill: $cf-lose-total;
         }
 
-/*        path:hover {
-            stroke: black;
-            stroke-width: 1px;
-        }*/
-
         .labels .keep {
           fill: $cf-keep-total;
         }
@@ -263,12 +259,16 @@ $cf-advisor-fees: #f88;
           fill: $cf-lose-total;
         }
 
-        .labels .pie-label {
-            font-size: 80%;
-            font-style: italic;
+        text.title {
+          fill: $cf-fee-calc-title;
         }
-        .labels .percent {
-            font-weight: 600;
+        .labels,
+        text.title {
+            font-size: 90%;
+        }
+        .labels .percent,
+        text.title {
+            font-weight: 700;
         }
 
     }
@@ -287,10 +287,13 @@ $cf-advisor-fees: #f88;
         width: 15rem;
         height: 25%;
         font-size: 90%;
-        margin-left: 2rem;
+        margin-left: 1rem;
         margin-top: 1rem;
       }
 
+      tr.title {
+        color: $cf-fee-calc-title;
+      }
       tr.lose {
         color: $cf-lose-total;
       }
@@ -308,12 +311,13 @@ $cf-advisor-fees: #f88;
       td.legend-key-lose>div {
         background-color: $cf-lose-total;
       }
+      th.legend-title,
       td.legend-label,
       td.legend-percent,
       td.legend-value {
         padding-left: .5rem;
         padding-right: .5rem;
-        text-align: right;
+        text-align: left;
       }
 
       td.legend-value {
@@ -324,6 +328,9 @@ $cf-advisor-fees: #f88;
 
     .bar-chart {
 
+      rect {
+        stroke: white;
+      }
       .rect-keep {
         fill: $cf-keep-total;
       }
@@ -338,12 +345,13 @@ $cf-advisor-fees: #f88;
       }
       .chart-overlay {
         table {
-            margin: auto;
-            margin-top: 75px;
-            margin-left: 20px;
-            border-collapse: collapse;
-            border-radius: .5rem;
-            background-color: rgba(255,255,255,0.6);
+          font-size: 90%;
+          margin: auto;
+          margin-top: 75px;
+          margin-left: 20px;
+          border-collapse: collapse;
+          border-radius: .5rem;
+          background-color: rgba(255,255,255,0.6);
         }
 
         td,th {
@@ -351,14 +359,17 @@ $cf-advisor-fees: #f88;
         }
 
         th {
-          font-size: 60%;
           font-weight: 400;
         }
         td.value {
             text-align: right;
-            font-weight: 600;
+            font-weight: 700;
         }
 
+        tr.title > th {
+          color: $cf-fee-calc-title;
+          font-weight: 700;
+        }
         tr.keep {
             color: $cf-keep-total;
         }
