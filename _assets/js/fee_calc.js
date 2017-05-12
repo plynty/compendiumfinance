@@ -88,11 +88,7 @@ noUiSlider.create(rateOfReturnSlider, {
         'min': [  0.0 ],
         'max': [ 12.0 ]
     },
-    step: 0.5,
-    pips: { // Show a scale with the slider
-        mode: 'steps',
-        density: 24
-    }
+    step: 0.5
 });
 
 var mutualFundFeesSlider = document.getElementById('mutual-fund-fees');
@@ -105,11 +101,7 @@ noUiSlider.create(mutualFundFeesSlider, {
         'min': [  0 ],
         'max': [ 3.0 ]
     },
-    step: 0.1,
-    pips: { // Show a scale with the slider
-        mode: 'steps',
-        density: 20
-    }
+    step: 0.1
 });
 
 var advisorFeeSlider = document.getElementById('advisor-fee');
@@ -122,11 +114,7 @@ noUiSlider.create(advisorFeeSlider, {
         'min': [  0 ],
         'max': [ 3.0 ]
     },
-    step: 0.1,
-    pips: { // Show a scale with the slider
-        mode: 'steps',
-        density: 20
-    }
+    step: 0.1
 });
 function initSliderEvents() {
     rateOfReturnSlider.noUiSlider.on('update', function(labels, handle, values) {

@@ -99,21 +99,6 @@ function swipeChart(leftRight) {
 function showChart(chartType) {
   config.showing = chartType;
 
-  switch (config.showing) {
-    case 'area':
-      $('#chart-title').text('True Cost of Fees');
-      break;
-    case 'pie':
-      $('#chart-title').text('Fee Distribtion');
-      break;
-    case 'bar':
-      $('#chart-title').text('Fee Breakout');
-      break;
-    default:
-      $('#chart-title').text('True Cost of Fees');
-      break;
-  }
-
   function fadeSvg(selection, opacity) {
     selection.transition().duration(1000)
             .attr("opacity", opacity);
@@ -236,12 +221,7 @@ function createChartGeometry(chartDivSelector) {
   chartDiv.style('height', size.h+'px')
       .style('width', size.totalW+'px');
 
-  if (size.wide3) {
-    $('.chart-btn-group').hide();
-  } else {
-    $('.chart-btn-group').show();
-    $('.chart-btn-group .btn-group').css('width', size.totalW+'px');
-  }
+  $('.chart-btn-group .btn-group, .input-form').css('width', size.totalW+'px');
 
   geom = {
     chartDiv: chartDiv,
@@ -326,7 +306,10 @@ function initLegend() {
 
   var table = legendDiv.append("xhtml:table");
 
-  var tr = table.append("xhtml:tr").attr("class", "lose");
+  var tr = table.append("xhtml:tr").attr("class", "title");
+  tr.append("xhtml:th").attr("class", "legend-title").attr("colspan", "2").text("True Cost of Fees");
+
+  tr = table.append("xhtml:tr").attr("class", "lose");
   tr.append("xhtml:td").attr("class", "legend-label").text("You Lose:");
   tr.append("xhtml:td").attr("id", "legend-lose").attr("class", "legend-value");
 
@@ -381,7 +364,7 @@ function initBarStack() {
         .attr("transform", "translate("+((geom.width)*.9-50)+" -15)");
     g.append("g")
         .attr("class", "keep")
-        .attr("transform", "translate("+((geom.width)*.9-100)+" -15)");
+        .attr("transform", "translate("+((geom.width)*.9-102)+" -15)");
 }
 
 /**
@@ -579,6 +562,16 @@ function initPie() {
       .range(config.pieColors);
 
   var g = geom.pie.g;
+  g.append("text")
+      .attr("class", "title")
+      .attr("text-anchor", "middle")
+      .attr("y", -5)
+      .text("True Cost");
+  g.append("text")
+      .attr("class", "title")
+      .attr("text-anchor", "middle")
+      .attr("y", 16)
+      .text("of Fees");
   g.append("g")
     .attr("class", "slices");
   g.append("g")
@@ -588,6 +581,7 @@ function initPie() {
     .attr("class", "percents");
   g.append("g")
     .attr("class", "lines");
+
 }
 
 function updatePie() {
@@ -770,7 +764,10 @@ function initTable() {
   var div = geom.bar.overlay;
   var table = div.append("xhtml:table");
 
-  var tr = table.append("xhtml:tr").attr("class", "fund-fees");
+  var tr = table.append("xhtml:tr").attr("class", "title");
+  tr.append("xhtml:th").attr("class", "legend-title").attr("colspan", "2").text("True Cost of Fees");
+
+  tr = table.append("xhtml:tr").attr("class", "fund-fees");
   tr.append("xhtml:th").text("Fund Fees");
   tr.append("xhtml:td").attr("id", "td-fund-fees").attr("class", "value");
 
