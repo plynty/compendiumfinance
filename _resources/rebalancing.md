@@ -9,10 +9,8 @@ lead: 'Portfolio rebalancing is the process of buying or selling assets in your 
   to maintain your original asset allocation. The financial services industry and
   folklore has suggested that it results in higher returns and is an effective risk
   control measure. These myths, though they are unprovable and have been soundly refuted,
-  continue to be an integral part of the bedrock beliefs, practices and recommendations
-  of almost all financial advisors. We extensively tested rebalancing compared with
-  a no-rebalancing strategy and found that rebalancing does not, on average, produce
-  a higher rate of return.  '
+  surprisingly continue to be an integral part of the bedrock beliefs, practices,
+  and recommendations of almost all financial advisors. '
 source: internal
 link: 
 img: "/uploads/rebalancing-header.png"
