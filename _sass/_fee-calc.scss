@@ -7,6 +7,11 @@ $cf-advisor-fees: #ba0a0f;
 
 .fee-calculator {
 
+  //  xs
+  @media only screen and (max-width: 767px) {
+    font-size: 15px;
+  }
+
   .chart-btn-group {
     text-align: center;
     margin-top: 0px;
@@ -25,389 +30,392 @@ $cf-advisor-fees: #ba0a0f;
       }
 
       a.selected {
-        font-weight: 700;
         background-color: $cf-fee-calc-buttons;
         color: white;
         border: solid thin $cf-fee-calc-buttons;
       }
-  }
-  //  xs
+    }
+    //  xs
     @media only screen and (max-width: 767px) {
-      font-size: 80%;
-
       a {
         padding: 10px 5px;
       }
     }
   }
 
-    #chart {
-        margin: auto;
-        position: relative;
+  .pmd-card {
+    max-width: 550px;
+    padding-bottom: 2rem;
+  }
+
+  #chart {
+    margin: auto;
+    position: relative;
+  }
+
+  #chart-title {
+    color: $cf-fee-calc-title;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  div.chart-segment {
+    position: absolute;
+  }
+
+  div.chart-segment>.rel {
+    position: relative;
+  }
+
+  div.chart-segment>.rel>* {
+    position: absolute;
+  }
+
+  .chart-overlay {
+    width: 100%;
+  }
+
+  .row {
+    margin-top: 1rem;
+  }
+
+
+  // > xs
+  @media only screen and (min-width: 768px) {
+    // max-width: 1200px;
+    display: block;
+    margin: auto;
+    .pmd-card {
+      margin: auto;
+      min-height: 30rem;
+      overflow: hidden;
+    }
+    .form-group {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+  //  xs
+  @media only screen and (max-width: 767px) {
+    .pmd-card {
+      margin: auto;
     }
 
-    #chart-title {
-      color: $cf-fee-calc-title;
-      text-align: center;
+    .form-group {
+      margin-left: .5rem;
+      margin-right: .5rem;
+      margin-bottom: .5rem;
+    }
+  }
+
+  .h-separator {
+    border-top: solid thin $cf-trim;
+    height: 0px;
+    margin: auto;
+  }
+
+  span.slider-value {
+    color: #555;
+  }
+
+  .range-slider {
+    margin-top: 6px;
+  }
+  .noUi-target {
+    height: 2px;
+  }
+  .noUi-handle {
+    width: 18px;
+    height: 18px;
+    left: -5px;
+    top: -9px;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    border-radius: 50%;
+    background: #3fb8af;
+  }
+  .noUi-handle::before, .noUi-handle::after {
+    content: none;
+  }
+  .noUi-pips-horizontal {
+    padding: 0px;
+  }
+  .noUi-marker {
+    height: 3px;
+    background: #999;
+  }
+
+  .noUi-value-sub, .noUi-value {
+    display: none;
+  }
+
+  svg {
+    display: block;
+  }
+
+  div.stack-chart {
+    border-bottom: solid thin lightgray
+  }
+  div.stack-chart, #stack-chart {
+    width: 100%;
+    height: 100%;
+  }
+
+  div.pie-chart, #pie-chart {
+    width: 100%;
+    height: 100%;
+  }
+
+  .stack-chart {
+    height: 100%;
+    width: 100%;
+
+    .chart-overlay {
+      display: none;
+    }
+
+    .line {
+      stroke-width: 1;
+      fill: none;
+    }
+
+    .area-0,{
+      fill: $cf-keep-total;
+      // fill-opacity: 0.3;
+    }
+
+    .area-1,
+    .area-2,
+    .area-3,{
+      fill: $cf-lose-total;
+      // fill-opacity: 0.3;
+    }
+    .line0,
+    .line1,
+    .line2,
+    .line3, {
+      stroke: #f00;
+    }
+
+
+    //  xs
+/*    @media only screen and (max-width: $xs-max) {
+      .legend {
+        font-size: 50%;
+      }
+    }
+
+    // > xs
+    @media only screen and (min-width: $sm-min) {
+      .legend {
+        font-size: 80%;
+      }
+    }*/
+
+    .x-axis {
+      font-size: 75%;
+    }
+
+    .x-axis-label {
+      font-size: 80%;
+      text-anchor: middle;
+    }
+
+  }
+
+  .pie-chart {
+    width: 100%;
+    height: 100%;
+    // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    //  xs
+    @media only screen and (max-width: $xs-max) {
+/*      font-size: 95%;
+      .percents {
+        font-size: 85%;
+      }*/
+    }
+
+    polyline {
+      stroke-width: 1px;
+      fill: none;
+    }
+
+    polyline.keep {
+      stroke: $cf-keep-total;
+    }
+
+    polyline.lose {
+      stroke: $cf-lose-total;
+    }
+
+    path.keep {
+      fill: $cf-keep-total;
+    }
+
+    path.lose {
+      fill: $cf-lose-total;
+    }
+
+    .labels .keep {
+      fill: $cf-keep-total;
+    }
+
+    .labels .lose {
+      fill: $cf-lose-total;
+    }
+
+    text.title {
+      fill: $cf-fee-calc-title;
+      font-size: 1.25rem;
+    }
+/*    .labels {
+      font-size: 90%;
+    }*/
+    .labels .percent,
+    text.title {
       font-weight: 700;
     }
 
-    div.chart-segment {
-        position: absolute;
+  }
+
+  .axis .domain {
+    display: none;
+  }
+
+  .area-chart .chart-overlay {
+    table {
+      border-radius: .5rem;
+      background-color: rgba(255,255,255,0.6);
     }
 
-    div.chart-segment>.rel {
-        position: relative;
+    .legend {
+      width: 15rem;
+      height: 25%;
+      /*font-size: 90%;*/
+      margin-left: 1rem;
+      margin-top: 1rem;
     }
 
-    div.chart-segment>.rel>* {
-        position: absolute;
+    tr.title {
+      color: $cf-fee-calc-title;
+    }
+    tr.lose {
+      color: $cf-lose-total;
+    }
+    tr.keep {
+      color: $cf-keep-total;
+    }
+    td.legend-key-keep>div,
+    td.legend-key-lose>div {
+      width: 3px;
+      height: 15px;
+    }
+    td.legend-key-keep>div {
+      background-color: $cf-keep-total;
+    }
+    td.legend-key-lose>div {
+      background-color: $cf-lose-total;
     }
 
+    th.legend-title {
+      font-size: 1.25rem;
+    }
+
+    th.legend-title,
+    td.legend-label,
+    td.legend-percent,
+    td.legend-value {
+      padding-left: .5rem;
+      padding-right: .5rem;
+      text-align: left;
+    }
+
+    td.legend-value {
+      font-weight: 700;
+    }
+  }
+
+
+  .bar-chart {
+
+    rect {
+      stroke: white;
+    }
+    .rect-keep {
+      fill: $cf-keep-total;
+    }
+    .rect-lose-0 {
+      fill: $cf-lose-total;
+    }
+    .rect-lose-1 {
+      fill: $cf-advisor-fees;
+    }
+    .rect-lose-2 {
+      fill: $cf-fund-fees;
+    }
     .chart-overlay {
-      width: 100%;
-    }
-
-    .row {
-        margin-top: 1rem;
-    }
-
-
-    // > xs
-    @media only screen and (min-width: 768px) {
-        // max-width: 1200px;
-        display: block;
-        margin: auto;
-        .pmd-card {
-            margin: auto;
-            min-height: 30rem;
-            overflow: hidden;
-        }
-        .form-group {
-            margin-left: 1rem;
-            margin-right: 1rem;
-            margin-bottom: 1rem;
-        }
-    }
-    //  xs
-    @media only screen and (max-width: 767px) {
-        .pmd-card {
-            margin: auto;
-        }
-
-        .form-group {
-            margin-left: .5rem;
-            margin-right: .5rem;
-            margin-bottom: .5rem;
-        }
-    }
-
-    .pmd-card {
-        max-width: 600px;
-        padding-bottom: 2rem;
-    }
-
-    span.slider-value {
-        color: #555;
-    }
-
-    .range-slider {
-        margin-top: 6px;
-    }
-    .noUi-target {
-        height: 2px;
-    }
-    .noUi-handle {
-        width: 18px;
-        height: 18px;
-        left: -5px;
-        top: -9px;
-        cursor: pointer;
-        border: none;
-        box-shadow: none;
-        border-radius: 50%;
-        background: #3fb8af;
-    }
-    .noUi-handle::before, .noUi-handle::after {
-        content: none;
-    }
-    .noUi-pips-horizontal {
-        padding: 0px;
-    }
-    .noUi-marker {
-        height: 3px;
-        background: #999;
-    }
-
-    .noUi-value-sub, .noUi-value {
-        display: none;
-    }
-
-    svg {
-        display: block;
-    }
-
-    div.stack-chart {
-        border-bottom: solid thin lightgray
-    }
-    div.stack-chart, #stack-chart {
-        width: 100%;
-        height: 100%;
-    }
-
-    div.pie-chart, #pie-chart {
-        width: 100%;
-        height: 100%;
-    }
-
-    .stack-chart {
-        height: 100%;
-        width: 100%;
-
-        .chart-overlay {
-            display: none;
-        }
-
-        .line {
-            stroke-width: 1;
-            fill: none;
-        }
-
-        .area-0,{
-            fill: $cf-keep-total;
-            // fill-opacity: 0.3;
-        }
-
-        .area-1,
-        .area-2,
-        .area-3,{
-            fill: $cf-lose-total;
-            // fill-opacity: 0.3;
-        }
-        .line0,
-        .line1,
-        .line2,
-        .line3, {
-            stroke: #f00;
-        }
-
-
-        //  xs
-        @media only screen and (max-width: $xs-max) {
-            .legend {
-                font-size: 50%;
-            }
-        }
-
-        // > xs
-        @media only screen and (min-width: $sm-min) {
-            .legend {
-                font-size: 80%;
-            }
-        }
-
-        .x-axis {
-          font-size: 75%;
-        }
-
-        .x-axis-label {
-            font-size: 80%;
-            text-anchor: middle;
-        }
-
-    }
-
-    .pie-chart {
-        width: 100%;
-        height: 100%;
-        // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-        //  xs
-        @media only screen and (max-width: $xs-max) {
-            font-size: 95%;
-            .percents {
-                font-size: 85%;
-            }
-        }
-
-        polyline {
-            stroke-width: 1px;
-            fill: none;
-        }
-
-        polyline.keep {
-          stroke: $cf-keep-total;
-        }
-
-        polyline.lose {
-          stroke: $cf-lose-total;
-        }
-
-        path.keep {
-          fill: $cf-keep-total;
-        }
-
-        path.lose {
-          fill: $cf-lose-total;
-        }
-
-        .labels .keep {
-          fill: $cf-keep-total;
-        }
-
-        .labels .lose {
-          fill: $cf-lose-total;
-        }
-
-        text.title {
-          fill: $cf-fee-calc-title;
-          font-size: 1.25rem;
-        }
-        .labels {
-            font-size: 90%;
-        }
-        .labels .percent,
-        text.title {
-            font-weight: 700;
-        }
-
-    }
-
-    .axis .domain {
-       display: none;
-    }
-
-    .area-chart .chart-overlay {
       table {
+        /*font-size: 90%;*/
+        margin: auto;
+        margin-top: 75px;
+        margin-left: 20px;
+        border-collapse: collapse;
         border-radius: .5rem;
         background-color: rgba(255,255,255,0.6);
       }
 
-      .legend {
-        width: 15rem;
-        height: 25%;
-        font-size: 90%;
-        margin-left: 1rem;
-        margin-top: 1rem;
+      td,th {
+        padding: 0px .5rem;
       }
 
-      tr.title {
-        color: $cf-fee-calc-title;
+      th {
+        font-weight: 300;
       }
-      tr.lose {
-        color: $cf-lose-total;
+      td.value {
+        text-align: right;
+        font-weight: 700;
+      }
+
+      tr.title > th {
+        color: $cf-fee-calc-title;
+        font-weight: 700;
+        font-size: 1.25rem;
       }
       tr.keep {
         color: $cf-keep-total;
       }
-      td.legend-key-keep>div,
-      td.legend-key-lose>div {
-        width: 3px;
-        height: 15px;
+      tr.fund-fees {
+        color: $cf-fund-fees;
       }
-      td.legend-key-keep>div {
-        background-color: $cf-keep-total;
+      tr.advisor-fees {
+        color: $cf-advisor-fees;
       }
-      td.legend-key-lose>div {
-        background-color: $cf-lose-total;
+      tr.advisor-fees {
+        color: $cf-advisor-fees;
       }
+      tr.lost-earnings,
+      tr.lose,
+      tr.lose-total {
+        color: $cf-lose-total;
+      }
+      //  xs
+      @media only screen and (max-width: 767px) {
+        padding: 0px;
 
-      th.legend-title {
-        font-size: 1.25rem;
-      }
-
-      th.legend-title,
-      td.legend-label,
-      td.legend-percent,
-      td.legend-value {
-        padding-left: .5rem;
-        padding-right: .5rem;
-        text-align: left;
-      }
-
-      td.legend-value {
-        font-weight: 700;
-      }
-    }
-
-
-    .bar-chart {
-
-      rect {
-        stroke: white;
-      }
-      .rect-keep {
-        fill: $cf-keep-total;
-      }
-      .rect-lose-0 {
-        fill: $cf-lose-total;
-      }
-      .rect-lose-1 {
-        fill: $cf-advisor-fees;
-      }
-      .rect-lose-2 {
-        fill: $cf-fund-fees;
-      }
-      .chart-overlay {
         table {
-          font-size: 90%;
-          margin: auto;
-          margin-top: 75px;
-          margin-left: 20px;
-          border-collapse: collapse;
-          border-radius: .5rem;
-          background-color: rgba(255,255,255,0.6);
-        }
-
-        td,th {
-            padding: 0px .5rem;
-        }
-
-        th {
-          font-weight: 400;
-        }
-        td.value {
-            text-align: right;
-            font-weight: 700;
-        }
-
-        tr.title > th {
-          color: $cf-fee-calc-title;
-          font-weight: 700;
-          font-size: 1.25rem;
-        }
-        tr.keep {
-            color: $cf-keep-total;
-        }
-        tr.fund-fees {
-            color: $cf-fund-fees;
-        }
-        tr.advisor-fees {
-            color: $cf-advisor-fees;
-        }
-        tr.advisor-fees {
-           color: $cf-advisor-fees;
-        }
-        tr.lost-earnings,
-        tr.lose,
-        tr.lose-total {
-            color: $cf-lose-total;
-        }
-        //  xs
-        @media only screen and (max-width: 767px) {
-          padding: 0px;
-
-          table {
-            font-size: 75%;
-            margin-top: 2rem;
-          }
+          /*font-size: 75%;*/
+          margin-top: 2rem;
         }
       }
     }
+  }
 
-    .input-form {
-      max-width: 600px;
-      margin: auto;
-    }
+  .input-form {
+    max-width: 600px;
+    margin: auto;
+  }
 
 }

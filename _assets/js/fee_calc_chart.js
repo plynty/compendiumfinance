@@ -222,6 +222,7 @@ function createChartGeometry(chartDivSelector) {
       .style('width', size.totalW+'px');
 
   $('.chart-btn-group .btn-group, .input-form').css('width', size.totalW+'px');
+  $('.h-separator').css('width', (size.totalW - 48)+'px');
 
   geom = {
     chartDiv: chartDiv,
@@ -310,11 +311,11 @@ function initLegend() {
   tr.append("xhtml:th").attr("class", "legend-title").attr("colspan", "2").text("True Cost of Fees");
 
   tr = table.append("xhtml:tr").attr("class", "lose");
-  tr.append("xhtml:td").attr("class", "legend-label").text("You Lose:");
+  tr.append("xhtml:td").attr("class", "legend-label").text("You Lose");
   tr.append("xhtml:td").attr("id", "legend-lose").attr("class", "legend-value");
 
   tr = table.append("xhtml:tr").attr("class", "keep");
-  tr.append("xhtml:td").attr("class", "legend-label").text("You Keep:");
+  tr.append("xhtml:td").attr("class", "legend-label").text("You Keep");
   tr.append("xhtml:td").attr("id", "legend-keep").attr("class", "legend-value");
 }
 
@@ -361,10 +362,19 @@ function initBarStack() {
     var g = geom.bar.g;
     g.append("g")
         .attr("class", "lose")
-        .attr("transform", "translate("+((geom.width)*.9-50)+" -15)");
+        .attr("transform", "translate("+((geom.width - 32)-50)+" 0)");
     g.append("g")
         .attr("class", "keep")
-        .attr("transform", "translate("+((geom.width)*.9-102)+" -15)");
+        .attr("transform", "translate("+((geom.width - 32)-102)+" 0)");
+    var axes = g.append("g")
+        .attr("class", "axes");
+    var margin = 5;
+    var top = geom.height * .1 - margin;
+    var bottom = geom.height * .9 + margin;
+    var right = geom.width - 32 + margin;
+    var left = right - 102 - 2*margin;
+    axes.append("polyline")
+        .attr("points", right+","+top+" "+right+","+bottom+" "+left+","+bottom);
 }
 
 /**
@@ -555,7 +565,7 @@ function initPie() {
 
   var centerX = width / 2,
           centerY = height / 2;
-  geom.pie.g.attr("transform", "translate(" + centerX + "," + (centerY - 15) + ")");
+  geom.pie.g.attr("transform", "translate(" + centerX + "," + (centerY) + ")");
 
   geom.pie.colorScale = d3.scaleOrdinal()
       .domain(config.keysKeepLose)
