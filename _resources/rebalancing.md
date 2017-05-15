@@ -12,7 +12,7 @@ lead: 'Portfolio rebalancing is the process of buying or selling assets in your 
   surprisingly continue to be an integral part of the bedrock beliefs, practices,
   and recommendations of almost all financial advisors. '
 source: internal
-link: 
+link:
 img: "/uploads/rebalancing-header.png"
 bg_img_darken: true
 banner_img: "/uploads/rebalancing-header.png"
@@ -53,7 +53,139 @@ Table 1 presents a two-year example. Consider a $10,000 portfolio initially allo
 
 Table 1. The error of “diversification return” and “rebalancing bonus”
 
-![Screen Shot 2017-05-12 at 8.10.34 AM-4ab68a.png](/uploads/Screen%20Shot%202017-05-12%20at%208.10.34%20AM-4ab68a.png)
+<div class="rebalancing-table">
+<table border="0" cellspacing="0" cellpadding="0" class="ta1">
+<colgroup>
+<col width="383"/>
+<col width="126"/>
+<col width="126"/>
+<col width="161"/>
+<col width="136"/>
+</colgroup>
+<tr class="ro1">
+<td style="text-align:left;width:248.26pt; " class="ce1"> </td>
+<td colspan="2" style="text-align:left;width:81.75pt; " class="ce7"><p>Rebalanced</p></td>
+<td colspan="2" style="text-align:left;width:104.26pt; " class="ce7"><p>Not Rebalanced</p></td>
+</tr>
+<tr class="ro1 tr2">
+<td style="text-align:left;width:248.26pt; " class="ce2"> </td>
+<td style="text-align:left;width:81.75pt; " class="ce8"><p>Stocks</p></td>
+<td style="text-align:left;width:81.75pt; " class="ce8"><p>Bonds</p></td>
+<td style="text-align:left;width:104.26pt; " class="ce8"><p>Stocks</p></td>
+<td style="text-align:left;width:88.5pt; " class="ce8"><p>Bonds</p></td>
+</tr>
+<tr class="ro1">
+<td style="text-align:left;width:248.26pt; " class="ce3"><p>1st Year</p></td>
+<td style="text-align:left;width:81.75pt; " class="ce1"> </td>
+<td style="text-align:left;width:81.75pt; " class="ce1"> </td>
+<td style="text-align:left;width:104.26pt; " class="ce1"> </td>
+<td style="text-align:left;width:88.5pt; " class="ce1"> </td>
+</tr>
+<tr class="ro1 shade">
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Allocation (start of year)</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,000 </p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,000 </p></td>
+<td style="text-align:right; width:104.26pt; " class="ce15"><p>$5,000 </p></td>
+<td style="text-align:right; width:88.5pt; " class="ce15"><p>$5,000 </p></td>
+</tr>
+<tr class="ro1">
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Annual Rate of Return</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce10"><p>20%</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce10"><p>8%</p></td>
+<td style="text-align:right; width:104.26pt; " class="ce10"><p>20%</p></td>
+<td style="text-align:right; width:88.5pt; " class="ce10"><p>8%</p></td>
+</tr>
+<tr class="ro1 shade">
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Assets (end of year)</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$6,000 </p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,400 </p></td>
+<td style="text-align:right; width:104.26pt; " class="ce9"><p>$6,000 </p></td>
+<td style="text-align:right; width:88.5pt; " class="ce9"><p>$5,400 </p></td>
+</tr>
+<tr class="ro1 tr2">
+<td style="text-align:left;width:248.26pt; " class="ce2"> </td>
+<td style="text-align:left;width:81.75pt; " class="ce11"> </td>
+<td style="text-align:left;width:81.75pt; " class="ce11"> </td>
+<td style="text-align:left;width:104.26pt; " class="ce11"> </td>
+<td style="text-align:left;width:88.5pt; " class="ce11"> </td>
+</tr>
+<tr class="ro1">
+<td style="text-align:left;width:248.26pt; " class="ce3"><p>2nd Year</p></td>
+<td style="text-align:left;width:81.75pt; " class="ce12"> </td>
+<td style="text-align:left;width:81.75pt; " class="ce12"> </td>
+<td style="text-align:left;width:104.26pt; " class="ce12"> </td>
+<td style="text-align:left;width:88.5pt; " class="ce12"> </td>
+</tr>
+<tr class="ro1 shade">
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Assets (start of year)</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$6,000 </p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,400 </p></td>
+<td style="text-align:right; width:104.26pt; " class="ce15"><p>$6,000 </p></td>
+<td style="text-align:right; width:88.5pt; " class="ce15"><p>$5,400 </p></td>
+</tr>
+<tr class="ro1">
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Rebalanced Allocation</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,700 </p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,700 </p></td>
+<td style="text-align:left;width:104.26pt; " class="ce15"><p>-</p></td>
+<td style="text-align:left;width:88.5pt; " class="ce15"><p>-</p></td>
+</tr>
+<tr class="ro1 shade">
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Rate of Return</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce10"><p>-2%</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce10"><p>2%</p></td>
+<td style="text-align:right; width:104.26pt; " class="ce10"><p>-2%</p></td>
+<td style="text-align:right; width:88.5pt; " class="ce10"><p>2%</p></td>
+</tr>
+<tr class="ro1">
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Assets (end of year)</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,586 </p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,814 </p></td>
+<td style="text-align:right; width:104.26pt; " class="ce9"><p>$5,880 </p></td>
+<td style="text-align:right; width:88.5pt; " class="ce9"><p>$5,508 </p></td>
+</tr>
+<tr class="ro1 tr2">
+<td style="text-align:left;width:248.26pt; " class="ce2"> </td>
+<td style="text-align:left;width:81.75pt; " class="ce11"> </td>
+<td style="text-align:left;width:81.75pt; " class="ce11"> </td>
+<td style="text-align:left;width:104.26pt; " class="ce11"> </td>
+<td style="text-align:left;width:88.5pt; " class="ce11"> </td>
+</tr>
+<tr class="ro1">
+<td style="text-align:left;width:248.26pt; " class="ce3"><p>Summary</p></td>
+<td style="text-align:left;width:81.75pt; " class="ce12"> </td>
+<td style="text-align:left;width:81.75pt; " class="ce12"> </td>
+<td style="text-align:left;width:104.26pt; " class="ce12"> </td>
+<td style="text-align:left;width:88.5pt; " class="ce12"> </td>
+</tr>
+<tr class="ro1 shade">
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Compound Return</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce13"><p>11.72%</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce13"><p>16.28%</p></td>
+<td style="text-align:right; width:104.26pt; " class="ce13"><p>17.60%</p></td>
+<td style="text-align:right; width:88.5pt; " class="ce13"><p>10.16%</p></td>
+</tr>
+<tr class="ro1">
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Annualized Compound Return</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce13"><p>5.70%</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce13"><p>7.83%</p></td>
+<td style="text-align:right; width:104.26pt; " class="ce13"><p>8.44%</p></td>
+<td style="text-align:right; width:88.5pt; " class="ce13"><p>4.96%</p></td>
+</tr>
+<tr class="ro1 shade">
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Average of Annualized Return</p></td>
+<td colspan="2" style="text-align:right; width:81.75pt; " class="ce13"><p>6.77%</p></td>
+<td colspan="2" style="text-align:right; width:104.26pt; " class="ce13"><p>6.71%</p></td>
+</tr>
+<tr class="ro2 tr6">
+<td style="text-align:left;width:248.26pt; " class="ce6"> </td>
+<td style="text-align:left;width:81.75pt; " class="ce6"> </td>
+<td style="text-align:left;width:81.75pt; " class="ce6"> </td>
+<td style="text-align:left;width:104.26pt; " class="ce6"> </td>
+<td style="text-align:left;width:88.5pt; " class="ce6"> </td>
+</tr>
+</table>
+</div>
 
 In this case, the unrebalanced portfolio earns a slightly higher rate of return over the two years, ending with $11,400 and a two-year annualized rate of return of 6.77%. The rebalanced portfolio ends with a slightly lower $11,388 for a two-year annualized rate of return of 6.71%.
 

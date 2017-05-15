@@ -171,7 +171,7 @@
 
 #article-view {
     display: none;
-    text-align: center;
+    text-align: left;
 
     a.author-link {
         cursor: pointer;
@@ -214,6 +214,8 @@
 
     img {
       max-width: 100%;
+      margin:auto;
+      display: block;
     }
 
     .pmd-card {
