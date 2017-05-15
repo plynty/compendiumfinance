@@ -5,7 +5,7 @@ position: 5
 source: internal
 lead: Lowering your fees could be the most important investment decision you make.
 img: "/uploads/thetruecostoffees-500.png"
-banner_img:
+banner_img: 
 ---
 
 At Compendium Finance, we want to educate people so that they can be more effective as investors and planners.  Many topics can be made to sound extremely complex; we aim to do the opposite. Today may be the easiest and least expensive time in history to invest.  But you wouldn’t know that from watching CNBC or a local new business and market report.
