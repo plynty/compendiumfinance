@@ -109,12 +109,6 @@ $cf-advisor-fees: #ba0a0f;
     }
   }
 
-  .h-separator {
-    border-top: solid thin $cf-trim;
-    height: 0px;
-    margin: auto;
-  }
-
   span.slider-value {
     color: #555;
   }
@@ -343,6 +337,11 @@ $cf-advisor-fees: #ba0a0f;
 
     rect {
       stroke: white;
+    }
+    polyline {
+      stroke: $cf-trim;
+      fill: none;
+      stroke-width: 1;
     }
     .rect-keep {
       fill: $cf-keep-total;
