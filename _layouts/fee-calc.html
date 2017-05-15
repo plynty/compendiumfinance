@@ -33,9 +33,9 @@
   <body class="fee-calculator">
     {% include return-header.html %}
     <div>
-    <div class="pmd-card pmd-z-depth">
-      <div class="chart-btn-group">
-        <!--<div class="col-xs-12">-->
+      <div class="pmd-card pmd-z-depth">
+        <div class="chart-btn-group">
+          <!--<div class="col-xs-12">-->
           <div class="btn-group">
             <a class="btn pmd-ripple-effect pmd-btn chart-area" type="button" title="Area Chart" onclick="showChart('area', '#chart'); return false;">
               <i class="fa fa-area-chart fa-lg"></i>
@@ -47,75 +47,75 @@
               <i class="fa fa-bar-chart fa-lg"></i>
             </a>
           </div>
-        <!--</div>-->
-      </div>
-      <div class="charts">
-        <div id="chart">
-          <div class="chart-segment area-chart">
-            <div class="rel">
-              <svg class="chart"></svg>
-              <div class="chart-overlay"></div>
+          <!--</div>-->
+        </div>
+        <div class="charts">
+          <div id="chart">
+            <div class="chart-segment area-chart">
+              <div class="rel">
+                <svg class="chart"></svg>
+                <div class="chart-overlay"></div>
+              </div>
+            </div>
+            <div class="chart-segment pie-chart">
+              <div class="rel">
+                <svg class="chart"></svg>
+                <div class="chart-overlay"></div>
+              </div>
+            </div>
+            <div class="chart-segment bar-chart">
+              <div class="rel">
+                <svg class="chart"></svg>
+                <div class="chart-overlay"></div>
+              </div>
             </div>
           </div>
-          <div class="chart-segment pie-chart">
-            <div class="rel">
-              <svg class="chart"></svg>
-              <div class="chart-overlay"></div>
+        </div>
+        <div class="row">
+          <div class="input-form">
+            <div class="col-md-12 col-xs-6">
+              <div class="form-group pmd-textfield">
+                <label for="investment-amount" class="control-label">
+                  Investment Amount
+                </label>
+                <input type="text" id="investment-amount" class="form-control" value="$50,000" onblur="validate(); return false;">
+              </div>
             </div>
-          </div>
-          <div class="chart-segment bar-chart">
-            <div class="rel">
-              <svg class="chart"></svg>
-              <div class="chart-overlay"></div>
+            <div class="col-md-12 col-xs-6">
+              <div class="form-group pmd-textfield">
+                <label for="investment-period" class="control-label">
+                  Investment Period
+                </label>
+                <input type="text" id="investment-period" class="form-control" value="30" onblur="validate(); return false;">
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="form-group pmd-textfield">
+                <label for="rate-of-return" class="control-label">
+                  Rate of Return
+                </label>
+                <div id="rate-of-return" class="range-slider"></div>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="form-group pmd-textfield">
+                <label for="mutual-fund-fees" class="control-label">
+                  Mutual Fund Fees
+                </label>
+                <div id="mutual-fund-fees" class="range-slider"></div>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="form-group pmd-textfield">
+                <label for="advisor-fee" class="control-label">
+                  Advisor Fee
+                </label>
+                <div id="advisor-fee" class="range-slider"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="input-form">
-          <div class="col-md-12 col-xs-6">
-            <div class="form-group pmd-textfield">
-              <label for="investment-amount" class="control-label">
-                Investment Amount
-              </label>
-              <input type="text" id="investment-amount" class="form-control" value="$50,000" onblur="validate(); return false;">
-            </div>
-          </div>
-          <div class="col-md-12 col-xs-6">
-            <div class="form-group pmd-textfield">
-              <label for="investment-period" class="control-label">
-                Investment Period
-              </label>
-              <input type="text" id="investment-period" class="form-control" value="30" onblur="validate(); return false;">
-            </div>
-          </div>
-          <div class="col-xs-12">
-            <div class="form-group pmd-textfield">
-              <label for="rate-of-return" class="control-label">
-                Rate of Return
-              </label>
-              <div id="rate-of-return" class="range-slider"></div>
-            </div>
-          </div>
-          <div class="col-xs-12">
-            <div class="form-group pmd-textfield">
-              <label for="mutual-fund-fees" class="control-label">
-                Mutual Fund Fees
-              </label>
-              <div id="mutual-fund-fees" class="range-slider"></div>
-            </div>
-          </div>
-          <div class="col-xs-12">
-            <div class="form-group pmd-textfield">
-              <label for="advisor-fee" class="control-label">
-                Advisor Fee
-              </label>
-              <div id="advisor-fee" class="range-slider"></div>
-            </div>
-          </div>
-        </div>
-        </div>
-    </div>
     </div>
 
     <!-- jQuery before Propeller.js -->
