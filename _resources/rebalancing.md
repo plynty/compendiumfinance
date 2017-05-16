@@ -82,7 +82,7 @@ Table 1. The error of “diversification return” and “rebalancing bonus”
 <td style="text-align:left;width:88.5pt; " class="ce1"> </td>
 </tr>
 <tr class="ro1 shade">
-<td style="text-align:left;width:248.26pt; " class="ce4"><p>Allocation (start of year)</p></td>
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Initial Allocation</p></td>
 <td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,000 </p></td>
 <td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,000 </p></td>
 <td style="text-align:right; width:104.26pt; " class="ce15"><p>$5,000 </p></td>
@@ -131,7 +131,7 @@ Table 1. The error of “diversification return” and “rebalancing bonus”
 <td style="text-align:left;width:88.5pt; " class="ce15"><p>-</p></td>
 </tr>
 <tr class="ro1 shade">
-<td style="text-align:left;width:248.26pt; " class="ce4"><p>Rate of Return</p></td>
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Annual Rate of Return</p></td>
 <td style="text-align:right; width:81.75pt; " class="ce10"><p>20%</p></td>
 <td style="text-align:right; width:81.75pt; " class="ce10"><p>4%</p></td>
 <td style="text-align:right; width:104.26pt; " class="ce10"><p>20%</p></td>
@@ -173,7 +173,7 @@ Table 1. The error of “diversification return” and “rebalancing bonus”
 <td style="text-align:right; width:88.5pt; " class="ce13"><p>5.98%</p></td>
 </tr>
 <tr class="ro1 shade">
-<td style="text-align:left;width:248.26pt; " class="ce4"><p>Average of Annualized Return</p></td>
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Average of Annualized Returns</p></td>
 <td colspan="2" style="text-align:right; width:81.75pt; " class="ce13"><p>10.49%</p></td>
 <td colspan="2" style="text-align:right; width:104.26pt; " class="ce13"><p>10.53%</p></td>
 </tr>
