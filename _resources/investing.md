@@ -13,8 +13,9 @@ lead: \"Safety-Net-Plus\" is our strategy to balance both the risk of market vol
   designed to cover the minimum income required, the more uncertain stock investments
   seek to cover the remaining desired income without putting the minimum income in
   any risk.
-link: 
+link:
 source: internal
+img: /uploads/arrow-graph-blue.png
 banner_img: "/uploads/investing-header2.png"
 ---
 
@@ -66,7 +67,7 @@ It is important to remember, though, that the value of the risky portfolio is a 
 
 **A very simple process**
 
-When the investor adheres to a process like this, there is very little to do. Contrary to the hype that is usually heard from the finance industry establishment, this is actually the way it should be. Investing is for the long run. Warren Buffett himself, the investing icon, says that his favorite holding period for investments is “forever.” He has recently said you should “invest in stocks as you would in a farm.” 
+When the investor adheres to a process like this, there is very little to do. Contrary to the hype that is usually heard from the finance industry establishment, this is actually the way it should be. Investing is for the long run. Warren Buffett himself, the investing icon, says that his favorite holding period for investments is “forever.” He has recently said you should “invest in stocks as you would in a farm.”
 
 The only thing that should be done with the safety-net-plus investment strategy is to monitor and evaluate from time to time whether more assets should be moved from risky assets to safety-net assets, to lock in gains and raise the safety net. This process of monitoring and evaluating can be done by an automated service, which alerts the investor when the time is ripe for the possibility of the shift. This will happen after the equity market has substantially increased in value, so it is a strategy of selling high, but it is not done for the purpose of trying to time the market in order to beat it but for the purpose of ensuring the investor of the highest safety net floor on future income that is possible given the investor’s resources and future aspirations.
 
