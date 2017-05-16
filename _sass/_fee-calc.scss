@@ -178,7 +178,7 @@ $cf-advisor-fees: #ba0a0f;
     margin-top: 0px;
 
     .btn-group {
-      padding: 0 1.5rem;
+      margin: auto;
 
       a {
         margin: 0px;
@@ -187,7 +187,6 @@ $cf-advisor-fees: #ba0a0f;
         background-color: white;
         overflow: hidden;
         color: $cf-fee-calc-buttons;
-        width: 25%;
       }
 
       a.selected {
