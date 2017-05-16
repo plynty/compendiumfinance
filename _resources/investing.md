@@ -13,9 +13,9 @@ lead: \"Safety-Net-Plus\" is our strategy to balance both the risk of market vol
   designed to cover the minimum income required, the more uncertain stock investments
   seek to cover the remaining desired income without putting the minimum income in
   any risk.
-link:
+link: 
 source: internal
-img: /uploads/arrow-graph-blue.png
+img: "/uploads/arrow-graph-blue.png"
 banner_img: "/uploads/investing-header2.png"
 ---
 
