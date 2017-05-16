@@ -82,7 +82,7 @@ Table 1. The error of “diversification return” and “rebalancing bonus”
 <td style="text-align:left;width:88.5pt; " class="ce1"> </td>
 </tr>
 <tr class="ro1 shade">
-<td style="text-align:left;width:248.26pt; " class="ce4"><p>Allocation (start of year)</p></td>
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Initial Allocation</p></td>
 <td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,000 </p></td>
 <td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,000 </p></td>
 <td style="text-align:right; width:104.26pt; " class="ce15"><p>$5,000 </p></td>
@@ -90,16 +90,16 @@ Table 1. The error of “diversification return” and “rebalancing bonus”
 </tr>
 <tr class="ro1">
 <td style="text-align:left;width:248.26pt; " class="ce4"><p>Annual Rate of Return</p></td>
-<td style="text-align:right; width:81.75pt; " class="ce10"><p>20%</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce10"><p>10%</p></td>
 <td style="text-align:right; width:81.75pt; " class="ce10"><p>8%</p></td>
-<td style="text-align:right; width:104.26pt; " class="ce10"><p>20%</p></td>
+<td style="text-align:right; width:104.26pt; " class="ce10"><p>10%</p></td>
 <td style="text-align:right; width:88.5pt; " class="ce10"><p>8%</p></td>
 </tr>
 <tr class="ro1 shade">
 <td style="text-align:left;width:248.26pt; " class="ce4"><p>Assets (end of year)</p></td>
-<td style="text-align:right; width:81.75pt; " class="ce9"><p>$6,000 </p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,500 </p></td>
 <td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,400 </p></td>
-<td style="text-align:right; width:104.26pt; " class="ce9"><p>$6,000 </p></td>
+<td style="text-align:right; width:104.26pt; " class="ce9"><p>$5,500 </p></td>
 <td style="text-align:right; width:88.5pt; " class="ce9"><p>$5,400 </p></td>
 </tr>
 <tr class="ro1 tr2">
@@ -118,31 +118,31 @@ Table 1. The error of “diversification return” and “rebalancing bonus”
 </tr>
 <tr class="ro1 shade">
 <td style="text-align:left;width:248.26pt; " class="ce4"><p>Assets (start of year)</p></td>
-<td style="text-align:right; width:81.75pt; " class="ce9"><p>$6,000 </p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,500 </p></td>
 <td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,400 </p></td>
-<td style="text-align:right; width:104.26pt; " class="ce15"><p>$6,000 </p></td>
+<td style="text-align:right; width:104.26pt; " class="ce15"><p>$5,500 </p></td>
 <td style="text-align:right; width:88.5pt; " class="ce15"><p>$5,400 </p></td>
 </tr>
 <tr class="ro1">
 <td style="text-align:left;width:248.26pt; " class="ce4"><p>Rebalanced Allocation</p></td>
-<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,700 </p></td>
-<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,700 </p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,400 </p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,400 </p></td>
 <td style="text-align:left;width:104.26pt; " class="ce15"><p>-</p></td>
 <td style="text-align:left;width:88.5pt; " class="ce15"><p>-</p></td>
 </tr>
 <tr class="ro1 shade">
-<td style="text-align:left;width:248.26pt; " class="ce4"><p>Rate of Return</p></td>
-<td style="text-align:right; width:81.75pt; " class="ce10"><p>-2%</p></td>
-<td style="text-align:right; width:81.75pt; " class="ce10"><p>2%</p></td>
-<td style="text-align:right; width:104.26pt; " class="ce10"><p>-2%</p></td>
-<td style="text-align:right; width:88.5pt; " class="ce10"><p>2%</p></td>
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Annual Rate of Return</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce10"><p>20%</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce10"><p>4%</p></td>
+<td style="text-align:right; width:104.26pt; " class="ce10"><p>20%</p></td>
+<td style="text-align:right; width:88.5pt; " class="ce10"><p>4%</p></td>
 </tr>
 <tr class="ro1">
 <td style="text-align:left;width:248.26pt; " class="ce4"><p>Assets (end of year)</p></td>
-<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,586 </p></td>
-<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,814 </p></td>
-<td style="text-align:right; width:104.26pt; " class="ce9"><p>$5,880 </p></td>
-<td style="text-align:right; width:88.5pt; " class="ce9"><p>$5,508 </p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$6,540 </p></td>
+<td style="text-align:right; width:81.75pt; " class="ce9"><p>$5,668 </p></td>
+<td style="text-align:right; width:104.26pt; " class="ce9"><p>$6,600 </p></td>
+<td style="text-align:right; width:88.5pt; " class="ce9"><p>$5,616 </p></td>
 </tr>
 <tr class="ro1 tr2">
 <td style="text-align:left;width:248.26pt; " class="ce2"> </td>
@@ -160,22 +160,22 @@ Table 1. The error of “diversification return” and “rebalancing bonus”
 </tr>
 <tr class="ro1 shade">
 <td style="text-align:left;width:248.26pt; " class="ce4"><p>Compound Return</p></td>
-<td style="text-align:right; width:81.75pt; " class="ce13"><p>11.72%</p></td>
-<td style="text-align:right; width:81.75pt; " class="ce13"><p>16.28%</p></td>
-<td style="text-align:right; width:104.26pt; " class="ce13"><p>17.60%</p></td>
-<td style="text-align:right; width:88.5pt; " class="ce13"><p>10.16%</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce13"><p>30.80%</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce13"><p>13.36%</p></td>
+<td style="text-align:right; width:104.26pt; " class="ce13"><p>32.00%</p></td>
+<td style="text-align:right; width:88.5pt; " class="ce13"><p>12.32%</p></td>
 </tr>
 <tr class="ro1">
 <td style="text-align:left;width:248.26pt; " class="ce4"><p>Annualized Compound Return</p></td>
-<td style="text-align:right; width:81.75pt; " class="ce13"><p>5.70%</p></td>
-<td style="text-align:right; width:81.75pt; " class="ce13"><p>7.83%</p></td>
-<td style="text-align:right; width:104.26pt; " class="ce13"><p>8.44%</p></td>
-<td style="text-align:right; width:88.5pt; " class="ce13"><p>4.96%</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce13"><p>14.37%</p></td>
+<td style="text-align:right; width:81.75pt; " class="ce13"><p>6.47%</p></td>
+<td style="text-align:right; width:104.26pt; " class="ce13"><p>14.89%</p></td>
+<td style="text-align:right; width:88.5pt; " class="ce13"><p>5.98%</p></td>
 </tr>
 <tr class="ro1 shade">
-<td style="text-align:left;width:248.26pt; " class="ce4"><p>Average of Annualized Return</p></td>
-<td colspan="2" style="text-align:right; width:81.75pt; " class="ce13"><p>6.71%</p></td>
-<td colspan="2" style="text-align:right; width:104.26pt; " class="ce13"><p>6.77%</p></td>
+<td style="text-align:left;width:248.26pt; " class="ce4"><p>Average of Annualized Returns</p></td>
+<td colspan="2" style="text-align:right; width:81.75pt; " class="ce13"><p>10.49%</p></td>
+<td colspan="2" style="text-align:right; width:104.26pt; " class="ce13"><p>10.53%</p></td>
 </tr>
 <tr class="ro2 tr6">
 <td style="text-align:left;width:248.26pt; " class="ce6"> </td>
@@ -187,7 +187,7 @@ Table 1. The error of “diversification return” and “rebalancing bonus”
 </table>
 </div>
 
-In this case, the unrebalanced portfolio earns a slightly higher rate of return over the two years, ending with $11,400 and a two-year annualized rate of return of 6.77%. The rebalanced portfolio ends with a slightly lower $11,388 for a two-year annualized rate of return of 6.71%.
+In this case, the unrebalanced portfolio earns a slightly higher rate of return over the two years, ending with $12,216 and a two-year annualized rate of return of 10.53%. The rebalanced portfolio ends with a slightly lower $12,208 for a two-year annualized rate of return of 10.49%.
 
 But the papers on diversification return and rebalancing bonus do not compare these two numbers. Instead, they take the average of the two-year annualized returns for the two assets (last column on the right) and compare it with the return on the rebalanced portfolio.
 
