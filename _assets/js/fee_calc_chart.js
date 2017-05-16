@@ -84,16 +84,16 @@ function updateStack() {
 function swipeChart(leftRight) {
   switch (config.showing) {
     case 'doc':
-      config.showing = leftRight === 'right' ? 'bar' : 'area';
-      break;
-    case 'area':
       config.showing = leftRight === 'right' ? 'doc' : 'pie';
       break;
     case 'pie':
-      config.showing = leftRight === 'right' ? 'area' : 'bar';
+      config.showing = leftRight === 'right' ? 'doc' : 'area';
+      break;
+    case 'area':
+      config.showing = leftRight === 'right' ? 'pie' : 'bar';
       break;
     case 'bar':
-      config.showing = leftRight === 'right' ? 'pie' : 'doc';
+      config.showing = leftRight === 'right' ? 'area' : 'doc';
       break;
   }
   showChart(config.showing);
@@ -232,8 +232,8 @@ function createChartGeometry(chartDivSelector) {
   chartDiv.style('height', size.h+'px')
       .style('width', size.totalW+'px');
 
-  $('.chart-btn-group .btn-group, .input-form').css('width', (size.totalW)+'px');
-  $('.h-separator').css('width', (size.totalW - 48)+'px');
+  $('.chart-btn-group .btn-group a.btn').css('width', ((size.chartW - config.margin.left - config.margin.right)/4 - 8)+'px');
+  $('.input-form').css('width', (size.chartW)+'px');
 
   geom = {
     chartDiv: chartDiv,
