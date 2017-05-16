@@ -20,6 +20,7 @@ $cf-advisor-fees: #ba0a0f;
     .narrative-card {
       overflow-y: scroll;
     }
+
   }
 
   // > xs
@@ -27,11 +28,17 @@ $cf-advisor-fees: #ba0a0f;
     // max-width: 1200px;
     display: block;
     margin: auto;
+
     .pmd-card {
       margin: auto;
       min-height: 30rem;
       overflow: hidden;
     }
+
+    .row {
+      margin-top: 1rem;
+    }
+
     .form-group {
       margin-left: 1rem;
       margin-right: 1rem;
@@ -72,25 +79,22 @@ $cf-advisor-fees: #ba0a0f;
     width: 100%;
   }
 
-  .row {
-    margin-top: 1rem;
-  }
-
   span.slider-value {
     color: #555;
   }
 
+  .slider {
+    margin-bottom: 1rem;
+  }
   .range-slider {
-    margin-top: 6px;
+    margin-top: .75rem;
   }
   .noUi-target {
     height: 2px;
   }
   .noUi-handle {
-    width: 18px;
-    height: 18px;
-    left: -5px;
-    top: -9px;
+    left: -18px;
+    top: -14px;
     cursor: pointer;
     border: none;
     box-shadow: none;

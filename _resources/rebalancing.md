@@ -174,8 +174,8 @@ Table 1. The error of “diversification return” and “rebalancing bonus”
 </tr>
 <tr class="ro1 shade">
 <td style="text-align:left;width:248.26pt; " class="ce4"><p>Average of Annualized Return</p></td>
-<td colspan="2" style="text-align:right; width:81.75pt; " class="ce13"><p>6.77%</p></td>
-<td colspan="2" style="text-align:right; width:104.26pt; " class="ce13"><p>6.71%</p></td>
+<td colspan="2" style="text-align:right; width:81.75pt; " class="ce13"><p>6.71%</p></td>
+<td colspan="2" style="text-align:right; width:104.26pt; " class="ce13"><p>6.77%</p></td>
 </tr>
 <tr class="ro2 tr6">
 <td style="text-align:left;width:248.26pt; " class="ce6"> </td>
