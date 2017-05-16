@@ -6,10 +6,15 @@ $cf-fund-fees: #ba0a0f;
 $cf-advisor-fees: #ba0a0f;
 
 .fee-calculator {
+  //  tiny
+  @media only screen and (max-width: 350px) {
+    background-color: white;
 
-  //  xs
-  @media only screen and (max-width: 767px) {
     font-size: 15px;
+
+    .title {
+      font-size: 18px
+    }
 
     .form-group {
       margin-left: .5rem;
@@ -23,9 +28,34 @@ $cf-advisor-fees: #ba0a0f;
 
   }
 
+  //  xs
+  @media only screen and (max-width: 767px) and (min-width: 351px) {
+    background-color: white;
+
+    font-size: 16px;
+
+    .title {
+      font-size: 20px
+    }
+
+    .form-group {
+      margin-left: .5rem;
+      margin-right: .5rem;
+      margin-bottom: .5rem;
+    }
+
+    .narrative-card {
+      overflow-y: scroll;
+    }
+
+  }
   // > xs
   @media only screen and (min-width: 768px) {
     // max-width: 1200px;
+    .title {
+      font-size: 26px
+    }
+
     display: block;
     margin: auto;
 
@@ -67,11 +97,11 @@ $cf-advisor-fees: #ba0a0f;
     position: absolute;
   }
 
-  div.chart-segment>.rel {
+  div.rel {
     position: relative;
   }
 
-  div.chart-segment>.rel>* {
+  div.rel>* {
     position: absolute;
   }
 
@@ -99,7 +129,7 @@ $cf-advisor-fees: #ba0a0f;
     border: none;
     box-shadow: none;
     border-radius: 50%;
-    background: #3fb8af;
+    background: $cf-lose-total;
   }
   .noUi-handle::before, .noUi-handle::after {
     content: none;
@@ -133,9 +163,14 @@ $cf-advisor-fees: #ba0a0f;
     height: 100%;
   }
 
-  #narrative{
+  #doc{
     text-align: justify;
-    margin: 1rem;
+    margin: 1.5rem;
+  }
+
+  div.charts {
+    display: none;
+    opacity: 0;
   }
 
   .chart-btn-group {
@@ -152,7 +187,7 @@ $cf-advisor-fees: #ba0a0f;
         background-color: white;
         overflow: hidden;
         color: $cf-fee-calc-buttons;
-        width: 33%;
+        width: 25%;
       }
 
       a.selected {
@@ -200,21 +235,6 @@ $cf-advisor-fees: #ba0a0f;
       stroke: #f00;
     }
 
-
-    //  xs
-/*    @media only screen and (max-width: $xs-max) {
-      .legend {
-        font-size: 50%;
-      }
-    }
-
-    // > xs
-    @media only screen and (min-width: $sm-min) {
-      .legend {
-        font-size: 80%;
-      }
-    }*/
-
     .x-axis {
       font-size: 75%;
     }
@@ -233,10 +253,7 @@ $cf-advisor-fees: #ba0a0f;
 
     //  xs
     @media only screen and (max-width: $xs-max) {
-/*      font-size: 95%;
-      .percents {
-        font-size: 85%;
-      }*/
+
     }
 
     polyline {
@@ -270,7 +287,6 @@ $cf-advisor-fees: #ba0a0f;
 
     text.title {
       fill: $cf-fee-calc-title;
-      font-size: 1.25rem;
     }
 /*    .labels {
       font-size: 90%;
@@ -296,7 +312,7 @@ $cf-advisor-fees: #ba0a0f;
       width: 15rem;
       height: 25%;
       /*font-size: 90%;*/
-      margin-left: 1rem;
+      margin-left: 1.5rem;
       margin-top: 1rem;
     }
 
@@ -319,10 +335,6 @@ $cf-advisor-fees: #ba0a0f;
     }
     td.legend-key-lose>div {
       background-color: $cf-lose-total;
-    }
-
-    th.legend-title {
-      font-size: 1.25rem;
     }
 
     th.legend-title,
@@ -388,7 +400,6 @@ $cf-advisor-fees: #ba0a0f;
       tr.title > th {
         color: $cf-fee-calc-title;
         font-weight: 700;
-        font-size: 1.25rem;
       }
       tr.keep {
         color: $cf-keep-total;

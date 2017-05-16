@@ -9,7 +9,7 @@ var config = {
   minChartWidth: 350,
   maxChartWidth: 500,
   aspectRatio: 1.5,
-  margin: {top: 0, right: 15, bottom: 40, left: 15}, // margin for d3 area chart to draw axes
+  margin: {top: 0, right: 15, bottom: 40, left: 12}, // margin for d3 area chart to draw axes
   curve: 'basis',
 
   keysKeepLose: ["You Keep", "You Lose"],
@@ -34,7 +34,7 @@ var config = {
     totalsRight: 100
   },
 
-  showing: "area"
+  showing: "doc"
 };
 
 /** hold geometry info for the charts */
@@ -83,14 +83,17 @@ function updateStack() {
 
 function swipeChart(leftRight) {
   switch (config.showing) {
+    case 'doc':
+      config.showing = leftRight === 'right' ? 'bar' : 'area';
+      break;
     case 'area':
-      config.showing = leftRight === 'right' ? 'bar' : 'pie';
+      config.showing = leftRight === 'right' ? 'doc' : 'pie';
       break;
     case 'pie':
       config.showing = leftRight === 'right' ? 'area' : 'bar';
       break;
     case 'bar':
-      config.showing = leftRight === 'right' ? 'pie' : 'area';
+      config.showing = leftRight === 'right' ? 'pie' : 'doc';
       break;
   }
   showChart(config.showing);
@@ -99,18 +102,26 @@ function swipeChart(leftRight) {
 function showChart(chartType) {
   config.showing = chartType;
 
-  function fadeSvg(selection, opacity) {
-    selection.transition().duration(1000)
-            .attr("opacity", opacity);
-  }
   function fadeDiv(selection, opacity) {
     selection.transition().duration(1000)
             .style("opacity", opacity);
   }
+  if (config.showing === 'doc') {
+    $('#doc').show();
+    $('div.charts').hide();
+//    $('div.input-form').hide();
+  } else {
+    $('#doc').hide();
+    $('div.charts').show();
+//    $('div.input-form').show();
+  }
+  fadeDiv(d3.select('#doc'), (config.showing === 'doc') ? 1 : 0);
+  fadeDiv(d3.select('div.charts'), (config.showing !== 'doc') ? 1 : 0);
+  fadeDiv(d3.select('div.input-form'), (config.showing !== 'doc') ? 1 : 0);
 
-  fadeDiv(geom.area.topDiv, (config.showing === 'all' || config.showing === 'area') ? 1 : 0);
-  fadeDiv(geom.pie.topDiv, (config.showing === 'all' || config.showing === 'pie') ? 1 : 0);
-  fadeDiv(geom.bar.topDiv, (config.showing === 'all' || config.showing === 'bar') ? 1 : 0);
+  fadeDiv(geom.area.topDiv, (config.showing === 'area') ? 1 : 0);
+  fadeDiv(geom.pie.topDiv, (config.showing === 'pie') ? 1 : 0);
+  fadeDiv(geom.bar.topDiv, (config.showing === 'bar') ? 1 : 0);
   shadeButtons();
 }
 
@@ -368,13 +379,13 @@ function initBarStack() {
         .attr("transform", "translate("+((geom.width - 32)-102)+" 0)");
     var axes = g.append("g")
         .attr("class", "axes");
-    var margin = 5;
-    var top = geom.height * .1 - margin;
-    var bottom = geom.height * .9 + margin;
-    var right = geom.width - 32 + margin;
-    var left = right - 102 - 2*margin;
+    var margin = 15;
+//    var top = geom.height * .1 - margin;
+    var bottom = geom.height - margin;
+    var right = geom.width * .8;
+    var left = geom.width * .2;
     axes.append("polyline")
-        .attr("points", right+","+top+" "+right+","+bottom+" "+left+","+bottom);
+        .attr("points", right+","+bottom+" "+left+","+bottom);
 }
 
 /**
@@ -580,7 +591,7 @@ function initPie() {
   g.append("text")
       .attr("class", "title")
       .attr("text-anchor", "middle")
-      .attr("y", 16)
+      .attr("y", 20)
       .text("of Fees");
   g.append("g")
     .attr("class", "slices");

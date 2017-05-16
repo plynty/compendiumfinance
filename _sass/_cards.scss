@@ -62,7 +62,6 @@
     top: -1%;
     left: -1%;
     min-width: 102%;
-    min-height: 102%;
 }
 
 .cards {
@@ -105,7 +104,7 @@
             padding-left: 3px;
             padding-right: 3px;
         }
-        
+
         // minimize margin for mobile screens
         .pmd-card {
             margin-bottom: 2px;
@@ -116,7 +115,7 @@
             margin-bottom: -4px;  // helps keep image flush at bottom
         }
     }
-    
+
     @media only screen and (min-width: $md-min) {
         .row {
             margin-left: auto;
