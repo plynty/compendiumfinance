@@ -9,7 +9,7 @@ var config = {
   minChartWidth: 350,
   maxChartWidth: 500,
   aspectRatio: 1.5,
-  margin: {top: 0, right: 15, bottom: 40, left: 12}, // margin for d3 area chart to draw axes
+  margin: {top: 0, right: 10, bottom: 40, left: 10}, // margin for d3 area chart to draw axes
   curve: 'basis',
 
   keysKeepLose: ["You Keep", "You Lose"],
@@ -232,7 +232,7 @@ function createChartGeometry(chartDivSelector) {
   chartDiv.style('height', size.h+'px')
       .style('width', size.totalW+'px');
 
-  $('.chart-btn-group .btn-group, .input-form').css('width', size.totalW+'px');
+  $('.chart-btn-group .btn-group, .input-form').css('width', (size.totalW)+'px');
   $('.h-separator').css('width', (size.totalW - 48)+'px');
 
   geom = {
