@@ -174,8 +174,8 @@ Table 1. The error of “diversification return” and “rebalancing bonus”
 </tr>
 <tr class="ro1 shade">
 <td style="text-align:left;width:248.26pt; " class="ce4"><p>Average of Annualized Return</p></td>
-<td colspan="2" style="text-align:right; width:81.75pt; " class="ce13"><p>6.71%</p></td>
-<td colspan="2" style="text-align:right; width:104.26pt; " class="ce13"><p>6.77%</p></td>
+<td colspan="2" style="text-align:right; width:81.75pt; " class="ce13"><p>6.77%</p></td>
+<td colspan="2" style="text-align:right; width:104.26pt; " class="ce13"><p>6.71%</p></td>
 </tr>
 <tr class="ro2 tr6">
 <td style="text-align:left;width:248.26pt; " class="ce6"> </td>
@@ -187,7 +187,7 @@ Table 1. The error of “diversification return” and “rebalancing bonus”
 </table>
 </div>
 
-In this case, the unrebalanced portfolio earns a slightly higher rate of return over the two years, ending with $11,400 and a two-year annualized rate of return of 6.77%. The rebalanced portfolio ends with a slightly lower $11,388 for a two-year annualized rate of return of 6.71%.
+In this case, the unrebalanced portfolio earns a slightly higher rate of return over the two years, ending with $12,216 and a two-year annualized rate of return of 10.53%. The rebalanced portfolio ends with a slightly lower $12,208 for a two-year annualized rate of return of 10.49%.
 
 But the papers on diversification return and rebalancing bonus do not compare these two numbers. Instead, they take the average of the two-year annualized returns for the two assets (last column on the right) and compare it with the return on the rebalanced portfolio.
 
