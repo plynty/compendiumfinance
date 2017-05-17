@@ -36,7 +36,7 @@
     </badge>
     {% endif %}
     <header>
-      {% if include.footer == nil or include.footer != true %}
+      {% if include.footer == nil or include.footer != true or include.readMoreCss == true %}
       <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">read more</button>
       {% endif %}
       {% assign categoryCount = thisCard.categories | size %}
@@ -57,7 +57,7 @@
     <article>
       <div>{{thisCard.lead | markdownify}}</div>
     </article>
-    {% if include.footer == true %}
+    {% if include.footer == true  or include.readMoreCss == true %}
     <footer>
       <button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default">read more</button>
     </footer>

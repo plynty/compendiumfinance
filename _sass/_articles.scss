@@ -229,7 +229,7 @@
         float: left;
     }
     .pmd-card-media button {
-        background-color: rgba(0,0,0,.3);
+        background-color: rgba(0,0,0,.4);
         vertical-align: middle;
         padding-top: 5px;
         padding-right: 10px;
@@ -255,6 +255,11 @@
 
     .pmd-card-title {
         clear: both;
+        text-align: center;
+    }
+
+    .pmd-card-actions {
+        text-align: center;
     }
 
     .pmd-card-body .resource {

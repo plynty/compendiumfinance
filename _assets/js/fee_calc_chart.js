@@ -382,8 +382,8 @@ function initBarStack() {
     var margin = 15;
 //    var top = geom.height * .1 - margin;
     var bottom = geom.height - margin;
-    var right = geom.width * .8;
-    var left = geom.width * .2;
+    var right = geom.width - 32;
+    var left = 32;
     axes.append("polyline")
         .attr("points", right+","+bottom+" "+left+","+bottom);
 }
