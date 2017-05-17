@@ -12,7 +12,7 @@ lead: As described in the Safety-Net-Plus investment strategy, our approach does
   Investors will find an improved and more understandable balance between reward and
   risk by following our Safety-Net-Plus approach to investing.
 source: internal
-link:
+link: 
 img: "/uploads/full-pie-steel.png"
 bg_img_darken: true
 banner_img: "/uploads/assetallocation-header.png"
