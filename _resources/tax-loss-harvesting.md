@@ -13,7 +13,7 @@ lead: Tax-loss harvesting is the process of selling stocks in your portfolio tha
   result in either no benefit or even in losses.
 source: internal
 link: 
-img: "/uploads/scissor-blue.png"
+img: "/uploads/scissors.png"
 bg_img_darken: true
 banner_img: "/uploads/taxlossharvesting-header2.png"
 ---

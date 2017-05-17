@@ -1,5 +1,5 @@
 ---
-title: Investing Fees and Costs
+title: True Cost of Fees
 back_to: "/#article-view--the-true-cost-of-fees"
 layout: fee-calc
 ---
