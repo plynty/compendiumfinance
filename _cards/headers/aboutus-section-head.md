@@ -1,5 +1,5 @@
 ---
-title: Meet Our Team
+title: Our Team
 no_date: true
 status: current
 section: aboutus
