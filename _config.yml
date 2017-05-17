@@ -51,12 +51,14 @@ defaults:
     layout: post
 email: your-email@compendiumfinance.com
 description: This is the static content site for compendiumfinance.com
-baseurl: 
+baseurl:
 url: http://compendiumfinance.com
 twitter_username: choosesimple
 github_username: jekyll
 trademark: Compendium Finance&#x2122;
-social: compendiumfinance
+linkedin: compendiumfinance
+twitter: compendiumfinance
+facebook: compendiumfinance
 pmd_path: assets/pmd-1.0.0
 markdown: kramdown
 sass:
