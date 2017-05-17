@@ -6,5 +6,6 @@ link: fee-calc.html
 source: internal
 lead: Lowering your fees could be the most important investment decision you make.
 img: "/uploads/thetruecostoffees-500.png"
-banner_img:
+banner_img: 
 ---
+
