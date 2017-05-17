@@ -6,7 +6,7 @@ section: aboutus
 lead: Our goal is to make investing and financial planning as simple, effective, and
   inexpensive as it can be. We have spent our professional lives in banking, credit,
   financial planning, investment management, insurance, academia, financial mathematics,
-  and more.
+  and more. Compendium Finance is an SEC Registered Investment Advisor.
 format_class: section-head
 layout: section-head
 ---
