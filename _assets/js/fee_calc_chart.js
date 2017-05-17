@@ -379,9 +379,8 @@ function initBarStack() {
         .attr("transform", "translate("+((geom.width - 32)-102)+" 0)");
     var axes = g.append("g")
         .attr("class", "axes");
-    var margin = 15;
-//    var top = geom.height * .1 - margin;
-    var bottom = geom.height - margin;
+    var margin = 2;
+    var bottom = geom.height * .9 + margin;
     var right = geom.width - 32;
     var left = 32;
     axes.append("polyline")
