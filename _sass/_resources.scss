@@ -109,7 +109,8 @@ $panel-height: 19rem;
 
         footer {
           display: block;
-          text-align: center;
+          text-align: right;
+          padding-right: 1rem;
         }
 
         footer .btn-more .material-icons {
@@ -120,7 +121,7 @@ $panel-height: 19rem;
 
         article {
             font-size: 90%;
-            text-align: center;
+            text-align: left;
             padding-bottom: 2.5rem;
         }
 
