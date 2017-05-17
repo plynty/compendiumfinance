@@ -49,16 +49,15 @@ $panel-height: 19rem;
             float: left;
         }
 
-        badge, header {
-          vertical-align: middle;
-        }
-
         badge {
           width: 10%;
+          vertical-align: middle;
+          min-height: 47px;
         }
 
         header {
           width: 85%;
+          vertical-align: bottom;
         }
 
     }
