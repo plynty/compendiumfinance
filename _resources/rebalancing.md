@@ -13,7 +13,7 @@ lead: 'Portfolio rebalancing is the process of buying or selling assets in your 
   and recommendations of almost all financial advisors. '
 source: internal
 link: 
-img: "/uploads/slider-blue.png"
+img: "/uploads/dial.png"
 bg_img_darken: true
 banner_img: "/uploads/rebalancing-header.png"
 ---
