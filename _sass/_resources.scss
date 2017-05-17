@@ -25,6 +25,7 @@ $panel-height: 19rem;
         badge {
           margin-bottom: .5rem;
         }
+
     }
 
     // > xs
@@ -35,12 +36,8 @@ $panel-height: 19rem;
             text-align: center;
         }
         .pmd-card {
-            /*max-width: 250px;*/
             width: 500px;
             height: 450px;
-            /*height: 333px;*/
-            /*height: 100%;*/
-            /*height: $panel-height;*/
             overflow: hidden;
             display: inline-block;
             vertical-align: top;
@@ -93,6 +90,14 @@ $panel-height: 19rem;
         text-align: center;
     }
 
+    .btn-more {
+        color: $cf-text;
+        border-radius: 2rem;
+        border-color: $cf-trim;
+        text-transform: lowercase;
+        background-color: (225,255,255,0.5);
+    }
+
     .resource-description {
         height: 100%;
         header h1 {
@@ -103,8 +108,8 @@ $panel-height: 19rem;
         }
 
         footer {
-            display: none;
-            text-align: center;
+          display: block;
+          text-align: center;
         }
 
         footer .btn-more .material-icons {
@@ -116,7 +121,7 @@ $panel-height: 19rem;
         article {
             font-size: 90%;
             text-align: center;
-            /*padding-bottom: 3rem;*/
+            padding-bottom: 2.5rem;
         }
 
         header .date,
@@ -129,13 +134,6 @@ $panel-height: 19rem;
             article {
                 margin-top: 1rem;
             }
-        }
-
-        footer .btn-more {
-            color: $cf-text;
-            border-radius: 2rem;
-            border-color: $cf-trim;
-            text-transform: lowercase;
         }
 
     }
