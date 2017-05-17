@@ -12,7 +12,7 @@ lead: Tax-loss harvesting is the process of selling stocks in your portfolio tha
   benefit (less than .2%) if tax rates stay the same, increased future tax rates could
   result in either no benefit or even in losses.
 source: internal
-link:
+link: 
 img: "/uploads/scissors-steel.png"
 bg_img_darken: true
 banner_img: "/uploads/taxlossharvesting-header2.png"
