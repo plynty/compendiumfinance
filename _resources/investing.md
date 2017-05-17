@@ -15,7 +15,7 @@ lead: \"Safety-Net-Plus\" is our strategy to balance both the risk of market vol
   any risk.
 link: 
 source: internal
-img: "/uploads/arrow-graph-blue.png"
+img: "/uploads/arrow-graph.png"
 banner_img: "/uploads/investing-header2.png"
 ---
 
