@@ -112,7 +112,7 @@ So how can such a charade be used so widely by financial and investment advisors
 
 Here is how the model is typically used in the process of selling investment services, or rather, how the appearance of applying the model is used.
 
-Let us say that the seller of the investment services is a financial advisor working for a large financial firm. We’ll name that advisor Jones. Jones is eager to land a prospective client, whom we will call Smith. If Jones is able to land Smith as a client, Jones will be able to take one percent (1%) of Smith’s portfolio as Jones’s fee every year, perhaps for as long as Smith lives. That is a very large fee indeed. It can drain 25% to 50% of Smith’s future income and savings, or more, and award them to Jones and Jones’s employer, as our <a href="https://58c020da8711d2562f95e3b2.preview.siteleaf.com/fee-calc.html" target="_blank">fee calculator</a> shows.
+Let us say that the seller of the investment services is a financial advisor working for a large financial firm. We’ll name that advisor Jones. Jones is eager to land a prospective client, whom we will call Smith. If Jones is able to land Smith as a client, Jones will be able to take one percent (1%) of Smith’s portfolio as Jones’s fee every year, perhaps for as long as Smith lives. That is a very large fee indeed. It can drain 25% to 50% of Smith’s future income and savings, or more, and award them to Jones and Jones’s employer, as our <a href="https://58c020da8711d2562f95e3b2.preview.siteleaf.com/fee-calc.html" target="_blank">fee calculator</a> shows. 
 
 Advisor Jones asks prospect Smith for information about Smith’s current portfolio. Then Jones constructs a chart as shown in Figure 3.
 
