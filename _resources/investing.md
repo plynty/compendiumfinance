@@ -25,7 +25,7 @@ banner_img: "/uploads/investing-header2.png"
 
 **Both goals can be realized using the simplest possible strategy that explicitly addresses both. A portion of the investor’s portfolio can be allocated to riskless assets, sufficient to guarantee a minimum level of future income, while the remainder is allocated to risky assets that appear likely – but not guaranteed – to provide a higher income.**
 
-**A benefit of this strategy is that it can be engaged in at the lowest possible cost to the investor, an average total cost of less than one-tenth of a percent of assets per year. This can be compared with the cost that the average investor pays, which is 10 to 30 times as much. Paying that much in investment fees can cost the investor half or more of the investor’s future income, far more than has ever been lost in long-term stock market declines.**
+**A benefit of this strategy is that it can be engaged in at the lowest possible cost to the investor, an average total cost of less than one-tenth of a percent of assets per year. This can be compared with the cost that the average investor pays, which is 10 to 30 times as much. Paying that much in investment (fees)[/fee-calc.html] can cost the investor half or more of the investor’s future income, far more than has ever been lost in long-term stock market declines.**
 
 Read more...
 
