@@ -168,6 +168,33 @@ $cf-advisor-fees: #ba0a0f;
     margin: 1.5rem;
   }
 
+  #doc-content h1 {
+    color: $cf-fee-calc-title;
+    text-align: center;
+    font-weight: 700;
+    font-size: 120%;
+  }
+
+  #doc-content strong {
+    color: $cf-fee-calc-title;
+  }
+
+  #text-more {
+    display: none;
+  }
+
+  #doc-content div.button {
+    text-align: center;
+  }
+
+  .btn-more {
+     color: $cf-text;
+     border-radius: 2rem;
+     border-color: $cf-trim;
+     text-transform: lowercase;
+     background-color: (225,255,255,0.5);
+  }
+
   div.charts {
     display: none;
     opacity: 0;
