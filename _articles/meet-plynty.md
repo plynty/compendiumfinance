@@ -1,6 +1,8 @@
 ---
 title: MEET PLYNTY
 date: 2017-01-31 00:00:00 Z
+categories:
+- Personal Finance
 position: 2
 source: external
 bg_img_darken: false
