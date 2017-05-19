@@ -1,22 +1,22 @@
 .pop-out-page {
   display: block;
   margin: auto;
-  .page-content {
-    font-size: 1.8rem;
-  }
+  font-size: 100%;
+
   .pmd-card {
-  margin-left: 3rem;
-  margin-right: 3rem;
-  padding-top: 5rem;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 5rem;
     padding: 1.6rem;
   }
 
   a {
     text-decoration: none;
-    font-weight: bold;
   }
   h1{
     font-size: 150%;
+    font-weight: 700;
+    color: $cf-category;
   }
   h2{
     font-size: 125%;
