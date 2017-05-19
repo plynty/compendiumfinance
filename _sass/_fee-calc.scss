@@ -163,7 +163,8 @@ $cf-advisor-fees: #ba0a0f;
     height: 100%;
   }
 
-  #doc{
+  #doc {
+    display: none;
     text-align: justify;
     margin: 1.5rem;
   }
@@ -196,8 +197,8 @@ $cf-advisor-fees: #ba0a0f;
   }
 
   div.charts {
-    display: none;
-    opacity: 0;
+    /*display: none;*/
+    //opacity: 0;
   }
 
   .chart-btn-group {

@@ -34,7 +34,7 @@ var config = {
     totalsRight: 100
   },
 
-  showing: "doc"
+  showing: "pie"
 };
 
 /** hold geometry info for the charts */
