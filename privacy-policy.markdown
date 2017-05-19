@@ -45,8 +45,8 @@ Attention: Privacy Policy
 Compendium Finance   
 13880 Dulles Corner Lane, Suite 300   
 Herndon, VA 20171   
-www.compendiumfinance.com   
-Email us at support@compendiumfinance.com
+[www.compendiumfinance.com](http://www.compendiumfinance.com)   
+Email us at [support@compendiumfinance.com](mailto:support@compendiumfinance.com)
 
 
 
