@@ -5,6 +5,9 @@ categories:
 - Wall Street Myths
 - Personal Finance
 author: Michael Edesess
-link: 
+link: http://www.marketwatch.com/story/forget-the-fiduciary-standard-financial-advisers-need-a-code-of-ethics-2017-05-24
+IMG: 
+banner_img: 
+lead: Like doctors, financial advisors should take an oath
 ---
 
