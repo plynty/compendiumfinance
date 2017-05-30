@@ -7,8 +7,8 @@ categories:
 position: 0
 author: Michael Edesess
 link: http://www.marketwatch.com/story/forget-the-fiduciary-standard-financial-advisers-need-a-code-of-ethics-2017-05-24
-IMG: "/uploads/forgetthefiduciary-500-2.png"
-banner_img: 
+banner_img: "/uploads/forgetthefiduciary-header2.png"
 lead: Like doctors, financial advisors should take an oath
+img: "/uploads/forgetthefiduciary-500-2.png"
 ---
 
