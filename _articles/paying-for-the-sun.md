@@ -3,7 +3,7 @@ title: THE FINANCE INDUSTRY IS DESTROYING AMERICA’S ECONOMY
 date: 2016-10-12 00:00:00 Z
 categories:
 - Personal Finance
-position: 20
+position: 21
 source: external
 bg_img_darken: true
 author: George Peacock
