@@ -3,6 +3,7 @@ title: Privacy Policy
 date: 2017-06-02 15:03:00 Z
 layout: pop-out-page
 ---
+
 # Privacy Policy 
 
 Last updated: May 18, 2017
