@@ -6,6 +6,11 @@ var inputs = {
     period: 30
 };
 
+var formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0
+});
 
 function validate() {
     calculate();
@@ -13,9 +18,19 @@ function validate() {
 
 var calculateTimer;
 function calculate() {
-    var initialStr = $("#investment-amount").val().replace(/[$,]/g, '');
-    inputs.initial = parseInt(initialStr);
-    inputs.period = parseInt($("#investment-period").val());
+    var iaInput = $("#investment-amount");
+    var initialStr = iaInput.val().replace(/[$,]/g, '');
+    var tmp = parseInt(initialStr);
+    if (!isNaN(tmp)) {
+      inputs.initial = tmp;
+    }
+    iaInput.val(formatter.format(inputs.initial));
+    var ipInput = $("#investment-period");
+    tmp = parseInt($("#investment-period").val());
+    if (!isNaN(tmp)) {
+      inputs.period = tmp;
+    }
+    ipInput.val(inputs.period);
 
     clearTimeout(calculateTimer);
     calculateTimer = setTimeout(function() {
