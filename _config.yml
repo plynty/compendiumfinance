@@ -1,6 +1,7 @@
 ---
 title: Compendium Finance (TM)
 timezone: UTC
+include: ['.htaccess']
 collections:
   articles:
     title: Articles
