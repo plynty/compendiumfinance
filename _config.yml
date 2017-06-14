@@ -1,7 +1,6 @@
 ---
 title: Compendium Finance (TM)
 timezone: UTC
-include: ['.htaccess']
 collections:
   articles:
     title: Articles
@@ -50,6 +49,8 @@ defaults:
     type: posts
   values:
     layout: post
+include:
+- ".htaccess"
 email: your-email@compendiumfinance.com
 description: This is the static content site for compendiumfinance.com
 baseurl: 
