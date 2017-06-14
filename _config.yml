@@ -49,8 +49,6 @@ defaults:
     type: posts
   values:
     layout: post
-include:
-- ".htaccess"
 email: your-email@compendiumfinance.com
 description: This is the static content site for compendiumfinance.com
 baseurl: 
