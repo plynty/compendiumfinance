@@ -1,0 +1,275 @@
+//  xs,sm
+@media only screen and (max-width: $sm-max) {
+    #article-cards > .row:before,
+    #article-cards > .row:after {
+        display: none; // lose the extra gap between rows when stacked for mobile
+    }
+}
+
+#article-cards,
+#search-result {
+
+    //  xs,sm
+    @media only screen and (max-width: $sm-max) {
+        .card-wrapper {
+            margin: .5rem 0rem;
+        }
+
+        .bg-img .card-copy-panel {
+            padding: .75rem;
+            font-size: 92%;
+        }
+        .bg-img .card-copy-panel.long {
+            font-size: 95%;
+        }
+
+        .pmd-card .card-copy-panel {
+            header .category {
+                margin-top: 3px;
+            }
+            header .btn-more {
+                display: block;
+                position: relative;
+                top: -2px;
+            }
+            header h1 {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    // > xs
+    @media only screen and (min-width: $md-min) {
+        max-width: 1200px;
+        display: block;
+        margin: auto;
+        padding-top: 15px;
+
+        .panel-1x1 .card-copy-panel.long,
+        .cf-ar-1x1 .card-copy-panel.long {
+            font-size: 90%;
+        }
+
+    }
+
+    .pmd-card.article {
+        color: black;
+        font-weight: 400;
+
+        header h1 {
+            text-transform: uppercase;
+            font-size: 120%;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+        header .category {
+            font-size: 80%;
+        }
+
+        header .category .material-icons {
+            font-size: 110%;
+            position: relative;
+            top: 3px;
+        }
+
+        header .btn-more {
+            float: right;
+        }
+
+        article {
+            font-size: 100%;
+            line-height: 1.35;
+        }
+
+        footer {
+            text-align: right;
+        }
+
+        footer .btn-more .material-icons {
+            font-size: 80%;
+            position: relative;
+            top: 2px;
+        }
+
+        header .date {
+            font-style: italic;
+            font-size: 80%;
+        }
+
+        .no-bg-img > .card-copy-panel {
+            header .category {
+                color: $cf-category;
+            }
+            header .date {
+                color: $compendium-fg-gray;
+            }
+        }
+        // > xs
+        @media only screen and (min-width: $sm-min) {
+            article {
+                margin-top: 1rem;
+            }
+        }
+
+        footer .btn-more,
+        header .btn-more {
+            color: $cf-text;
+            border-radius: 2rem;
+            border-color: $cf-trim;
+            background-color: rgba(255,255,255,.7);
+            text-transform: lowercase;
+            padding: 6px 10px;
+        }
+
+    }
+}
+
+#search-result {
+    font-size: 90%;
+    text-align: center;
+    padding: 0px 5px 0px 5px;
+
+    .card-wrapper {
+        margin: 0rem auto .5rem auto;
+        max-width: 900px;
+        text-align: center;
+    }
+    .card-media-panel {
+        height: auto;
+        margin: 3rem 2rem;
+        vertical-align: middle;
+    }
+    .card-media-panel img,
+    .card-media-panel iframe {
+        min-height: 100%;
+        min-width: 100%;
+    }
+
+    .card-copy-panel {
+        text-align: left;
+        padding: 2rem 2rem 2rem .5rem;
+    }
+
+}
+
+.social-card {
+    color: $compendium-fg-white;
+    background-color: $cf-bg-dark;
+}
+.social-card header h1 {
+    color: $cf-text-inverse;
+    font-size: 3rem;
+    padding: 3rem 1rem;
+}
+.social-card article {
+    padding-bottom: 3em;
+    margin-left: 1rem;
+}
+.social-card a {
+    color: $cf-text-inverse;
+}
+
+#article-view {
+    display: none;
+    text-align: left;
+
+    a.author-link {
+        cursor: pointer;
+    }
+
+    h1 {
+        font-size: 150%;
+        margin-top: 2rem;
+        font-weight: 700;
+    }
+    h2 {
+        font-size: 130%;
+        margin-top: 2rem;
+    }
+    h3 {
+        font-size: 110%;
+        margin-top: 2rem;
+    }
+    a.author-link h3 {
+        font-size: 100%;
+        margin-top: 0px;
+        font-style: italic;
+        color: $cf-category;
+    }
+    h4 {
+        font-size: 105%;
+        margin-top: 2rem;
+    }
+
+    .article ul {
+        margin: 0rem auto .5rem auto;
+        padding: 1.5rem 4rem;
+        text-align: left;
+    }
+    @media only screen and (min-width: $sm-min) {
+        ul {
+            width: 75%;
+        }
+    }
+
+    img {
+      max-width: 100%;
+      margin:auto;
+      display: block;
+    }
+
+    .pmd-card {
+        max-width: 900px;
+        margin: auto;
+        line-height: 1.35;
+    }
+
+    .pmd-card-media img {
+        width: 100%;
+        float: left;
+    }
+    .pmd-card-media button {
+        background-color: rgba(0,0,0,.4);
+        vertical-align: middle;
+        padding-top: 5px;
+        padding-right: 10px;
+    }
+
+    .pmd-card-media button i,
+    .pmd-card-no-media button i {
+        position: relative;
+        top: 4px;
+    }
+
+    .pmd-card-media button:hover {
+        background-color: rgba(255,255,255,.5);
+    }
+
+    .pmd-card-no-media button {
+        background-color: rgba(0,0,0,.1);
+        vertical-align: middle;
+        padding-top: 5px;
+        padding-right: 10px;
+        float: right;
+    }
+
+    .pmd-card-title {
+        clear: both;
+        text-align: center;
+    }
+
+    .pmd-card-actions {
+        text-align: center;
+    }
+
+    .pmd-card-body .resource {
+        text-align: left;
+    }
+
+    .footer {
+        border-top: solid thin $cf-trim;
+    }
+    .footer .icons img {
+        max-width: 32px;
+    }
+}

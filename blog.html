@@ -1,5 +1,0 @@
----
-title: Resources
-layout: resourcepage
----
-

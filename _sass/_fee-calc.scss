@@ -1,190 +1,464 @@
-$bar-chart-min-width: 200;
-$bar-chart-aspect-ratio: 2;
-$pie-chart-min-width: 200;
-$pie-chart-aspect-ratio: 1.7;
+$cf-fee-calc-buttons: #0abab5;
+$cf-fee-calc-title: #ba0a0f;
+$cf-keep-total: #0abab5;
+$cf-lose-total: #ba0a0f;
+$cf-fund-fees: #ba0a0f;
+$cf-advisor-fees: #ba0a0f;
+
 .fee-calculator {
+  //  tiny
+  @media only screen and (max-width: 350px) {
+    background-color: white;
+
+    font-size: 15px;
+
+    .title {
+      font-size: 18px
+    }
 
     .form-group {
-        margin-left: 2rem;
-        margin-right: 2rem;
+      margin-left: .5rem;
+      margin-right: .5rem;
+      margin-bottom: .5rem;
     }
 
-    svg {
-        display: block;
+    .narrative-card {
+      overflow-y: scroll;
     }
 
-    div.stack-chart {
-        // min-height: 250px;
-    }
-    div.stack-chart, #stack-chart {
-        width: 100%;
-        height: 100%;
-        // min-width: ($bar-chart-min-width)+0px;
-        // min-height: ($bar-chart-min-width / $bar-chart-aspect-ratio)+0px;
-        // max-width: 1000px;//($bar-chart-min-width * 2)+0px;
-        // max-height: ($bar-chart-min-width / $bar-chart-aspect-ratio * 2)+0px;
-    }
+  }
 
-    div.pie-chart, #pie-chart {
-        width: 100%;
-        height: 100%;
-        // min-width: ($pie-chart-min-width)+0px;
-        // min-height: ($pie-chart-min-width / $pie-chart-aspect-ratio)+0px;
-        // max-width: ($pie-chart-min-width * 2)+0px;
-        // max-height: ($pie-chart-min-width  / $pie-chart-aspect-ratio * 2)+0px;
+  //  xs
+  @media only screen and (max-width: 767px) and (min-width: 351px) {
+    background-color: white;
+
+    font-size: 16px;
+
+    .title {
+      font-size: 20px
     }
 
-    // div.stack-chart, div.pie-chart {
-    //     // float: left;
-    //     // margin: 2rem;
-    // }
-
-    .stack-chart {
-        height: 100%;
-        width: 100%;
-
-        .legend rect {
-            stroke-width: 1px;
-        }
-        .line {
-            stroke-width: 1;
-            fill: none;
-        }
-
-        .grad-linear-0, .legend-0 {
-            fill: #42bd41;
-            fill-opacity: 0.3;
-        }
-        .line0, .legend-0{
-            stroke: #42bd41;
-        }
-
-        .grad-linear-1, .legend-1  {
-            fill: #ff4500;
-            fill-opacity: 0.3;
-        }
-        .line1, .legend-1 {
-            stroke: #ff4500;
-        }
-
-        .grad-linear-2, .legend-2  {
-            // fill: url(#gradLin2);
-            fill: #dd382f;
-            fill-opacity: 0.3;
-        }
-        .line2, .legend-2 {
-            stroke: #dd382f;
-        }
-
-        .grad-linear-3, .legend-3  {
-            // fill: url(#gradLin3);
-            fill: #ff0000;
-            fill-opacity: 0.3;
-        }
-        .line3, .legend-3 {
-            stroke: #ff0000;
-        }
-
-        // .grad-linear-0 :hover {
-        //     fill: url(#gradLinHL0);
-        // }
-
-        // .grad-linear-1 :hover {
-        //     fill: url(#gradLinHL1);
-        // }
-
-        // .grad-linear-2 :hover {
-        //     fill: url(#gradLinHL2);
-        // }
-
-        // .grad-linear-3 :hover {
-        //     fill: url(#gradLinHL3);
-        // }
-
-        rect:hover {
-            stroke: black;
-            stroke-width: 1px;
-        }
-
-        .legend {
-            font-size: 1rem;
-        }
-
-        .x-axis-label {
-            font-size: 1.2rem;
-            text-anchor: middle;
-        }
-
-        .chart-overlay {
-            stroke-opacity: .2;
-        }
-
-        // .vertical:hover {
-        //     stroke-opacity: 1;
-        // }
+    .form-group {
+      margin-left: .5rem;
+      margin-right: .5rem;
+      margin-bottom: .5rem;
     }
 
-    #pie-chart {
-        width: 100%;
-        height: 100%;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-        // path.slice{
-        //     stroke-width:2px;
-        // }
-
-        polyline{
-            // opacity: .3;
-            stroke: black;
-            stroke-width: 1px;
-            fill: none;
-        }
-
-        path.grad-radial-0:hover {
-            fill: url(#gradHL0);
-        }
-
-        path.grad-radial-1:hover {
-            fill: url(#gradHL1);
-        }
-
-        path.grad-radial-2:hover {
-            fill: url(#gradHL2);
-        }
-
-        path.grad-radial-3:hover {
-            fill: url(#gradHL3);
-        }
-
-        path:hover {
-            stroke: black;
-            stroke-width: 1px;
-        }
-
-        .labels text {
-            font-size: 2rem;
-            font-family: Arsenal;
-        }
-
-        .labels tspan.pie-label {
-        }
-        .labels tspan.amount {
-            font-size: 80%;
-            font-weight: 600;
-            font-style: italic;
-        }
-        .labels tspan.percent {
-            font-size: 80%;
-            font-style: italic;
-            fill: gray;
-        }
+    .narrative-card {
+      overflow-y: scroll;
     }
 
-    .axis .domain {
-       display: none;
+  }
+  // > xs
+  @media only screen and (min-width: 768px) {
+    // max-width: 1200px;
+    .title {
+      font-size: 26px
+    }
+
+    display: block;
+    margin: auto;
+
+    .pmd-card {
+      margin: auto;
+      min-height: 30rem;
+      overflow: hidden;
     }
 
     .row {
-        margin-top: 1rem;
+      margin-top: 1rem;
     }
+
+    .form-group {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .pmd-card {
+    margin: auto;
+    max-width: 500px;
+    padding-bottom: 2rem;
+  }
+
+  #chart {
+    margin: auto;
+    position: relative;
+  }
+
+  #chart-title {
+    color: $cf-fee-calc-title;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  div.chart-segment {
+    position: absolute;
+  }
+
+  div.rel {
+    position: relative;
+  }
+
+  div.rel>* {
+    position: absolute;
+  }
+
+  .chart-overlay {
+    width: 100%;
+  }
+
+  span.slider-value {
+    color: #555;
+  }
+
+  .slider {
+    margin-bottom: 1rem;
+  }
+  .range-slider {
+    margin-top: .75rem;
+  }
+  .noUi-target {
+    height: 2px;
+  }
+  .noUi-handle {
+    left: -18px;
+    top: -14px;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    border-radius: 50%;
+    background: $cf-lose-total;
+  }
+  .noUi-handle::before, .noUi-handle::after {
+    content: none;
+  }
+  .noUi-pips-horizontal {
+    padding: 0px;
+  }
+  .noUi-marker {
+    height: 3px;
+    background: #999;
+  }
+
+  .noUi-value-sub, .noUi-value {
+    display: none;
+  }
+
+  svg {
+    display: block;
+  }
+
+  div.stack-chart {
+    border-bottom: solid thin lightgray
+  }
+  div.stack-chart, #stack-chart {
+    width: 100%;
+    height: 100%;
+  }
+
+  div.pie-chart, #pie-chart {
+    width: 100%;
+    height: 100%;
+  }
+
+  #doc {
+    display: none;
+    text-align: justify;
+    margin: 1.5rem;
+  }
+
+  #doc-content h1 {
+    color: $cf-fee-calc-title;
+    text-align: center;
+    font-weight: 700;
+    font-size: 120%;
+  }
+
+  #doc-content strong {
+    color: $cf-fee-calc-title;
+  }
+
+  #text-more {
+    display: none;
+  }
+
+  #doc-content div.button {
+    text-align: center;
+  }
+
+  .btn-more {
+     color: $cf-text;
+     border-radius: 2rem;
+     border-color: $cf-trim;
+     text-transform: lowercase;
+     background-color: (225,255,255,0.5);
+  }
+
+  div.charts {
+    /*display: none;*/
+    //opacity: 0;
+  }
+
+  .chart-btn-group {
+    text-align: center;
+    margin-top: 0px;
+
+    .btn-group {
+      margin: auto;
+
+      a {
+        margin: 0px;
+        border: solid thin;
+        min-width: 54px;
+        background-color: white;
+        overflow: hidden;
+        color: $cf-fee-calc-buttons;
+      }
+
+      a.selected {
+        background-color: $cf-fee-calc-buttons;
+        color: white;
+        border: solid thin $cf-fee-calc-buttons;
+      }
+    }
+    //  xs
+    @media only screen and (max-width: 767px) {
+      a {
+        padding: 10px 5px;
+      }
+    }
+  }
+
+  .stack-chart {
+    height: 100%;
+    width: 100%;
+
+    .chart-overlay {
+      display: none;
+    }
+
+    .line {
+      stroke-width: 1;
+      fill: none;
+    }
+
+    .area-0,{
+      fill: $cf-keep-total;
+      // fill-opacity: 0.3;
+    }
+
+    .area-1,
+    .area-2,
+    .area-3,{
+      fill: $cf-lose-total;
+      // fill-opacity: 0.3;
+    }
+    .line0,
+    .line1,
+    .line2,
+    .line3, {
+      stroke: #f00;
+    }
+
+    .x-axis {
+      font-size: 75%;
+    }
+
+    .x-axis-label {
+      font-size: 80%;
+      text-anchor: middle;
+    }
+
+  }
+
+  .pie-chart {
+    width: 100%;
+    height: 100%;
+    // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    //  xs
+    @media only screen and (max-width: $xs-max) {
+
+    }
+
+    polyline {
+      stroke-width: 1px;
+      fill: none;
+    }
+
+    polyline.keep {
+      stroke: $cf-keep-total;
+    }
+
+    polyline.lose {
+      stroke: $cf-lose-total;
+    }
+
+    path.keep {
+      fill: $cf-keep-total;
+    }
+
+    path.lose {
+      fill: $cf-lose-total;
+    }
+
+    .labels .keep {
+      fill: $cf-keep-total;
+    }
+
+    .labels .lose {
+      fill: $cf-lose-total;
+    }
+
+    text.title {
+      fill: $cf-fee-calc-title;
+    }
+/*    .labels {
+      font-size: 90%;
+    }*/
+    .labels .percent,
+    text.title {
+      font-weight: 700;
+    }
+
+  }
+
+  .axis .domain {
+    display: none;
+  }
+
+  .area-chart .chart-overlay {
+    table {
+      border-radius: .5rem;
+      background-color: rgba(255,255,255,0.6);
+    }
+
+    .legend {
+      width: 15rem;
+      height: 25%;
+      /*font-size: 90%;*/
+      margin-left: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    tr.title {
+      color: $cf-fee-calc-title;
+    }
+    tr.lose {
+      color: $cf-lose-total;
+    }
+    tr.keep {
+      color: $cf-keep-total;
+    }
+    td.legend-key-keep>div,
+    td.legend-key-lose>div {
+      width: 3px;
+      height: 15px;
+    }
+    td.legend-key-keep>div {
+      background-color: $cf-keep-total;
+    }
+    td.legend-key-lose>div {
+      background-color: $cf-lose-total;
+    }
+
+    th.legend-title,
+    td.legend-label,
+    td.legend-percent,
+    td.legend-value {
+      padding-left: .5rem;
+      padding-right: .5rem;
+      text-align: left;
+    }
+
+    td.legend-value {
+      font-weight: 700;
+    }
+  }
+
+
+  .bar-chart {
+
+    rect {
+      stroke: white;
+    }
+    polyline {
+      stroke: $cf-trim;
+      fill: none;
+      stroke-width: 1;
+    }
+    .rect-keep {
+      fill: $cf-keep-total;
+    }
+    .rect-lose-0 {
+      fill: $cf-lose-total;
+    }
+    .rect-lose-1 {
+      fill: $cf-advisor-fees;
+    }
+    .rect-lose-2 {
+      fill: $cf-fund-fees;
+    }
+    .chart-overlay {
+      table {
+        margin: auto;
+        margin-top: 75px;
+        margin-left: 22px;
+        border-collapse: collapse;
+        border-radius: .5rem;
+        background-color: rgba(255,255,255,0.6);
+      }
+
+      td,th {
+        padding: 0px .5rem;
+      }
+
+      th {
+        font-weight: 300;
+      }
+      td.value {
+        text-align: right;
+        font-weight: 700;
+      }
+
+      tr.title > th {
+        color: $cf-fee-calc-title;
+        font-weight: 700;
+      }
+      tr.keep {
+        color: $cf-keep-total;
+      }
+      tr.fund-fees {
+        color: $cf-fund-fees;
+      }
+      tr.advisor-fees {
+        color: $cf-advisor-fees;
+      }
+      tr.advisor-fees {
+        color: $cf-advisor-fees;
+      }
+      tr.lost-earnings,
+      tr.lose,
+      tr.lose-total {
+        color: $cf-lose-total;
+      }
+      //  xs
+      @media only screen and (max-width: 767px) {
+        padding: 0px;
+
+        table {
+          /*font-size: 75%;*/
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+
+  .input-form {
+    max-width: 600px;
+    margin: auto;
+  }
+
 }

@@ -1,0 +1,166 @@
+/* home page styles */
+$panel-width: 20rem;
+
+.aboutuspage .page-content {
+    background-color: white;
+}
+// >= md
+@media only screen and (min-width: $md-min) {
+    .aboutuspage #main {
+        background-color: white;
+    }
+}
+
+#aboutus-cards {
+
+    .row {
+        text-align: center;
+    }
+
+    .bios .card-copy-panel {
+        padding: 0px;
+    }
+
+    // sm, xs
+    @media only screen and (max-width: $sm-max) {
+        .row {
+            max-width: none;
+            margin: auto;
+        }
+        .pmd-card {
+            max-width: $panel-width;
+        }
+    }
+
+    // >= md
+    @media only screen and (min-width: $md-min) {
+        display: block;
+        margin: auto;
+        padding-top: 15px;
+        .row {
+            max-width: 75rem; // allow 3 cards on a row
+        }
+        .card-wrapper {
+            display: inline-block;
+        }
+        .pmd-card {
+            // display: inline-block;
+            width: $panel-width;
+            // height: $panel-height;
+            margin-left: .5rem;
+            margin-right: .5rem;
+        }
+    }
+
+    .bios {
+        display: inline-block;
+
+        .bg-img {
+            background-size: 100% 100%;
+        }
+        // sm, xs
+        @media only screen and (max-width: $sm-max) {
+            .card-wrapper {
+                margin-bottom: 1rem;
+            }
+            .bio-header header h1 {
+                margin-bottom: 4px;
+            }
+        }
+    }
+
+    .vertical-spacer {
+        height: 75%;
+    }
+
+    .bio-header {
+        height: 25%;
+        padding: .5rem;
+        text-align: left;
+
+        header {
+            float: left;
+        }
+
+        .contact {
+            float: right;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        header h1 {
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-top: 2px; // override bootstrap
+            font-size: 100%;
+        }
+
+        header h2 {
+            margin-top: 2px; // override bootstrap
+            font-size: 90%;
+        }
+
+        .contact .fa {
+            position: relative;
+            top: -2px;
+        }
+
+        // > sm
+        @media only screen and (min-width: $sm-min) {
+            article {
+                margin-top: 2rem;
+            }
+        }
+
+    }
+
+    .bio-copy {
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+    .bg-img .bio-header {
+        color: black;
+        background-color: rgba(255, 255, 255, .5);
+    }
+}
+
+#advisor-to-plynty-cards {
+    padding-bottom: 2rem;
+    .row {
+        text-align: center;
+    }
+    .cf-card {
+        max-width: 20rem;
+        display: inline-block;
+    }
+}
+
+#contactus-map {
+    font-size: 125%;
+
+    .pmd-card-body {
+        margin: .5rem;
+    }
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  border: 2px solid $cf-trim;
+  margin: auto;
+}
+
+#cf-address {
+    text-align: center;
+    color: $cf-text;
+    padding: 0rem .5rem 1.5rem .5rem;
+    h1 {
+        font-size: 150%;
+    }
+    h2 {
+        font-size: 85%;
+        margin: .5rem 0rem;
+    }
+}
+
+

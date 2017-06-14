@@ -1,0 +1,105 @@
+    .section-head {
+        background-color: $cf-bg-white;
+        max-width: 1185px;
+        margin: auto;
+
+        .section-head-wide {
+            text-align: center;
+        }
+
+        .section-head-img, 
+        .section-head-copy {
+            height: 100%;
+            float: left;
+        }
+
+        .section-head-img img {
+            border: solid thin #666666;
+            border-radius: 1rem;
+        }
+
+        .shadow-box {
+            margin: 10px;
+            border-radius: 1rem;
+        }
+
+        .section-head-img img, 
+        .section-head-bg-img img {
+            display: block;
+            margin-right: 0;
+            margin-left: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            // width: 100%;
+        }
+        .section-head-bg-img, .section-head-wide {
+            width: 100%;
+            height: 100%;
+        }
+        .section-head-bg-img {
+            z-index: 0;
+            opacity: .15;
+            position: absolute;
+            display: block;
+            margin: auto;
+            top: 0;
+            // bottom: 0;
+            left: 0;
+            // right: 0;
+            // max-height: 100%;
+            // max-width: 100%;
+            align-items: center;
+        }
+        .card-copy-panel {
+            color: $cf-text;
+            padding: 2rem;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+        .section-head-copy, .section-head-bg-img {
+
+            @media only screen and (min-width: $sm-min) {
+                header h1 {
+                    font-size: 200%;
+                }
+            }
+            @media only screen and (max-width: $xs-max) {
+                header {
+                    padding-bottom: .5rem;
+                }
+                header h1 {
+                    font-size: 150%;
+                }
+            }
+
+            header .category {
+                text-transform: uppercase;
+                color: $compendium-fg-white;
+            }
+
+            // header .category .material-icons {
+            //     font-size: 1.2rem;
+            // }
+
+            header .date {
+                font-style: italic;
+                font-size: smaller;
+            }
+
+            footer {
+                display: none !important;
+            }
+
+            // xs
+            @media only screen and (min-width: 768px) {
+                article {
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+
+    #philosophy-head {
+        margin-bottom: 15px; // this is an empty section, needs space
+    }

@@ -1,0 +1,26 @@
+---
+title: Current Articles
+layout: 
+---
+
+{% assign first = true %}
+[
+{% for article in site.articles %}
+    {% if article.status == 'current' and article.format_class == 'article' %}
+    {% unless first %},{% endunless %}{
+        "url": "{{article.url}}",
+        "article_id": "{{article.title | slugify}}"
+    }
+    {% assign first = false %}
+    {% endif %}
+{% endfor %}
+{% for resource in site.resources %}
+    {% if resource.status == 'current' and resource.format_class == 'resource' %}
+    {% unless first %},{% endunless %}{
+        "url": "{{resource.url}}",
+        "article_id": "{{resource.title | slugify}}"
+    }
+    {% assign first = false %}
+    {% endif %}
+{% endfor %}
+]

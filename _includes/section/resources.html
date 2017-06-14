@@ -1,0 +1,12 @@
+{% include section/std-header.html section='resources' %}
+
+<section id="resource-cards" class="cards">
+{% assign resources = site.resources | where: 'status', 'current' | where: 'section', 'resource-cards' | sort: 'position' %}
+{% assign n = resources | size | minus: 1 %}
+<div class="row">
+{% for thisCard in resources %}
+    {% include card/card.html card_layout='resource-card' %}
+{% endfor %}
+</div>
+</section>
+

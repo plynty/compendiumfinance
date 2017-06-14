@@ -1,0 +1,128 @@
+// General properties for the topics @page
+
+#topics-head {
+    .section-head article {
+        margin: 0px;
+    }
+}
+
+@media only screen and (max-width: $sm-max) {
+    .topic-form > .row {
+        // max-width and font-size need to be set at the row level for onresize to work
+        // Within the row, adjust up and down using percentage sizes
+        max-width: none;
+    }
+}
+
+@media only screen and (min-width: $md-min) {
+    .topic-form > .row {
+        margin: 0px;
+    }
+}
+
+.topic-form {
+    display: block;
+    margin: -1rem auto 1rem auto;
+    padding-bottom: 1rem;
+    font-size: 1.8rem;
+    background-color: $cf-bg-white;
+    color: white;
+
+    .pmd-card {
+        background-color: $cf-bg-white;
+        color: white;
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .pmd-card-body {  // override propeller defaults to allow images to bleed
+        margin: 0px;
+        padding: 0px;
+
+        .row {
+            margin: 0px;
+        }
+        [class^="col-"] {
+            // override the bootstrap default gutter
+            padding: 0px;
+            margin: 0px;
+        }
+    }
+    div.topic-menu,
+    div.text-search {
+        text-align: center;
+    }
+
+    div.topic-menu {
+        font-size: 120%;
+        display: table;
+        margin: auto;
+    }
+
+    div.topic-menu > * {
+        display: table-cell;
+    }
+
+    div.topic-menu li {
+        border-bottom: solid thin gray;
+        font-size: 120%
+    }
+
+    .dropdown-menu {
+        padding: 0px;
+    }
+
+    #topic-menu {
+        color: lightgreen;
+        border-bottom: dashed thin lightgreen;
+        cursor: pointer;
+    }
+    #topic-search {
+        border-radius: 2rem;
+        max-width: 30rem;
+        margin: auto;
+    }
+    // allow cancel button to appear in webkit
+    input[type=search]::-webkit-search-cancel-button {
+        -webkit-appearance: searchfield-cancel-button;
+    }
+
+    @media only screen and (max-width: $sm-max) {
+        padding: 0rem 1rem 1rem 1rem;
+
+        .row {  // override bootstrap default
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        [class^="col-"] {
+            // override the bootstrap default gutter
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        
+        // minimize margin for mobile screens
+        .pmd-card {
+            margin-bottom: 2px;
+            padding: 0px;
+        }
+
+        div.topic-menu {
+            padding-bottom: 1rem;
+        }
+    }
+    
+    @media only screen and (min-width: $md-min) {
+        .pmd-card {
+            padding: 1rem;
+        }
+        [class^="col-"] {
+            // override the bootstrap default gutter
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+    }
+}
+
+

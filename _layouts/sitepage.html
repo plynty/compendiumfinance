@@ -6,22 +6,15 @@
     <body>
         <page class="{{page.layout}}">
             {% include nav-header.html %}
-            <div class="nav-padding">&nbsp;</div>
+            <!--<div class="nav-padding">&nbsp;</div>-->
             <div class="page-content">
+                <div id="main">
                 {{ content }}
+                </div> <!-- end div#main -->
+                {% include article-view.html %}
             </div>
             {% include footer.html %}
         </page>
-        {% assign activeCards = site.cards | where: 'active', 'true' | where: 'source', 'internal' %}
-        {% for card in activeCards %}
-            {% if card.actions contains 'show-modal' %}
-                {% for article in site.articles %}
-                    {% if article.article_id == card.article_id %}
-                        {{article.output}}
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        {% endfor %}
         {% include scripts.html %}
     </body>
 

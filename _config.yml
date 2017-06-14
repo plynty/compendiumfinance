@@ -4,38 +4,51 @@ timezone: UTC
 collections:
   articles:
     title: Articles
-    output: false
+    output: true
+    permalink: articles/:title.data:output_ext
   assets:
     title: Assets
     output: true
   cards:
     title: Cards
     output: false
+  feeds:
+    title: Feeds
+    output: true
   posts:
     title: Posts
     output: true
   resources:
     title: Resources
-    output: false
+    output: true
+    permalink: resources/:title.data:output_ext
   uploads:
     title: Uploads
     output: true
 defaults:
 - scope:
     path: ''
-    type: pages
+    type: articles
   values:
-    layout: page
+    status: current
+    layout: article-data
+    section: articles
+    source: external
+    bg_img_darken: true
+    format_class: article
+- scope:
+    path: ''
+    type: resources
+  values:
+    layout: article-data
+    format_class: resources
+    section: resource-cards
+    no_date: true
 - scope:
     path: ''
     type: posts
   values:
     layout: post
-- scope:
-    path: ''
-    type: tools
-  values:
-    layout: blogtool
 email: your-email@compendiumfinance.com
 description: This is the static content site for compendiumfinance.com
 baseurl: 
@@ -43,7 +56,9 @@ url: http://compendiumfinance.com
 twitter_username: choosesimple
 github_username: jekyll
 trademark: Compendium Finance&#x2122;
-social: compendiumfinance
+linkedin: compendiumfinance
+twitter: compendiumfinance
+facebook: compendiumfinance
 pmd_path: assets/pmd-1.0.0
 markdown: kramdown
 sass:

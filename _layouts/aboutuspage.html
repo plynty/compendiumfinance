@@ -1,8 +1,12 @@
 ---
 layout: sitepage
+scripts: <script type="text/javascript" src="assets/js/header.js"></script>
 ---
 
-{% for section in page.sections %}
-    <!-- including section {{section}} -->
-    {% include {{section}} %}
-{% endfor %}
+    {% include section/resources.html %}
+
+    {% include section/aboutus.html %}
+
+    {% include section/publications.html %}
+
+    {% include section/advisor-to-plynty.html %}

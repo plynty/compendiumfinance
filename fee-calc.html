@@ -1,111 +1,52 @@
 ---
-title: resources
+title: True Cost of Fees
+layout: fee-calc
 ---
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<div>
+  <h1>Quick Tips</h1>
 
-        <link rel="icon" type="image/jpg" href="/favicon.jpg" />
-        <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-        <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <p><strong>Rate of Return</strong> is how much you expect to earn on your investments over time, written as a percentage of your current investment amount. You can input your estimated rate of return, or use our default of 5.25% per year.</p>
 
-            <link rel="stylesheet" href="{{site.pmd_path}}/css/bootstrap.min.css">
-        
-        <!--Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Arsenal|Fjalla+One|Righteous" rel="stylesheet">
+  <p><strong>Fund Fees</strong> are the amount you pay to own a particular mutual fund or exchange-traded fund (ETF). Fund fees range from 0.05% to 2.0% per year. To find your fund fee, enter your fund’s Ticker Symbol into Google, and look for the Expense Ratio. The Expense Ratio is your fund fee.</p>
 
-        <!-- Propeller css -->
-        <link href="{{site.pmd_path}}/css/propeller.min.css" rel="stylesheet">
+  <p><strong>Advisor Fees</strong> are fees you pay to your financial planner, advisor, or broker-dealer to handle your accounts. Advisor fees are typically shown as a percentage (usually called Assets Under Management, or AUM) and average around 1% per year.</p>
 
-        <!-- app styles -->
-        <link rel="stylesheet" href="assets/css/styles.css">
+  <div id="text-less">
+    <h1>The True Cost of Fees</h1>
 
-        <!-- font-awesome: icons -->
-        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <p>Lowering fees could be one of the most important investing decisions you make. Whether they are classified as...</p>
+    <div class="button"><button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default" onclick="moreOrLess('#text-more', '#text-less')">Read More</button></div>
 
-        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  </div>
+  <div id="text-more">
+    <h1>The True Cost of Fees</h1>
 
-    </head>
-    <body class="fee-calculator">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="pmd-card pmd-z-depth-2">
-                    <div class="row input-form">
-                        <div class="col-md-2 col-sm-6 col-xs-6">
-                            <div class="form-group pmd-textfield">
-                                <label for="investment-amount" class="control-label">
-                                    Investment Amount
-                                </label>
-                                <input type="text" id="investment-amount" class="form-control" value="$50,000" onblur="validate(); return false;">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-6 col-xs-6">
-                            <div class="form-group pmd-textfield">
-                                <label for="investment-period" class="control-label">
-                                    Investment Period
-                                </label>
-                                <input type="text" id="investment-period" class="form-control" value="30" onblur="validate(); return false;">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-6 col-xs-6">
-                            <div class="form-group pmd-textfield">
-                                <label for="rate-of-return" class="control-label">
-                                    Rate of Return
-                                </label>
-                                <input type="text" id="rate-of-return" class="form-control" value="8%" onblur="validate(); return false;">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-6 col-xs-6">
-                            <div class="form-group pmd-textfield">
-                                <label for="mutual-fund-fees" class="control-label">
-                                    Mutual Fund Fees
-                                </label>
-                                <input type="text" id="mutual-fund-fees" class="form-control" value="1.25%" onblur="validate(); return false;">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-6 col-xs-6">
-                            <div class="form-group pmd-textfield">
-                                <label for="advisor-fee" class="control-label">
-                                    Advisor Fee
-                                </label>
-                                <input type="text" id="advisor-fee" class="form-control" value="1.00%" onblur="validate(); return false;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--<div class="container-fluid">-->
-            <div class="row">
-                <div class="col-sm-8 col-xs-12 ">
-                    <div class="stack-chart pmd-card pmd-z-depth-2">
-                        <svg id="stack-chart"></svg>
-                    </div>
-                </div>
-                <!--<div class="col-sm-4 col-xs-12">
-                    <div class="pie-chart pmd-card  pmd-z-depth-2">
-                        <svg id="pie-chart"></svg>
-                    </div>
-                </div>-->
-            </div>
-        <!--</div>-->
-        <!-- jQuery before Propeller.js -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script type="text/javascript" src="{{site.pmd_path}}/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="{{site.pmd_path}}/js/propeller.min.js"></script>
-        
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="assets/js/fee_calc.js"></script>
-        <script src="assets/js/fee_calc_chart.js"></script>
-        <script>
-            generateStack("#stack-chart", "areaStack", "basis");
-        </script>
-    </body>
-</html>
+    <p>Lowering fees could be one of the most important investing decisions you make. Whether they are classified as high, standard, or average,
+    fees impact your investment income. Fees draw money from your account regardless of your investment activity. If you make a profit, fees are
+    drawn from your account. If you make zero profits, fees are drawn from your account. If you hit a loss, fees are drawn from your account.
+    Fees are often taken as a percentage of your investments. Because they are not usually presented in dollars and are automatically withdrawn
+    from your account, fees are easily overlooked. The higher the fee, the less money you’ll make over time.</p>
+
+    <p>Every time fees are withdrawn from your investment dollars; you don’t just lose money from paying the fees – there’s also an opportunity cost.
+    You lose out on the opportunity of making additional profits from your total investments had those dollars stayed in your account. If those fee
+    dollars were still in your total investment amount instead of being paid to your advisor or mutual fund, you would have made significantly more
+    profit throughout your investing years.</p>
+
+    <p><strong>Rate of Return</strong> is how much you expect to earn on your investments over time, written as a percentage 
+      of your current investment amount. Because you can’t predict the future, you can make a best guess either based on your 
+      past rate of return, or use one of many rate of return calculators available online. We automatically adjust your rate 
+      of return for inflation, and default your rate of return to 5.25%, which you can change.</p>
+
+    <p><strong>Fund Fees</strong> are the amount you pay to own a particular mutual fund or exchange-traded fund (ETF). Fund 
+      fees range from 0.05% to 2.0% per year. These fees are deducted from your investment returns, usually quarterly, to 
+      cover the administrative cost of managing the fund. To find your fund fee, enter your fund’s Ticker Symbol into Google, 
+      and look for the Expense Ratio, which is your fund fee.</p>
+
+    <p><strong>Advisor Fees</strong> are fees you pay to your financial planner, advisor, or broker-dealer to handle your accounts. Advisor fees are typically shown
+    as a percentage (usually called Assets Under Management, or AUM) and average around 1% per year. If there is a person that you call about your
+    investment accounts, it is likely you are paying this fee.  Call your contact and ask them for details on the fees you pay. They may not make
+    it easy for you. Or search online for “[your financial institution] advisor fee”.</p>
+    <div class="button"><button class="btn btn-more pmd-btn-outline pmd-ripple-effect btn-default" onclick="moreOrLess('#text-less', '#text-more')">Read Less</button></div>
+  </div>
+</div>

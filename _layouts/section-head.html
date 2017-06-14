@@ -1,0 +1,31 @@
+---
+---
+
+        {% assign thisCard = page %}
+        <div class="section-head">
+            <a href="{{page.link}}" target="_blank"></a>
+            <div class="section-head-content">
+            {% if page.img != nil %}
+                <div class="section-head-img hidden-sm hidden-xs">
+                    <div class="shadow-box pmd-z-depth ">
+                        {% include card/card-image-panel.html%}
+                    </div>
+                </div>
+                <div class="section-head-copy hidden-sm hidden-xs">
+                    {% include card/card-copy-panel.html %}
+                </div>
+                <div class="section-head-copy section-head-wide visible-sm visible-xs">
+                    {% include card/card-copy-panel.html %}
+                </div>
+            {% else %}
+                <div class="section-head-copy section-head-wide">
+                    {% include card/card-copy-panel.html %}
+                </div>   
+            {% endif %}
+            </div>
+            {% if page.img != nil and false %}
+            <div class="section-head-bg-img visible-sm visible-xs">
+                {% include card/card-image-panel.html %}
+            </div>
+            {% endif %}
+        </div>

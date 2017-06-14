@@ -1,0 +1,21 @@
+---
+layout: 
+---
+
+{
+    "date": "{{page.date | date: '%B %e, %Y'}}",
+    "author": {{page.author | jsonify}},
+    "categories": {{page.categories | jsonify}},
+    "tags": {{page.tags | jsonify}},
+    "img": "{{page.img}}",
+    "banner_img": "{{page.banner_img}}",
+    "source": "{{page.source}}",
+    "article_id": "{{page.title | slugify}}",
+    "link": "{{ page.link }}",
+    "link_target": {%if page.source == 'internal'%}"_self"{%else%}"_blank"{%endif%},
+    "format_class": "{{page.format_class}}"
+}{%comment%}The following fields don't escape properly for JSON parsing, so capture them in a different way{%endcomment%}
+--- field:title:{{page.title}}
+--- field:lead:{{page.lead}}
+--- field:content:{{page.content | markdownify}}
+--- field:footer:{{page.content_footer_md | markdownify}}

@@ -1,0 +1,4 @@
+                <div class="card-media-panel video{%unless thisCard.img_bleed == false %} bleed"{% endunless %}">
+                    {%if thisCard.img_bleed == false %}<span class="aligner" style="height: 100%; display: inline-block; vertical-align: middle;"></span>{% endif %}
+                    <iframe src="{{thisCard.video}}" frameborder="0" allowfullscreen></iframe>
+                </div>

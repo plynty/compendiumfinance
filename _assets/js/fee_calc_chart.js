@@ -1,675 +1,911 @@
-var keys = ["You Keep", "Fund Fees", "Advisor Fees", "Lost Earnings"];
-var pieKeys = ["You Keep", "You Lose"];
+/* global d3 */
 
-var colors = [
-    "#42bd41", // green
-    "#ff4500", // red-1
-    "#dd382f", // red-2
-    "#ff0000"  // red-3
-];
+'use strict';
 
-/** hold context info for all the charts on the page */
-var charts = {};
+// Internet Explorer 6-11
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+var config = {
+  minChartWidth: 350,
+  maxChartWidth: 500,
+  aspectRatio: 1.5,
+  margin: {top: 0, right: 10, bottom: 40, left: 10}, // margin for d3 area chart to draw axes
+  curve: 'basis',
+
+  keysKeepLose: ["You Keep", "You Lose"],
+  keysLoseDetail: ["Lost Earnings", "Advisor Fees", "Fund Fees"],
+  keysKeep: ["You Keep"],
+
+  colors: [
+//    "#3f3", // green
+    "#f33", // red-1
+    "#f33", // red-2
+    "#f33"  // red-3
+  ],
+  pieColors: [// gradient triples: [lowlight, color, highlight]
+    ["#373", "#3f3", "#6f6"], // green
+    ["#944", "#f33", "#f66"] //red
+  ],
+  legend: {
+    top: -8,
+    left: 0,
+    lineHeight: 20,
+    labelsRight: 60,
+    totalsRight: 100
+  },
+
+  showing: "pie"
+};
+
+/** hold geometry info for the charts */
+var geom;
 
 /**
- * Perform initial setup for a stack chart, then render the chartbased on initial data
+ * Perform initial setup for a stack chart, then render the chart based on initial data
+ * @param {String} chartDivSelector CSS selector of the top-level div for charts
  */
-function generateStack(svgSelector, style, curve) {
-     // create a new chart context
-    charts[svgSelector] = {
-        style: style,
-        curve: curve
-    };
-    var geom = createChartGeometry(svgSelector);
+function generateCharts(chartDivSelector) {
 
-    genLinearGradients(geom.svg);
-    initAxes(svgSelector);
-    renderLegend(geom.topG, 80, 0);
-    initOverlay(svgSelector);
+  createChartGeometry(chartDivSelector);
 
-    /** validate the inputs, will trigger a render */
-    validate();
+  svgDefs();
+  initAxes();
+  initLegend();
+  initPie();
+  initTable();
+  initBarStack();
+
+
+  /** validate the inputs, will trigger a render */
+  validate();
+  shadeButtons();
 }
 
-function updateStack(svgSelector) {
-    var chartCtx = charts[svgSelector];
-    if (!chartCtx) {
-        return;
+/**
+ *
+ */
+function updateStack() {
+  if (!geom) {
+    return;
+  }
+
+  fetchData(function (error, data) {
+    if (error) {
+      throw error;
     }
-    
-    var geom = chartCtx.geom;
-    fetchData(function (error, data) {
-        if (error) {
-            throw error;
-        }
-        // var axesOffset = {x: 0, y: 0};
-        // switch (style) {
-        //     case "areaStack":
-        //         axesOffset.x -= 20;
-        //         break;
-        // }
-        renderAxes(svgSelector, data);
-        switch (chartCtx.style) {
-            case "barStack":
-                renderBarStack(svgSelector, data);
-                break;
-            case "areaStack":
-                renderAreaStack(svgSelector, data);
-                break;
-        }
-    });
+
+    renderAxes(data);
+    renderAreaStack(data);
+    renderLegend(data);
+    renderBarStack();
+  });
 }
+
+function swipeChart(leftRight) {
+  switch (config.showing) {
+    case 'doc':
+      config.showing = leftRight === 'right' ? 'doc' : 'pie';
+      break;
+    case 'pie':
+      config.showing = leftRight === 'right' ? 'doc' : 'area';
+      break;
+    case 'area':
+      config.showing = leftRight === 'right' ? 'pie' : 'bar';
+      break;
+    case 'bar':
+      config.showing = leftRight === 'right' ? 'area' : 'doc';
+      break;
+  }
+  showChart(config.showing);
+}
+
+function showChart(chartType) {
+  config.showing = chartType;
+
+  function fadeDiv(selection, opacity) {
+    selection.transition().duration(1000)
+            .style("opacity", opacity);
+  }
+  if (config.showing === 'doc') {
+    $('#doc').show();
+    $('div.charts').hide();
+//    $('div.input-form').hide();
+  } else {
+    $('#doc').hide();
+    $('div.charts').show();
+//    $('div.input-form').show();
+  }
+  fadeDiv(d3.select('#doc'), (config.showing === 'doc') ? 1 : 0);
+  fadeDiv(d3.select('div.charts'), (config.showing !== 'doc') ? 1 : 0);
+  fadeDiv(d3.select('div.input-form'), (config.showing !== 'doc') ? 1 : 0);
+
+  fadeDiv(geom.area.topDiv, (config.showing === 'area') ? 1 : 0);
+  fadeDiv(geom.pie.topDiv, (config.showing === 'pie') ? 1 : 0);
+  fadeDiv(geom.bar.topDiv, (config.showing === 'bar') ? 1 : 0);
+  shadeButtons();
+}
+
+function shadeButtons() {
+  $('.chart-btn-group .btn-group .btn').each(function () {
+    if ($(this).hasClass('chart-' + config.showing)) {
+      $(this).addClass('selected');
+    } else {
+      $(this).removeClass('selected');
+    }
+  });
+}
+
 /**
  * Create a top-level <g> element within the <svg> element.  This
  * <g> element will contian all the drawing elements.  The <g> element
  * will maximize the space in the container but retain the optimal aspect
- * ratio for the chart.  The <g> will be offset to the center of the container.
- * @param svgSelector CSS selector that uniquely identifies the <svg> element
+ * ratio for the chart.
+ * @param chartDivSelector CSS selector that uniquely identifies the <svg> element
  * @return A structure containing key geometry items:
- * { 
+ * {
  * svg: // the svg element found by d3.select(svgSelector)
- * topG: the top-level <g> element, centered within the container
  * width: the width of the drawable area
  * height: the height of the drawable area
  * }
  */
-function createChartGeometry(svgSelector, margin) {
-    if (!margin) {
-        margin = { top: 20, right: 45, bottom: 40, left: 15 };
-    }
-    var aspect = 1.5
-        size = maxSize($(svgSelector).parent(), aspect, margin)
-        width = size.chartW,
-        height = size.chartH;
-    var svg = d3.select(svgSelector),
-        topG = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")"),
-        chartG = topG.append("g").attr("class", "chart");
+function createChartGeometry(chartDivSelector) {
+  var size = maxSize($(chartDivSelector), true),
+          width = size.chartW,
+          height = size.chartH;
 
-    svg.attr("viewBox", "0 0 "+size.w+" "+size.h); // set the "normal" size
+  var areaGeom = {},
+      pieGeom = {},
+      barGeom = {};
+  var chartDiv = d3.select(chartDivSelector);
 
-    charts[svgSelector].geom = {
-        svg: svg,
-        topG: topG,
-        chartG: chartG,
-        width: width,
-        height: height
-    }
-    return charts[svgSelector].geom;
+  // clear previous rendering
+  if (isIE) {
+    $(chartDivSelector).find('.chart, .chart-overlay').each(function() {
+      for (var i = 0; i < this.childNodes.length; i++) {
+        this.removeChild(this.childNodes[i]);
+      }
+    });
+  } else {
+    $(chartDivSelector).find('.chart > *, .chart-overlay > *').each(function() {
+      this.remove();
+    });
+  }
+
+  // construct area chart geom
+  areaGeom.topDiv = chartDiv.select('.area-chart')
+      .style("left", size.xOffsets[0]+'px')
+      .style("opacity", (config.showing === 'all' || config.showing === 'area') ? 1 : 0);
+  areaGeom.svg = areaGeom.topDiv.select('svg.chart')
+      .attr("width", size.w)
+      .attr("height", size.h)
+      .append("svg")
+      .attr("viewBox", -config.margin.left + " " +
+          -config.margin.top + " " +
+          (width + config.margin.left + config.margin.right) + " " +
+          (height + config.margin.top + config.margin.bottom));
+  areaGeom.defs = areaGeom.svg.append("defs");
+  areaGeom.g = areaGeom.svg.append("g")
+      .attr("class", "stack-chart");
+  areaGeom.overlay = areaGeom.topDiv.select('.chart-overlay');
+  areaGeom.overlay.append("div")
+      .attr("class", "legend")
+      .style("position", "absolute");
+
+  // construct pie chart geom
+  pieGeom.topDiv = chartDiv.select('.pie-chart')
+      .style("left", size.xOffsets[1]+'px')
+      .style("opacity", (config.showing === 'all' || config.showing === 'pie') ? 1 : 0);
+  pieGeom.svg = pieGeom.topDiv.select('svg.chart')
+      .attr("viewBox", "0 0 " + width + " " + height);
+  if (isIE) {
+    pieGeom.svg.attr("height", height);
+  }
+  pieGeom.defs = pieGeom.svg.append("defs");
+  pieGeom.g = pieGeom.svg.append("g")
+      .attr("class", "pie-chart");
+  pieGeom.overlay = pieGeom.topDiv.select('.chart-overlay');
+
+  // construct bar chart geom
+  barGeom.topDiv = chartDiv.select('.bar-chart')
+      .style("left", size.xOffsets[2]+'px')
+      .style("opacity", (config.showing === 'all' || config.showing === 'bar') ? 1 : 0);
+  barGeom.svg = barGeom.topDiv.select('svg.chart')
+      .attr("viewBox", "0 0 " + width + " " + height);
+  barGeom.defs = barGeom.svg.append("defs");
+  barGeom.g = barGeom.svg.append("g")
+    .attr("class", "bar-chart");
+  barGeom.overlay = barGeom.topDiv.select('.chart-overlay');
+  if (isIE) {
+    barGeom.svg.attr("height", height);
+  }
+
+  chartDiv.selectAll('.chart-segment')
+      .style('width', size.chartW+'px')
+      .style('height', size.chartH+'px');
+
+  /* the viewBox is the 'natural' size of the drawing.  When the browser
+   scales the drawing up and down, it will be relative to this size.  A resize
+   does not trigger a re-rendering of the vectors.  It looks like a
+   simple bitmap resize, so linesget fatter/thinner, etc.  We need to
+   detect resize events in order to fire the rendering process again  */
+
+  chartDiv.style('height', size.h+'px')
+      .style('width', size.totalW+'px');
+
+  $('.chart-btn-group .btn-group a.btn').css('width', ((size.chartW - config.margin.left - config.margin.right)/4 - 8)+'px');
+  $('.input-form').css('width', (size.chartW)+'px');
+
+  geom = {
+    chartDiv: chartDiv,
+    area: areaGeom,
+    pie: pieGeom,
+    bar: barGeom,
+    width: width,
+    height: height,
+    wide3: size.wide3
+  };
+  return geom;
 }
 
 /**
  * Perform 1-time setup of chart axes
  */
-function initAxes(svgSelector) {
-    var chartCtx = charts[svgSelector];
-    var geom = chartCtx.geom;
-    switch (chartCtx.style) {
-        case "barStack":
-            var xScale = d3.scaleBand()
-                .rangeRound([0, geom.width])
-                .align(0.1)
-            break;
-        default:
-            var xScale = d3.scaleLinear()
-                .range([0, geom.width])
-            break;
-    }
+function initAxes() {
+  if (!geom) {
+    return;
+  }
+  geom.area.xScale = d3.scaleLinear()
+      .range([0, geom.width]);
 
-    var yScale = d3.scaleLinear()
-        .rangeRound([geom.height, 0]);
+  geom.area.yScale = d3.scaleLinear()
+          .rangeRound([geom.height, 0]);
 
-    var g = geom.topG;
-    g.append("g")
-        .attr("class", "axis x-axis")
-        .attr("transform", "translate(0," + chartCtx.geom.height + ")");
+  var g = geom.area.g;
+  g.append("g")
+          .attr("class", "axis x-axis")
+          .attr("transform", "translate(0," + geom.height + ")");
 
-    g.append("g")
-        .attr("class", "axis y-axis")
-        .attr("transform", "translate(" + chartCtx.geom.width + ", 0)");
+  g.append("g")
+          .attr("class", "axis y-axis")
+          .attr("transform", "translate(" + geom.width + ", 0)");
 
-    g.append("g")
-        .attr("class", "x-axis-label")
-        .attr("transform", "translate(" + (chartCtx.geom.width / 2) + ", " + (chartCtx.geom.height + 33) + ")")
-        .append("text").text("Years");
+  g.append("g")
+          .attr("class", "x-axis-label")
+          .attr("transform", "translate(" + (geom.width / 2) + ", " + (geom.height + 20) + ")")
+          .append("text").text("Years");
 
-    chartCtx.xScale = xScale;
-    chartCtx.yScale = yScale;
 }
 
 /**
  * Render the vertical and horizontal axes
- * @param g the <g> element where the axes should be rendered
  * @param data The chart data (determines max limits of the axes)
- * @param geom The gemoetry object created by createChartGeometry()
- * @return {x: xScale, y: yScale}
  */
-function renderAxes(svgSelector, data) {//g, data, geom, style) {
-    var chartCtx = charts[svgSelector];
-    switch (chartCtx.style) {
-        case "barStack":
-            chartCtx.xScale.domain(data.map(function (d) { return d.Year; }));
-            break;
-        default:
-            chartCtx.xScale.domain([1, data.length]);
-            break;
-    }
+function renderAxes(data) {
+  if (!geom) {
+    return;
+  }
+  geom.area.xScale.domain([1, data.length]);
 
-    chartCtx.yScale.domain([0, d3.max(data, function (d) { return d.total; })]).nice();
+  geom.area.yScale.domain([0, d3.max(data, function (d) {
+      return d["Total Earnings"];
+    })]).nice();
 
-    var g = chartCtx.geom.topG;
+  var g = geom.area.g;
 
-    // determine whether axis numbers need to be removed for space considerations
-    var minNumberPx = 15;
-    var tickGap = 1;
-    var tickWidth = chartCtx.geom.width / (data.length-1);
-    while (tickWidth * tickGap < minNumberPx) {
-        tickGap++;
-    }
-    t = g.transition().duration(2000);
-    t.select(".x-axis")
-        .call(d3.axisBottom(chartCtx.xScale)
-            .ticks(data.length)
-            .tickFormat(function(tick) {
-                if (tickGap == 1 || tick == 1 || tick == data.length) {
-                    return tick;
-                }
-                if (tick % tickGap == 0 && (data.length - tick) * tickWidth >= minNumberPx) {
-                    return tick;
-                }
-                return "";
-            })
-        );
-    t.select(".y-axis")
-        .call(d3.axisRight(chartCtx.yScale)
-            .ticks(5, "$s"));
+  // determine whether axis numbers need to be removed for space considerations
+  var minNumberPx = 15;
+  var tickGap = 1;
+  var tickWidth = geom.width / (data.length - 1);
+  while (tickWidth * tickGap < minNumberPx) {
+    tickGap++;
+  }
+  var t = g.transition().duration(2000);
+  t.select(".x-axis")
+      .call(d3.axisBottom(geom.area.xScale)
+        .tickValues([1,data.length])
+      );
 }
 
 /**
- * Render the legend in the specified <g> element, with the 
+ * Render the legend in the specified <g> element, with the
  * given x,y offset
- * @param g The <g> element to contain the legend
- * @param x The x-offset relative to <g>
- * @param y The y-offset relative to <g>
  */
-function renderLegend(g, x, y) {
-    var legend = g.append("g")
-        .attr("class", "legend")
-        .attr("text-anchor", "end")
-        .attr("transform", "translate("+x+", "+y+")")
-        .selectAll("g")
-        .data(keys.slice().reverse())
-        .enter().append("g")
-        .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+function initLegend() {
+  if (!geom) {
+    return;
+  }
+  var legendDiv = geom.area.overlay.select('.legend');
 
-    legend.append("rect")
-        .attr("x", 5)
-        .attr("width", 19)
-        .attr("height", 19)
-        .attr("class", function(d, i) { return "legend-"+(keys.length-1-i) });
+  var table = legendDiv.append("xhtml:table");
 
-    legend.append("text")
-        .attr("x", 0)
-        .attr("y", 9.5)
-        .attr("dy", "0.32em")
-        .text(function (d) { return d; });
-}
+  var tr = table.append("xhtml:tr").attr("class", "title");
+  tr.append("xhtml:th").attr("class", "legend-title").attr("colspan", "2").text("True Cost of Fees");
 
-function initOverlay(svgSelector) {
-    chartCtx = charts[svgSelector];
+  tr = table.append("xhtml:tr").attr("class", "lose");
+  tr.append("xhtml:td").attr("class", "legend-label").text("You Lose");
+  tr.append("xhtml:td").attr("id", "legend-lose").attr("class", "legend-value");
 
-    var g = chartCtx.geom.topG.append("g")
-        .attr("class", "chart-overlay");
-    chartCtx.geom.overlayG = g;
+  tr = table.append("xhtml:tr").attr("class", "keep");
+  tr.append("xhtml:td").attr("class", "legend-label").text("You Keep");
+  tr.append("xhtml:td").attr("id", "legend-keep").attr("class", "legend-value");
 }
 
 /**
- * Render a stacked bar chart
- * @param g The <g> element to receive the chart
- * @param data The chart data
- * @param scale The x & y scale axes
+ * Update the variable portion of the legend: the totals
+ * @param {Object} data Chart data
  */
-function renderBarStack(svgSelector, data) {
-    chartCtx = charts[svgSelector];
+function renderLegend(data) {
+  var legendDiv = geom.area.overlay.select('.legend');
+  legendDiv.style('display', 'block');
+
+  var lastYearValues = data[data.length - 1];
+  var loseTotal = lastYearValues["You Lose"];
+  var keepTotal = lastYearValues["You Keep"];
+
+  legendDiv.select('#legend-keep').transition().duration(1500)
+      .tween('legend-keep', function(d) {
+        this._current = this._current || lastYearValues["You Keep"];
+        var interpolate = d3.interpolateNumber(this._current, lastYearValues["You Keep"]);
+        this._current = interpolate(1);
+        var node = this;
+        return function (t) {
+          var d2 = interpolate(t);
+          node.innerText = d3.format('$,.0f')(d2);
+        };
+      });
+
+  legendDiv.select('#legend-lose').transition().duration(1500)
+      .tween('legend-lose', function(d) {
+        this._current = this._current || lastYearValues["You Lose"];
+        var interpolate = d3.interpolateNumber(this._current, lastYearValues["You Lose"]);
+        this._current = interpolate(1);
+        var node = this;
+        return function (t) {
+          var d2 = interpolate(t);
+          node.innerText = d3.format('$,.0f')(d2);
+        };
+      });
+
+}
+
+
+function initBarStack() {
+    var g = geom.bar.g;
     g.append("g")
-        .selectAll("g")
-        .data(d3.stack().keys(keys)(data))
-        .enter().append("g")
-            .attr("class", function (d, i) { return "grad-linear-"+i; })
-        .selectAll("rect")
-            .data(function (d) { 
-                d.forEach(function(element) {
-                    element.key = d.key;
-                }); 
-                return d; 
-            })
-            .enter().append("rect")
-                .attr("x", function (d) { return chartCtx.xScale(d.data.Year); })
-                .attr("y", function (d) { return chartCtx.xScale(d[1]); })
-                .attr("height", function (d) { return chartCtx.xScale(d[0]) - chartCtx.yScale(d[1]); })
-                .attr("width", chartCtx.xScale.bandwidth())
-                .append("title").text(function(d) { return d.key+": "+d3.format("$,.0f")(d.data[d.key]); });
+        .attr("class", "lose")
+        .attr("transform", "translate("+((geom.width - 32)-50)+" 0)");
+    g.append("g")
+        .attr("class", "keep")
+        .attr("transform", "translate("+((geom.width - 32)-102)+" 0)");
+    var axes = g.append("g")
+        .attr("class", "axes");
+    var margin = 2;
+    var bottom = geom.height * .9 + margin;
+    var right = geom.width - 32;
+    var left = 32;
+    axes.append("polyline")
+        .attr("points", right+","+bottom+" "+left+","+bottom);
 }
 
 /**
  * Render a stacked bar chart
- * @param g The <g> element to receive the chart
- * @param data The chart data
- * @param scale The x & y scale axes
- * @param curve The curve function for interpolating points
  */
-function renderAreaStack(svgSelector, data) {
-    chartCtx = charts[svgSelector];
-    var stack = d3.stack();
+function renderBarStack() {
+  if (!geom) {
+    return;
+  }
 
-    var area = d3.area()
-        .x(function(d, i) { 
-            return chartCtx.xScale(d.data.Year/*i+1*/); 
+  fetchData(function(error, data) {
+    var g = geom.bar.g;
+    var lastYear = [data[data.length - 1]];
+    var yScale = d3.scaleLinear()
+        .rangeRound([geom.height * .9, geom.height * .1])
+        .domain([0, Math.max(lastYear[0]["You Keep"], lastYear[0]["You Lose"])]);
+    var stackLose = d3.stack();
+    stackLose.keys(config.keysLoseDetail);
+    var rects = g.select("g.lose")
+          .selectAll("rect");
+    rects.data(stackLose(lastYear))
+        .enter().append("rect")
+        .attr("class", function(d, i) {
+          return "rect-lose-"+i;
         })
-        .y0(function(d) { return chartCtx.yScale(d[0]); })
-        .y1(function(d) { return chartCtx.yScale(d[1]); });
+        .attr("x", 0)
+        .attr("width", 50)
+        .merge(rects).transition().duration(2000)
+        .attrTween("y", function (d) {
+          return d3.interpolateNumber(this.getAttribute("y"), yScale(d[0][1]));
+        })
+        .attrTween("height", function (d) {
+          return d3.interpolateNumber(this.getAttribute("height"), yScale(d[0][0]) - yScale(d[0][1]));
+        });
+    var stackKeep = d3.stack();
+    stackKeep.keys(config.keysKeep);
+    rects = g.select("g.keep")
+          .selectAll("rect");
+    rects.data(stackKeep(lastYear))
+        .enter().append("rect")
+        .attr("class", "rect-keep")
+        .attr("x", 0)
+        .attr("width", 50)
+        .merge(rects).transition().duration(2000)
+        .attrTween("y", function (d) {
+          return d3.interpolateNumber(this.getAttribute("y"), yScale(d[0][1]));
+        })
+        .attrTween("height", function (d) {
+          return d3.interpolateNumber(this.getAttribute("height"), yScale(d[0][0]) - yScale(d[0][1]));
+        });
+  });
+}
 
-    var line1 = d3.line()
-        .x(function(d, i) { 
-            return chartCtx.xScale(d.data.Year/*i+1*/); 
-        })
-        .y(function(d) { return chartCtx.yScale(d[1]); });
-    
-    switch(chartCtx.curve) {
-        case "cardinal":
-            area.curve(d3.curveCardinal.tension(0));
-            line1.curve(d3.curveCardinal.tension(0));
-            break;
-        case "catmullrom":
-            area.curve(d3.curveCatmullRom.alpha(0.5));
-            line1.curve(d3.curveCatmullRom.alpha(0.5));
-            break;
-        case "natural":
-            area.curve(d3.curveNatural);
-            line1.curve(d3.curveNatural);
-            break;
-        case "basis":
-            area.curve(d3.curveBasis);
-            line1.curve(d3.curveBasis);
-            break;
+/**
+ * Render a stacked bar chart
+ */
+function renderAreaStack() {
+  if (!geom) {
+    return;
+  }
+  var stack = d3.stack();
+
+  var area = d3.area()
+      .x(function (d, i) {
+        return geom.area.xScale(d.data.Year/*i+1*/);
+      })
+      .y0(function (d) {
+        return geom.area.yScale(d[0]);
+      })
+      .y1(function (d) {
+        return geom.area.yScale(d[1]);
+      });
+
+  var line1 = d3.line()
+      .x(function (d, i) {
+        return geom.area.xScale(d.data.Year/*i+1*/);
+      })
+      .y(function (d) {
+        return geom.area.yScale(d[1]);
+      });
+
+  switch (config.curve) {
+    case "cardinal":
+      area.curve(d3.curveCardinal.tension(0));
+      line1.curve(d3.curveCardinal.tension(0));
+      break;
+    case "catmullrom":
+      area.curve(d3.curveCatmullRom.alpha(0.5));
+      line1.curve(d3.curveCatmullRom.alpha(0.5));
+      break;
+    case "natural":
+      area.curve(d3.curveNatural);
+      line1.curve(d3.curveNatural);
+      break;
+    case "basis":
+      area.curve(d3.curveBasis);
+      line1.curve(d3.curveBasis);
+      break;
+  }
+
+  fetchData(function (error, data) {
+    if (error) {
+      throw error;
     }
 
-    fetchData(function (error, data) {
-        if (error) {
-            throw error;
+    // thin out the data if the points are too dense for a smooth curve
+    var minPointDist = 20;
+    var pointGap = 1;
+    var pointDist = geom.width / (data.length - 1);
+    while (pointDist * pointGap < minPointDist) {
+      pointGap++;
+    }
+    var thinData = [];
+    if (pointGap === 1) {
+      // if all the points are included, just use the raw data
+      thinData = data;
+    } else {
+      // copy the column defs
+      thinData.columns = data.columns;
+      // iterate through the data points, add only those that meet the minimum point distance
+      for (var i = 0; i < data.length; i++) {
+        if (i === 0 || i === data.length - 1) {
+          thinData.push(data[i]);
+        } else if (i % pointGap === 0 && (data.length - 1 - i) * pointDist >= minPointDist) {
+          thinData.push(data[i]);
         }
+      }
+    }
 
-        // thin out the data if the points are too dense for a smooth curve
-        var minPointDist = 20;
-        var pointGap = 1;
-        var pointDist = chartCtx.geom.width / (data.length-1);
-        while (pointDist * pointGap < minPointDist) {
-            pointGap++;
-        }
-        var thinData = [];
-        if (pointGap == 1) {
-            // if all the points are included, just use the raw data
-            thinData = data;
-        } else {
-            // copy the column defs
-            thinData.columns = data.columns;
-            // iterate through the data points, add only those that meet the minimum point distance
-            for (var i = 0; i < data.length; i++) {
-                if (i == 0 || i == data.length-1) {
-                    thinData.push(data[i]);
-                } else if (i % pointGap == 0 && (data.length - 1 - i) * pointDist >= minPointDist) {
-                    thinData.push(data[i]);
-                }
-            }
-        }
+    stack.keys(config.keysKeepLose);
 
-        stack.keys(keys);
+    // a 'layer' is one tier of the stack
+    var layers = geom.area.g.selectAll(".layer");
+    var layer = layers.data(stack(thinData));
 
-        var layers = chartCtx.geom.chartG.selectAll(".layer");
-        var layer = layers.data(stack(thinData));
+    layer.exit().remove();
 
-        layer.exit().remove();
+    // draw the areas
+    layer.enter().append("g")
+        .attr("class", function (d, i) {
+          return "layer area-" + i;
+        })//;
+        .append("path")
+        .attr("class", function (d, i) {
+          return "area area-" + i;
+        })
+        .attr("d", area);
 
-        layer.enter().append("g")
-            .attr("class", function(d, i) { return "layer grad-linear-"+i; } )//;
-            .append("path")
-                .attr("class", function(d, i) { return "area grad-linear-"+i; })
-                .attr("d", area);
+    var path = layer.select("path");
+    path.merge(path).transition().duration(2000)
+        .attr("d", area);
 
-        var path = layer.select("path");
-        path.merge(path).transition().duration(2000)
-            .attr("d", area);
-
-        var lines = chartCtx.geom.chartG.selectAll(".line")
-            .data(stack(thinData));
-        lines.enter().append("path")
-            .attr("class", function(d, i) { return "line line"+i; })
-            .merge(lines).transition().duration(2000)
-            .attr("d", line1)
-            .attr("fill", "none");
-
-        chartCtx.geom.overlayG.selectAll(".column").remove();
-        var verticals = chartCtx.geom.overlayG.selectAll(".column")
-            .data(stack(data))
-            .enter()
-            .append("g")
-            .attr("class", function(d,i){ return "column line"+i; })
-            .selectAll("line")
-            .data(function(d, i) {
-                // var line = d3.line();
-                return d;
-            })
-            .enter()
-            .append("path")
-            .attr("class", "vertical")
-            .attr("d", function(d, i, data) {
-                var x = area.x()(d, i);
-                var y0 = area.y0()(d);
-                var y1 = area.y1()(d);
-                return "M"+x+" "+y0+" V"+y1;
-            })
-            .attr("fill", "none");
-    });
+    // draw the lines at the top of the areas, using the same curve
+    var lines = geom.area.g.select(".chart").selectAll(".line")
+        .data(stack(thinData));
+    lines.enter().append("path")
+        .attr("class", function (d, i) {
+          return "line line" + i;
+        })
+        .attr("fill", "none")
+        .merge(lines).transition().duration(2000)
+        .attr("d", line1);
+  });
 }
 
 /**
- * Append a <defs> section to the <svg> element containing 
+ * Append a <defs> section to the <svg> element containing
  * <linearGradient> definitions for each chart color.  Two
  * sets of gradients are created, normal and highlighted.
- * @param svg The <svg> element from d3.select()
- * @param gradColors 2-d array of colors, each row containing
- * 3 colors, a lowlight, normal, and highlight color for the gradient.
- * If not provided a default is applied.
  */
-function genLinearGradients(svg, gradColors) {
-    if (!gradColors) {
-        // if not provided, use default colors
-        gradColors = [
-                ["#338833", "#42bd41", "#88ff88"], // green
-                ["#cc3200", "#ff4500", "#ff8800"], // red-1
-                ["#992520", "#dd382f", "#ee6644"], // red-2
-                ["#bb0000", "#ff0000", "#ff6666"]  // red-3
-            ];
-    }
-    var enterGrads = svg
-        .insert("defs")
-        .selectAll("linearGradient")
-        .data(gradColors)
-        .enter();
-        
-    var colorGrads = enterGrads.append("linearGradient")
-        .attr("id", function(d, i) { return "gradLin" + i; })
-        .attr("x1", "0%")
-        .attr("y1", "100%")
-        .attr("x2", "0%")
-        .attr("y2", "0%");
-    colorGrads.append("stop")
-        .attr("class", "dark")
-        .attr("offset", "0%")
-        .attr("stop-color", function(d, i) { return colors[i][0]; });
-    colorGrads.append("stop")
-        .attr("class", "color")
-        .attr("offset", "25%")
-        .attr("stop-color", function(d, i) { return gradColors[i][1]; });
-
-    var hiLiGrads = enterGrads.append("linearGradient")
-        .attr("id", function(d, i) { return "gradLinHL" + i; })
-        .attr("x1", "0%")
-        .attr("y1", "100%")
-        .attr("x2", "0%")
-        .attr("y2", "0%");
-    hiLiGrads.append("stop")
-        .attr("class", "dark")
-        .attr("offset", "0%")
-        .attr("stop-color", function(d, i) { return gradColors[i][1]; });
-    hiLiGrads.append("stop")
-        .attr("class", "color")
-        .attr("offset", "25%")
-        .attr("stop-color", function(d, i) { return gradColors[i][2]; });
+function svgDefs() {
+  if (!geom) {
+    return;
+  }
 }
+
 /**
- * 
+ *
  */
-function generatePie(pieId) {
-    var targetAspect = 2.7
-        // $(pieId).width(svgW);
-        // $(pieId).height(svgH);
-    var size = maxSize($(pieId).parent(), targetAspect);
-    var width = size.w,
-        height = size.h,
-        radius = Math.min(width, height) / 2;
+function initPie() {
+  if (!geom) {
+    return;
+  }
 
-    var svg = d3.select(pieId),
-        margin = { top: 20, right: 45, bottom: 30, left: 15 },
-        width = width - margin.left - margin.right,
-        height = height - margin.top - margin.bottom,
-        g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var width = geom.width,
+      height = geom.height;
+  geom.pie.radius = Math.min(width, height) / 2 * .8;
 
-    fetchData(function(error, data) {
-        var values = data[data.length-1];
-        var loseTotal = values["Fund Fees"] + values["Advisor Fees"] + values["Lost Earnings"];
-        var keepTotal = values.total - loseTotal;
+  var centerX = width / 2,
+          centerY = height / 2;
+  geom.pie.g.attr("transform", "translate(" + centerX + "," + (centerY) + ")");
 
-        var color = d3.scaleOrdinal()
-            .domain(["You Keep", "You Lose"])
-            .range([  // gradient triples: [lowlight, color, highlight]
-                ["#373", "#3f3", "#6f6"], // green
-                ["#944", "#f33", "#f66"] //red
-            ]);
+  geom.pie.colorScale = d3.scaleOrdinal()
+      .domain(config.keysKeepLose)
+      .range(config.pieColors);
 
-        var pieData = [
-            { 
-                label: color.domain()[0], 
-                value: keepTotal,
-                fmtValue: d3.format('$,.0f')(keepTotal),
-                percent: d3.format('.0%')(keepTotal/values.total)
-            },
-            { 
-                label: color.domain()[1], 
-                value: loseTotal,
-                fmtValue: d3.format('$,.0f')(loseTotal),
-                percent: d3.format('.0%')(loseTotal/values.total)
-            }
-        ];
+  var g = geom.pie.g;
+  g.append("text")
+      .attr("class", "title")
+      .attr("text-anchor", "middle")
+      .attr("y", -5)
+      .text("True Cost");
+  g.append("text")
+      .attr("class", "title")
+      .attr("text-anchor", "middle")
+      .attr("y", 20)
+      .text("of Fees");
+  g.append("g")
+    .attr("class", "slices");
+  g.append("g")
+    .attr("class", "labels");
 
-        var pie = d3.pie()
+  g.append("g")
+    .attr("class", "percents");
+  g.append("g")
+    .attr("class", "lines");
+
+}
+
+function updatePie() {
+  if (!geom) {
+    return;
+  }
+
+  fetchData(function (error, data) {
+    var lastYearValues = data[data.length - 1];
+    var loseTotal = lastYearValues["You Lose"];
+    var keepTotal = lastYearValues["You Keep"];
+
+    var pieData = [
+      {
+        label: config.keysKeepLose[0],
+        value: keepTotal,
+        percent: keepTotal / (keepTotal + loseTotal)
+      },
+      {
+        label: config.keysKeepLose[1],
+        value: loseTotal,
+        percent: loseTotal / (keepTotal + loseTotal)
+      }
+    ];
+
+    var pie = d3.pie()
             .sort(null)
             .value(function (d) {
-                return d.value;
+              return d.value;
             });
 
-        var enterGrads = g
-            .attr("viewBox", "0 0 400 250") // set the "normal" size
-            .append("defs")
-            .selectAll("radialGradient")
-            .data(pie(pieData), function(d, i){ return "grad" + i; })
-            .enter();
-            
-        var colorGrads = enterGrads.append("radialGradient")
-            .attr("gradientUnits", "userSpaceOnUse")
-            .attr("cx", 0)
-            .attr("cy", 0)
-            .attr("r", "75%")
-            .attr("id", function(d, i) { return "grad" + i; });
-        colorGrads.append("stop")
-            .attr("offset", "0%")
-            .attr("stop-color", function(d, i) { return color(i)[1]; });
-        colorGrads.append("stop")
-            .attr("offset", "85%")
-            .attr("stop-color", function(d, i) { return color(i)[0]; });
+    var arc = d3.arc()
+            .outerRadius(geom.pie.radius * 0.8)
+            .innerRadius(geom.pie.radius * 0.6);
 
-        var hiLiGrads = enterGrads.append("radialGradient")
-            .attr("gradientUnits", "userSpaceOnUse")
-            .attr("cx", 0)
-            .attr("cy", 0)
-            .attr("r", "75%")
-            .attr("id", function(d, i) { return "gradHL" + i; });
-        hiLiGrads.append("stop")
-            .attr("offset", "0%")
-            .attr("stop-color", function(d, i) { return color(i)[2]; });
-        hiLiGrads.append("stop")
-            .attr("offset", "75%")
-            .attr("stop-color", function(d, i) { return color(i)[1]; });
+    var innerArc = d3.arc()
+            .innerRadius(geom.pie.radius * 0.7)
+            .outerRadius(geom.pie.radius * 0.7);
 
-        // var svg = d3.select(pieId)
-        //     .append("g")
+    var outerArc = d3.arc()
+            .innerRadius(geom.pie.radius * 0.9)
+            .outerRadius(geom.pie.radius * 0.9);
 
-        g.append("g")
-            .attr("class", "slices");
-        g.append("g")
-            .attr("class", "labels");
-        g.append("g")
-            .attr("class", "lines");
+    var key = function (d) {
+      return d.data.label;
+    };
 
-        var arc = d3.arc()
-            .outerRadius(radius * 0.8)
-            .innerRadius(0);
+    var g = geom.pie.g;
+    /* ------- PIE SLICES -------*/
+    var slicePaths = g.select(".slices").selectAll("path")
+        .data(pie(pieData), key);
 
-        var outerArc = d3.arc()
-            .innerRadius(radius * 0.9)
-            .outerRadius(radius * 0.9);
+    slicePaths.exit()
+        .remove();
 
-        // svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    slicePaths.enter()
+        .append("path")
+        .attr("class", function (d, i) {
+          return i === 0 ? "keep" : "lose";
+        })
+        .merge(slicePaths)
+        .transition().duration(1500)
+        .attrTween("d", function (d) {
+          this._current = this._current || d;
+          var interStart = d3.interpolate(this._current.startAngle, d.startAngle);
+          var interEnd = d3.interpolate(this._current.endAngle, d.endAngle);
+          this._current.startAngle = interStart(1);
+          this._current.endAngle = interEnd(1);
+          return function (t) {
+            d.startAngle = interStart(t);
+            d.endAngle = interEnd(t);
+            return arc(d);
+          };
+        });
 
-        var key = function (d) { 
-            return d.data.label; 
-        };
+    /* ------- TEXT LABELS -------*/
 
-        change(pieData);
+    function midAngle(d) {
+      return d.startAngle + (d.endAngle - d.startAngle) / 2;
+    }
 
-        function change(pieData) {
+    var text = g.select(".labels").selectAll("g")
+        .data(pie(pieData), key);
 
-            /* ------- PIE SLICES -------*/
-            var slice = svg.select(".slices").selectAll("path.slice")
-                .data(pie(pieData), key);
+    var textEnter = text.enter()
+        .append("g")
+        .attr("class", function(d, i) {
+          return i === 0 ? "keep" : "lose";
+        });
+    textEnter.append("text")
+        .attr("class", "pie-label")
+        .attr("y", 20)
+        .text(function (d) {
+          return d.data.label;
+        });
+    textEnter.append("text")
+        .attr("class", "percent")
+        .attr("y", 0);
 
-            slice.exit()
-                .remove();
+    var textMerge = textEnter
+        .merge(text);
 
-            var paths = slice.enter()
-                .insert("path")
-                .attr("class", "slice")
-                .attr("class", function (d, i) { return "grad-radial-"+i; })
-                .attr("fill", function (d, i) { return "url(#grad"+i+")"; });
+    if (isIE) {
+      textMerge.select('text.percent').text(function(d) {
+        return d3.format('.0%')(d.data.percent);
+      });
+    } else {
 
-            paths.merge(slice)
-                .transition().duration(1000)
-                .attrTween("d", function (d) {
-                    this._current = this._current || d;
-                    var interpolate = d3.interpolate(this._current, d);
-                    this._current = interpolate(0);
-                    return function (t) {
-                        return arc(interpolate(t));
-                    };
-                })
-            paths.append("title").text(function(d) { return "Total: " + d.data.fmtValue; });
-            
-            /* ------- TEXT LABELS -------*/
+      textMerge.transition().duration(1500)
+          .select('text.percent')
+          .tween('percent-label', function(d) {
+            this._current = this._current || d.data.percent;
+            var interpolate = d3.interpolateNumber(this._current, d.data.percent);
+            this._current = interpolate(1);
+            var node = this;
+            return function (t) {
+              var d2 = interpolate(t);
+              node.innerHTML = d3.format('.0%')(d2);
+            };
+          });
+    }
 
-            var text = svg.select(".labels").selectAll("text")
-                .data(pie(pieData), key);
+    textMerge.transition().duration(1500)
+        .attrTween("transform", function (d) {
+          this._current = this._current || d;
+          var interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(1);
+          return function (t) {
+            var d2 = interpolate(t);
+            var pos = outerArc.centroid(d2);
+            pos[0] = geom.pie.radius * (midAngle(d2) < Math.PI ? 1 : -1);
+            pos[1] -= 10; // adjust for multi-line text
+            return "translate(" + pos + ")";
+          };
+        })
+        .styleTween("text-anchor", function (d) {
+          this._current = this._current || d;
+          var interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(0);
+          return function (t) {
+            var d2 = interpolate(t);
+            return midAngle(d2) < Math.PI ? "start" : "end";
+          };
+        });
 
-            function midAngle(d) {
-                return d.startAngle + (d.endAngle - d.startAngle) / 2;
-            }
+    text.exit()
+            .remove();
 
-            var textMerge = text.enter()
-                .append("text")
-                .attr("dy", ".35em")
-            .merge(text);
-            
-            textMerge.html(function (d) {
-                    var html = '<tspan class="pie-label" x="0" dy="1.4rem">'+d.data.label+"</tspan>";
-                    html += '<tspan class="amount" x="0" dy="1.4rem">'+d.data.fmtValue+'</tspan>';
-                    html += '<tspan class="percent" x="0" dy="1.4rem">'+d.data.percent+'</tspan>';
-                    return html;
-                });
+    /* ------- SLICE TO TEXT POLYLINES -------*/
 
-            textMerge.transition().duration(1000)
-                .attrTween("transform", function (d) {
-                    this._current = this._current || d;
-                    var interpolate = d3.interpolate(this._current, d);
-                    this._current = interpolate(0);
-                    return function (t) {
-                        var d2 = interpolate(t);
-                        var pos = outerArc.centroid(d2);
-                        pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
-                        pos[1] -= 10; // adjust for multi-line text
-                        return "translate(" + pos + ")";
-                    };
-                })
-                .styleTween("text-anchor", function (d) {
-                    this._current = this._current || d;
-                    var interpolate = d3.interpolate(this._current, d);
-                    this._current = interpolate(0);
-                    return function (t) {
-                        var d2 = interpolate(t);
-                        return midAngle(d2) < Math.PI ? "start" : "end";
-                    };
-                });
+    var polyline = g.select(".lines").selectAll("polyline")
+        .data(pie(pieData), key);
 
-            text.exit()
-                .remove();
+    polyline.enter()
+        .append("polyline")
+        .attr("class", function(d, i) {
+          return i === 0 ? "keep" : "lose";
+        })
+        .merge(polyline)
+        .transition().duration(1500)
+        .attrTween("points", function (d) {
+          this._current = this._current || d;
+          var interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(1);
+          return function (t) {
+            var d2 = interpolate(t);
+            var pos = outerArc.centroid(d2);
+            pos[0] = geom.pie.radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+            return [innerArc.centroid(d2), outerArc.centroid(d2), pos];
+          };
+        });
 
-            /* ------- SLICE TO TEXT POLYLINES -------*/
+    polyline.exit()
+        .remove();
+  });
+}
 
-            var polyline = svg.select(".lines").selectAll("polyline")
-                .data(pie(pieData), key);
+function initTable() {
 
-            polyline.enter()
-                .append("polyline")
-            .merge(polyline)
+  var div = geom.bar.overlay;
+  var table = div.append("xhtml:table");
 
-            .transition().duration(1000)
-                .attrTween("points", function (d) {
-                    this._current = this._current || d;
-                    var interpolate = d3.interpolate(this._current, d);
-                    this._current = interpolate(0);
-                    return function (t) {
-                        var d2 = interpolate(t);
-                        var pos = outerArc.centroid(d2);
-                        pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-                        return [arc.centroid(d2), outerArc.centroid(d2), pos];
-                    };
-                });
+  var tr = table.append("xhtml:tr").attr("class", "title");
+  tr.append("xhtml:th").attr("class", "legend-title").attr("colspan", "2").text("True Cost of Fees");
 
-            polyline.exit()
-                .remove();
-        };
-    });
+  tr = table.append("xhtml:tr").attr("class", "fund-fees");
+  tr.append("xhtml:th").text("Fund Fees");
+  tr.append("xhtml:td").attr("id", "td-fund-fees").attr("class", "value");
+
+  tr = table.append("xhtml:tr").attr("class", "advisor-fees");
+  tr.append("xhtml:th").text("Advisor Fees");
+  tr.append("xhtml:td").attr("id", "td-advisor-fees").attr("class", "value");
+
+  tr = table.append("xhtml:tr").attr("class", "lost-earnings");
+  tr.append("xhtml:th").text("Lost Earnings");
+  tr.append("xhtml:td").attr("id", "td-lost-earnings").attr("class", "value");
+
+  tr = table.append("xhtml:tr").attr("class", "keep");
+  tr.append("xhtml:th").text("You Keep");
+  tr.append("xhtml:td").attr("id", "td-you-keep").attr("class", "value");
+}
+
+function updateTable() {
+  if (!geom) {
+    return;
+  }
+
+  fetchData(function (error, data) {
+    var lastYearValues = data[data.length - 1];
+
+    geom.bar.overlay.select('#td-you-keep').transition().duration(1500)
+        .tween('you-keep', function(d) {
+          this._current = this._current || lastYearValues["You Keep"];
+          var interpolate = d3.interpolateNumber(this._current, lastYearValues["You Keep"]);
+          this._current = interpolate(1);
+          var node = this;
+          return function (t) {
+            var d2 = interpolate(t);
+            node.innerText = d3.format('$,.0f')(d2);
+          };
+        });
+
+    geom.bar.overlay.select('#td-fund-fees').transition().duration(1500)
+        .tween('you-keep', function(d) {
+          this._current = this._current || lastYearValues["Fund Fees"];
+          var interpolate = d3.interpolateNumber(this._current, lastYearValues["Fund Fees"]);
+          this._current = interpolate(1);
+          var node = this;
+          return function (t) {
+            var d2 = interpolate(t);
+            node.innerText = d3.format('$,.0f')(d2);
+          };
+        });
+
+    geom.bar.overlay.select('#td-advisor-fees').transition().duration(1500)
+        .tween('you-keep', function(d) {
+          this._current = this._current || lastYearValues["Advisor Fees"];
+          var interpolate = d3.interpolateNumber(this._current, lastYearValues["Advisor Fees"]);
+          this._current = interpolate(1);
+          var node = this;
+          return function (t) {
+            var d2 = interpolate(t);
+            node.innerText = d3.format('$,.0f')(d2);
+          };
+        });
+
+    geom.bar.overlay.select('#td-lost-earnings').transition().duration(1500)
+        .tween('you-keep', function(d) {
+          this._current = this._current || lastYearValues["Lost Earnings"];
+          var interpolate = d3.interpolateNumber(this._current, lastYearValues["Lost Earnings"]);
+          this._current = interpolate(1);
+          var node = this;
+          return function (t) {
+            var d2 = interpolate(t);
+            node.innerText = d3.format('$,.0f')(d2);
+          };
+        });
+  });
 }
 
 /**
  * Based on the size of the parent element, determine the maximum size
  * that can can contain a rect of with the desired aspect ratio.
- * @param parent
- * @param aspectRatio
- * @param margin The margin, top, right, bottom, left.  Note this is not
- * a clear margin like a CSS margin: it just constrains the size of the 
- * graphing area, not including the axes.  the axes are drawn into the
- * margin area.  This makes the calculation a little weird, but it is 
- * easier for d3 to compute scale distances.
- * @return Object containing multiple sizes: 
+ * @param element
+ * @return Object containing multiple sizes:
  * w,h: total svg drawing size, including axes
  * chartW,chartH: area where the main chart resides, without axes
  * parentW,parentH: total inner area of the parent container.
- * 
+ *
  */
-function maxSize(parent, aspectRatio, margin) {
-    if (!margin) {
-        margin = {top: 10, right: 10, bottom: 10, left: 10};
+function maxSize(element) {
+  var parent = element.parent();
+  var parentW = parent.innerWidth(),
+          parentH = parent.innerHeight(),
+          w = parentW,
+          h = parentH;
+  var xOffsets = [0, 0, 0];
+  var totalW = w;
+  var wide3 = false;
+
+  if (w > config.maxChartWidth) {
+    w = config.maxChartWidth;
+    totalW = w;
+    if (config.showing === 'all') {
+      config.showing = 'area';
     }
-    var w = parentW = parent.innerWidth(),
-        h = parentH = parent.innerHeight();
-    if (w / h < aspectRatio) {
-        w = aspectRatio * h;
-    } else {
-        h = w / aspectRatio;
-    }
-    return {
-        w: w, h: h, 
-        parentW: parentW, parentH: parentH,
-        chartW: w - margin.left - margin.right,
-        chartH: h - margin.top - margin.bottom
-    };
+  }
+  if (w / h < config.aspectRatio) {
+    // the area is too too tall/narrow
+    h = w / config.aspectRatio;  // shrink the height
+  } else {
+    // the area is too short/wide
+    h = w / config.aspectRatio;  // grow the height
+  }
+  return {
+    w: w,
+    h: h,
+    parentW: parentW,
+    parentH: parentH,
+    chartW: w,
+    chartH: h,
+    xOffsets: xOffsets,
+    totalW: totalW,
+    wide3: wide3
+  };
 }
 

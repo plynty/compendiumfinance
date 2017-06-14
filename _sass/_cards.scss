@@ -1,0 +1,163 @@
+// General properties for all cards
+
+@media only screen and (max-width: $sm-max) {
+    .cards > .row {
+        // max-width and font-size need to be set at the row level for onresize to work
+        // Within the row, adjust up and down using percentage sizes
+        max-width: none;
+    }
+}
+
+@media only screen and (min-width: $md-min) {
+    .cards > .row {
+        margin-bottom: 14px;
+        // max-width and font-size need to be set at the row level for onresize to work
+        // Within the row, adjust up and down using percentage sizes
+        max-width: 1200px;
+    }
+    .card-above {
+        margin-bottom: 14px;
+    }
+
+    .cf-ar-2x2 {
+        font-size: 110%;
+    }
+
+    .cf-ar-2x2 .card-copy-panel {
+        padding: 32px;
+
+        header,
+        article {
+            width: 60%;
+        }
+    }
+}
+
+.card-copy-panel {
+    padding: 16px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.cards .card-copy-panel {
+    position: relative;
+}
+
+.card-media-panel {
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.card-media-panel img,
+.card-media-panel iframe {
+    vertical-align: middle;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.card-media-panel.bleed img,
+.card-media-panel.bleed iframe {
+    position: relative;
+    min-width: 102%;
+}
+
+.cards {
+    display: block;
+    margin: auto;
+    padding-top: 15px;
+
+    .pmd-card {
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .pmd-card-body {  // override propeller defaults to allow images to bleed
+        margin: 0px;
+        padding: 0px;
+        height: 100%;
+
+        .row {
+            margin: 0px;
+        }
+        [class^="col-"] {
+            // override the bootstrap default gutter
+            padding: 0px;
+            margin: 0px;
+        }
+    }
+
+    @media only screen and (max-width: $sm-max) {
+        margin-top: .5rem;
+        margin-bottom: 1rem;
+
+        .row {  // override bootstrap default
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        [class^="col-"] {
+            // override the bootstrap default gutter
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+
+        // minimize margin for mobile screens
+        .pmd-card {
+            margin-bottom: 2px;
+            padding: 0px;
+        }
+
+        .card-media-panel {
+            margin-bottom: -4px;  // helps keep image flush at bottom
+        }
+    }
+
+    @media only screen and (min-width: $md-min) {
+        .row {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        [class^="col-"] {
+            // override the bootstrap default gutter
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+    }
+}
+
+.bg-img,
+.no-bg-img {
+    height: 100%;
+}
+
+.card-copy-panel > * {
+    width: 100%;
+}
+
+.card-copy-panel > header .btn-more {
+    display: none;  // hide the button by defualt, show it selectively
+}
+
+.card-copy-panel > footer {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 1rem;
+}
+
+.bg-img {
+    background-size: 102% 102%;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-position: center;
+}
+
+.bg-img > .card-copy-panel {
+    color: white;
+}
+.bg-img > .darken {
+    background-color: rgba(0, 0, 0, .33);
+}
