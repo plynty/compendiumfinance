@@ -5,7 +5,7 @@ categories:
 - Personal Finance
 position: 6
 source: internal
-link: /3simplerulesofinvesting/feecalc
+link: "/3simplerulesofinvesting/feecalc"
 lead: Lowering your fees could be the most important investment decision you make.
 img: "/uploads/thetruecostoffees-500.png"
 banner_img: 
