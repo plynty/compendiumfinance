@@ -59,7 +59,7 @@ trademark: Compendium Finance&#x2122;
 linkedin: compendiumfinance
 twitter: compendiumfinance
 facebook: compendiumfinance
-pmd_path: assets/pmd-1.0.0
+pmd_path: /assets/pmd-1.0.0
 markdown: kramdown
 sass:
   sass_dir: _sass
