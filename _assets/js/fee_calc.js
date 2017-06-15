@@ -6,12 +6,16 @@ var inputs = {
     period: 30
 };
 
-var formatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0
-});
+try {
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  });
+} catch (err) {
+  console.log('Intl.NumberFormat notsupportd by this browser');
+}
 
 function validate() {
     calculate();
@@ -25,7 +29,9 @@ function calculate() {
     if (!isNaN(tmp)) {
       inputs.initial = tmp;
     }
-    iaInput.val(formatter.format(inputs.initial));
+    if (formatter) {
+      iaInput.val(formatter.format(inputs.initial));
+    }
     var ipInput = $("#investment-period");
     tmp = parseInt($("#investment-period").val());
     if (!isNaN(tmp)) {
