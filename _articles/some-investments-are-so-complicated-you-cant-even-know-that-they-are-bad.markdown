@@ -7,8 +7,7 @@ categories:
 author: Michael Edesess
 link: http://www.marketwatch.com/story/beware-investment-products-so-complicated-its-hard-to-even-tell-if-theyre-bad-2017-08-07
 banner_img: 
-lead: Who would push investments so complicated that customers don't even know that
-  they are bad?
+lead: Who would push investments complicated investments over and over again?
 img: 
 ---
 
