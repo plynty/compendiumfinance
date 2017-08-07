@@ -6,8 +6,8 @@ categories:
 - Investing
 author: Michael Edesess
 link: http://www.marketwatch.com/story/beware-investment-products-so-complicated-its-hard-to-even-tell-if-theyre-bad-2017-08-07
-banner_img: 
+banner_img: "/uploads/someinvestmentsaresocomplicated-header.png"
 lead: Who would create and push overly-complicated investments?
-img: 
+img: "/uploads/someinvestmentsaresocomplicated-500.png"
 ---
 
