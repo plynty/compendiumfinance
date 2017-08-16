@@ -4,6 +4,7 @@ date: 2017-08-07 16:45:00 Z
 categories:
 - Wall Street Myths
 - Investing
+position: 1
 author: Michael Edesess
 link: http://www.marketwatch.com/story/beware-investment-products-so-complicated-its-hard-to-even-tell-if-theyre-bad-2017-08-07
 banner_img: "/uploads/someinvestmentsaresocomplicated-header.png"

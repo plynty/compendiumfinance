@@ -4,7 +4,7 @@ date: 2015-08-16 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
-position: 24
+position: 21
 source: external
 lead: The benefits of rebalancing are far smaller than what advisors have come to
   believe.

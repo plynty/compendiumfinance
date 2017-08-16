@@ -4,7 +4,7 @@ date: 2015-06-17 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
-position: 29
+position: 26
 source: external
 lead: One would think that if individual investors underperform the market, then it
   must be professional investors who outperform the market. But they don’t.
