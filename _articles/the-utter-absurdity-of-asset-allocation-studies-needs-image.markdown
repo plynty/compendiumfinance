@@ -1,5 +1,5 @@
 ---
-title: The Utter Absurdity of Asset Allocation Studies . (NEEDS IMAGE)
+title: The UTTER  ABSURDITY OF ASSET ALLOCATION STUDIES (NEEDS IMAGE)
 date: 2017-08-16 20:50:00 Z
 position: 0
 author: Michael Edesess
