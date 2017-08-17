@@ -3,7 +3,7 @@ title: MEET PLYNTY
 date: 2017-01-31 00:00:00 Z
 categories:
 - Personal Finance
-position: 4
+position: 3
 source: external
 bg_img_darken: false
 lead: 'New app literally puts retirement planning in your own hands. Instantly see
