@@ -1,6 +1,6 @@
 ---
 title: THE UTTER  ABSURDITY OF ASSET ALLOCATION STUDIES
-date: 2017-08-16 20:50:00 Z
+date: 2017-08-17 20:50:00 Z
 categories:
 - Wall Street Myths
 - Investing
