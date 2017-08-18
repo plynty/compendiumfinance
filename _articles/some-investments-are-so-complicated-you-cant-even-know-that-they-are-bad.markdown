@@ -1,6 +1,6 @@
 ---
 title: SOME INVESTMENTS ARE SO COMPLICATED YOU CAN'T EVEN KNOW THAT THEY ARE BAD
-date: 2017-08-07 16:45:00 Z
+date: 2017-08-16 16:45:00 Z
 categories:
 - Wall Street Myths
 - Investing
