@@ -5,5 +5,7 @@ author: Michael Edesses
 Key: 
 link: http://www.marketwatch.com/story/why-investors-and-advisers-need-to-question-myths-about-their-performance-2017-09-28
 banner_img: 
+lead: 
+img: 
 ---
 
