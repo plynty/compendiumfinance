@@ -1,6 +1,9 @@
 ---
 title: THE DAMAGING DALBAR INVESTOR PERFORMANCE MYTH
 date: 2017-10-02 14:06:00 Z
+categories:
+- Personal Finance
+- Wall Street Myths
 position: 0
 author: Michael Edesses
 Key: 
