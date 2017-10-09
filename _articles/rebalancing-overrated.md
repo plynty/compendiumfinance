@@ -3,7 +3,7 @@ title: THE MOST DANGEROUS FINANCIAL PRODUCTS
 date: 2016-02-08 00:00:00 Z
 categories:
 - Investing
-position: 14
+position: 15
 source: external
 bg_img_darken: true
 lead: "“Breaching the contract, while in the process making hedge fund managers and
