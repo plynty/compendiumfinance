@@ -7,6 +7,7 @@ categories:
 tags:
 - asset allocation
 - behavioral finance
+position: 0
 author: 
 link: 
 banner_img: 
