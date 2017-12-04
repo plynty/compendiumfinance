@@ -1,5 +1,5 @@
 ---
-title: Fear and Greed Actually As Good As Asset Allocation?
+title: FEAR AND GREED METHOD AS GOOD AS TRADITION ASSET ALLOCATION?
 date: 2017-12-04 15:13:00 Z
 ---
 
