@@ -12,6 +12,6 @@ author: Michael Edesess
 link: https://www.marketwatch.com/story/the-surprising-reason-it-might-be-ok-to-give-in-to-greed-and-fear-2017-12-01?siteid=rss&rss=1
 banner_img: 
 lead: Can leading with your emotions be as good as traditional asset allocation?
-img: 
+img: "/uploads/28.%20fearandgreedmethodvsassetallocation-500%20.jpg.png"
 ---
 
