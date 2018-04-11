@@ -1,6 +1,6 @@
 ---
 title: ASSESSING THE TRUE VALUE OF TAX-LOSS HARVESTING
-date: 2018-04-10 16:38:00 Z
+date: 2018-04-12 16:38:00 Z
 position: 0
 img: "/uploads/30.assessingthetruevalue-500.jpg.png"
 Key: 
