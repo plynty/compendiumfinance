@@ -3,7 +3,7 @@ title: THE 3 SIMPLE RULES OF INVESTING
 date: 2017-03-21 00:00:00 Z
 categories:
 - Investing
-position: 13
+position: 15
 source: internal
 bg_img_darken: true
 author: Michael Edesess and George Peacock
