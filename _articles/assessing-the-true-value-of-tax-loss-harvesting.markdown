@@ -1,6 +1,8 @@
 ---
 title: ASSESSING THE TRUE VALUE OF TAX-LOSS HARVESTING
 date: 2018-04-12 16:38:00 Z
+categories:
+- Wall Street Myths
 position: 7
 img: "/uploads/30.assessingthetruevalue-500.jpg.png"
 Key: 
