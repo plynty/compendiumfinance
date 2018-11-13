@@ -1,5 +1,5 @@
 ---
-title: Warning Shot
+title: WARNING SHOT
 date: 2018-11-13 18:45:00 Z
 link: https://humbledollar.com/2018/10/warning-shot/
 lead: We vote for option 1 for handling a bear market.
