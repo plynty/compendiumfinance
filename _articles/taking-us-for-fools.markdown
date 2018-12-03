@@ -1,6 +1,6 @@
 ---
 title: TAKING US FOR FOOLS
-date: 2018-12-03 23:21:00 Z
+date: 2018-12-05 11:21:00 Z
 categories:
 - Investing
 tags:
