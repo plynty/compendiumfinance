@@ -7,7 +7,7 @@ categories:
 tags:
 - asset allocation
 - behavioral finance
-position: 9
+position: 10
 author: Michael Edesess
 link: https://www.marketwatch.com/story/the-surprising-reason-it-might-be-ok-to-give-in-to-greed-and-fear-2017-12-01?siteid=rss&rss=1
 banner_img: "/uploads/28.%20fearandgreedmethodvsassetallocation-header%20.jpg.png"

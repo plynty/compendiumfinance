@@ -4,7 +4,7 @@ date: 2017-03-22 00:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
-position: 24
+position: 25
 source: external
 bg_img_darken: true
 lead: Mathematical sophistication in the investment industry is a sham.

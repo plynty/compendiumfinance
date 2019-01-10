@@ -4,7 +4,7 @@ date: 2018-03-05 08:00:00 Z
 categories:
 - Investing
 - Wall Street Myths
-position: 8
+position: 9
 img: "/uploads/29.hereshowmuchafundmanager-500.png"
 link: https://www.marketwatch.com/story/heres-how-much-a-fund-manager-would-have-to-gain-to-be-truly-superior-2018-02-22
 ---
