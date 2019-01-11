@@ -50,7 +50,7 @@ defaults:
   values:
     layout: post
 email: your-email@compendiumfinance.com
-description: This is the static content site for compendiumfinance.com
+description: Advocating simple and effective financial strategies for all
 baseurl: 
 url: http://compendiumfinance.com
 twitter_username: choosesimple

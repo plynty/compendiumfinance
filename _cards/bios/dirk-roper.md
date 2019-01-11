@@ -1,7 +1,7 @@
 ---
 title: Dirk Roper
 position: 2
-role: Chief Financial Planner
+role: CCO, Investment Advisor, Chief Financial Planner
 status: current
 section: bios
 img: "/uploads/dirk500left.png"
