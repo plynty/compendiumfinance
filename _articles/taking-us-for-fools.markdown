@@ -7,7 +7,7 @@ tags:
 - performance
 - dalbar
 - edesses
-position: 0
+position: 2
 link: https://humbledollar.com/2018/12/taking-us-fools/
 lead: Whose side are the professionals on?
 img: "/uploads/39.takingusforfools-500.png"
